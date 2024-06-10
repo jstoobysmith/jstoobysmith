@@ -1,3 +1,6 @@
+[![](https://img.shields.io/badge/personal-website-purple)](https://www.josephtoobysmith.com)
+[![](https://img.shields.io/badge/papers_at-inspireHep-purple)](https://inspirehep.net/authors/1737896)
+[![](https://img.shields.io/badge/YouTube-red)](https://www.youtube.com/channel/UCjIsl9vgzOW3YAHeek9KUog)
 ## About me
 
 - PhD from University of Cambridge

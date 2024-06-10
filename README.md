@@ -1,5 +1,13 @@
-## Hi there 👋
+## About me
 
+I have a PhD in theoretical physics from the University of Cambridge. My research is at the mathematics-physics or computer science-physics interface. 
+
+## What am I currently working on? 
+
+- [HepLean](https://github.com/HEPLean/HepLean): A project to digitalise results from high energy physics.
+
+
+(This page is a work-in progress)
 <!--
 **jstoobysmith/jstoobysmith** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 

@@ -1,0 +1,244 @@
+\documentclass[14pt,letter]{article}
+%%%
+%Bool
+\newcommand{\includePublications}{T} %T for true.
+%%%
+\usepackage[margin=0.5in]{geometry}
+\usepackage{hyperref}
+\renewcommand{\arraystretch}{1.5} 
+\usepackage{enumitem}
+\usepackage{xcolor}
+%\definecolor{mycolor}{RGB}{37,129,120}
+%\definecolor{mycolor}{RGB}{128, 0, 32}
+\definecolor{mycolor}{RGB}{0, 128, 128}
+%%%%%%%%%%%%%
+%Title and entry
+\usepackage{colortbl}
+\newcommand{\mytitle}[1]{
+   \setlength\arrayrulewidth{1.5pt}
+	\noindent\begin{tabular}{p{0.5\textwidth}p{0.45\textwidth}}
+	{\Large\bf #1}&{\hfill \large }\\
+	\arrayrulecolor{mycolor}\hline
+	\end{tabular}
+}
+\pagestyle{empty} 
+
+\newcommand{\myentry}[2]{
+	\noindent\begin{tabular}{p{0.1\textwidth}p{0.85\textwidth}}
+	\textcolor{mycolor}{#1}& #2
+	\end{tabular}\\
+}
+\usepackage{textcomp}
+\newcommand{\mybullet}{\textcolor{mycolor}{$\ast$}\ }
+%%%%%
+\usepackage{titlesec}
+\titleclass{\customtitle}{straight}[\section]
+\newcounter{customtitle}
+\titleformat{\customtitle}[block]
+  {\normalfont}
+  {}
+  {0em}
+  {\mytitle}
+\titlespacing*{\customtitle}{-0.2cm}{*0.5}{0cm}
+%%%%%%%%%%%%%
+%For colored bar
+\usepackage{eso-pic}
+
+
+\AddToShipoutPictureBG*{%
+ \AtPageUpperLeft{%
+ \textcolor{mycolor}{\rule[-2.6cm]{\paperwidth}{4cm}}}}
+
+
+\AddToShipoutPictureBG{%
+ \AtPageUpperLeft{%
+ \textcolor{mycolor}{\rule[-1cm]{\paperwidth}{4cm}}}}
+
+
+\AddToShipoutPictureBG{%
+ \AtPageLowerLeft{%
+ \textcolor{mycolor}{\rule[-1.2cm]{\paperwidth}{2cm}}}}
+ 
+\usepackage{tabularx}
+%%%%%%%%%%%%%
+
+\begin{document}
+
+%\center{(See separate document for publication list)}
+\noindent{{\Huge \color{white}\bf Joseph Tooby-Smith PhD.}\newline  }
+\vspace{-2cm}
+\begin{flushright}
+{{\color{white}Legal name: Joseph Stanley Smith  \\
+{\color{white}Nationality:} United Kingdom$\;\;\;\;\;\;\;\,\,$\\
+{\color{white}Email:} \href{mailto:jstoobysmith@gmail.com}{jstoobysmith@gmail.com}$\;\;\;\;$}}
+\end{flushright}
+\vspace{1cm}
+	
+%%%%%%%%%%%%%%%%%
+\noindent 
+%\noindent My goal  is to apply my skills and expertise in mathematics and physics to a new set of challenges within the university or private sectors. 
+%%%%%%%%%%%%%%%%%
+\customtitle{Skill set}
+\vspace{0.3cm}
+\begin{itemize}[label=\mybullet]
+	\item Theoretical physics: PhD from University of Cambridge, Masters/Undergrad from University of Oxford. 
+	\item Categorical methods: 5 peer-reviewed publications using (higher) category theory to understand problems in physics. More generally, a range of publications applying advanced mathematics to physics.
+ 	\item Formal verification in maths and physics: Develop and maintain `HepLean', a project to digitalise results from high energy physics into Lean 4. One motivation behind this is to develop a new way to use AI in theoretical physics.
+ 	\item Computer programming: 6+ years of experience in C++, python, Mathematica and Github.
+ 	\item Software development skills: Contributed to a large open-source project (Mathlib). Maintain an open-source Github repository. 
+ 	\item Science communication: Ran and organised many outreach events communicating science to the wider public. 
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%
+\customtitle{Employment}
+
+\noindent\begin{tabular}{p{0.1\textwidth}p{0.85\textwidth}}
+	PostDoc. &  \textbf{Cornell University} \emph{(2021-current)}, High energy physics.
+	\newline 
+	{\color{mycolor} Position:}  Hans Bethe Postdoctoral Associate in the high-energy theory group in the Cornell Laboratory for Accelerator-based Sciences and Education (CLASSE)
+\end{tabular}
+
+%%%%%%%%%%%%%%%%%
+\customtitle{Education}
+\noindent\begin{tabular}{p{0.1\textwidth}p{0.85\textwidth}}
+	PhD. &  \textbf{University of Cambridge} \emph{(2018-2021)}, Mathematical and Theoretical Physics.
+	\newline 
+	{\color{mycolor} Thesis:}  Arithmetical, geometrical, and categorical forays into particle physics. 
+	\newline 
+	{\color{mycolor} Advisor:} Ben Gripaios 
+	\newline
+	{\color{mycolor}Awards:} Honorary Vice-Chancellor’s Award (2018)
+\end{tabular}
+
+\noindent\begin{tabular}{p{0.1\textwidth}p{0.85\textwidth}}
+	MMathPhys. &  \textbf{University of Oxford} \emph{(2014-2018)}, Mathematical and Theoretical Physics.
+	\newline 
+	{\color{mycolor}Classification:} { Distinction/First Class (double classification) }
+	\newline 
+	{\color{mycolor}Awards (Christ Church College):} \mybullet Scholarships (2024-2017) \mybullet Collections Prize (2016) \mybullet  Clifford Smith Prize (2018) \mybullet Hooke Prize (2018)
+	\newline
+	{\color{mycolor}Awards (University of Oxford):}  \mybullet The Scott Prize for performance in the Physics Part A examination (2016) \mybullet The Scott Prize for \underline{best performance} in the MPhys Part B examination (2017)  \mybullet Prize for the \underline{Best Results} on the Oxford MMathPhys (2018) 
+\end{tabular}
+%
+
+%%%%%%%%%%%%%%%%%
+\customtitle{Publication List}
+%%%%%%%%%%%%%%%%%
+\vspace{0.3cm}
+\begin{itemize}[label=\mybullet]
+\item J. Tooby-Smith. {\color{mycolor} HepLean: Digitalising high energy physics}. In: \emph{arXiv preprint} (2024). arXiv:2405.08863 [hep-ph].
+
+\item B. Gripaios, O. Randal-Williams, and J. Tooby-Smith. {\color{mycolor} Smooth generalized symmetries of quantum field theories}. In: \emph{J. Geom. Phys.} 201 (2024), 105212. doi:10.1016/j.geomphys.2024.105212. arXiv:2310.16090 [hep-th].
+
+\item A. Gomes, M. Ruhdorfer, and J. Tooby-Smith. {\color{mycolor} Semisimple unifications of any gauge theory}. In: \emph{Phys. Rev. D} 108.7 (2023), 075001. doi:10.1103/PhysRevD.108.075001. arXiv:2306.16439 [hep-ph].
+
+\item \sloppy C. Csaki, A. Ismail, M. Ruhdorfer, and J. Tooby-Smith. {\color{mycolor} Higgs squared}. In: \emph{JHEP} 04 (2023), 082. doi:10.1007/JHEP04(2023)082. arXiv:2210.02456 [hep-ph].
+
+\item B. Gripaios, O. Randal-Williams, and J. Tooby-Smith. {\color{mycolor} Generalized symmetries of topological field theories}. In: \emph{JHEP} 03 (2023), 087. doi:10.1007/JHEP03(2023)087. arXiv:2209.13524 [hep-th].
+
+\item J. Davighi and J. Tooby-Smith. {\color{mycolor} Flatland: abelian extensions of the Standard Model with semi-simple completions}. In: \emph{JHEP} 09 (2022), 159. doi:10.1007/JHEP09(2022)159. arXiv:2206.11271 [hep-ph].
+
+\item J. Davighi and J. Tooby-Smith. {\color{mycolor} Electroweak flavour unification}. In: \emph{JHEP} 09 (2022), 193. doi:10.1007/JHEP09(2022)193. arXiv:2201.07245 [hep-ph].
+
+\item B. C. Allanach, M. Madigan, and J. Tooby-Smith. {\color{mycolor} A \ensuremath{\nu} supersymmetric anomaly-free atlas}. In: \emph{JHEP} 02 (2022), 144. doi:10.1007/JHEP02(2022)144. arXiv:2107.07926 [hep-ph].
+
+\item J. Tooby-Smith. {\color{mycolor} Arithmetical, geometrical, and categorical forays into particle physics}. In: \emph{Preprint} (2021). doi:10.17863/CAM.72061.
+
+\item B. C. Allanach, B. Gripaios, and J. Tooby-Smith. {\color{mycolor} Semisimple extensions of the Standard Model gauge algebra}. In: \emph{Phys. Rev. D} 104.3 (2021), 035035. 
+
+\item B. Gripaios and J. Tooby-Smith. {\color{mycolor} Inverse Higgs phenomena as duals of holonomic constraints}. In: \emph{J. Phys. A} 55.9 (2022), 095401. doi:10.1088/1751-8121/ac4c66. arXiv:2103.08923 [hep-th].
+
+\item J. Davighi, M. McCullough, and J. Tooby-Smith. {\color{mycolor} Undulating Dark Matter}. In: \emph{JHEP} 11 (2020), 120. doi:10.1007/JHEP11(2020)120. arXiv:2007.03662 [hep-ph].
+
+\item B. C. Allanach, B. Gripaios, and J. Tooby-Smith. {\color{mycolor} Anomaly cancellation with an extra gauge boson}. In: \emph{Phys. Rev. Lett.} 125.16 (2020), 161601. doi:10.1103/PhysRevLett.125.161601. arXiv:2006.03588 [hep-th].
+
+\item T. Cohen, N. Craig, S. Koren, M. McCullough, and J. Tooby-Smith. {\color{mycolor} Supersoft Top Squarks}. In: \emph{Phys. Rev. Lett.} 125.15 (2020), 151801. doi:10.1103/PhysRevLett.125.151801. arXiv:2002.12630 [hep-ph].
+
+\item B. C. Allanach, B. Gripaios, and J. Tooby-Smith. {\color{mycolor} Solving local anomaly equations in gauge-rank extensions of the Standard Model}. In: \emph{Phys. Rev. D} 101.7 (2020), 075015. doi:10.1103/PhysRevD.101.075015. arXiv:1912.10022 [hep-th].
+
+\item B. C. Allanach, B. Gripaios, and J. Tooby-Smith. {\color{mycolor} Geometric General Solution to the $U(1)$ Anomaly Equations}. In: \emph{JHEP} 05 (2020), 065. doi:10.1007/JHEP05(2020)065. arXiv:1912.04804 [hep-th].
+
+\item J. Davighi, B. Gripaios, and J. Tooby-Smith. {\color{mycolor} Quantum mechanics in magnetic backgrounds with manifest symmetry and locality}. In: \emph{J. Phys. A} 53.14 (2020), 145302. doi:10.1088/1751-8121/ab78ce. arXiv:1905.11999 [hep-th].
+\end{itemize}
+
+%\if \includePublications T
+%\customtitle{Publications and their application}
+%In what follows I separate my publications based on the transferable skills they demonstrate. I put in bold the transferable skills and in italics examples of how they are used outside the academic realm if not obvious. 
+
+
+
+%\vspace{0.3cm}
+%\input{./List_of_Publications_Input_aca.tex}
+%\vspace{-0.1cm}
+%\fi
+%%%%%%%%%%%%%%%%%
+
+
+%\noindent\begin{tabular}{p{0.1\textwidth}p{0.85\textwidth}}
+	%Machine Learning. & Investigating the use of machine learning for formal proof assistance, specifically in lean. I'm also interested in the application of category theory and group theory to machine learning frameworks. 
+%\end{tabular}
+%
+
+%%%%%%%%%%%%%%%%%
+\customtitle{Teaching }
+
+\myentry{2016}{Undertook a teaching module as part of my undergraduate}
+\myentry{2018}{Demonstrator for theoretical physics part I (Department of Physics, Cambridge)}
+\myentry{2019-2020}{Supervisor for Gauge Field Theory  (Department of Physics, Cambridge)}
+\myentry{2019}{Supervisor for Quantum Field Theory  (DAMTP, Cambridge)}
+\myentry{2020}{ Supervisor for Symmetries, Fields and Particles  (DAMTP, Cambridge)}
+
+
+%%%%%%%%%%%%%%%%%
+\customtitle{Outreach}
+\myentry{2016-2018}{Oxford Hands on Science roadshows, and committee member (2017)}
+\myentry{2017-2018}{Oxford Physics department and Christ church college open days}
+\myentry{2017}{Volunteered at Stargazing Oxford event}
+\myentry{2019}{Volunteered at Cambridge Science Festival}
+\myentry{2019}{Helped at Cambridge HEP master classes}
+\myentry{2022}{Helped at outreach events for Cornell's Centre for Materials Research}
+%%%%%%%%%%%%%%%%%
+\customtitle{Talks}
+\myentry{2020}{Cambridge University: ``Local anomalies in $Z^\prime$ models''}
+\myentry{2020}{Edinburgh University: ``Local anomalies in $Z^\prime$ models''}
+\myentry{2020}{Bonn University: ``Supersoft Stops''}
+\myentry{2020}{Perimeter:``A voyage through undulating dark matter and the GUTs of su(48)''}
+\myentry{2021}{Cornell University: `Inverse Higgs Constraints'}
+\myentry{2022}{NYU: `A study of GUTs'}
+\myentry{2022}{Chicago: `Symmetries of field theories'}
+\myentry{2023}{Carleton: `Gauge extensions of the Standard Model'}
+\myentry{2023}{Cornell University: `Symmetries of field theories'}
+\customtitle{Conferences}
+\myentry{2018}{British Universities Summer School in Theoretical Elementary Particle Physics}
+\myentry{2018}{Annual Theory Meeting}
+\myentry{2018}{YTF 11}
+\myentry{2019}{Young Experimentalists \& Theorists Institute}
+\myentry{2019}{NExT PhD Workshop}
+\myentry{2019}{Cavendish Laboratory Graduate Student Conference (was on the Organising committee and a convener)}
+\myentry{2022}{Phenomenology 2022 Symposium: From Virtual to Real}
+\myentry{2022}{Program on New Directions in Particle Physics}
+\myentry{2022}{Generalized Global Symmetries, Quantum Field Theory, and Geometry}
+\myentry{2023}{Cornell Topology Festival}
+\myentry{2023}{Higher Structures in Functorial Field Theory}
+\myentry{2023}{Categorical Symmetries in Quantum Field Theory (Workshop)}
+\customtitle{Athletic achievements}
+\vspace{0.1cm}
+Personal Bests: 1:59.4 (800m), 3:59.40 (1500m), 8:39.6 (3000m), 9:59.49 (3000m Steeple chase),\newline 15:08.92 (5000m), 30:01 (10k).
+
+%\noindent\begin{tabular}{p{0.1\textwidth}p{0.85\textwidth}}
+%2019& 3rd team at National $6$-stage road relays with Cambridge and Coleridge AC\\
+%2019& 2nd team at National Cross Country relays with Cambridge and Coleridge AC\\
+%2019& 1st in both the Oxford and Cambridge Town and Gown 10k.\\
+%2019& Represented Cambridgeshire in track-and-field.\\ 
+%2019& 2nd Individual in Oxford Vs Cambridge Blues varsity cross-country, and team win.\\
+%2020& 30th Individual in National Cross Country Championships\\
+%&Personal Bests: \newline1:59.4 (800m), 3:59.40 (1500m), 8:39.6 (3000m), 9:59.49 (3000m Steeple chase),\newline 15:08.92 (5000m), 30:01 (10k).
+%\end{tabular}\\
+%%%%%%%%%%%%%%%
+%\noindent\begin{tabular}{p{0.95\textwidth}}
+%\hline
+%begin{center}
+%\emph{Please contact for referees.}
+%\end{center}
+%\end{tabular}\\
+\end{document}

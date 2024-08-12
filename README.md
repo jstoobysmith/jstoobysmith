@@ -1,4 +1,5 @@
 [![](https://img.shields.io/badge/personal-website-purple)](https://www.josephtoobysmith.com)
+[![](https://img.shields.io/badge/my-CV-purple)](https://github.com/jstoobysmith/jstoobysmith/blob/main/CV/CV.pdf)
 [![](https://img.shields.io/badge/papers_at-inspireHep-purple)](https://inspirehep.net/authors/1737896)
 [![](https://img.shields.io/badge/YouTube-red)](https://www.youtube.com/channel/UCjIsl9vgzOW3YAHeek9KUog)
 ## About me

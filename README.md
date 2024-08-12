@@ -13,7 +13,7 @@
 
 - [HepLean](https://github.com/HEPLean/HepLean): A project to digitalise results from high energy physics.
 
-## Academic background 
+## Academic skills 
 
 | Physics          | Mathematics       | Computer Science    |
 |------------------|-------------------|---------------------|

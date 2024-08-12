@@ -11,8 +11,15 @@
 
 - [HepLean](https://github.com/HEPLean/HepLean): A project to digitalise results from high energy physics.
 
+## Academic background 
 
-(This page is a work-in progress)
+| Physics          | Mathematics       | Computer Science    |
+|------------------|-------------------|---------------------|
+| Particle physics | Category theory           | Lean 4          |
+| Generalized symmetries   | Higher categories          | Functional programming     |
+| Topological field theories       | Topos theory    | Theorem proving 
+| Guage algebras and their extensions       | Lie groups and Lie algebras    |
+
 <!--
 **jstoobysmith/jstoobysmith** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 

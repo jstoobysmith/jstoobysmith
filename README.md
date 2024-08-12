@@ -3,10 +3,11 @@
 [![](https://img.shields.io/badge/papers_at-inspireHep-purple)](https://inspirehep.net/authors/1737896)
 [![](https://img.shields.io/badge/YouTube-red)](https://www.youtube.com/channel/UCjIsl9vgzOW3YAHeek9KUog)
 ## About me
-
-- PhD from University of Cambridge
-- Currently a Postdoc at Cornell University.
-- Research at the  mathematics-physics or computer science-physics interface.
+|   | Institution             | |
+|---------|-------------------------|---------|
+| Masters | University of Oxford    | Integrated masters in mathematical and theoretical physics. Top of year in third, and fourth years.
+| PhD     | University of Cambridge | Supervised by Ben Gripaios. PhD in theoretical physics. Thesis focused on the application of techniques in mathematics to solve problems in physics. Including the use of number theory, category theory and geometry. 
+| Postdoc | Cornell University      | Started a program to digitalise results from high energy physics into Lean 4. Also, continued use of higher category theory in physics by studying generalized symmetries.
   
 ## What am I currently working on? 
 

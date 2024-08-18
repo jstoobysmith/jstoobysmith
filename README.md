@@ -11,7 +11,9 @@
   
 ## What am I currently working on? 
 
-- [HepLean](https://github.com/HEPLean/HepLean): A project to digitalise results from high energy physics.
+| | Description |
+|-----|-----|
+|[HepLean](https://github.com/HEPLean/HepLean)| I'm currently focused on getting index notation to work in Lean.  |
 
 ## Academic skills 
 

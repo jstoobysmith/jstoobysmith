@@ -1,0 +1,134 @@
+\documentclass[14pt,letter]{article}
+%%%
+%Bool
+\newcommand{\includePublications}{T} %T for true.
+%%%
+\usepackage[margin=0.5in]{geometry}
+\usepackage{hyperref}
+\renewcommand{\arraystretch}{1.5} 
+\usepackage{enumitem}
+\usepackage{xcolor}
+%\definecolor{mycolor}{RGB}{37,129,120}
+%\definecolor{mycolor}{RGB}{128, 0, 32}
+\definecolor{mycolor}{RGB}{0, 128, 128}
+%%%%%%%%%%%%%
+%Title and entry
+\usepackage{colortbl}
+\newcommand{\mytitle}[1]{
+   \setlength\arrayrulewidth{1.5pt}
+	\noindent\begin{tabular}{p{0.9\textwidth}p{0.05\textwidth}}
+	{\Large\bf #1}&{\hfill \large }\\
+	\arrayrulecolor{mycolor}\hline
+	\end{tabular}
+}
+\pagestyle{empty} 
+
+\newcommand{\myentry}[2]{
+	\noindent\begin{tabular}{p{0.1\textwidth}p{0.85\textwidth}}
+	\textcolor{mycolor}{#1}& #2
+	\end{tabular}\\
+}
+\usepackage{textcomp}
+\newcommand{\mybullet}{\textcolor{mycolor}{$\ast$}\ }
+%%%%%
+\usepackage{titlesec}
+\titleclass{\customtitle}{straight}[\section]
+\newcounter{customtitle}
+\titleformat{\customtitle}[block]
+  {\normalfont}
+  {}
+  {0em}
+  {\mytitle}
+\titlespacing*{\customtitle}{-0.2cm}{*0.5}{0.1cm}
+%%%%%%%%%%%%%
+%For colored bar
+\usepackage{eso-pic}
+
+
+\AddToShipoutPictureBG*{%
+ \AtPageUpperLeft{%
+ \textcolor{mycolor}{\rule[-2.6cm]{\paperwidth}{4cm}}}}
+
+
+\AddToShipoutPictureBG{%
+ \AtPageUpperLeft{%
+ \textcolor{mycolor}{\rule[-1cm]{\paperwidth}{4cm}}}}
+
+
+\AddToShipoutPictureBG{%
+ \AtPageLowerLeft{%
+ \textcolor{mycolor}{\rule[-1.2cm]{\paperwidth}{2cm}}}}
+ 
+\usepackage{tabularx}
+%%%%%%%%%%%%%
+\usepackage{draftwatermark}
+\SetWatermarkText{\color{mycolor} DRAFT}
+\SetWatermarkScale{9}
+
+\begin{document}
+
+%\center{(See separate document for publication list)}
+\noindent{{\Huge \color{white}\bf Teaching philosophy}\newline  }
+\vspace{-1cm}
+\begin{flushright}
+{{\Large \color{white}Joseph Tooby-Smith }}
+\end{flushright}
+\vspace{0.4cm}
+%%%%%%%%%  
+\customtitle{My teaching experience}
+%%%%%%%%%  
+\vspace{0.3cm}
+\paragraph{High-school level students:} 
+
+\paragraph{Undergraduate and master students:} 
+
+\paragraph{Doctoral students:} 
+
+
+\paragraph{The general public:} 
+
+%%%%%%%%%  
+\customtitle{EDI}
+%%%%%%%%%  
+Dyslexia, ground rules etc.
+%%%%%%%%%  
+\customtitle{Contribution to the pedology literature}
+%%%%%%%%%  
+HepLean. 
+%%%%%%%%%  
+\customtitle{My Teaching Philosophy}
+%%%%%%%%%  
+In this section I will discuss the specifics of my teaching philosophy, and more importantly, how I implement that teaching philosophy. It is important to note that I don't claim any of methods here are the correct ones, as I am always on the look out for better teaching methods.
+
+My teaching philosophy can be broken down into to five statements.
+
+\paragraph{Tailored, level-appropriate material:} Having worked at the boundary of three different disciplines (physics, mathematics and computer science), and having presented on many occasions material from one  discipline to academics in others, I am aware of the importance of presenting material at the correct level for the audience. I'm also aware of what goes wrong when this is not done. 
+
+\paragraph{Active listening to feedback:} e.g. Anonymous questions.
+
+\paragraph{Student-centered engagement:}  e.g. self-explaination
+
+\paragraph{Fostering a sense of accomplishment:} e.g. contributing to an active bit of research, even in a small way. 
+
+\paragraph{Varied presentation styles:} As someone 
+
+%%%%%%%%%
+%\begingroup
+%\renewcommand{\section}[2]{}%
+%%\renewcommand{\chapter}[2]{}% for other classes
+%\begin{thebibliography}{}
+%\bibitem{Davighi_Gripaios_Tooby-Smith_2020}
+%    J. Davighi, B. Gripaios, and J. Tooby-Smith, J. Phys. A: Math. Theor. 53, 145302 (2020).
+%\bibitem{U1Anomaly}
+%    B. C. Allanach, B. Gripaios, and J. Tooby-Smith, J. High Energ. Phys. 2020, 65 (2020).
+%\bibitem{GaugeRank}
+%B. C. Allanach, B. Gripaios, and J. Tooby-Smith, Phys. Rev. D 101, 075015 (2020).
+%\bibitem{ExtraGaugeBoson}
+%B. C. Allanach, B. Gripaios, and J. Tooby-Smith, ArXiv:2006.03588 (2020).
+%\bibitem{SuperSoft}
+%T. Cohen, N. Craig, S. Koren, M. McCullough, and J. Tooby-Smith, ArXiv:2002.12630 (2020).
+%\end{thebibliography}
+%\endgroup
+
+%%%%%%%%%%%%%%
+\end{document}

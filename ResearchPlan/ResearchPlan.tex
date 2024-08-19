@@ -1,0 +1,118 @@
+\documentclass[14pt,letter]{article}
+%%%
+%Bool
+\newcommand{\includePublications}{T} %T for true.
+%%%
+\usepackage[margin=0.5in]{geometry}
+\usepackage{hyperref}
+\renewcommand{\arraystretch}{1.5} 
+\usepackage{enumitem}
+\usepackage{xcolor}
+%\definecolor{mycolor}{RGB}{37,129,120}
+%\definecolor{mycolor}{RGB}{128, 0, 32}
+\definecolor{mycolor}{RGB}{0, 128, 128}
+%%%%%%%%%%%%%
+%Title and entry
+\usepackage{colortbl}
+\newcommand{\mytitle}[1]{
+   \setlength\arrayrulewidth{1.5pt}
+	\noindent\begin{tabular}{p{0.9\textwidth}p{0.05\textwidth}}
+	{\Large\bf #1}&{\hfill \large }\\
+	\arrayrulecolor{mycolor}\hline
+	\end{tabular}
+}
+\pagestyle{empty} 
+
+\newcommand{\myentry}[2]{
+	\noindent\begin{tabular}{p{0.1\textwidth}p{0.85\textwidth}}
+	\textcolor{mycolor}{#1}& #2
+	\end{tabular}\\
+}
+\usepackage{textcomp}
+\newcommand{\mybullet}{\textcolor{mycolor}{$\ast$}\ }
+%%%%%
+\usepackage{titlesec}
+\titleclass{\customtitle}{straight}[\section]
+\newcounter{customtitle}
+\titleformat{\customtitle}[block]
+  {\normalfont}
+  {}
+  {0em}
+  {\mytitle}
+\titlespacing*{\customtitle}{-0.2cm}{*0.5}{0.1cm}
+%%%%%%%%%%%%%
+%For colored bar
+\usepackage{eso-pic}
+
+
+\AddToShipoutPictureBG*{%
+ \AtPageUpperLeft{%
+ \textcolor{mycolor}{\rule[-2.6cm]{\paperwidth}{4cm}}}}
+
+
+\AddToShipoutPictureBG{%
+ \AtPageUpperLeft{%
+ \textcolor{mycolor}{\rule[-1cm]{\paperwidth}{4cm}}}}
+
+
+\AddToShipoutPictureBG{%
+ \AtPageLowerLeft{%
+ \textcolor{mycolor}{\rule[-1.2cm]{\paperwidth}{2cm}}}}
+ 
+\usepackage{tabularx}
+%%%%%%%%%%%%%
+\usepackage{draftwatermark}
+\SetWatermarkText{\color{mycolor} DRAFT}
+\SetWatermarkScale{9}
+
+\begin{document}
+
+%\center{(See separate document for publication list)}
+\noindent{{\Huge \color{white}\bf Research Plan}\newline  }
+\vspace{-1cm}
+\begin{flushright}
+{{\Large \color{white}Joseph Tooby-Smith }}
+\end{flushright}
+\vspace{0.4cm}
+%%%%%%%%%  
+\customtitle{Past research}
+%%%%%%%%%  
+
+\paragraph{Computer Science:} 
+
+\paragraph{Mathematics:} 
+
+\paragraph{Physics:} 
+
+%%%%%%%%%  
+\customtitle{Theorem proving and and AI in the physical sciences}
+%%%%%%%%%  
+
+%%%%%%%%%  
+\customtitle{Category theory in computer science}
+%%%%%%%%%  
+
+%%%%%%%%%  
+\customtitle{Getting undergraduates involved}
+%%%%%%%%
+
+%%%%%%%%%
+%\begingroup
+%\renewcommand{\section}[2]{}%
+%%\renewcommand{\chapter}[2]{}% for other classes
+%\begin{thebibliography}{}
+%\bibitem{Davighi_Gripaios_Tooby-Smith_2020}
+%    J. Davighi, B. Gripaios, and J. Tooby-Smith, J. Phys. A: Math. Theor. 53, 145302 (2020).
+%\bibitem{U1Anomaly}
+%    B. C. Allanach, B. Gripaios, and J. Tooby-Smith, J. High Energ. Phys. 2020, 65 (2020).
+%\bibitem{GaugeRank}
+%B. C. Allanach, B. Gripaios, and J. Tooby-Smith, Phys. Rev. D 101, 075015 (2020).
+%\bibitem{ExtraGaugeBoson}
+%B. C. Allanach, B. Gripaios, and J. Tooby-Smith, ArXiv:2006.03588 (2020).
+%\bibitem{SuperSoft}
+%T. Cohen, N. Craig, S. Koren, M. McCullough, and J. Tooby-Smith, ArXiv:2002.12630 (2020).
+%\end{thebibliography}
+%\endgroup
+
+%%%%%%%%%%%%%%
+\end{document}

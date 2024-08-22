@@ -74,6 +74,16 @@
 {{\Large \color{white}Joseph Tooby-Smith }}
 \end{flushright}
 \vspace{0.4cm}
+
+My research sits at the intersection of computer science, 
+mathematics and physics.
+I am intrested in the building of a bridge between these areas using 
+interactive theorem proving. I have PhD in theoretical physics 
+from the University of Cambridge, 
+have completed a postdoc at Cornell University in which I focused on the 
+application of theorem proving software in Physics. For the academic 
+year 2024-2025 I am undertaking a postdoc in computer science at the 
+University of Reykjavik.
 %%%%%%%%%  
 \customtitle{Past research}
 %%%%%%%%%  
@@ -85,10 +95,18 @@ interactive theorem proving and category theory.
 Let me dicuss these in turn.
 
 \paragraph{Interactive theorem proving:} The main paper which demonstrates my skills in this area 
-is \js{...}. This presents a program to digitalise results (meaning definitons, theorems and calculations)
+is \js{...}. This presents a program to digitalise results 
+(meaning definitons, theorems and calculations)
 from high energy physics into 
-the interactive theorem prover Lean 4. This is the first anything like this has being attempted
-in high energy physics. There a four important motivations to of project: \js{...}
+the interactive theorem prover Lean 4. 
+This is the first anything like this has being attempted
+in high energy physics. There a four important motivations to of project: 
+\begin{enumerate}
+\item 
+\item 
+\item 
+\item 
+\end{enumerate}
 
 Despite the application of this work been physics, the main challange of this project is 
 use the correct tools in from computer science, and in particular functional programming.
@@ -107,10 +125,13 @@ Higher topos theory itself is related to homotopy type theory, which is actually
 the path that lead me to interactive theorem provers. 
 
 
+Outside of interactive theorem provers and category theory, 
+I also expertise in the theory of Lie groups and their algebras. 
+This is demonstrated by a number of papers e.g. \js{...}. Where 
+the this theory was used to computationally search, with the help of 
+graph theory, a discrete space 
+of physics theories for those satisfying certaint conditions. 
 
-
-On top of these I have worked on problems using the theory of Lie algebras,
-combinatorics .... 
 
 
 %%%%%%%%%  
@@ -126,22 +147,46 @@ help build the bridge between the physical science, computer scientists
 working on interactive theorem provers, and those working on 
 the use of AI in mathematics. 
 
-To achieve this goal I have the following rough plan:
+To achieve this goal I plan to undertake the following steps:
 
-\begin{itemize}
-\item Make index notation easy to use in HepLean.
-\item Work towards a data set of thereoms in physics which can used 
-to test AI Models. 
-\item Create a blueprint for a physical science theory.
-\item  Develop computational tactics to work with tensors
-and their simplification. 
-\item Make it easier for someone to jump in and contribute 
-to HepLean.
-\item Develop the general theory of feynman diagrams. 
-\end{itemize}
+\begin{enumerate}
+\item In Lean 4 there is notion of blueprint for a theory. This is 
+a English-written document containg all of the steps that must be taken
+to turn the prove of an English-written prove into a Lean written prove. 
+This can be thought of as pseudo-code for Lean. To help build the above 
+bridge I would produce such a pseudo-code for an theory in physics.
+\item Most work on AI in mathematics has looked at e.g. math Olympiad problems
+in Lean (e.g. Google Deepminds work). I would like to see the use 
+of AI to solve problems from the physical science in Lean. To do this 
+I plan to create a data set of Lean 4 written theorems from physics 
+that can be used for AI testing and training.
+\item Overlapping a bit with AI, high energy physics use heavily tensors. 
+As part of Lean 4 I would like to develop tactics that help formally verify 
+results related to tensors.
+\end{enumerate}
 
-\paragraph{Plan for undergradute and graduate involvement:} Part of the paper \js{...}, discusses the use of pedogoical use 
+
+\paragraph{Plan for undergradute and graduate involvement:} 
+Part of the paper \js{...}, discusses the use of pedogoical use 
 of HepLean.   
+Furthermore, I personally would love see undergraduate contributing to 
+this area of reasearch. For those undergraduates intrested in the 
+computer science side of things, there are series of nice 
+functional programming problems to be worked on. For example, 
+developing the correct formalism for index notation of tensors. 
+The aim is their contribution will help progress research, but also 
+teach them about functional programming and theorem provers more generally. 
+For those intrested in AI, there are many unexplored applications 
+for the use of AI in projects like HepLean. 
+
+For those undergrades intrested in learning a bit from the physical sciences, 
+there are many projects involving formalising different areas of 
+physics into Lean. A lot of this require very little prerequiests, and have
+the dual benefit of teaching two areas. A simple example would 
+be the formalisation of properties of the two-Higgs doublet model potential. 
+This is a potential, and physicists are intrested in its properties, 
+such as its minima, whether it is bounded or not etc.
+
 
 %%%%%%%%%  
 \customtitle{Other future project: Higher category theory in computer science}

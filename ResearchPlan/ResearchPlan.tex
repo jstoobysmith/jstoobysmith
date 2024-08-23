@@ -65,6 +65,8 @@
 \SetWatermarkText{\color{mycolor} DRAFT}
 \SetWatermarkScale{9}
 
+%% Comments 
+
 \begin{document}
 
 %\center{(See separate document for publication list)}
@@ -135,7 +137,7 @@ of physics theories for those satisfying certaint conditions.
 
 
 %%%%%%%%%  
-\customtitle{Main future project: Theorem proving and and AI in the physical sciences}
+\customtitle{Main future project: Theorem proving and AI in the physical sciences}
 %%%%%%%%%  
 
 Going forward my main research goal is help progress interactive theorem provers, 
@@ -168,39 +170,31 @@ results related to tensors.
 
 \customtitle{Plan for undergraduate student involvement} 
 
-Part of the paper \js{...}, discusses the use of pedogoical use 
-of HepLean.   
-Furthermore, I personally would love see undergraduate contributing to 
-this area of reasearch. For those undergraduates intrested in the 
-computer science side of things, there are series of nice 
-functional programming problems to be worked on. For example, 
-developing the correct formalism for index notation of tensors. 
-The aim is their contribution will help progress research, but also 
-teach them about functional programming and theorem provers more generally. 
-For those intrested in AI, there are many unexplored applications 
-for the use of AI in projects like HepLean. 
 
-For those undergrades intrested in learning a bit from the physical sciences, 
-there are many projects involving formalising different areas of 
-physics into Lean. A lot of this require very little prerequiests, and have
-the dual benefit of teaching two areas. A simple example would 
-be the formalisation of properties of the two-Higgs doublet model potential. 
-This is a potential, and physicists are intrested in its properties, 
+Part of the paper \js{...}, discusses how HepLean can be used 
+as a pedagogical tool, and give students the ability to get involved in research.  My plan is to develop three list of undergraduate-level projects around HepLean. 
+
+The first list will be concerned with functional programming type projects. As an example: the handling of lists in Lean to efficiently undertake computations needed for index notation (a notation used by physicists to deal with tensors). Other examples will involve meta-programming in Lean to make the user-experience easier.
+
+The second list of projects  will be concerned with the use of AI for physics and mathematics. Simple example involve auto-formalisation of theorems in physics (turning a human written result into a result written in Lean), as will as the inverse problem, `auto-informalisation'. These have being heavily explored in mathematics, but not in the physical sciences. 
+
+The third list will be at the boundary of physics, computer-science and mathematics. These projects will involve a proving theorems from physics using Lean. There are many such problems that involve very little prerequiests in physics, once the theorem has being written down. Part of my plan above, with the blueprint, will be a first step in this direction. An example of such a project will be to formalisation of properties of the two-Higgs doublet model potential. 
+This is a potential, and physicists are interested in its properties, 
 such as its minima, whether it is bounded or not etc.
 
+Each of these lists of projects will involve `home-work style projects' which will take no more than a couple of hours to complete, and more detailed thesis level projects. The benefit of having a large project like HepLean is that coming up with such a diversity of projects is relatively easy. 
 
 %%%%%%%%%  
 \customtitle{Other future project: Higher category theory in computer science}
 %%%%%%%%%  
 
-\begin{itemize}
-\item The reader may be familar with the notion of a monad used in functional programming.
-\item Monads are a special case of a much more general notion in the theory of higher algebras. 
-\item It is my believe that the application of more general notations of moads from higher algebra to computer science 
-are little explored. 
-\item My expertise in this area from past projects such as \js{..}, as well as my expertise in functional programming
- put me in a good position to explore this avenue.
-\end{itemize}
+Category theory plays an important role in functional programming. A 
+key example of this is the notation of a `monad'. A `monad` is 
+a special case of a more general object in the theory of Higher algebra. 
+This is an area I have expertise, since it overlaps with my use of category theory in physics, as demonstrated in \emph{e.g.} \js{}. 
+
+The aim of this project would be to explore the possible application 
+of these more general versions of monad in computer science. Part of this process may involve developing or using a langauge which can interactive with the structures of higher categories in some useful way.
 
 
 %%%%%%%%%

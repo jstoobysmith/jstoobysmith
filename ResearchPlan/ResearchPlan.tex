@@ -77,25 +77,17 @@
 \end{flushright}
 \vspace{0.4cm}
 
-My research sits at the intersection of computer science, 
-mathematics and physics.
-I am intrested in the building of a bridge between these areas using 
-interactive theorem proving. I have PhD in theoretical physics 
-from the University of Cambridge, 
-have completed a postdoc at Cornell University in which I focused on the 
-application of theorem proving software in Physics. For the academic 
-year 2024-2025 I am undertaking a postdoc in computer science at the 
-University of Reykjavik.
+My research lies at the intersection of computer science, mathematics, and physics. I am particularly interested in building bridges between these disciplines using interactive theorem proving. I hold a PhD in theoretical physics from the University of Cambridge, and have completed a postdoctoral fellowship at Cornell University, where I focused on applying theorem proving software to physics. In the academic year 2024-2025, I am undertaking a postdoctoral position in computer science at the University of Reykjavik.
 %%%%%%%%%  
 \customtitle{The past}
 %%%%%%%%%  
 
-Part of my past research has been the digitalisation of results (meaning theorems, definitions and calculations) from high energy physics into a Lean 4 libary called `HepLean'. Lean 4 is an interactive theorem prover, and will automatically check if proves of theorems etc are correct. Here are the main motivations behind this project:
+A significant part of my past research has involved digitizing results from high-energy physics into a Lean 4 library called "HepLean." Lean 4 is an interactive theorem prover that automatically verifies the correctness of proofs. The main motivations behind this project include:
 \begin{enumerate}
-\item A linear-storage of information: Currently information in high energy physics is stored non-linearly, with material related to the same subject spread across papers indexed only by an arXiv number at best. In HepLean results related to the same area of high energy physics are stored together, making look-up easier.
-\item Automated methods to prove new results: In Lean one can write `tactics' attempt to automatically complete proves to theorems. There has also been work on the use of AI to prove theorems in Lean (which given the nature of Lean are automatically certified as correct). Most notable in this direction is Google Deepmind's use of Lean for the math olympeiad. 
-\item Automatic review of results for mathematical correctness: HepLean provides a way for authors and reviewers to be confident of the mathematical correctness of results. This is because, as mentioned above, Lean automatically checks proves for correctness
-\item New pedagogy methods:	HepLean provides a new way to teach both functional programming and physics, whilst also allowing students to engage in active research.
+\item A linear-storage of information: Currently information in high energy physics is stored non-linearly, with material related to the same subject spread across papers indexed only by an arXiv number at best. In HepLean results are stored linearly, with results related to the same area of high energy physics stored together. The benefit of this is that look-up of information becomes easier.
+\item Automated methods to derive new results:  In Lean, one can write "tactics" to attempt automatic completion of proofs. There is also ongoing work on using AI to prove theorems in Lean, with such proofs being automatically certified as correct. Notably, Google DeepMind has explored this in the context of the math olympiad, .
+\item Automatic review of results for mathematical correctness: HepLean provides a method for authors and reviewers to be confident of the mathematical correctness of results. In this regard, Lean's automatic proof verification ensures the rigor and accuracy of results.
+\item New pedagogy methods:	 HepLean offers a novel approach to teaching both functional programming and physics, allowing students to engage in active research and learn through direct interaction with theorem proving software.
 \end{enumerate}
  This is the first anything like this has being attempted
 in high energy physics. However, there is a similar project for mathematics called Mathlib, which forms the mathematical foundation underlying HepLean.
@@ -104,59 +96,39 @@ in high energy physics. However, there is a similar project for mathematics call
 %%%%%%%%%  
 \customtitle{The future}
 %%%%%%%%%  
-My plan for future research is to continue the development of HepLean, with a focus on the theoretical and computer science foundations, to make it easier for the average physical scientist to adapt to using Lean. In practice this will mean applying techniques from functional programming, AI, category theory etc. to write foundational definitions in the most effective and efficient way. 
-
-To acheive this overarching goal, I plan to undertake the following specific research steps:  
+My future research will continue the development of HepLean, with the aim of making it more accessible to physical scientists.  
+To achieve this overarching goal, I plan to undertake the following specific research steps:
 \begin{enumerate}
-\item In Lean 4 there is notion of blueprint for a theory. This is 
-a English-written document containg all of the steps that must be taken
-to turn the prove of an English-written prove into a Lean written prove. 
-This can be thought of as pseudo-code for Lean. To help build the above 
-bridge I would produce such a pseudo-code for an theory in physics.
-\item Most work on AI in mathematics has looked at e.g. math Olympiad problems
-in Lean (e.g. Google Deepminds work). I would like to see the use 
-of AI to solve problems from the physical science in Lean. To do this 
-I plan to create a data set of Lean 4 written theorems from physics 
-that can be used for AI testing and training.
-\item Overlapping a bit with AI, high energy physics use heavily tensors. 
-As part of Lean 4 I would like to develop tactics that help formally verify 
-results related to tensors.
+\item Blueprint:  Lean 4, a "blueprint" is an English-written document that outlines all the steps needed to convert an English-written proof into a Lean proof. I plan to create such blueprints for various theories in physics, which will serve as pseudo-code, bridging the gap between traditional physics work and interactive theorem provers.
+\item AI: While AI has been applied to mathematical problems in Lean (e.g., DeepMind's work on math Olympiad problems), I aim to extend this to physics. I plan to create a dataset of Lean 4-written theorems from physics that can be used for AI testing and training.
+\item Tensors: High-energy physics relies heavily on tensors. I plan to develop Lean 4 tactics that can formally verify results related to tensors, which will be crucial for ensuring the correctness of complex calculations in physics.
 \end{enumerate}
+
+There will be also be a focus on HepLeans theoretical and computer science foundations. This will involve applying techniques from functional programming, AI, and category theory to create foundational definitions and functions to ease future development.
 
 \customtitle{Plan for undergraduate student involvement} 
 
+HepLean offers numerous opportunities for involving undergraduate students in research. I plan to develop three lists of undergraduate-level projects around HepLean:
 
-Part of the paper \js{...}, discusses how HepLean can be used 
-as a pedagogical tool, and give students the ability to get involved in research.  My plan is to develop three list of undergraduate-level projects around HepLean. 
-
-The first list will be concerned with functional programming type projects. As an example: the handling of lists in Lean to efficiently undertake computations needed for index notation (a notation used by physicists to deal with tensors). Other examples will involve meta-programming in Lean to make the user-experience easier.
-
-The second list of projects  will be concerned with the use of AI for physics and mathematics. Simple example involve auto-formalisation of theorems in physics (turning a human written result into a result written in Lean), as will as the inverse problem, `auto-informalisation'. These have being heavily explored in mathematics, but not in the physical sciences. 
-
-The third list will be at the boundary of physics, computer-science and mathematics. These projects will involve a proving theorems from physics using Lean. There are many such problems that involve very little prerequiests in physics, once the theorem has being written down. Part of my plan above, with the blueprint, will be a first step in this direction. An example of such a project will be to formalisation of properties of the two-Higgs doublet model potential. 
-This is a potential, and physicists are interested in its properties, 
+\begin{itemize}
+	\item Functional programming projects: As an example: the handling of lists in Lean to efficiently undertake computations needed for index notation (a notation used by physicists to deal with tensors). Other examples will involve meta-programming in Lean to make the user-experience easier.
+\item AI in Physics and Mathematics: These projects will explore auto-formalization of theorems in physics (converting human-written results into Lean proofs) and the inverse process, "auto-informalization." While these techniques have been explored in mathematics, they remain largely unexplored in the physical sciences, as dicussed above.
+\item Interdisciplinary Theorem Proving: These projects will involve proving physics theorems using Lean. Many such problems require minimal prerequisites in physics once the theorem is stated. For instance, formalizing properties of the two-Higgs doublet model potential could be an excellent project for students. Physicists are interested in its properties, 
 such as its minima, whether it is bounded or not etc.
+\end{itemize}
+Each of these project lists will include homework-style tasks that can be completed in a few hours and more detailed thesis-level projects. The breadth of HepLean makes it relatively easy to generate a diverse range of projects.
 
-Each of these lists of projects will involve `home-work style projects' which will take no more than a couple of hours to complete, and more detailed thesis level projects. The benefit of having a large project like HepLean is that coming up with such a diversity of projects is relatively easy. 
 
 %%%%%%%%%  
 \customtitle{Other research}
 %%%%%%%%%  
- I have a strong background in the application of category theory 
-outside the ivory towers of the pure mathematicians. Historically, my main use of category theory 
-is as a language to recast problems from the physical sciences and to use this language 
-to derive new previously unkown results. As a specific example, in high energy physics 
-there is a relatively new notion called a "generalised symmetry", in  \js{...}, 
-we used special types of categories called higher topoi to define and derive new results 
-about these symmetries. Higher topos theory itself is related to homotopy type theory, which is actually 
-the path that lead me to interactive theorem provers. 
+In addition to my work on HepLean, I have a strong background in applying category theory outside of pure mathematics. Historically, I have used category theory as a language to reframe problems in the physical sciences and derive new results. For example, in high-energy physics, there is a relatively new concept called "generalized symmetry." In \js{} we used higher topoi - a special type of higher category - to define and derive new results about these symmetries. Higher topos theory is actually related to homotopy type theory, which led me to interactive theorem proving.
 
-Category theory is used heaivly in functional programming, for example, the definition a monad is categorical-definition. It turns out that a moad 
-a special case of a more general object in the theory of Higher algebra. 
-This is an area I have expertise, since it overlaps with my use of category theory in physics, as demonstrated in \emph{e.g.} \js{}. 
+Category theory is also heavily used in functional programming. For instance, the concept of a monad in functional programming is a categorical definition. A monad is a special case of a more general object in the theory of Higher algebra. 
+This is an area I have expertise, since it overlaps with my use of category theory in physics. 
 
-In the future I also plan to investigate the role (higher) category theory can play in functional programming and more specifically interactive theorem provers for the physical science. I'm currently making some investigations into area, using the theory of modular operads to develop an efficient method for index notation of tensors. 
 
+In the future, I plan to investigate the role that higher category theory can play in functional programming and, more specifically, in interactive theorem provers for the physical sciences. Currently, I am exploring the theory of modular operads to develop an efficient method for index notation of tensors (mentioned briefly above).
 %%%%%%%%%
 %\begingroup
 %\renewcommand{\section}[2]{}%

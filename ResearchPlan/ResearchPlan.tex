@@ -87,36 +87,19 @@ application of theorem proving software in Physics. For the academic
 year 2024-2025 I am undertaking a postdoc in computer science at the 
 University of Reykjavik.
 %%%%%%%%%  
-\customtitle{The why}
-%%%%%%%%%  
-
-I have a background in high energy physics. Looking forward to the future of high energy physics, and the physical sciences more generally, there are a number of things that I would like to see: 
-
-\begin{enumerate}
-\item A linear-storage of information:
-\item Automated methods to prove new results:
-\item Automatic review of results for mathematical correctness: 
-\item New pedagogy methods:	
-\end{enumerate}
-
-%%%%%%%%%  
 \customtitle{The past}
 %%%%%%%%%  
 
-One tool we can use to achieve the goals mentioned above is use interactive theorem provers. Part of my past research has been in this direction, developing a libary called `HepLean'. The goal of HepLean is to digitalise results 
-(meaning definitons, theorems and calculations)
-from high energy physics into 
-the interactive theorem prover Lean 4. This is the first anything like this has being attempted
+Part of my past research has been the digitalisation of results (meaning theorems, definitions and calculations) from high energy physics into a Lean 4 libary called `HepLean'. Lean 4 is an interactive theorem prover, and will automatically check if proves of theorems etc are correct. Here are the main motivations behind this project:
+\begin{enumerate}
+\item A linear-storage of information: Currently information in high energy physics is stored non-linearly, with material related to the same subject spread across papers indexed only by an arXiv number at best. In HepLean results related to the same area of high energy physics are stored together, making look-up easier.
+\item Automated methods to prove new results: In Lean one can write `tactics' attempt to automatically complete proves to theorems. There has also been work on the use of AI to prove theorems in Lean (which given the nature of Lean are autmatically certified as correct). Most notibale in this direction is Google Deepmind's use of Lean for the math olympeiad. 
+\item Automatic review of results for mathematical correctness: HepLean provides a way for authors and reviewers to be confident of the mathematical correctness of results.
+\item New pedagogy methods:	HepLean provides 
+\end{enumerate}
+ This is the first anything like this has being attempted
 in high energy physics. However, there is a similar project for mathematics called Mathlib, which forms the mathematical foundation underlying HepLean.
 
-Currently HepLean contains a number of results from high-energy physics, and one future aim is to expand its scope. Let me discuss how HepLean solves the four problems above: 
-
-\begin{enumerate}
-\item A linear-storage of information:
-\item Automated methods to prove new results:
-\item Automatic review of results for mathematical correctness: 
-\item New pedagogy methods:	
-\end{enumerate}
 
 %%%%%%%%%  
 \customtitle{The future}

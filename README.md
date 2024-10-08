@@ -9,7 +9,7 @@
 | Masters | University of Oxford    | Integrated masters in mathematical and theoretical physics. Top of year in third, and fourth years.
 | PhD     | University of Cambridge | Supervised by Ben Gripaios. PhD in theoretical physics. Thesis focused on the application of techniques in mathematics to solve problems in physics. Including the use of number theory, category theory and geometry.
 | Postdoc | Cornell University      | Started a program to digitalise results from high energy physics into Lean 4. Also, continued use of higher category theory in physics by studying generalized symmetries.
-
+| Postdoc | Reykjavik University      | Currently using category theory in computer science.
 ## What am I currently working on?
 
 | | Description |

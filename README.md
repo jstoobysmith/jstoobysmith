@@ -15,7 +15,8 @@
 
 | | Description |
 |-----|-----|
-|[HepLean](https://github.com/HEPLean/HepLean)| I'm currently focused on getting index notation to work in Lean.  |
+|[HepLean](https://github.com/HEPLean/HepLean)| This is a project to digitalize results from high energy physics in Lean.  |
+|[Index notation in Lean](https://github.com/jstoobysmith/IndexNotationInLean)| Working on a draft of a paper related to index notation in Lean.  |
 |[Metaprogramming for HepLean](https://github.com/HEPLean/HepLean/tree/master/scripts) | I'm writing metaprograms for HepLean to help with refactoring.  |
 
 ## Academic skills

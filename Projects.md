@@ -34,6 +34,11 @@ As an example of using Lean in the bilological sciences, I would like
 HepLean currently contains an implementation of index 
     notation, creating automated tactics will allow us to work more easily with this notation.
 
+## Dirac deltas 
+The phycisists use of Dirac delta 'functions' is very liberal. This project would determine 
+    the best way for phycisists to use Dirac delta in a formal proof assistant and develop 
+    the best  technology to enable this to happen. 
+
 ## Feynman diagrams (currently in progress)
 I want to formalize Feynman diagrams in Lean, and this project is currently 
     in progress. This will demonstrate the use of computation in Lean and how it can be used 

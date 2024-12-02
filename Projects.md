@@ -23,4 +23,6 @@ Students are particularly encouraged to reach out!
     concepts within the biological sciences. 
 - **Tactics to deal with index notation** HepLean currently contains an implementation of index 
     notation, creating automated tactics will allow us to work more easily with this notation.
-    
+- **Feynman diagrams** I want to formalize Feynman diagrams in Lean, and this project is currently 
+    in progress. This will demonstrate the use of computation in Lean and how it can be used 
+    to help theorem proving. 

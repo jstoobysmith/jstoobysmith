@@ -3,7 +3,9 @@
 [![](https://img.shields.io/badge/Draft-Teaching--Philosophy-purple)](https://github.com/jstoobysmith/jstoobysmith/blob/main/TeachingPhilosophy/TeachingPhilosophy.pdf)
 [![](https://img.shields.io/badge/Draft-Research--Statement-purple)](https://github.com/jstoobysmith/jstoobysmith/blob/main/ResearchPlan/ResearchPlan.pdf)
 [![](https://img.shields.io/badge/papers_at-inspireHep-purple)](https://inspirehep.net/authors/1737896)
+[![](https://img.shields.io/badge/work_with-me-green)](https://github.com/jstoobysmith/jstoobysmith/blob/main/Projects.md)
 [![](https://img.shields.io/badge/YouTube-red)](https://www.youtube.com/channel/UCjIsl9vgzOW3YAHeek9KUog)
+
 ## About me
 |   | Institution             | |
 |---------|-------------------------|---------|

@@ -18,7 +18,7 @@
 | | Description |
 |-----|-----|
 |[HepLean](https://github.com/HEPLean/HepLean)| This is a project to digitalize results from high energy physics in Lean.  |
-|[Index notation in Lean](https://github.com/jstoobysmith/IndexNotationInLean)| Working on a draft of a paper related to index notation in Lean.  |
+|[Perturbation theory in Lean](https://heplean.github.io/HepLean/PerturbationTheory)| I'm working on formalizing perturbation theory from theoretical physics into Lean 4.  |
 |[Metaprogramming for HepLean](https://github.com/HEPLean/HepLean/tree/master/scripts) | I'm writing metaprograms for HepLean to help with refactoring.  |
 
 ## Academic skills

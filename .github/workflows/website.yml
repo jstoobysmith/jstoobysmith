@@ -1,7 +1,7 @@
 on:
     push:
       branches:
-        - master
+        - main
     workflow_dispatch:
   
 name: Build website 
@@ -43,4 +43,4 @@ jobs:
 
         - name: Deploy to GitHub Pages
           id: deployment
-          uses: actions/deploy-pages@v14
+          uses: actions/deploy-pages@v1

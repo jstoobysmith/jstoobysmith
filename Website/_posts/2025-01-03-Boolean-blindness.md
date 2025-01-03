@@ -1,17 +1,17 @@
 ---
 layout: post
-title:  "Another Blog Post"
+title:  "Boolean blindness and physics"
 description: "A Description"
-date:   2020-10-26 20:01:21 -0400
+date:   2025-01-03 
 type: card-img-top
-categories: latin text
+categories: 
 image: http://placehold.it/750X300?text=Header+Image # for local images, place in /assets/img/posts/
 caption:
-last-updated: 2020-10-26 20:01:21 -0400
-categories: post ipsum
-tag: jekyll
-author: Tyler Butler
-card: card-2
+last-updated: 
+categories: CS
+tag: CS
+author: Joseph Tooby-Smith
+card: card-1
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna id volutpat lacus laoreet non curabitur gravida arcu. Quisque non tellus orci ac. Tincidunt tortor aliquam nulla facilisi cras fermentum odio eu. Cursus metus aliquam eleifend mi in nulla posuere sollicitudin aliquam. Maecenas ultricies mi eget mauris pharetra et ultrices neque ornare. Mi proin sed libero enim. Vitae sapien pellentesque habitant morbi tristique. Sit amet commodo nulla facilisi nullam vehicula. A condimentum vitae sapien pellentesque habitant morbi. Id venenatis a condimentum vitae sapien. In nulla posuere sollicitudin aliquam ultrices.

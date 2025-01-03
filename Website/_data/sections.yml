@@ -1,12 +1,12 @@
 - name: Publications
   id: publications
-  description: A list of my publications.
-  url: publications.html
+  description: A list of my publications. (not complete)
+  url: 
   first: true
   
 - name: Teaching
   id: teaching
-  description: My teaching portfolio.
+  description: My teaching portfolio. (not complete)
   content: 
   url: teaching.html
   first: false

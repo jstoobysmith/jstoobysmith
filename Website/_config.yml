@@ -13,14 +13,14 @@ email:
 description: A portfolio website
 baseurl:                                       # the subpath of your site, e.g. /blog
 url: "https://jstoobysmith.github.io/jstoobysmith"          # the base hostname & protocol for your site, e.g. http://example.com
-image: /assets/images/toobysmith_joseph.png             # used to generate site link preview
+image: jstoobysmith/assets/images/toobysmith_joseph.png             # used to generate site link preview
 image_alt: A portfolio website    # image description
 
 # =======================================#
 # -----------SITE SETTINGS---------------#
 #========================================#: 
 author: Joseph Tooby-Smith 
-profile_image: /assets/images/toobysmith_joseph.png #/assets/img/avatar/avatar.jpeg 
+profile_image: jstoobysmith/assets/images/toobysmith_joseph.png #/assets/img/avatar/avatar.jpeg 
 occupation: 
 snippet:
 twitter: 

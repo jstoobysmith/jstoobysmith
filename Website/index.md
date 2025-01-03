@@ -4,11 +4,10 @@ title:
 date: 2020-11-20 
 ---
 # This site is a work-in-progress
-See: [josephtoobysmith.com](https://www.josephtoobysmith.com) for my current website.
+This is a newer version of my old (costly) site, but it is not yet up-to date.
 
 ### Hi, I'm Joseph Tooby-Smith
 _Postdoctoral researcher in computer science at Reykjavik University_
-
 
 
 My current research revolves around the functional programming language Lean 4. I am working on a project to digitalise results from high energy physics in Lean 4. More details about this project, called HepLean.

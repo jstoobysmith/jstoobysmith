@@ -11,8 +11,8 @@
 title: Joseph Tooby-Smith 
 email: 
 description: A portfolio website
-baseurl: /jstoobysmith                                    # the subpath of your site, e.g. /blog
-url: https://jstoobysmith.github.io         # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/jstoobysmith"                                  # the subpath of your site, e.g. /blog
+url: "https://jstoobysmith.github.io"         # the base hostname & protocol for your site, e.g. http://example.com
 image: /assets/images/toobysmith_joseph.png             # used to generate site link preview
 image_alt: A portfolio website    # image description
 

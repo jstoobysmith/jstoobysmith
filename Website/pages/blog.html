@@ -33,7 +33,7 @@ last-updated: 2025-03-01 5:55 PM
       <div class="col-md-12">
       {% for post in site.posts %}
           <div class="blogcard {{post.card}} mb-4 mt-4" style="width: 100%;">
-            <h3><a href="jstoobysmith/{{ post.url }}" class="nohighlight">{{ post.title }}</a></h3>
+            <h3><a href="{{ post.url }}" class="nohighlight">{{ post.title }}</a></h3>
               <a href="#" class="badge badge-primary" style="background-color: rgba(78, 34, 208, 0.1);color: #4e22d0;">{{post.tag}}</a>  
             <p>{{post.description}}</p>
             <p><i>{{post.lead}}</i></p>

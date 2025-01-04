@@ -1,6 +1,6 @@
 - name: Publications
   id: publications
-  description: A list of my publications. (not complete)
+  description: A list of my publications.
   url: 
   first: true
   

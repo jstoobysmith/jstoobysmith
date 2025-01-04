@@ -6,14 +6,49 @@
   
 - name: Teaching
   id: teaching
-  description: My teaching portfolio. (not complete)
+  description: My teaching portfolio. 
   content: 
   url: teaching.html
   first: false
 
-- name: Non-Academic Work
-  id: courses
-  description: Other work
+- name: Awards
+  id: awards
+  description: Awards and honors I have received.
   content: 
+  url: 
   first: false
 
+- name: Talks
+  id: talks
+  description: Talks I have given (not up-to-date).
+  content: 
+  url: 
+  first: false
+
+- name: Outreach
+  id: outreach
+  description: Outreach I have done (not up-to-date).
+  content: 
+  url: 
+  first: false
+
+- name: Conferences
+  id: conferences
+  description: Conferences I have attended (not up-to-date).
+  content: 
+  url: 
+  first: false
+
+- name: Athletics
+  id: atheltics
+  description: Some of my atheltics achievements.
+  content: 
+  url: 
+  first: false
+
+- name: Profiles
+  id: profiles
+  description: 
+  content: 
+  url: 
+  first: false

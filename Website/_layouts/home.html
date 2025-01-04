@@ -87,6 +87,15 @@ layout: default
                         </div>
                         <h6>{{ paper.Authors }}</h6>
                         <p class="mb-1">{{ paper.Journal }}</p>
+                        {% if paper.CSTag == true %}
+                        <p href="#" class="badge badge-primary" style="background-color: rgba(78, 34, 208, 0.1);color: #4e22d0;">CS</p> 
+                        {% endif %}
+                        {% if paper.PhyTag == true %}
+                        <p href="#" class="badge badge-primary" style="background-color: rgba(65, 105, 225, 0.1);color: #1e40af;">Phys</p> 
+                        {% endif %}
+                        {% if paper.MathTag == true %}
+                        <p class="badge badge-primary" style="background-color: rgba(0, 128, 128, 0.1);color: #008080;">Math</p> 
+                        {% endif %}
                       </div>
                     </a>
                     {% endfor %}
@@ -129,15 +138,138 @@ layout: default
                     <div class="list-group">
                       <div class="list-group-item list-group-item-action">
                         <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">{{ courses.School }}</h5>
-                          <h4>{{ courses.Program }}</h4>
-                          <small>{{ courses.Date }}</small>
+                          <h5 class="mb-1">{{ courses.Course }}</h5>
+                          <h5>{{ courses.Role }}</h5>
+                          
                         </div>
+                        <p>{{ courses.Date }} : {{ courses.School }}</p>
                         <p class="mb-1">{{ courses.description }}</p>
                         <small>{{ courses.Department }}</small>
+                      {% if courses.CSTag == true %}
+                      <p href="#" class="badge badge-primary" style="background-color: rgba(78, 34, 208, 0.1);color: #4e22d0;">CS</p> 
+                      {% endif %}
+                      {% if courses.PhyTag == true %}
+                      <p href="#" class="badge badge-primary" style="background-color: rgba(65, 105, 225, 0.1);color: #1e40af;">Phys</p> 
+                      {% endif %}
+                      {% if courses.MathTag == true %}
+                      <p class="badge badge-primary" style="background-color: rgba(0, 128, 128, 0.1);color: #008080;">Math</p> 
+                      {% endif %}
                       </div>
                     </div>
                     {% endfor %}
+              </div>
+              {% elsif section.name == "Awards" %}
+              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">  
+                <p><i>{{section.description}}</i></p>
+                    {% for award in site.data.awards %}
+                    <div class="list-group">
+                      <div class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1">{{ award.Title }}</h5>
+                          <h5>{{ award.Awarder }}</h5>
+                        </div>
+                        <p>{{ award.Date }}</p>
+                        
+                        <p class="mb-1">{{ award.Description }}</p>
+                        {% if award.Link and award.Link != empty %}
+                        <a href="{{ award.Link }}" class="badge badge-primary" style="background-color: rgba(78, 34, 208, 0.1);color: #4e22d0;">Link</a>
+                        {% endif %}
+                      </div>
+                    </div>
+                    {% endfor %}
+              </div>
+              {% elsif section.name == "Talks" %}
+              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">  
+                <p><i>{{section.description}}</i></p>
+                    {% for talk in site.data.talks %}
+                    <div class="list-group">
+                      <div class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1">{{ talk.Title }}</h5>
+                          <h5>{{ talk.Place }}</h5>
+                        </div>
+                        <p class="mb-1">{{ talk.Date }}</p>
+                      {% if courses.CSTag == true %}
+                      <p href="#" class="badge badge-primary" style="background-color: rgba(78, 34, 208, 0.1);color: #4e22d0;">CS</p> 
+                      {% endif %}
+                      {% if courses.PhyTag == true %}
+                      <p href="#" class="badge badge-primary" style="background-color: rgba(65, 105, 225, 0.1);color: #1e40af;">Phys</p> 
+                      {% endif %}
+                      {% if courses.MathTag == true %}
+                      <p class="badge badge-primary" style="background-color: rgba(0, 128, 128, 0.1);color: #008080;">Math</p> 
+                      {% endif %}
+                      </div>
+                    </div>
+                    {% endfor %}
+              </div>
+              {% elsif section.name == "Outreach" %}
+              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">  
+                <p><i>{{section.description}}</i></p>
+                    {% for event in site.data.outreach %}
+                    <div class="list-group">
+                      <div class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1">{{ event.Name }}</h5>
+                        </div>
+                        <h6>{{ event.Role }}</h6>
+                        <p class="mb-1">{{ event.Date }}</p>
+                        {% if event.Link and event.Link != empty %}
+                        <a href="{{ event.Link }}" class="badge badge-primary" style="background-color: rgba(78, 34, 208, 0.1);color: #4e22d0;">Link</a>
+                        {% endif %}
+                      </div>
+                    </div>
+                    {% endfor %}
+              </div>
+              {% elsif section.name == "Conferences" %}
+              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">  
+                <p><i>{{section.description}}</i></p>
+                    {% for conference in site.data.conferences %}
+                    <div class="list-group">
+                      <div class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1">{{ conference.Title }}</h5>
+                        </div>
+                        <p>{{ conference.Date }}</p>
+                        <p class="mb-1">{{ conference.Description }}</p>
+                      {% if conference.CSTag == true %}
+                      <p href="#" class="badge badge-primary" style="background-color: rgba(78, 34, 208, 0.1);color: #4e22d0;">CS</p> 
+                      {% endif %}
+                      {% if conference.PhyTag == true %}
+                      <p href="#" class="badge badge-primary" style="background-color: rgba(65, 105, 225, 0.1);color: #1e40af;">Phys</p> 
+                      {% endif %}
+                      {% if conference.MathTag == true %}
+                      <p class="badge badge-primary" style="background-color: rgba(0, 128, 128, 0.1);color: #008080;">Math</p> 
+                      {% endif %}
+                      </div>
+                    </div>
+                    {% endfor %}
+              </div>
+              {% elsif section.name == "Athletics" %}
+              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">  
+                <p><i>{{section.description}}</i></p>
+                    {% for result in site.data.athletics %}
+                    <div class="list-group">
+                      <div class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1">{{ result.Title }}</h5>
+                        </div>
+                        <p>{{ result.Result }}</p>
+                        <p>{{ result.Date }}</p>
+                      </div>
+                    </div>
+                    {% endfor %}
+              </div>
+              {% elsif section.name == "Profiles" %}
+              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">  
+                <p><i>{{section.description}}</i></p>
+                <ul>
+                  <li><a href="https://inspirehep.net/authors/1737896?ui-citation-summary=true">Inspire Hep</a></li>
+                  <li><a href="https://orcid.org/0000-0003-2831-598X">ORCID</a></li>
+                  <li><a href="https://scholar.google.com/citations?user=Ro91xL4AAAAJ">Google Scholar</a></li>
+                  <li><a href="https://ncatlab.org/nlab/show/Joseph+Tooby-Smith">nLab</a></li>
+                  <li><a href="https://www.youtube.com/channel/UCjIsl9vgzOW3YAHeek9KUog">Youtube</a></li>
+                  <li><a href="https://www.thepowerof10.info/athletes/profile.aspx?athleteid=406915">Power of 10</a> (athletics)</li>
+                </ul>
               </div>
               {% elsif section.name == "Non-Academic Work" %}
               <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">  

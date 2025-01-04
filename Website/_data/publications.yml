@@ -4,106 +4,140 @@
   Date: Nov 2024
   Journal: arXiv-2411.07667 [cs.LO]
   Link: https://arxiv.org/abs/2411.07667
+  CSTag: true
+  PhyTag: true
 
 - Title: "HepLean: Digitalising high energy physics"
   Authors: J. Tooby-Smith
   Date: May 2024
   Journal: Comput.Phys.Commun. 308 (2025), 109457 (arXiv-2405.08863 [hep-ph])
   Link: https://doi.org/10.1016/j.cpc.2024.109457
+  CSTag: true
+  PhyTag: true
 
 - Title: "Smooth generalized symmetries of quantum field theories"
   Authors: B. Gripaios, O. Randal-Williams, J. Tooby-Smith
   Date: Oct 2023
   Journal: J.Geom.Phys. 201 (2024), 105212 (arXiv-2310.16090 [hep-th])
   Link: https://doi.org/10.1016/j.geomphys.2024.105212
+  MathTag: true
+  PhyTag: true
 
 - Title: "Semisimple unifications of any gauge theory"
   Authors: A. Gomes, M. Ruhdorfer, J. Tooby-Smith
   Date: Jun 2023
   Journal: Phys.Rev.D 108 (2023) 7, 075001 (arXiv-2306.16439 [hep-ph])
   Link: https://doi.org/10.1103/PhysRevD.108.075001
+  PhyTag: true
+  CSTag: true
 
 - Title: "The Higgs squared"
   Authors: C. Csaki, A. Ismail, M. Ruhdorfer, J. Tooby-Smith
   Date: Oct 2022
   Journal: JHEP 04 (2023), 082 (arXiv-2210.02456 [hep-ph])
   Link: https://doi.org/10.1007/JHEP04(2023)082
+  PhyTag: true
 
 - Title: "Generalized symmetries of topological field theories"
   Authors: B. Gripaios, O. Randal-Williams, J. Tooby-Smith
   Date: Sep 2022
   Journal: JHEP 03 (2023), 087 (arXiv-2209.13524 [hep-th])
   Link: https://doi.org/10.1007/JHEP03(2023)087
+  PhyTag: true
+  MathTag: true
 
 - Title: "Flatland: abelian extensions of the Standard Model with semi-simple completions"
   Authors: J. Davighi, J. Tooby-Smith
   Date: Jun 2022
   Journal: JHEP 09 (2022), 159 (arXiv-2206.11271 [hep-ph])
   Link: https://doi.org/10.1007/JHEP09(2022)159
+  PhyTag: true
+  CSTag: true
 
 - Title: "Electroweak flavour unification"
   Authors: J. Davighi, J. Tooby-Smith
   Date: Jan 2022
   Journal: JHEP 09 (2022), 193 (arXiv-2201.07245 [hep-ph])
   Link: https://doi.org/10.1007/JHEP09(2022)193
+  PhyTag: true
 
 - Title: "A ν supersymmetric anomaly-free atlas"
   Authors: B.C. Allanach, M. Madigan, J. Tooby-Smith
   Date: Jul 2021
   Journal: JHEP 02 (2022), 144 (arXiv-2107.07926 [hep-ph])
   Link: https://doi.org/10.1007/JHEP02(2022)144
+  PhyTag: true
+  CSTag: true
 
 - Title: "Thesis: Arithmetical, geometrical, and categorical forays into particle physics"
   Authors: J. Tooby-Smith
   Date: May 2021
   Journal: PhD thesis, Cambridge U.
   Link: https://doi.org/10.17863/CAM.72061
-  
+  PhyTag: true
+  CSTag: true
+  MathTag: true
+
 - Title: "Semisimple extensions of the Standard Model gauge algebra"
   Authors: B.C. Allanach, B. Gripaios, J. Tooby-Smith
   Date: Apr 2021
   Journal: Phys.Rev.D 104 (2021) 3, 035035 (arXiv-2104.14555 [hep-th])
   Link: https://doi.org/10.1103/PhysRevD.104.035035
+  PhyTag: true
+  CSTag: true
+  MathTag: true
 
 - Title: "Inverse Higgs phenomena as duals of holonomic constraints"
   Authors: B. Gripaios, J. Tooby-Smith
   Date: Mar 2021
   Journal: J.Phys.A 55 (2022) 9, 095401 (arXiv-2103.08923 [hep-th])
   Link: https://doi.org/10.1088/1751-8121/ac4c66
+  PhyTag: true
+  MathTag: true
 
 - Title: "Undulating Dark Matter"
   Authors: J. Davighi, M. McCullough, J. Tooby-Smith
   Date: Jul 2020
   Journal: JHEP 11 (2020), 120 (arXiv-2007.03662 [hep-ph])
   Link: https://doi.org/10.1007/JHEP11(2020)120
+  PhyTag: true
 
 - Title: "Anomaly cancellation with an extra gauge boson"
   Authors: B.C. Allanach, B. Gripaios, J. Tooby-Smith
   Date: Jun 2020
   Journal: Phys.Rev.Lett. 125 (2020) 16, 161601 (arXiv-2006.03588 [hep-th])
   Link: https://doi.org/10.1103/PhysRevLett.125.161601
-
+  PhyTag: true
+  MathTag: true
+  
 - Title: "Supersoft top squarks"
   Authors: T. Cohen, N. Craig, S. Koren, M. McCullough, J. Tooby-Smith
   Date: Feb 2020
   Journal: Phys.Rev.Lett. 125 (2020) 15, 151801 (arXiv-2002.12630 [hep-ph])
   Link: https://doi.org/10.1103/PhysRevLett.125.151801
+  PhyTag: true
 
 - Title: "Solving local anomaly equations in gauge-rank extensions of the Standard Model"
   Authors: B.C. Allanach, B. Gripaios, J. Tooby-Smith
   Date: Dec 2019
   Journal: Phys.Rev.D 101 (2020) 7, 075015 (arXiv-1912.10022 [hep-th])
   Link: https://doi.org/10.1103/PhysRevD.101.075015
+  PhyTag: true
+  MathTag: true
 
 - Title: "Geometric general solution to the U(1) anomaly equations"
   Authors: B.C. Allanach, B. Gripaios, J. Tooby-Smith
   Date: Dec 2019
   Journal: JHEP 05 (2020), 065 (arXiv-1912.04804 [hep-th])
   Link: https://doi.org/10.1007/JHEP05(2020)065
+  PhyTag: true
+  MathTag: true
 
 - Title: "Quantum mechanics in magnetic backgrounds with manifest symmetry and locality"
   Authors: J. Davighi, B. Gripaios, J. Tooby-Smith
   Date: May 2019
   Journal: J.Phys.A 53 (2020) 14, 145302 (arXiv-1905.11999 [hep-th])
   Link: https://doi.org/10.1088/1751-8121/ab78ce
+  PhyTag: true
+  MathTag: true
 

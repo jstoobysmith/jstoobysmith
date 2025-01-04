@@ -1,9 +1,47 @@
 - School: Reykjavik University
-  Degree: 
-  Program: 
-  id: 
-  data-id: 
-  heading-id: 
-  Date: 2024
+  Role: TA
+  Course: Introduction to proof assistants
+  Date: Fall 2024
   first: true   # one must be true to properly display
+  CSTag: true
   description: 
+
+- School: Cambridge University
+  Role: TA 
+  Course: "Symmetries, Fields and Particles"
+  Date: 2020
+  first: false
+  PhyTag: true 
+  description:
+
+- School: Cambridge University
+  Role: TA 
+  Course: "Quantum Field Theory"
+  Date: 2019
+  first: false 
+  PhyTag: true
+  description:
+
+- School: Cambridge University
+  Role: TA 
+  Course: "Gauge Field Theory"
+  Date: 2019 & 2020
+  first: false 
+  PhyTag: true
+  description:
+
+- School: Cambridge University
+  Role: TA 
+  Course: "Theoretical Physics Part I"
+  Date: 2018 & 2020
+  first: false 
+  PhyTag: true
+  description:
+
+- School: Oxford University
+  Role: Participant 
+  Course: "Teaching in schools"
+  Date: 2016
+  first: false
+  PhyTag: true
+  description: An elective module about teaching in schools I took during my undergraduate.

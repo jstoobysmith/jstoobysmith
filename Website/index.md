@@ -3,9 +3,6 @@ layout: home
 title: 
 date: 2020-11-20 
 ---
-# This site is a work-in-progress
-This is a newer version of my old (costly) site, but it is not yet up-to date.
-
 ### Hi, I'm Joseph Tooby-Smith
 _Postdoctoral researcher in computer science at Reykjavik University_
 

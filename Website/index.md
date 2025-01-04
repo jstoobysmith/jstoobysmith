@@ -6,8 +6,9 @@ date: 2020-11-20
 ### Hi, I'm Joseph Tooby-Smith
 _Postdoctoral researcher in computer science at Reykjavik University_
 
+My research explores the connection between computer science and physics. 
+In particular, I am interested in how proof assistants like Lean 4 can be used 
+effectively in the physical sciences. 
 
-My current research revolves around the functional programming language Lean 4. I am working on a project to digitalise results from high energy physics in Lean 4. More details about this project, called HepLean.
-
-I'd love more people to get involved in this program - if you would like to feel free to get in touch, or make a pull-request to that repository. 
-
+To this end, I have developed a program called [HepLean](https://github.com/HEPLean/HepLean). 
+I'd love more people to get involved in this program - so please get in touch if you are interested!

@@ -20,7 +20,7 @@
 
 - name: Talks
   id: talks
-  description: Talks I have given (not up-to-date).
+  description: Talks I have given.
   content: 
   url: 
   first: false

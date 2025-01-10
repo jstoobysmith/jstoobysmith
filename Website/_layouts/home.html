@@ -198,6 +198,9 @@ layout: default
                       {% if courses.MathTag == true %}
                       <p class="badge badge-primary" style="background-color: rgba(0, 128, 128, 0.1);color: #008080;">Math</p> 
                       {% endif %}
+                      {% if talk.Video and talk.Video != empty %}
+                      <a href="{{ talk.Video }}" class="badge badge-primary" style="background-color: rgba(78, 34, 208, 0.1);color: #4e22d0;">🎥</a>
+                      {% endif %}
                       </div>
                     </div>
                     {% endfor %}

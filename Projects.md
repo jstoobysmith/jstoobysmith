@@ -37,7 +37,7 @@ HepLean currently contains an implementation of index
 ## Dirac deltas 
 The phycisists use of Dirac delta 'functions' is very liberal. This project would determine 
     the best way for phycisists to use Dirac delta in a formal proof assistant and develop 
-    the best  technology to enable this to happen. 
+    the best technology to enable this to happen. 
 
 ## Feynman diagrams (currently in progress)
 I want to formalize Feynman diagrams in Lean, and this project is currently 

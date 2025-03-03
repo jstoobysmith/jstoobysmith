@@ -13,5 +13,5 @@ and how we can improve the quality and storage of results from the physical scie
 In particular, I am interested in how proof assistants like Lean 4 can be used 
 effectively in the physical sciences. 
 
-To this end, I have developed a program called [HepLean](https://github.com/HEPLean/HepLean). 
+To this end, I have developed a program called [PhysLean](heplean.com). 
 I'd love more people to get involved in this program - so please get in touch if you are interested!

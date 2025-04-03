@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>PhysLean</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/monokai.min.css">
+
+   
+<!-- 
+All code within this file is part of the PhysLean project.
+See there for the licence under which it is released. 
+
+-->
+<!-- See the following for a nice example: https://eric-wieser.github.io/cicm-2023/#/ -->
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+         
+<!-- Title slide. -->            
+<section style="color: #333;">
+    <img src="Images/PhysLeanLogo.jpeg" style="border: 4px solid #666; border-radius: 15px; padding: 15px; max-width: 400px; margin: 20px auto; display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transform: rotate(-3deg); transition: transform 0.3s ease;" 
+    onmouseover="this.style.transform='rotate(3deg)'" 
+    onmouseout="this.style.transform='rotate(-3deg)'">
+    <p>Physics and Lean</p>
+    <p><small>Joseph Tooby-Smith</small></p>
+    <p><small>Reykyjavik University</small></p>
+</section>
+
+<section> 
+    <h2 style="color: #4ca1af; text-align: center; margin-bottom: 12px; font-size: 1.1em;">Information</h2>
+    <!-- Yuval Noah Harari's quote. -->
+    <section> 
+        <blockquote style="font-style: italic; border-left: 4px solid #666; margin: 20px; padding-left: 15px; color: #333;">
+            "The quality of information is <strong>decreasing</strong> with time."
+            <br>
+            <small>- Yuval Noah Harari in Nexus (paraphrased).</small>
+        </blockquote>
+    </section>
+    <!-- My quote. -->
+    <section>
+        <blockquote style="font-style: italic; border-left: 4px solid #666; margin: 20px; padding-left: 15px; color: #333;">
+            "This is also true in academia."
+            <br>
+            <small>- Me in this talk.</small>
+        </blockquote>
+    </section>
+    <!-- The proof. -->
+    <section>
+        <div style="border-left: 4px solid #666; margin: 20px; padding-left: 15px; color: #333; text-align: left;">
+            Proof:
+        </div>
+        <div style="margin: 20px; text-align: center;">
+            Papers published in high energy physics:
+        </div>
+        <div class="fragment">
+            In 2013 (41,584)
+            <progress value = "41584" max="100000" style="width: 100%; height: 20px;"></progress>
+        </div>
+        
+        <div class="fragment">
+            In 2024 (65,651)
+            <progress value = "65651" max="100000" style="width: 100%; height: 20px;"></progress>
+        </div>
+    </section>
+    <!-- How do we flatten the curve? -->
+    <section> 
+        <div style="background-color: #f5f5f5; padding: 20px; border-radius: 10px; border: 2px solid #666; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            <h3 style="color: #af774c; margin-bottom: 15px;">Question:</h3>
+            <p style="font-size: 1.2em; color: #333;">
+            How do we flatten the curve?
+            </p>
+            <small style="font-style: italic;"> 
+            That is, how do we ensure information quality does not decrease in time.
+            </small>
+        </div>
+        <br>
+        <div class="fragment"
+            style="background-color: #f5f5f5; padding: 20px; border-radius: 10px; border: 2px solid #666; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            <h3 style="color: #af774c; margin-bottom: 15px;">Mathematicians Answer:</h3>
+            <p style="font-size: 1.2em; color: #333;">
+                Use proof assistants
+            </p>
+            <small style="font-style: italic;">
+                Lean, Rocq, Agada, etc.
+            </small>
+        </div>
+    </section>
+    <!-- Other subjects. -->
+     <section data-auto-animate>
+        What about other subjects?
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 20px; padding: 20px;">
+            <div 
+                style="background-color: #2c3e50; color: #fff; padding: 15px; border-radius: 8px; text-align: center; font-size: 0.9em;">
+                Mathematics 
+            </div>
+            <div 
+                style="background-color: #e74c3c; color: #fff; padding: 15px; border-radius: 8px; text-align: center; font-size: 0.9em;">
+                History
+
+            </div>
+            <div 
+                style="background-color: #2c3e50; color: #fff; padding: 15px; border-radius: 8px; text-align: center; font-size: 0.9em;">
+                Sports Science
+            </div>
+            <div
+                style="background-color: #e74c3c; color: #fff; padding: 15px; border-radius: 8px; text-align: center; font-size: 0.9em;">
+                Biology
+            </div>
+            <div 
+                style="background-color: #2c3e50; color: #fff; padding: 15px; border-radius: 8px; text-align: center; font-size: 0.9em;">
+                Physics
+            </div>
+            <div 
+                style="background-color: #e74c3c; color: #fff; padding: 15px; border-radius: 8px; text-align: center; font-size: 0.9em;">
+                Chemistry 
+            </div>
+            <div 
+                style="background-color: #2c3e50; color: #fff; padding: 15px; border-radius: 8px; text-align: center; font-size: 0.9em;">
+                Law
+            </div>
+            <div 
+                style="background-color: #e74c3c; color: #fff; padding: 15px; border-radius: 8px; text-align: center; font-size: 0.9em;">
+                English
+            </div>
+            <div 
+                style="background-color: #2c3e50; color: #fff; padding: 15px; border-radius: 8px; text-align: center; font-size: 0.9em;">
+                Geography
+            </div>
+        </div>
+     </section>
+    <section data-auto-animate>
+        What about other subjects?
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 20px; padding: 20px;">
+            <div
+                style="background-color: #2c3e50; color: #fff; padding: 15px; border-radius: 8px; text-align: center; font-size: 0.9em;">
+                Mathematics
+            </div>
+            <div
+                style="background-color: #e74c3c; color: #fff; padding: 15px; border-radius: 8px; text-align: center; font-size: 0.9em;">
+                History
+    
+            </div>
+            <div
+                style="background-color: #2c3e50; color: #fff; padding: 15px; border-radius: 8px; text-align: center; font-size: 0.9em;">
+                Sports Science
+            </div>
+            <div
+                style="background-color: #e74c3c; color: #fff; padding: 15px; border-radius: 8px; text-align: center; font-size: 0.9em;">
+                Biology
+            </div>
+            <div 
+                style="background-color: #0000ff; color: #fff; padding: 15px; border-radius: 8px; text-align: center; font-size: 0.9em;">
+                Physics
+            </div>
+            <div
+                style="background-color: #e74c3c; color: #fff; padding: 15px; border-radius: 8px; text-align: center; font-size: 0.9em;">
+                Chemistry
+            </div>
+            <div
+                style="background-color: #2c3e50; color: #fff; padding: 15px; border-radius: 8px; text-align: center; font-size: 0.9em;">
+                Law
+            </div>
+            <div
+                style="background-color: #e74c3c; color: #fff; padding: 15px; border-radius: 8px; text-align: center; font-size: 0.9em;">
+                English
+            </div>
+            <div
+                style="background-color: #2c3e50; color: #fff; padding: 15px; border-radius: 8px; text-align: center; font-size: 0.9em;">
+                Geography
+            </div>
+        </div>
+    </section>
+</section>
+
+
+<!-- PhysLean -->
+<section> 
+   <h2>PhysLean</h2> 
+    <section>
+        <img src="Images/PhysLeanHome.png" style="border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);  margin: 20px auto; display: block;">
+    </section>
+    <section>
+        <img src="Images/PhysLeanDirectories.png" style="border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); max-width: 100%; height: auto; margin: 20px auto; display: block; image-rendering: crisp-edges;">
+    </section>
+    <section>
+        <img src="Images/PhysLeanWebpage.png" style="border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); max-width: 100%; height: auto; margin: 20px auto; display: block; image-rendering: crisp-edges;">
+    </section>
+</section>
+
+<!-- The vision of the project. -->
+
+<section>
+    <h2 style="color: #af774c; text-align: center; margin-bottom: 12px; font-size: 1.1em;">The Vision</h2>
+    <section>
+    A repo like Mathlib but for Physics containing: 
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 20px; padding: 20px;">
+        <div class="fragment" style="background-color: #af774c; color: #fff; padding: 15px; border-radius: 8px; text-align: center; font-size: 0.9em;">
+            Fundamental theorems and definitions covering physics.
+        </div>
+        <div class="fragment" style="background-color: #4ca1af; color: #fff; padding: 15px; border-radius: 8px; text-align: center; font-size: 0.9em;">
+            Computable definitions.
+        </div>
+        <div class="fragment" style="background-color: #af774c; color: #fff; padding: 15px; border-radius: 8px; text-align: center; font-size: 0.9em;">
+            Interface with programs and simulations.
+        </div>
+        <div class="fragment" style="background-color: #4ca1af; color: #fff; padding: 15px; border-radius: 8px; text-align: center; font-size: 0.9em;">
+            Interface with experimental data
+        </div>
+        <div class="fragment" style="background-color: #af774c; color: #fff; padding: 15px; border-radius: 8px; text-align: center; font-size: 0.9em;">
+            Extensive physics based documentation (AI?).
+        </div>
+    </div>
+    </section>
+    <section>
+    The repo should:
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 20px; padding: 20px;">
+        <div class="fragment"
+            style="background-color: #af774c; color: #fff; padding: 15px; border-radius: 8px; text-align: center;">
+            Be organized by physics principals.
+        </div>
+        <div class="fragment"
+            style="background-color: #4ca1af; color: #fff; padding: 15px; border-radius: 8px; text-align: center;">
+            Look like physics.
+        </div>
+        <div class="fragment"
+            style="background-color: #af774c; color: #fff; padding: 15px; border-radius: 8px; text-align: center;">
+            Be searchable. 
+        </div>
+        <div class="fragment"
+            style="background-color: #4ca1af; color: #fff; padding: 15px; border-radius: 8px; text-align: center;">
+            Be useful to the uniniated.
+        </div>
+        <div class="fragment"
+            style="background-color: #af774c; color: #fff; padding: 15px; border-radius: 8px; text-align: center;">
+            Have a large community behind it.
+        </div>
+    </div>
+    </section>
+</section>
+           
+
+
+<!-- Linkedin post slide. -->
+<section> 
+    <h2>Sods law: </h2>
+    <div style="display: flex; justify-content: space-around; align-items: center;">
+        <div class="fragment">
+            <img src="Images/LinkedinPost1.png" style="width: 400px; border: 4px solid #666; border-radius: 10px;">
+        </div>
+        <div class="fragment">
+            <img src="Images/LinkedinPost2.png" style="width: 400px; border: 4px solid #666; border-radius: 10px;">
+        </div>
+    </div>
+</section>
+
+<section> 
+    <h2 style="color: #4ca1af; text-align: center; margin-bottom: 20px;">What's to come</h2>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 20px;">
+        <div class="fragment" 
+            style="background-color: #f5f5f5; padding: 20px; border-radius: 10px; border: 2px solid #4ca1af; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            <h3 style="color: #4ca1af; margin-bottom: 10px;">Maxwell's Equations</h3>
+        </div>
+        <div class="fragment"
+            style="background-color: #f5f5f5; padding: 20px; border-radius: 10px; border: 2px solid #4ca1af; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            <h3 style="color: #4ca1af; margin-bottom: 10px;">Twin's Paradox</h3>
+        </div>
+        <div class="fragment"
+            style="background-color: #f5f5f5; padding: 20px; border-radius: 10px; border: 2px solid #4ca1af; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            <h3 style="color: #4ca1af; margin-bottom: 10px;">Quantum harmonic oscillator</h3>
+        </div>
+        
+    </div>
+    <div class="fragment"
+        style="background-color: #f5f5f5; padding: 20px; border-radius: 10px; border: 2px solid #4ca1af; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center;">
+        <h3 style="color: #af774c; margin-bottom: 10px;">Feynman diagrams</h3>
+    </div>
+</section>
+
+<!--  Maxwell's equations. -->
+<section>
+    <h2>Maxwell's equations</h2>
+
+    <!-- Photo of Maxwell. -->
+    <section>
+    <div style="text-align: left;">James Clerk Maxwell (1831-1879):</div>
+     <img src="Images/Maxwell.jpg"
+            style="border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); height: 500px; margin: 20px auto; display: block;">
+    </section>
+
+    <!-- Electric and magnetic fields. -->
+    <section>
+        <div style="text-align: left;">The electric and magnetic fields:</div>
+        <pre style="border: 2px solid #ccc; padding: 10px; border-radius: 5px;">
+        <code data-trim data-noescape class="language-lean">
+            /-- The electric field is a map from `d`+1 dimensional spacetime to the vector space
+                `ℝ^d`. -/
+            abbrev ElectricField (d : ℕ := 3) := SpaceTime d → EuclideanSpace ℝ (Fin d)
+            
+            /-- The magnetic field is a map from `d+1` dimensional spacetime to the vector space
+                `ℝ^d`. -/
+            abbrev MagneticField (d : ℕ := 3) := SpaceTime d → EuclideanSpace ℝ (Fin d)
+        </code>
+        </pre>
+    </section>
+
+    <!-- Maxwell's equations -->
+    <section>
+        <div style="text-align: left;">The equtions:</div>
+        <pre style="border: 2px solid #ccc; padding: 10px; border-radius: 5px;">
+        <code data-trim data-noescape class="language-lean">
+            variable (𝓔 : EMSystem) (ρ : ChargeDensity) (J : CurrentDensity)
+            
+            local notation "ε₀" => 𝓔.ε₀
+            local notation "μ₀" => 𝓔.μ
+
+            /-- Gauss's law for the Electric field. -/
+            def GaussLawElectric (E : ElectricField) : Prop :=
+                ∀ x : SpaceTime, ε₀ * (∇⬝ E) x = ρ x
+            
+            /-- Gauss's law for the Magnetic field. -/
+            def GaussLawMagnetic (B : MagneticField) : Prop :=
+                ∀ x : SpaceTime, (∇⬝ B) x = 0
+            
+            /-- Ampère's law. -/
+            def AmpereLaw (E : ElectricField) (B : MagneticField) : Prop :=
+                ∀ x : SpaceTime, ∇× B x = μ₀ • (J x + ε₀ • ∂ₜ E x)
+            
+            /-- Faraday's law. -/
+            def FaradayLaw (E : ElectricField) (B : MagneticField) : Prop :=
+                ∀ x : SpaceTime, ∇× E x = - ∂ₜ B x
+            
+            /-- Maxwell's equations. -/
+            def MaxwellEquations (E : ElectricField) (B : MagneticField) : Prop :=
+                GaussLawElectric 𝓔 ρ E ∧ GaussLawMagnetic B ∧
+                FaradayLaw E B ∧ AmpereLaw 𝓔 J E B
+        </code>
+        </pre>
+    </section>
+
+</section>
+<!-- Twin's paraox-->
+<section> 
+    <h2>Twin's paradox </h2>
+    <section >
+        <pre style="border: 2px solid #ccc; padding: 10px; border-radius: 5px;">
+        <code data-trim data-noescape class="language-lean">
+            /-- The twin paradox assuming instantaneous acceleration. -/
+            structure InstantaneousTwinParadox where
+                /-- The starting point of both twins. -/
+                startPoint : SpaceTime 3
+                /-- The end point of both twins. -/
+                endPoint : SpaceTime 3
+                /-- The point twin B travels to between the start point and the end point. -/
+                twinBMid : SpaceTime 3
+                endPoint_causallyFollows_startPoint : causallyFollows startPoint endPoint
+                twinBMid_causallyFollows_startPoint : causallyFollows startPoint twinBMid
+                endPoint_causallyFollows_twinBMid : causallyFollows twinBMid endPoint
+        </code>
+        </pre>
+    </section>
+
+            <section > 
+            <pre style="border: 2px solid #ccc; padding: 10px; border-radius: 5px;"><code data-trim data-noescape class="language-lean">
+              variable (T : InstantaneousTwinParadox)
+
+              /-- The proper time experienced by twin A travelling at constant speed
+                from `T.startPoint` to `T.endPoint`. -/
+              def properTimeTwinA : ℝ := SpaceTime.properTime T.startPoint T.endPoint
+              
+              /-- The proper time experienced by twin B travelling at constant speed
+                from `T.startPoint` to `T.twinBMid`, and then from `T.twinBMid`
+                to `T.endPoint`. -/
+              def properTimeTwinB : ℝ := SpaceTime.properTime T.startPoint T.twinBMid +
+                SpaceTime.properTime T.twinBMid T.endPoint
+              
+              /-- The proper time of twin A minus the proper time of twin B. -/
+              def ageGap : ℝ := T.properTimeTwinA - T.properTimeTwinB
+              </code></pre>
+            </section>
+
+            <section> 
+                <pre style="border: 2px solid #ccc; padding: 10px; border-radius: 5px;"><code data-trim data-noescape class="language-lean">
+                    def example1 : InstantaneousTwinParadox where
+                        startPoint := 0
+                        endPoint := toCoord.symm (fun
+                            | Sum.inl 0 => 15
+                            | Sum.inr i => 0)
+                        twinBMid := toCoord.symm (fun
+                            | Sum.inl 0 => 7.5
+                            | Sum.inr 0 => 6
+                            | Sum.inr i => 0)
+                        endPoint_causallyFollows_startPoint := by...
+                        twinBMid_causallyFollows_startPoint := by...
+                        endPoint_causallyFollows_twinBMid := by...
+                        norm_num
+                  </code></pre>
+            </section>
+
+            <section>
+                <pre style="border: 2px solid #ccc; padding: 10px; border-radius: 5px;"><code data-trim data-noescape class="language-lean">
+@[simp]
+lemma example1_properTimeTwinA : example1.properTimeTwinA = 15 := by
+  simp [properTimeTwinA, example1, properTime, innerProduct_toCoord]
+
+@[simp]
+lemma example1_properTimeTwinB : example1.properTimeTwinB = 9 := by
+  simp only [properTimeTwinB, properTime, example1, sub_zero, innerProduct_toCoord, Fin.isValue,
+    LinearEquiv.apply_symm_apply, Fin.sum_univ_three, mul_zero, add_zero, map_sub, Pi.sub_apply,
+    zero_sub, mul_neg, neg_mul, neg_neg]
+  rw [show √(7.5 * 7.5 - 6 * 6) = √20.25 by norm_num]
+  rw [show √((15 - 7.5) * (15 - 7.5) - 6 * 6) = √20.25 by norm_num]
+  rw [show √20.25 = 4.5 from sqrt_eq_cases.mpr (by norm_num)]
+  norm_num
+
+lemma example1_ageGap : example1.ageGap = 6 := by
+  simp [ageGap]
+  norm_num
+  norm_num
+                  </code></pre>
+            </section>
+
+            </section>
+
+
+<!-- Quantum harmonic oscillator. -->
+<section> 
+    <h2>Quantum harmonic oscillator</h2>
+
+</section>
+
+
+<!-- Richard Feynman. -->
+<section> 
+    <h2>Any guesses?</h2>
+    <img src="Images/Richard_Feynman_Nobel.jpg" style="border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); max-width: 40%; height: auto; margin: 20px auto; display: block;">
+</section>
+
+<section> 
+    <h2>Feynman diagrams</h2>
+
+    <section> 
+        <blockquote style="font-style: italic; border-left: 4px solid #666; margin: 20px; padding-left: 15px; color: #333;">
+            "Many things in physics reduce to simple problems in computer science and mathematics." 
+            <br>
+            <small>- Also me in this talk.</small>
+        </blockquote>
+    </section>
+
+    <section> 
+        <pre style="border: 2px solid #ccc; padding: 10px; border-radius: 5px;">
+        <code data-trim data-noescape class="language-lean">
+            def WickContraction (n : ℕ) : Type :=
+                {f : Finset ((Finset (Fin n))) // (∀ a ∈ f, a.card = 2) ∧
+                (∀ a ∈ f, ∀ b ∈ f, a = b ∨ Disjoint a b)}
+        </code>
+        </pre>
+    </section>
+
+    <section> 
+        <pre style="border: 2px solid #ccc; padding: 10px; border-radius: 5px;">
+        <code data-trim data-noescape class="language-lean">
+            lemma mem_three (c : WickContraction 3) : c.1 ∈ ({∅, {{0, 1}}, {{0, 2}}, {{1, 2}}} :
+                Finset (Finset (Finset (Fin 3)))) := by...
+        
+            lemma mem_four (c : WickContraction 4) : c.1 ∈ ({∅,
+                {{0, 1}}, {{0, 2}}, {{0, 3}}, {{1, 2}}, {{1, 3}}, {{2,3}},
+                {{0, 1}, {2, 3}}, {{0, 2}, {1, 3}}, {{0, 3}, {1, 2}}} :
+                Finset (Finset (Finset (Fin 4)))) := by ...
+        </code>
+        </pre>
+    </section>
+
+    <section>
+        <pre style="border: 2px solid #ccc; padding: 10px; border-radius: 5px;">
+        <code data-trim data-noescape class="language-lean">
+            def sign (φs : List 𝓕.FieldOp) (φsΛ : WickContraction φs.length) : ℂ :=
+                ∏ (a : φsΛ.1), 𝓢(𝓕 |>ₛ φs[φsΛ.sndFieldOfContract a],
+                𝓕 |>ₛ ⟨φs.get, φsΛ.signFinset (φsΛ.fstFieldOfContract a) (φsΛ.sndFieldOfContract a)⟩)
+        </code>
+        </pre>
+    </section>
+
+</section>
+
+
+</div>
+</div>
+
+<script src="dist/reveal.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script src="plugin/math/math.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="js/lean.min.js"></script>
+  <script src="js/lean-goal.js"></script>
+  <script src="js/merge-html.js"></script>
+  <script src="js/inline_svg.js"></script>
+  <script>
+    RevealHighlight().hljs.addPlugin(mergeHTMLPlugin);
+    Reveal.initialize({
+      mathjax3: {
+        mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js',
+        loader: {load: ['[tex]/mathtools', '[tex]/centernot']},
+        tex: {
+          packages: {'[+]': ['mathtools', 'centernot']},
+        },
+        chtml: {
+          mtextFont: 'Source Sans Pro',
+        },
+        options: {
+          skipHtmlTags: {'[-]': ['code', 'pre']},
+        },
+      },
+      katex: {
+        macros: {
+          "\\smallunderbrace":
+            String.raw`{\tiny\underbrace{\huge{#1}}_{\huge\scriptsize#2}}`
+        },
+        trust: true,
+        strict: false,
+        ignoredTags: ['script', 'noscript', 'style'],
+      },
+      plugins: [
+        RevealInlineSvg,
+        RevealHighlight,
+        RevealMath.KaTeX,
+        RevealNotes,
+      ],
+      history: true,
+      center: false,
+      // defaultTiming: 40,
+      // slideNumber: 'c/t',
+      // width: 1280*0.96,
+      // height: 1024*0.96,
+      // width: 1856,
+      // height: 1016,
+      margin: 0.04,
+      navigationMode: 'linear',
+      totalTime: 25*60,
+      // showNotes: 'separate-page'
+        autoAnimateEasing: 'ease-out',
+        autoAnimateDuration: 0.8,
+        autoAnimateUnmatched: false,
+    });
+  </script>
+</body>
+</html>

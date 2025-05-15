@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html>
+
+  <!--
+Title: Interactive theorem provers and mathematics
+Abstract:
+ Interactive theorem provers are gaining popularity and becoming increasingly powerful.
+ In this talk, I will introduce what interactive theorem provers are and explain how they are being
+ used in mathematics. I will also discuss the future of interactive theorem provers and the
+ potential role artificial intelligence may play in their story.
+  -->
+
+<head>
+
+  <meta charset="utf-8">
+  <title>Interactive theorem provers and mathematics</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/monokai.min.css">
+
+<style>
+  .reveal h1,
+  .reveal h2,
+  .reveal h3,
+  .reveal h4,
+  .reveal h5,
+  .reveal h6 {
+    text-transform: none;
+  }
+</style>
+
+<style>
+  pre code {
+    font-size: 0.7em !important;
+  }
+</style>
+  <!-- See the following for a nice example: https://eric-wieser.github.io/cicm-2023/#/ -->
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<!-- Title slide. -->
+<section style="color: #333;">
+  <div style="margin-top: 150px;">
+    <pre style="border: 2px solid #ccc; padding: 15px; border-radius: 5px; width: 90%;
+      transform: rotate(-3deg); transition: transform 0.3s ease;"
+      onmouseover="this.style.transform='rotate(3deg)'"
+      onmouseout="this.style.transform='rotate(-3deg)'">
+    <code data-trim data-noescape class="language-lean" style="font-size: 1em !important;">
+    def thisTalk : Talk where
+      title := "Interactive theorem provers and mathematics"
+      presenter := "Joseph Tooby-Smith"
+      date := "15th May 2025"
+      location := "Reykjavik, Iceland"
+    </code>
+    </pre>
+  </div>
+</section>
+
+<!------------------------------------>
+<!------------------------------------>
+<!------------------------------------>
+<!------------------------------------>
+
+<!-- Overview slide with timeline -->
+<section>
+  <h2 style="font-family: 'Times New Roman', serif;">Talk Overview</h2>
+  <div style="position: relative; width: 90%; margin: 0 auto; padding-top: 50px;">
+    <!-- Timeline bar -->
+    <div style="position: relative; height: 4px; background-color: #a87c4f; border-radius: 0; margin: 60px 0; border-top: 1px dashed #654321; border-bottom: 1px dashed #654321;">
+      <!-- Timeline markers -->
+      <div style="position: absolute; left: 0%; top: -8px; width: 16px; height: 16px; background-color: #8b4513; border-radius: 0; border: 2px solid #5e2612;"></div>
+      <div style="position: absolute; left: 50%; top: -8px; width: 16px; height: 16px; background-color: #8b4513; border-radius: 0; border: 2px solid #5e2612; transform: translateX(-50%);"></div>
+      <div style="position: absolute; left: 100%; top: -8px; width: 16px; height: 16px; background-color: #8b4513; border-radius: 0; border: 2px solid #5e2612; transform: translateX(-100%);"></div>
+
+      <!-- Timeline content -->
+      <div style="position: absolute; left: 0%; top: -80px; width: 30%; text-align: center; transform: translateX(-15%);">
+        <h3 style="color: #5e2612; margin-bottom: 10px; font-family: 'Times New Roman', serif;">Part I</h3>
+        <p style="font-family: 'Times New Roman', serif;">What is an interactive theorem prover?</p>
+      </div>
+
+      <div style="position: absolute; left: 50%; top: -80px; width: 30%; text-align: center; transform: translateX(-50%);">
+        <h3 style="color: #5e2612; margin-bottom: 10px; font-family: 'Times New Roman', serif;">Part II</h3>
+        <p style="font-family: 'Times New Roman', serif;">The past</p>
+      </div>
+
+      <div style="position: absolute; left: 100%; top: -80px; width: 30%; text-align: center; transform: translateX(-85%);">
+        <h3 style="color: #5e2612; margin-bottom: 10px; font-family: 'Times New Roman', serif;">Part III</h3>
+        <p style="font-family: 'Times New Roman', serif;">The future</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Section 1 -->
+<section>
+<!-- Story 1: The Knight Capital Group Incident -->
+<section data-auto-animate>
+  <div style="display: flex; align-items: center; justify-content: space-between; margin: 30px auto; max-width: 90%;">
+    <div style="flex: 1; background-color: #f8f5f2; padding: 30px; border-radius: 8px; border-left: 5px solid #3a5a78; box-shadow: 0 6px 12px rgba(0,0,0,0.08);">
+      <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 20px; text-align: center; font-weight: 600;">Story 1</h2>
+      <h3 style="font-family: 'Georgia', serif; color: #333; text-align: center; line-height: 1.4;">The Knight Capital Group Incident</h3>
+    </div>
+    <div style="flex: 1; text-align: center; margin-left: 40px;">
+      <img src="./Images/BugInCodeChatGPT.png" alt="Bug in code illustration" style="max-width: 100%; max-height: 400px; border-radius: 6px; box-shadow: 0 8px 16px rgba(0,0,0,0.15); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+    </div>
+  </div>
+  <aside class="notes">
+    1st August 2012,
+    Tech forgot to update one of 8 servers.
+    440 million dollars lost in 45 minutes.
+  </aside>
+</section>
+<!-- Story 2: The arXiv paper hep-ph/0512212. -->
+<section data-auto-animate>
+  <div style="text-align: center; margin: 20px auto; max-width: 90%;">
+    <div style="background-color: #f8f5f2; padding: 15px; border-radius: 5px; border-left: 3px solid #3a5a78; box-shadow: 0 3px 6px rgba(0,0,0,0.08);">
+      <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 10px; font-size: 0.9em;">Story 2: The arXiv paper hep-ph/0512212</h2>
+      <!-- Equations will appear and then disappear -->
+      <div style="position: relative; height: 40px; margin: 10px 0;">
+        <p class="fragment fade-in-then-out" data-fragment-index="1" style="position: absolute; width: 100%; margin: 0; font-size: 0.8em; text-align: left;">$E = A_1 + A_2 + A_3 + \ldots + A_n$</p>
+        <p class="fragment fade-in-then-out" data-fragment-index="2" style="position: absolute; width: 100%; margin: 0; font-size: 0.8em; text-align: left;">$E = A_1 + A_2 + A_3 + \ldots + A_n + B_1 + B_2$</p>
+        <p class="fragment fade-in-then-out" data-fragment-index="3" style="position: absolute; width: 100%; margin: 0; font-size: 0.8em; text-align: left;">$E = A_1 + A_2 + A_3 + \ldots + A_n$</p>
+        <p class="fragment fade-in" data-fragment-index="4" style="position: absolute; width: 100%; margin: 0; font-size: 0.8em; text-align: left;">$E = A_1 + A_2 + A_3 + \ldots + A_n + B_1 + B_2$</p>
+      </div>
+    </div>
+  </div>
+  <div style="position: relative; height: 700px; margin: 0 auto;">
+    <!-- Images with fragment classes to control appearance -->
+    <img src="./Images/arxiv_0512212/first.png" alt="First version"
+      class="fragment fade-in" data-fragment-index="1"
+      style="position: absolute; left: 50%; transform: translateX(-50%); top: 0; z-index: 1;
+      max-width: 100%; max-height: 400px; border-radius: 6px; box-shadow: 0 8px 16px rgba(0,0,0,0.15);">
+    <img src="./Images/arxiv_0512212/second.png" alt="Reply"
+      class="fragment fade-in" data-fragment-index="2"
+      style="position: absolute; left: 50%; transform: translateX(-50%); top: 100px; z-index: 2;
+      max-width: 100%; max-height: 400px; border-radius: 6px; box-shadow: 0 8px 16px rgba(0,0,0,0.15);">
+    <img src="./Images/arxiv_0512212/third.png" alt="Reply to reply"
+      class="fragment fade-in" data-fragment-index="3"
+      style="position: absolute; left: 50%; transform: translateX(-50%); top: 200px; z-index: 3;
+      max-width: 100%; max-height: 400px; border-radius: 6px; box-shadow: 0 8px 16px rgba(0,0,0,0.15);">
+    <img src="./Images/arxiv_0512212/fourth.png" alt="Reply to reply to reply"
+      class="fragment fade-in" data-fragment-index="4"
+      style="position: absolute; left: 50%; transform: translateX(-50%); top: 300px; z-index: 4;
+      max-width: 100%; max-height: 400px; border-radius: 6px; box-shadow: 0 8px 16px rgba(0,0,0,0.15);">
+  </div>
+</section>
+<section>
+  <!-- Story 3: My paper -->
+  <img src="./Images/myPaperBug.png" alt="Academic paper illustration" style="max-width: 100%; max-height: 650px; border-radius: 6px; box-shadow: 0 8px 16px rgba(0,0,0,0.15); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+</section>
+
+<section>
+  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; text-align: center; margin-bottom: 30px; font-weight: 600;">
+    Different Manifestations of the Same Problem
+  </h2>
+      <div style="display: flex; justify-content: center; max-width: 90%; margin: 0 auto;">
+        <textarea placeholder="Something like latex..." style="width: 100%; height: 400px; padding: 15px; border: 2px solid #ddd; border-radius: 6px; font-size: 1.1em; box-sizing: border-box; resize: vertical; font-family: 'Georgia', serif; box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);"></textarea>
+      </div>
+
+</section>
+<!-- Different manifestations of common solution: Correct by construction. -->
+<section data-auto-animate>
+  <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 40px; border-radius: 10px; box-shadow: 0 8px 30px rgba(0,0,0,0.12); margin: 0 auto; max-width: 90%;">
+    <h2 style="font-family: 'Georgia', serif; color: #3a5a78; text-align: center; margin-bottom: 30px; font-weight: 600;">
+      A solution
+    </h2>
+    <div class="fragment fade-in" style="text-align: center; margin: 20px 0;">
+      <span style="display: inline-block; background-color: #4c6ef5; color: white; font-size: 1.4em; padding: 15px 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(76,110,245,0.3); transform: rotate(-3deg);">
+       Correct by construction
+      </span>
+    </div>
+    <p class="fragment fade-in" >Proof assistants</p>
+</section>
+<!-- The different proof assistants. -->
+<section >
+<section data-auto-animate></section>
+  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; text-align: center; margin-bottom: 30px;">Popular Proof Assistants</h2>
+
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 100px; margin: 0 auto; max-width: 90%;">
+    <!-- Coq -->
+    <div style="flex: 1; min-width: 250px; background: linear-gradient(to right, #2c3e50 0%, #2c3e50 5px, #f8f9fa 5px, #f8f9fa 100%);
+          padding: 25px; border-radius: 10px; box-shadow: 0 6px 16px rgba(0,0,0,0.1); transition: transform 0.3s ease;"
+          onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+      <h3 style="margin-top: 0; color: #2c3e50; font-weight: 600; border-bottom: 2px solid rgba(44, 62, 80, 0.2); padding-bottom: 10px;">Rocq</h3>
+    </div>
+
+    <!-- Isabelle -->
+    <div style="flex: 1; min-width: 250px; background: linear-gradient(to right, #8e44ad 0%, #8e44ad 5px, #f8f9fa 5px, #f8f9fa 100%);
+          padding: 25px; border-radius: 10px; box-shadow: 0 6px 16px rgba(0,0,0,0.1); transition: transform 0.3s ease;"
+          onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+      <h3 style="margin-top: 0; color: #8e44ad; font-weight: 600; border-bottom: 2px solid rgba(142, 68, 173, 0.2); padding-bottom: 10px;">Isabelle/HOL</h3>
+    </div>
+
+    <!-- Lean -->
+    <div  style="flex: 1; min-width: 250px; background: linear-gradient(to right, #27ae60 0%, #27ae60 5px, #f8f9fa 5px, #f8f9fa 100%);
+          padding: 25px; border-radius: 10px; box-shadow: 0 6px 16px rgba(0,0,0,0.1); transition: transform 0.3s ease;"
+          onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+      <h3 style="margin-top: 0; color: #27ae60; font-weight: 600; border-bottom: 2px solid rgba(39, 174, 96, 0.2); padding-bottom: 10px;">Lean</h3>
+    </div>
+
+    <!-- Agda -->
+    <div style="flex: 1; min-width: 250px; background: linear-gradient(to right, #e74c3c 0%, #e74c3c 5px, #f8f9fa 5px, #f8f9fa 100%);
+          padding: 25px; border-radius: 10px; box-shadow: 0 6px 16px rgba(0,0,0,0.1); transition: transform 0.3s ease;"
+          onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+      <h3 style="margin-top: 0; color: #e74c3c; font-weight: 600; border-bottom: 2px solid rgba(231, 76, 60, 0.2); padding-bottom: 10px;">Agda</h3>
+    </div>
+  </div>
+</section>
+<!-- An example of Lean. -->
+<section>
+  <h2>An example of Lean</h2>
+  <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
+    <iframe src="https://live.lean-lang.org/#codez=JYWwDg9gTgLgBAWQIYwBYBtgCMBQf8GFHEAmApgGaICeAcinAFxwAq1YZTAvHFtXAGdoUangB2SEGQFgkAY04I6KPOSpISJJjXrxASYQ6GBpbu69+QqCNWU4IAK7ptJo4f1uzfQcNE50ZEBAkOA0SAH0kASE5OAAKYKw4GOYXGABKbVC4rISMmJ4c7M1eJIzGHi9LETg8NDJoALgoYDEAczCyAEdskpitZkASQjK4ELgAahKAKiTxuC1pmIBaUZ5YxImSDIXPURGq3zwAekWAQjxQSFhEFAxsc7ESezkYYAA3RWV4ZjYOHBGAHzgAC8yFAIM5Pn84ICBE9kh5jJCcBIpDJ5B9dDZ1MUUp84IjTASVAC4AA6EFggA0KwAfCEoYDSbC5DEsNTglw6Uy4XFUqSsokkGl8Go7I4IYSEW4GWSKRB2XBObLQRAZdyWbwFUqsvEMrEHE5BcK/AEgiFNBEohAYvFehKUMMdYUsHlFeatMF4sVEnIyhVdiM4C0YGDRj6oSMWo9nsAIGJRgB3YBoCPQ4EqxU01MjKAUdCpmE8+PAVCZ7NJVBINqcJ3FMTq1mugp1htFLQ+4WBwMCC5wOPofgAbVC1OZclJLQAVgBRToAXXLZAAHvJ4CX8HUGiAmi12l0ej65vb0tpRhNEtsNnBtssOXF1nMtjNyuYoWI43IIIEws02jhFocOBAA"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
+      allowfullscreen>
+    </iframe>
+  </div>
+  <div style="text-align: center; margin-top: 10px; font-size: 0.8em; color: #666;">
+    View at: https://<span style="color: #333;">josephtoobysmith</span>.<span style="color: #555;">com</span>/<span style="color: #777;">Slides</span>/<span style="color: #999;">Iceland2025</span>.<span style="color: #555;">html</span>
+  </div>
+</section>
+<section>
+  <h3 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 20px;">How Lean Works</h3>
+  <div style="background: linear-gradient(to right, #27ae60 0%, #27ae60 5px, #f8f5f2 5px, #f8f5f2 100%);
+              padding: 25px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08); max-width: 90%; margin: 0 auto;">
+    <ul style="list-style-type: none; padding-left: 5px; margin: 0;">
+      <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+        <span style="position: absolute; left: 0; color: #27ae60;">•</span> Define types by their terms
+      </li>
+      <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+        <span style="position: absolute; left: 0; color: #27ae60;">•</span> Create new types from existing ones
+      </li>
+      <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+        <span style="position: absolute; left: 0; color: #27ae60;">•</span> Propositions as types
+      </li>
+      <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+        <span style="position: absolute; left: 0; color: #27ae60;">•</span> Proofs are terms of proposition types
+      </li>
+      <li style="padding-left: 20px; position: relative;">
+        <span style="position: absolute; left: 0; color: #27ae60;">•</span> Uses axioms like function extensionality
+      </li>
+    </ul>
+  </div>
+</section>
+<section>
+  <h3 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 30px;">Advantages of Proof Assistants</h3>
+
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 90%; margin: 0 auto;">
+    <!-- Correctness -->
+    <div style="flex: 1 1 250px; min-height: 120px; background: linear-gradient(to right, #27ae60 0%, #27ae60 5px, #f8f5f2 5px, #f8f5f2 100%);
+          padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;"
+          onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.15)';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';">
+      <h4 style="margin-top: 0; color: #27ae60; font-weight: 600; border-bottom: 2px solid rgba(39, 174, 96, 0.2); padding-bottom: 10px;">Correctness</h4>
+    </div>
+
+    <!-- Tactic automation -->
+    <div data-fragment-index="1" style="flex: 1 1 250px; min-height: 120px; background: linear-gradient(to right, #3a5a78 0%, #3a5a78 5px, #f8f5f2 5px, #f8f5f2 100%);
+          padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;"
+          onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.15)';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';">
+      <h4 style="margin-top: 0; color: #3a5a78; font-weight: 600; border-bottom: 2px solid rgba(58, 90, 120, 0.2); padding-bottom: 10px;">Tactic Automation</h4>
+    </div>
+
+    <!-- Searchable -->
+    <div data-fragment-index="2" style="flex: 1 1 250px; min-height: 120px; background: linear-gradient(to right, #8e44ad 0%, #8e44ad 5px, #f8f5f2 5px, #f8f5f2 100%);
+          padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;"
+          onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.15)';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';">
+      <h4 style="margin-top: 0; color: #8e44ad; font-weight: 600; border-bottom: 2px solid rgba(142, 68, 173, 0.2); padding-bottom: 10px;">Searchable</h4>
+    </div>
+
+    <!-- Reusable -->
+    <div  data-fragment-index="3" style="flex: 1 1 250px; min-height: 120px; background: linear-gradient(to right, #e74c3c 0%, #e74c3c 5px, #f8f5f2 5px, #f8f5f2 100%);
+          padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;"
+          onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.15)';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';">
+      <h4 style="margin-top: 0; color: #e74c3c; font-weight: 600; border-bottom: 2px solid rgba(231, 76, 60, 0.2); padding-bottom: 10px;">Reusable</h4>
+    </div>
+
+    <!-- Executable -->
+    <div  data-fragment-index="4" style="flex: 1 1 250px; min-height: 120px; background: linear-gradient(to right, #f39c12 0%, #f39c12 5px, #f8f5f2 5px, #f8f5f2 100%);
+          padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;"
+          onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.15)';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';">
+      <h4 style="margin-top: 0; color: #f39c12; font-weight: 600; border-bottom: 2px solid rgba(243, 156, 18, 0.2); padding-bottom: 10px;">Executable</h4>
+    </div>
+  </div>
+</section>
+</section>
+
+<!-- Section 2: The history -->
+<section>
+<section>
+  <h2 style="font-family: 'Times New Roman', serif;">Talk Overview</h2>
+  <div style="position: relative; width: 90%; margin: 0 auto; padding-top: 50px;">
+    <!-- Timeline bar -->
+    <div
+      style="position: relative; height: 4px; background-color: #a87c4f; border-radius: 0; margin: 60px 0; border-top: 1px dashed #654321; border-bottom: 1px dashed #654321;">
+      <!-- Timeline markers -->
+      <div
+        style="position: absolute; left: 0%; top: -8px; width: 16px; height: 16px; background-color: #8b4513; border-radius: 0; border: 2px solid #5e2612;">
+      </div>
+      <div
+        style="position: absolute; left: 50%; top: -8px; width: 16px; height: 16px; background-color: #8b4513; border-radius: 0; border: 2px solid #5e2612; transform: translateX(-50%);">
+      </div>
+      <div
+        style="position: absolute; left: 100%; top: -8px; width: 16px; height: 16px; background-color: #8b4513; border-radius: 0; border: 2px solid #5e2612; transform: translateX(-100%);">
+      </div>
+
+      <!-- Timeline content -->
+      <div
+        style="position: absolute; left: 0%; top: -80px; width: 30%; text-align: center; transform: translateX(-15%);">
+        <h3 style="color: #5e2612; margin-bottom: 10px; font-family: 'Times New Roman', serif;">Part I</h3>
+        <p style="font-family: 'Times New Roman', serif;">What is an interactive theorem prover?</p>
+      </div>
+
+      <div
+        style="position: absolute; left: 50%; top: -80px; width: 30%; text-align: center; transform: translateX(-50%);">
+        <h3 style="color: #2b81af; margin-bottom: 10px; font-family: 'Times New Roman', serif;">Part II</h3>
+        <p style="font-family: 'Times New Roman', serif; color: #2b81af;">The past</p>
+      </div>
+
+      <div
+        style="position: absolute; left: 100%; top: -80px; width: 30%; text-align: center; transform: translateX(-85%);">
+        <h3 style="color: #5e2612; margin-bottom: 10px; font-family: 'Times New Roman', serif;">Part III</h3>
+        <p style="font-family: 'Times New Roman', serif;">The future</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; text-align: center; margin-bottom: 30px;">Two Eras of Formalization</h2>
+  <div style="display: flex; width: 90%; margin: 0 auto; height: 300px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <!-- Pre-2017 Era -->
+    <div style="flex: 1; background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%); display: flex; justify-content: center; align-items: center; position: relative; border-right: 2px dashed #999;">
+      <h2 style="font-family: 'Georgia', serif; color: #555; font-size: 1.8em;">Pre-2017</h2>
+    </div>
+
+    <!-- Post-2017 Era -->
+    <div style="flex: 1; background: linear-gradient(135deg, #e9f7ef 0%, #d5f5e3 100%); display: flex; justify-content: center; align-items: center; position: relative;">
+      <h2 style="font-family: 'Georgia', serif; color: #27ae60; font-size: 1.8em;">Post-2017</h2>
+    </div>
+  </div>
+</section>
+<section>
+  <h2>Pre-2017: Characterized by one-off projects</h2>
+  <ul>
+    <li>2004(Isabelle/HOL): Prime number theorem </li>
+    <li>2004(Rocq): Four color theorem</li>
+    <li>2005(Isabelle/HOL): Jordan Curve theorem</li>
+    <li>2013(Rocq): Odd order theorem</li>
+    <li>1998-2015(Isabelle/HOL): Kepler conjecture (Hales' proof)</li>
+  </ul>
+</section>
+<!--Jacob Lurie story. -->
+<section>
+  <h3 style="margin-bottom: 15px;">November 2014: Breakthrough Prize Ceremony</h3>
+  <div style="display: flex; flex-direction: column; max-width: 95%; margin: 0 auto;">
+    <!-- First row with main quote -->
+    <div style="background-color: #f8f5f2; padding: 15px; border-radius: 8px; border-left: 5px solid #3a5a78; box-shadow: 0 4px 8px rgba(0,0,0,0.08); width: 90%; margin: 0 auto 20px auto;">
+      <i style="font-family: 'Georgia', serif; font-size: 0.6em; font-style: italic; display: block;">
+      Is anyone willing to bet that computer-verified proofs will <i>not</i> be widespread in mathematics in 25 years?
+      </i>
+      <p style="text-align: right; margin-top: 5px; font-weight: 600; color: #555; font-size: 0.7em;">
+      — Yuri Milner (paraphrased)
+      </p>
+    </div>
+
+    <!-- Second row with Lurie and Taylor quotes side by side -->
+    <div style="display: flex; justify-content: space-between; width: 90%; margin: 0 auto 15px auto;">
+      <div style="background-color: #f8f5f2; padding: 12px; border-radius: 8px; border-left: 4px solid #27ae60; box-shadow: 0 3px 6px rgba(0,0,0,0.08); flex: 1; margin-right: 15px;">
+        <i class="fragment fade-in" style="font-family: 'Georgia', serif; font-size: 0.8em; font-style: italic; display: block;">
+          "I'll take that."
+        </i>
+        <p style="text-align: right; margin-top: 5px; font-weight: 600; color: #555; font-size: 0.7em;">
+          — Jacob Lurie
+        </p>
+      </div>
+
+      <div style="background-color: #f8f5f2; padding: 12px; border-radius: 8px; border-left: 4px solid #e74c3c; box-shadow: 0 3px 6px rgba(0,0,0,0.08); flex: 1;">
+        <i class="fragment fade-in" style="font-family: 'Georgia', serif; font-size: 0.8em; font-style: italic; display: block;">
+          "Yes, me too."
+        </i>
+        <p style="text-align: right; margin-top: 5px; font-weight: 600; color: #555; font-size: 0.7em;">
+          — Richard Taylor
+        </p>
+      </div>
+    </div>
+
+    <!-- Third row with Tao's quote -->
+    <div style="background-color: #f8f5f2; padding: 12px; border-radius: 8px; border-left: 4px solid #8e44ad; box-shadow: 0 3px 6px rgba(0,0,0,0.08); width: 60%; margin: 0 auto;">
+      <i class="fragment fade-in" style="font-family: 'Georgia', serif; font-size: 0.8em; font-style: italic; display: block;">
+        "Some people will be working on computer verified proofs."
+      </i>
+      <p style="text-align: right; margin-top: 5px; font-weight: 600; color: #555; font-size: 0.7em;">
+        — Terence Tao (paraphrased)
+      </p>
+    </div>
+  </div>
+  <p> Story taken from: Michael Harris' blog.</p>
+</section>
+
+<section>
+
+  <div style="display: flex; justify-content: center; align-items: center; height: 60vh;">
+    <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 40px; border-radius: 10px; box-shadow: 0 8px 30px rgba(0,0,0,0.12); max-width: 80%; text-align: center;">
+      Post-2017: The era where open source met mathematics
+    </div>
+  </div>
+</section>
+<section>
+  <h3>Post-2017: Characterized by big community level projects: Mathlib</h3>
+  <div style="max-width: 90%; margin: 0 auto;">
+    <ul style="list-style-type: none; padding-left: 5px; margin: 0;">
+      <li class="fragment fade-in" style="margin-bottom: 0px; padding-left: 25px; position: relative;">
+      <span style="position: absolute; left: 0; color: #27ae60;">•</span>
+      A monolithic library of mathematics formalized in Lean
+      </li>
+      <li class="fragment fade-in" style="margin-bottom: 0px; padding-left: 25px; position: relative;">
+      <span style="position: absolute; left: 0; color: #27ae60;">•</span>
+      Started in 2017
+      </li>
+      <li class="fragment fade-in" style="margin-bottom: 0px; padding-left: 25px; position: relative;">
+      <span style="position: absolute; left: 0; color: #27ae60;">•</span>
+      Over 400 contributors, 80,000 definitions and 160,000 theorems
+      </li>
+      <li class="fragment fade-in" style="padding-left: 25px; position: relative;">
+      <span style="position: absolute; left: 0; color: #27ae60;">•</span>
+      Promoted heavily by Kevin Buzzard
+      </li>
+    </ul>
+  </div>
+  <div style="position: relative; width: 95%; margin: 0 auto; overflow: hidden;">
+    <!-- Scroll container -->
+    <div id="autoScroll"
+      style="display: flex; overflow-x: auto; padding: 20px 0; scroll-behavior: smooth; scrollbar-width: none; -ms-overflow-style: none;"
+      class="facts-scroll">
+      <!-- Fact cards -->
+      <div
+        style="flex: 0 0 320px; margin: 0 15px; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-left: 5px solid #27ae60;">
+        <p style="font-family: 'Georgia', serif; margin-bottom: 0;">Algebra</p>
+      </div>
+
+      <div
+        style="flex: 0 0 320px; margin: 0 15px; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-left: 5px solid #27ae60;">
+        <p style="font-family: 'Georgia', serif; margin-bottom: 0;">Algebraic Geometry</p>
+      </div>
+
+      <div
+        style="flex: 0 0 320px; margin: 0 15px; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-left: 5px solid #27ae60;">
+        <p style="font-family: 'Georgia', serif; margin-bottom: 0;">Algebraic Topology</p>
+      </div>
+
+      <div
+        style="flex: 0 0 320px; margin: 0 15px; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-left: 5px solid #27ae60;">
+        <p style="font-family: 'Georgia', serif; margin-bottom: 0;">Analysis</p>
+      </div>
+
+      <div
+        style="flex: 0 0 320px; margin: 0 15px; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-left: 5px solid #27ae60;">
+        <p style="font-family: 'Georgia', serif; margin-bottom: 0;">Category Theory</p>
+      </div>
+
+      <div
+        style="flex: 0 0 320px; margin: 0 15px; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-left: 5px solid #27ae60;">
+        <p style="font-family: 'Georgia', serif; margin-bottom: 0;">Combinatorics</p>
+      </div>
+
+      <div
+        style="flex: 0 0 320px; margin: 0 15px; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-left: 5px solid #27ae60;">
+        <p style="font-family: 'Georgia', serif; margin-bottom: 0;">Condensed Mathematics</p>
+      </div>
+
+      <div
+        style="flex: 0 0 320px; margin: 0 15px; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-left: 5px solid #27ae60;">
+        <p style="font-family: 'Georgia', serif; margin-bottom: 0;">Control Theory</p>
+      </div>
+
+      <div
+        style="flex: 0 0 320px; margin: 0 15px; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-left: 5px solid #27ae60;">
+        <p style="font-family: 'Georgia', serif; margin-bottom: 0;">Dynamical systems</p>
+      </div>
+
+      <div
+        style="flex: 0 0 320px; margin: 0 15px; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-left: 5px solid #27ae60;">
+        <p style="font-family: 'Georgia', serif; margin-bottom: 0;">Field Theory</p>
+      </div>
+
+      <div
+        style="flex: 0 0 320px; margin: 0 15px; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-left: 5px solid #27ae60;">
+        <p style="font-family: 'Georgia', serif; margin-bottom: 0;">Geometry</p>
+      </div>
+
+      <div
+        style="flex: 0 0 320px; margin: 0 15px; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-left: 5px solid #27ae60;">
+        <p style="font-family: 'Georgia', serif; margin-bottom: 0;">Information Theory</p>
+      </div>
+
+      <div
+        style="flex: 0 0 320px; margin: 0 15px; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-left: 5px solid #27ae60;">
+        <p style="font-family: 'Georgia', serif; margin-bottom: 0;">Group Theory</p>
+      </div>
+
+      <div
+        style="flex: 0 0 320px; margin: 0 15px; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-left: 5px solid #27ae60;">
+        <p style="font-family: 'Georgia', serif; margin-bottom: 0;">Linear Algebra</p>
+      </div>
+
+      <div
+        style="flex: 0 0 320px; margin: 0 15px; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-left: 5px solid #27ae60;">
+        <p style="font-family: 'Georgia', serif; margin-bottom: 0;">Logic</p>
+      </div>
+
+      <div
+        style="flex: 0 0 320px; margin: 0 15px; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-left: 5px solid #27ae60;">
+        <p style="font-family: 'Georgia', serif; margin-bottom: 0;">Measure Theory</p>
+      </div>
+
+      <div
+        style="flex: 0 0 320px; margin: 0 15px; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-left: 5px solid #27ae60;">
+        <p style="font-family: 'Georgia', serif; margin-bottom: 0;">Model Theory</p>
+      </div>
+
+      <div
+        style="flex: 0 0 320px; margin: 0 15px; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-left: 5px solid #27ae60;">
+        <p style="font-family: 'Georgia', serif; margin-bottom: 0;">Number Theory</p>
+      </div>
+
+      <div
+        style="flex: 0 0 320px; margin: 0 15px; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-left: 5px solid #27ae60;">
+        <p style="font-family: 'Georgia', serif; margin-bottom: 0;">Probability</p>
+      </div>
+
+      <div
+        style="flex: 0 0 320px; margin: 0 15px; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-left: 5px solid #27ae60;">
+        <p style="font-family: 'Georgia', serif; margin-bottom: 0;">Representation Theory</p>
+      </div>
+
+      <div
+        style="flex: 0 0 320px; margin: 0 15px; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-left: 5px solid #27ae60;">
+        <p style="font-family: 'Georgia', serif; margin-bottom: 0;">Ring Theory</p>
+      </div>
+
+      <div
+        style="flex: 0 0 320px; margin: 0 15px; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-left: 5px solid #27ae60;">
+        <p style="font-family: 'Georgia', serif; margin-bottom: 0;">Set Theory</p>
+      </div>
+
+      <div
+        style="flex: 0 0 320px; margin: 0 15px; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-left: 5px solid #27ae60;">
+        <p style="font-family: 'Georgia', serif; margin-bottom: 0;">Topology</p>
+      </div>
+    </div>
+<!-- <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const scrollContainer = document.getElementById('autoScroll');
+    let scrollSpeed = 3; // pixels per frame
+
+    function autoScroll() {
+      scrollContainer.scrollLeft += scrollSpeed;
+
+      if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth) {
+        scrollContainer.scrollLeft = 0; // Reset scroll
+      }
+
+      requestAnimationFrame(autoScroll);
+    }
+
+    autoScroll();
+  });
+</script>-->
+</section>
+
+<section>
+  <h2>Post-2017: Sneak peak into Mathlib</h2>
+  <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
+    <iframe src="https://loogle.lean-lang.org"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
+      allowfullscreen>
+    </iframe>
+  </div>
+  <aside class="notes">
+    "Epi", "CategoryTheory", "comp"
+  </aside>
+</section>
+<!-- Projects happening now - remention Richard Taylor and Terrence Tau.
+
+  Fermat's last theorem -->
+<section>
+  <h3>Other ongoing projects</h3>
+  <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; max-width: 90%; margin: 0 auto; max-height: 380px; overflow-y: auto;">
+    <!-- Project boxes -->
+    <div style="background-color: #f8f5f2; padding: 15px; border-radius: 8px; border-left: 5px solid #3a5a78; box-shadow: 0 3px 6px rgba(0,0,0,0.08); display: flex; flex-direction: column; justify-content: center; min-height: 80px;">
+      <h4 style="margin: 0 0 5px 0; color: #333; font-size: 0.9em;">Fermat's Last Theorem</h4>
+      <p style="margin: 0; font-size: 0.8em; color: #555;">- Kevin Buzzard, Richard Taylor et al</p>
+    </div>
+
+    <div style="background-color: #f8f5f2; padding: 15px; border-radius: 8px; border-left: 5px solid #27ae60; box-shadow: 0 3px 6px rgba(0,0,0,0.08); display: flex; flex-direction: column; justify-content: center; min-height: 80px;">
+      <h4 style="margin: 0 0 5px 0; color: #333; font-size: 0.9em;">$\infty$-cosmos</h4>
+      <p style="margin: 0; font-size: 0.8em; color: #555;">- Emily Riehl et al</p>
+    </div>
+
+    <div style="background-color: #f8f5f2; padding: 15px; border-radius: 8px; border-left: 5px solid #8e44ad; box-shadow: 0 3px 6px rgba(0,0,0,0.08); display: flex; flex-direction: column; justify-content: center; min-height: 80px;">
+      <h4 style="margin: 0 0 5px 0; color: #333; font-size: 0.9em;">Equational theories</h4>
+      <p style="margin: 0; font-size: 0.8em; color: #555;">- Terence Tao et al</p>
+    </div>
+  </div>
+
+</section>
+
+<section>
+  <h3>How do these projects work?</h3>
+  <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
+    <iframe src="https://imperialcollegelondon.github.io/FLT/"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+
+<section>
+  <h3>My part in the story.</h3>
+  <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
+    <iframe src="https://physlean.com "
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+</section>
+
+<!-- Section 3: The future -->
+<section>
+
+<section>
+  <h2 style="font-family: 'Times New Roman', serif;">Talk Overview</h2>
+  <div style="position: relative; width: 90%; margin: 0 auto; padding-top: 50px;">
+    <!-- Timeline bar -->
+    <div
+      style="position: relative; height: 4px; background-color: #a87c4f; border-radius: 0; margin: 60px 0; border-top: 1px dashed #654321; border-bottom: 1px dashed #654321;">
+      <!-- Timeline markers -->
+      <div
+        style="position: absolute; left: 0%; top: -8px; width: 16px; height: 16px; background-color: #8b4513; border-radius: 0; border: 2px solid #5e2612;">
+      </div>
+      <div
+        style="position: absolute; left: 50%; top: -8px; width: 16px; height: 16px; background-color: #8b4513; border-radius: 0; border: 2px solid #5e2612; transform: translateX(-50%);">
+      </div>
+      <div
+        style="position: absolute; left: 100%; top: -8px; width: 16px; height: 16px; background-color: #8b4513; border-radius: 0; border: 2px solid #5e2612; transform: translateX(-100%);">
+      </div>
+
+      <!-- Timeline content -->
+      <div
+        style="position: absolute; left: 0%; top: -80px; width: 30%; text-align: center; transform: translateX(-15%);">
+        <h3 style="color: #5e2612; margin-bottom: 10px; font-family: 'Times New Roman', serif;">Part I</h3>
+        <p style="font-family: 'Times New Roman', serif;">What is an interactive theorem prover?</p>
+      </div>
+
+      <div
+        style="position: absolute; left: 50%; top: -80px; width: 30%; text-align: center; transform: translateX(-50%);">
+        <h3 style="color: #5e2612; margin-bottom: 10px; font-family: 'Times New Roman', serif;">Part II</h3>
+        <p style="font-family: 'Times New Roman', serif; ">The past</p>
+      </div>
+
+      <div
+        style="position: absolute; left: 100%; top: -80px; width: 30%; text-align: center; transform: translateX(-85%);">
+        <h3 style="color: #2b81af; margin-bottom: 10px; font-family: 'Times New Roman', serif;">Part III</h3>
+        <p style="font-family: 'Times New Roman', serif; color: #2b81af;">The future</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section>
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 80vh;">
+      <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 20px; text-align: center; font-weight: 600;">Will focus on the AI future</h2>
+      <div style="width: 100px; height: 4px; background-color: #2b81af; margin: 30px 0;"></div>
+      <div class="fragment fade-in" style="max-width: 600px; text-align: center;">
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h3>Theorem provers and AI?</h3>
+
+    <div
+      style="max-width: 90%; margin: 50px auto; padding: 30px; background: linear-gradient(135deg, #f6f8fa 0%, #e9ecef 100%); border-radius: 10px; border-left: 5px solid #4285f4; box-shadow: 0 8px 30px rgba(0,0,0,0.1);">
+     Theorem provers can provide automatic feedback on proof correctness to AI models.
+
+    </div>
+
+  </section>
+
+<!-- The story of google deepmind and the IMO. -->
+<section>
+  <h3>Story: Google deepmind and the IMO</h3>
+
+    <div style="max-width: 90%; margin: 50px auto; padding: 30px; background: linear-gradient(135deg, #f6f8fa 0%, #e9ecef 100%); border-radius: 10px; border-left: 5px solid #4285f4; box-shadow: 0 8px 30px rgba(0,0,0,0.1);">
+      "AI achieves silver-medal standard solving International Mathematical Olympiad problems"
+      <p style="text-align: right; margin-top: 15px; font-weight: 600; color: #5f6368; font-size: 0.9em;">
+        — Google DeepMind
+      </p>
+    </div>
+    <aside class="notes">
+      July 2024<br>
+      Had to solve 6 problems <br>
+      Solved 2 algebra, 1 Num theory and 1 Geometry, <br>
+      did not solve 2 combinatorics problems. <br>
+      Took 3.5 days not 4 hours
+    </aside>
+</section>
+
+<section>
+  <h3>Conclusion of story</h3>
+
+  <div
+    style="max-width: 90%; margin: 50px auto; padding: 30px; background: linear-gradient(135deg, #f6f8fa 0%, #e9ecef 100%); border-radius: 10px; border-left: 5px solid #4285f4; box-shadow: 0 8px 30px rgba(0,0,0,0.1);">
+    Lots of focus on solving competition problems.
+
+  </div>
+
+</section>
+
+<!-- Example of AI. -->
+<section>
+  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 20px; text-align: center; font-weight: 50;">
+    PutnamBench</h2>
+  <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
+    <iframe src="https://trishullab.github.io/PutnamBench/leaderboard.html"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+</section>
+
+<!-- Example of AI. -->
+<section>
+  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 20px; text-align: center; font-weight: 50;">
+    Let's see how good these are for ourselves</h2>
+      <div style="display: flex; justify-content: center; max-width: 90%; margin: 0 auto;">
+        <pre>
+        <code data-trim data-noescape class="language-lean" style="font-size: 1em !important;">
+                  import Mathlib
+
+                  inductive MyNat : Type
+                    | zero : MyNat
+                    | succ : MyNat → MyNat
+
+                  namespace MyNat
+
+                  def add : MyNat → MyNat → MyNat
+                    | .zero, a => a
+                    | .succ b, a => .succ (MyNat.add b a)
+
+
+                  lemma add_assoc (a b c : MyNat) : add a (add b c) = add (add a b) c := by
+                    sorry
+                </code>
+                      </pre>
+</section>
+
+<section>
+  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 20px; text-align: center; font-weight: 50;">Let's see how good these are for ourselves</h2>
+  <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
+    <iframe src="https://demo.projectnumina.ai"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
+      allowfullscreen>
+    </iframe>
+  </div>
+  <aside class="notes">
+    <code data-trim data-noescape class="language-lean" style="font-size: 1em !important;">
+        import Mathlib
+
+        inductive MyNat : Type
+          | zero : MyNat
+          | succ : MyNat → MyNat
+
+        namespace MyNat
+
+        def add : MyNat → MyNat → MyNat
+          | .zero, a => a
+          | .succ b, a => .succ (MyNat.add b a)
+
+
+        lemma add_assoc (a b c : MyNat) : add a (add b c) = add (add a b) c := by
+          sorry
+      </code>
+
+      <code data-trim data-noescape class="language-lean" style="font-size: 1em !important;">
+        import Mathlib
+
+        inductive MyNat : Type
+          | zero : MyNat
+          | succ : MyNat → MyNat
+
+        namespace MyNat
+
+        def add : MyNat → MyNat → MyNat
+          | .zero, a => a
+          | .succ b, a => .succ (MyNat.add b a)
+
+
+        lemma add_assoc (a b c : MyNat) : add a (add b c) = add (add a b) c := by
+          sorry
+      </code>
+      <code data-trim data-noescape class="language-lean" style="font-size: 1em !important;">
+        import Mathlib
+
+        inductive MyNat : Type
+          | zero : MyNat
+          | succ : MyNat → MyNat
+
+        namespace MyNat
+
+        def add : MyNat → MyNat → MyNat
+          | .zero, a => a
+          | .succ b, a => .succ (MyNat.add b a)
+
+
+        lemma add_assoc (a b c : MyNat) : add a (add b c) = add (add a b) c := by
+          sorry
+      </code>
+      <code>
+        import Mathlib
+
+        theorem ineq (N : Nat) (a : ℝ) (n : Fin N) :
+            -Real.pi / a ≤ 2 * Real.pi / (a * ↑N) * (↑↑n - ↑(N / 2)) := by
+          sorry
+      </code>
+
+  </aside>
+</section>
+
+<section>
+  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 20px; text-align: center; font-weight: 50;">
+    Let's see how good these are for ourselves</h2>
+  <div style="display: flex; justify-content: center; max-width: 90%; margin: 0 auto;">
+    <pre>
+        <code data-trim data-noescape class="language-lean" style="font-size: 1em !important;">
+          import Mathlib
+
+          theorem ineq (N : Nat) (a : ℝ) (n : Fin N) :
+              -Real.pi / a ≤ 2 * Real.pi / (a * ↑N) * (↑↑n - ↑(N / 2)) := by
+            sorry
+                </code>
+                      </pre>
+</section>
+
+<section>
+  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 20px; text-align: center; font-weight: 50;">
+    Let's see how good these are for ourselves</h2>
+  <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
+    <iframe src="https://demo.projectnumina.ai"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+<!-- My predictions:
+ 1. In 100 years time this is how we will do mathematics and physics.
+ 2. In 20 years time proof assistants will start to compete with or integrate
+  computer algebra systems. -->
+  <!-- My predictions -->
+  <section>
+
+    <div style="max-width: 80%; margin: 0 auto; background: linear-gradient(to right, #e74c3c 0%, #e74c3c 5px, #f8f9fa 5px, #f8f9fa 100%);
+         padding: 35px; border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.12);">
+      <p style="font-family: 'Georgia', serif; font-size: 1.5em; color: #333; text-align: center; font-weight: bold;">
+        Take-away message: We are quite far away from this being useful.
+      </p>
+    </div>
+
+    <div class="fragment fade-in" style="margin-top: 50px; text-align: center;">
+      <span style="display: inline-block; background-color: #3a5a78; color: white; font-size: 1.4em; padding: 15px 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(58, 90, 120, 0.3);">
+        Prediction: 10 years
+      </span>
+    </div>
+  </section>
+
+  <section>
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 70vh;">
+      <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 20px; text-align: center; font-weight: 600;">Thank You</h2>
+      <div style="width: 100px; height: 4px; background-color: #27ae60; margin: 20px 0;"></div>
+      <p style="font-family: 'Georgia', serif; color: #333; text-align: center; margin: 15px 0;">Joseph Tooby-Smith</p>
+      <div style="margin-top: 40px; max-width: 600px; text-align: center;">
+        <p style="font-size: 0.9em; color: #555;">
+          <a href="https://josephtoobysmith.com" style="color: #27ae60; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='#219653'" onmouseout="this.style.color='#27ae60'">josephtoobysmith.com</a>
+        </p>
+        <p style="font-size: 0.9em; color: #555; margin-top: 10px;">Questions?</p>
+      </div>
+    </div>
+  </section>
+<!-- End matter-->
+</div>
+</div>
+
+<script src="dist/reveal.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+<script src="plugin/math/math.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="js/lean.min.js"></script>
+<script src="js/lean-goal.js"></script>
+<script src="js/merge-html.js"></script>
+<script src="js/inline_svg.js"></script>
+<script>
+  RevealHighlight().hljs.addPlugin(mergeHTMLPlugin);
+  Reveal.initialize({
+    mathjax3: {
+      mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js',
+      loader: { load: ['[tex]/mathtools', '[tex]/centernot'] },
+      tex: {
+        packages: { '[+]': ['mathtools', 'centernot'] },
+      },
+      chtml: {
+        mtextFont: 'Source Sans Pro',
+      },
+      options: {
+        skipHtmlTags: { '[-]': ['code', 'pre'] },
+      },
+    },
+    katex: {
+      macros: {
+        "\\smallunderbrace":
+          String.raw`{\tiny\underbrace{\huge{#1}}_{\huge\scriptsize#2}}`
+      },
+      trust: true,
+      strict: false,
+      ignoredTags: ['script', 'noscript', 'style'],
+    },
+    plugins: [
+      RevealInlineSvg,
+      RevealHighlight,
+      RevealMath.KaTeX,
+      RevealNotes,
+    ],
+    history: true,
+    center: false,
+    // defaultTiming: 40,
+    // slideNumber: 'c/t',
+    // width: 1280*0.96,
+    // height: 1024*0.96,
+    // width: 1856,
+    // height: 1016,
+    margin: 0.04,
+    navigationMode: 'linear',
+    totalTime: 25 * 60,
+    // showNotes: 'separate-page'
+    autoAnimateEasing: 'ease-out',
+    autoAnimateDuration: 0.8,
+    autoAnimateUnmatched: false,
+  });
+</script>
+
+
+</body>
+
+</html>

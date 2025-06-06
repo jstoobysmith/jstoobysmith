@@ -1,45 +1,53 @@
 - School: Reykjavik University
+  Role: co-instructor
+  Course: "Algebra and Combinatorics"
+  Date: Spring 2025
+  first: true   # one must be true to properly display
+  CSTag: true
+  description:
+
+- School: Reykjavik University
   Role: TA
   Course: Introduction to proof assistants
   Date: Fall 2024
-  first: true   # one must be true to properly display
+  first: false   # one must be true to properly display
   CSTag: true
-  description: 
+  description:
 
 - School: Cambridge University
-  Role: TA 
+  Role: TA
   Course: "Symmetries, Fields and Particles"
   Date: 2020
   first: false
-  PhyTag: true 
+  PhyTag: true
   description:
 
 - School: Cambridge University
-  Role: TA 
+  Role: TA
   Course: "Quantum Field Theory"
   Date: 2019
-  first: false 
+  first: false
   PhyTag: true
   description:
 
 - School: Cambridge University
-  Role: TA 
+  Role: TA
   Course: "Gauge Field Theory"
   Date: 2019 & 2020
-  first: false 
+  first: false
   PhyTag: true
   description:
 
 - School: Cambridge University
-  Role: TA 
+  Role: TA
   Course: "Theoretical Physics Part I"
   Date: 2018 & 2020
-  first: false 
+  first: false
   PhyTag: true
   description:
 
 - School: Oxford University
-  Role: Participant 
+  Role: Participant
   Course: "Teaching in schools"
   Date: 2016
   first: false

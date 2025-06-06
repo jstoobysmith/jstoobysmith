@@ -1,3 +1,10 @@
+- Title: "Digitalizing Wick's theorem"
+  Authors: J. Tooby-Smith
+  Date: May 2025
+  Journal: arXiv-2505.07939 [hep-th]
+  Link: https://arxiv.org/abs/2505.07939
+  CSTag: true
+  PhyTag: true
 
 - Title: "Formalization of physics index notation in Lean 4"
   Authors: J. Tooby-Smith
@@ -109,7 +116,7 @@
   Link: https://doi.org/10.1103/PhysRevLett.125.161601
   PhyTag: true
   MathTag: true
-  
+
 - Title: "Supersoft top squarks"
   Authors: T. Cohen, N. Craig, S. Koren, M. McCullough, J. Tooby-Smith
   Date: Feb 2020
@@ -140,4 +147,3 @@
   Link: https://doi.org/10.1088/1751-8121/ab78ce
   PhyTag: true
   MathTag: true
-

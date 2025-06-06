@@ -1,26 +1,26 @@
 - School:  Reykjavik University
-  Degree: 
+  Degree:
   Program: Postdoctoral researcher in CS
   Start Date: 2024
-  End Date: 
+  End Date:
   Icon: assets/images/reykjavik.png
-  
+
 - School: Cornell University
-  Degree: 
-  Program: Postdoctoral researcher in physics
+  Degree:
+  Program: Postdoctoral researcher in theoretical physics
   Start Date: 2021
   End Date: 2024
   Icon: assets/images/cornell.png      # Make this icon small, think 30px/30px
 
 - School: Cambridge University
-  Degree: 
+  Degree:
   Program: PhD in theoretical physics
   start Date: 2018
   End Date: 2021
   Icon: assets/images/cambridge.svg
 
 - School: Oxford University
-  Degree: 
+  Degree:
   Program: Integrated Masters in mathematical and theoretical physics
   start Date: 2014
   End Date: 2018

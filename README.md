@@ -1,9 +1,6 @@
 [![](https://img.shields.io/badge/personal-website-purple)](https://www.josephtoobysmith.com)
 [![](https://img.shields.io/badge/my-CV-purple)](https://github.com/jstoobysmith/jstoobysmith/blob/main/CV/CV.pdf)
-[![](https://img.shields.io/badge/Draft-Teaching--Philosophy-purple)](https://github.com/jstoobysmith/jstoobysmith/blob/main/TeachingPhilosophy/TeachingPhilosophy.pdf)
-[![](https://img.shields.io/badge/Draft-Research--Statement-purple)](https://github.com/jstoobysmith/jstoobysmith/blob/main/ResearchPlan/ResearchPlan.pdf)
 [![](https://img.shields.io/badge/papers_at-inspireHep-purple)](https://inspirehep.net/authors/1737896)
-[![](https://img.shields.io/badge/work_with-me-green)](https://github.com/jstoobysmith/jstoobysmith/blob/main/Projects.md)
 [![](https://img.shields.io/badge/YouTube-red)](https://www.youtube.com/channel/UCjIsl9vgzOW3YAHeek9KUog)
 
 ## About me
@@ -18,9 +15,7 @@
 
 | | Description |
 |-----|-----|
-|[HepLean](https://github.com/HEPLean/HepLean)| This is a project to digitalize results from high energy physics in Lean.  |
-|[Perturbation theory in Lean](https://heplean.github.io/HepLean/PerturbationTheory)| I'm working on formalizing perturbation theory from theoretical physics into Lean 4.  |
-|[Metaprogramming for HepLean](https://github.com/HEPLean/HepLean/tree/master/scripts) | I'm writing metaprograms for HepLean to help with refactoring.  |
+|[PhysLean](https://github.com/HEPLean/PhysLean)| This is a community project to digitalize results from  physics in Lean.  |
 
 ## Academic skills
 

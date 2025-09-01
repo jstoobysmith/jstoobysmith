@@ -1,8 +1,15 @@
+- School: University of Bath
+  Degree:
+  Program: Lecturer in Computer Science
+  Start Date: 2025
+  End Date:
+  Icon: assets/images/bath.png
+
 - School:  Reykjavik University
   Degree:
-  Program: Postdoctoral researcher in CS
+  Program: Postdoctoral researcher in Computer Science
   Start Date: 2024
-  End Date:
+  End Date: 2025
   Icon: assets/images/reykjavik.png
 
 - School: Cornell University
@@ -12,14 +19,14 @@
   End Date: 2024
   Icon: assets/images/cornell.png      # Make this icon small, think 30px/30px
 
-- School: Cambridge University
+- School: University of Cambridge
   Degree:
   Program: PhD in theoretical physics
   start Date: 2018
   End Date: 2021
   Icon: assets/images/cambridge.svg
 
-- School: Oxford University
+- School: University of Oxford
   Degree:
   Program: Integrated Masters in mathematical and theoretical physics
   start Date: 2014

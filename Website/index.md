@@ -4,7 +4,7 @@ title:
 date: 2020-11-20
 ---
 ### Hi, I'm Joseph Tooby-Smith
-_Lecturer (Assistant Profesor) in computer science at University of Bath_
+_Lecturer (Assistant Professor) in computer science at University of Bath_
 
 _contact me at_: <span style="unicode-bidi:bidi-override; direction: rtl;">ku.ca.<!--comemfslj-->htab@4184sj</span>
 

@@ -27,6 +27,15 @@ layout: default
     <div class="col-md-4">
       {% if site.animate %}
         <img src="{{ site.profile_image }}" class="img-thumbnail float-left animate__animated animate__fadeInLeft shadow bg-white rounded" alt="...">
+        <div
+          class="float-left animate__animated animate__fadeInLeft">
+          Profiles:
+          <ul>
+            <li><a href="https://www.youtube.com/@josephtooby-smith5670">YouTube</a></li>
+            <li><a href="https://leanprover.zulipchat.com/#narrow/channel/479953-PhysLean/">Lean Zulip</a></li>
+            <li><a href="https://orcid.org/0000-0003-2831-598X">ORCID</a></li>
+
+          </ul></div>
       {% else %}
         <img src="{{ site.profile_image }}" class="img-thumbnail float-left" alt="...">
       {% endif %}
@@ -49,7 +58,7 @@ layout: default
 
 <!-- style="font-family:{{ theme.link-font }};background-color:{{ theme.nav-color }}; -->
 
-<!-- HOME HIGHLIGHTS SECTION --> 
+<!-- HOME HIGHLIGHTS SECTION -->
 {% if site.animate %}
 <div class="card mx-auto animate__animated animate__slideInUp animate__delay-1s glowing-border" style="max-width: 100%;">
 {% else %}
@@ -70,12 +79,12 @@ layout: default
       {% endfor %}
     </ul>
   </div>
-  <div class="card-body">          
+  <div class="card-body">
       <div class="tab-content mt-3">
         {% for section in site.data.sections %}
           {% if section.first %}
               {% if section.name == "Publications" %}
-              <div class="tab-pane active overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">  
+              <div class="tab-pane active overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">
                 <p><i>{{section.description}}</i></p>
                     {% for paper in site.data.publications %}
                     <a href="{{ paper.Link }}" class="list-group">
@@ -88,13 +97,13 @@ layout: default
                         <h6>{{ paper.Authors }}</h6>
                         <p class="mb-1">{{ paper.Journal }}</p>
                         {% if paper.CSTag == true %}
-                        <p href="#" class="badge badge-primary" style="background-color: rgba(78, 34, 208, 0.1);color: #4e22d0;">CS</p> 
+                        <p href="#" class="badge badge-primary" style="background-color: rgba(78, 34, 208, 0.1);color: #4e22d0;">CS</p>
                         {% endif %}
                         {% if paper.PhyTag == true %}
-                        <p href="#" class="badge badge-primary" style="background-color: rgba(65, 105, 225, 0.1);color: #1e40af;">Phys</p> 
+                        <p href="#" class="badge badge-primary" style="background-color: rgba(65, 105, 225, 0.1);color: #1e40af;">Phys</p>
                         {% endif %}
                         {% if paper.MathTag == true %}
-                        <p class="badge badge-primary" style="background-color: rgba(0, 128, 128, 0.1);color: #008080;">Math</p> 
+                        <p class="badge badge-primary" style="background-color: rgba(0, 128, 128, 0.1);color: #008080;">Math</p>
                         {% endif %}
                       </div>
                     </a>
@@ -105,14 +114,14 @@ layout: default
                 <p class="card-text">{{section.description}}</p>
               </div>
             {% endif %}
-          {% else %}  
+          {% else %}
             {% if section.name == "Presentations" %}
-              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">  
+              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">
                 <p><i>{{section.description}}</i></p>
-                <p class="card-text">{% bibliography -f presentations %}</p>              
+                <p class="card-text">{% bibliography -f presentations %}</p>
               </div>
             {% elsif section.name == "Projects" %}
-              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">  
+              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">
                 <p><i>{{section.description}}</i></p>
                   {% for projects in site.data.projects %}
                   <div class="media mt-2">
@@ -129,10 +138,10 @@ layout: default
                     </div>
                   </div>
                   {% endfor %}
-                </div>        
+                </div>
               </div>
             {% elsif section.name == "Teaching" %}
-              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">  
+              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">
                 <p><i>{{section.description}}</i></p>
                     {% for courses in site.data.teaching %}
                     <div class="list-group">
@@ -140,26 +149,26 @@ layout: default
                         <div class="d-flex w-100 justify-content-between">
                           <h5 class="mb-1">{{ courses.Course }}</h5>
                           <h5>{{ courses.Role }}</h5>
-                          
+
                         </div>
                         <p>{{ courses.Date }} : {{ courses.School }}</p>
                         <p class="mb-1">{{ courses.description }}</p>
                         <small>{{ courses.Department }}</small>
                       {% if courses.CSTag == true %}
-                      <p href="#" class="badge badge-primary" style="background-color: rgba(78, 34, 208, 0.1);color: #4e22d0;">CS</p> 
+                      <p href="#" class="badge badge-primary" style="background-color: rgba(78, 34, 208, 0.1);color: #4e22d0;">CS</p>
                       {% endif %}
                       {% if courses.PhyTag == true %}
-                      <p href="#" class="badge badge-primary" style="background-color: rgba(65, 105, 225, 0.1);color: #1e40af;">Phys</p> 
+                      <p href="#" class="badge badge-primary" style="background-color: rgba(65, 105, 225, 0.1);color: #1e40af;">Phys</p>
                       {% endif %}
                       {% if courses.MathTag == true %}
-                      <p class="badge badge-primary" style="background-color: rgba(0, 128, 128, 0.1);color: #008080;">Math</p> 
+                      <p class="badge badge-primary" style="background-color: rgba(0, 128, 128, 0.1);color: #008080;">Math</p>
                       {% endif %}
                       </div>
                     </div>
                     {% endfor %}
               </div>
               {% elsif section.name == "Awards" %}
-              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">  
+              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">
                 <p><i>{{section.description}}</i></p>
                     {% for award in site.data.awards %}
                     <div class="list-group">
@@ -169,7 +178,7 @@ layout: default
                           <h5>{{ award.Awarder }}</h5>
                         </div>
                         <p>{{ award.Date }}</p>
-                        
+
                         <p class="mb-1">{{ award.Description }}</p>
                         {% if award.Link and award.Link != empty %}
                         <a href="{{ award.Link }}" class="badge badge-primary" style="background-color: rgba(78, 34, 208, 0.1);color: #4e22d0;">Link</a>
@@ -179,7 +188,7 @@ layout: default
                     {% endfor %}
               </div>
               {% elsif section.name == "Talks" %}
-              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">  
+              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">
                 <p><i>{{section.description}}</i></p>
                     {% for talk in site.data.talks %}
                     <div class="list-group">
@@ -190,13 +199,13 @@ layout: default
                         </div>
                         <p class="mb-1">{{ talk.Date }}</p>
                       {% if courses.CSTag == true %}
-                      <p href="#" class="badge badge-primary" style="background-color: rgba(78, 34, 208, 0.1);color: #4e22d0;">CS</p> 
+                      <p href="#" class="badge badge-primary" style="background-color: rgba(78, 34, 208, 0.1);color: #4e22d0;">CS</p>
                       {% endif %}
                       {% if courses.PhyTag == true %}
-                      <p href="#" class="badge badge-primary" style="background-color: rgba(65, 105, 225, 0.1);color: #1e40af;">Phys</p> 
+                      <p href="#" class="badge badge-primary" style="background-color: rgba(65, 105, 225, 0.1);color: #1e40af;">Phys</p>
                       {% endif %}
                       {% if courses.MathTag == true %}
-                      <p class="badge badge-primary" style="background-color: rgba(0, 128, 128, 0.1);color: #008080;">Math</p> 
+                      <p class="badge badge-primary" style="background-color: rgba(0, 128, 128, 0.1);color: #008080;">Math</p>
                       {% endif %}
                       {% if talk.Video and talk.Video != empty %}
                       <a href="{{ talk.Video }}" class="badge badge-primary" style="background-color: rgba(78, 34, 208, 0.1);color: #4e22d0;">🎥</a>
@@ -206,7 +215,7 @@ layout: default
                     {% endfor %}
               </div>
               {% elsif section.name == "Outreach" %}
-              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">  
+              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">
                 <p><i>{{section.description}}</i></p>
                     {% for event in site.data.outreach %}
                     <div class="list-group">
@@ -224,7 +233,7 @@ layout: default
                     {% endfor %}
               </div>
               {% elsif section.name == "Conferences" %}
-              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">  
+              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">
                 <p><i>{{section.description}}</i></p>
                     {% for conference in site.data.conferences %}
                     <div class="list-group">
@@ -235,20 +244,20 @@ layout: default
                         <p>{{ conference.Date }}</p>
                         <p class="mb-1">{{ conference.Description }}</p>
                       {% if conference.CSTag == true %}
-                      <p href="#" class="badge badge-primary" style="background-color: rgba(78, 34, 208, 0.1);color: #4e22d0;">CS</p> 
+                      <p href="#" class="badge badge-primary" style="background-color: rgba(78, 34, 208, 0.1);color: #4e22d0;">CS</p>
                       {% endif %}
                       {% if conference.PhyTag == true %}
-                      <p href="#" class="badge badge-primary" style="background-color: rgba(65, 105, 225, 0.1);color: #1e40af;">Phys</p> 
+                      <p href="#" class="badge badge-primary" style="background-color: rgba(65, 105, 225, 0.1);color: #1e40af;">Phys</p>
                       {% endif %}
                       {% if conference.MathTag == true %}
-                      <p class="badge badge-primary" style="background-color: rgba(0, 128, 128, 0.1);color: #008080;">Math</p> 
+                      <p class="badge badge-primary" style="background-color: rgba(0, 128, 128, 0.1);color: #008080;">Math</p>
                       {% endif %}
                       </div>
                     </div>
                     {% endfor %}
               </div>
               {% elsif section.name == "Athletics" %}
-              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">  
+              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">
                 <p><i>{{section.description}}</i></p>
                     {% for result in site.data.athletics %}
                     <div class="list-group">
@@ -263,7 +272,7 @@ layout: default
                     {% endfor %}
               </div>
               {% elsif section.name == "Profiles" %}
-              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">  
+              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">
                 <p><i>{{section.description}}</i></p>
                 <ul>
                   <li><a href="https://inspirehep.net/authors/1737896?ui-citation-summary=true">Inspire Hep</a></li>
@@ -275,7 +284,7 @@ layout: default
                 </ul>
               </div>
               {% elsif section.name == "Non-Academic Work" %}
-              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">  
+              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">
                 <p><i>{{section.description}}</i></p>
                     {% for job in site.data.nonacademicwork %}
                     <div class="list-group">
@@ -291,7 +300,7 @@ layout: default
                     {% endfor %}
               </div>
             {% elsif section.name == "Coursework" %}
-              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">  
+              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">
                 <p><i>{{section.description}}</i></p>
                 <div class="list-group">
                 {% for courses in site.data.courses %}
@@ -300,9 +309,9 @@ layout: default
                 </div>
               </div>
             {% else %}
-              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">  
+              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">
                 <h5 class="card-title text-center"><a href="/{{ section.url }}" class="highlighted">{{section.description}}</a></h5>
-                <p class="card-text">{{ section.content }} </p>              
+                <p class="card-text">{{ section.content }} </p>
               </div>
             {% endif %}
           {% endif %}
@@ -324,7 +333,7 @@ layout: default
     e.preventDefault()
     $(this).tab('show')
     })
-</script> 
+</script>
 
 <!-- OPTIONAL TOAST JS FUNCTION-->
 <script>

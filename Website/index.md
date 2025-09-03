@@ -6,7 +6,8 @@ date: 2020-11-20
 ### Hi, I'm Joseph Tooby-Smith
 _Lecturer (Assistant Profesor) in computer science at University of Bath_
 
-_contact me at_: js4814 [at] bath [dot] ac [dot] uk
+_contact me at_: <span style="unicode-bidi:bidi-override; direction: rtl;">ku.ca.<!--comemfslj-->htab@4184sj</span>
+
 
 My research explores the connection between computer science and physics,
 and how we can improve the quality and storage of results from the physical sciences.

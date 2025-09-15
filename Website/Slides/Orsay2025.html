@@ -239,6 +239,49 @@ See there for the licence under which it is released.
 </section>
 
 <section>
+  <h2>How do we include the physics context?</h2>
+  <div style="display: flex; justify-content: space-around; align-items: flex-start; margin-top: 20px;">
+    <div style="flex: 1; padding-right: 20px;">
+      <div style="max-width: 800px; margin: 0 auto; padding: 20px;">
+      <div class="fragment" data-fragment-index="1"><script>
+        document.write(halfBox('1', 'Organization of the project'));
+      </script></div>
+      <div class="fragment" data-fragment-index="2"><script>
+        document.write(halfBox('2', 'Names of theorems or definitions'));
+      </script></div>
+      <div class="fragment" data-fragment-index="3"><script>
+        document.write(halfBox('3', 'Documentation'));
+      </script></div>
+      <div class="fragment" data-fragment-index="4"><script>
+        document.write(halfBox('4', 'References'));
+      </script></div>
+
+      </div>
+    </div>
+    <div style="flex: 1; padding-left: 20px;">
+        <div style="position: relative; height: 500px;">
+          <img src="Images/PhysLeanDirect.png" class="fragment" data-fragment-index="1"
+           style="border: 4px solid #666;
+            border-radius: 15px;
+            padding: 15px; max-width: 400px; margin: 20px auto;
+              display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transform: rotate(-3deg); transition: transform 0.3s ease; position: absolute; top: 0; left: 0; right: 0;"
+           onmouseover="this.style.transform='rotate(3deg)'" onmouseout="this.style.transform='rotate(-3deg)'">
+          <img src="Images/HiggsVec.png" class="fragment" data-fragment-index="2"
+           style="border: 4px solid #666; border-radius: 15px; padding: 15px; max-width: 400px; margin: 20px auto; display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transform: rotate(-3deg); transition: transform 0.3s ease; position: absolute; top: 0; left: 0; right: 0;"
+           onmouseover="this.style.transform='rotate(3deg)'" onmouseout="this.style.transform='rotate(-3deg)'">
+          <img src="Images/ClassicalHarmonicOscilator.png" class="fragment" data-fragment-index="3"
+            style="border: 4px solid #666; border-radius: 15px; padding: 15px; max-width: 400px; margin: 20px auto; display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transform: rotate(-3deg); transition: transform 0.3s ease; position: absolute; top: 0; left: 0; right: 0;
+            "
+            onmouseover="this.style.transform='rotate(3deg)'" onmouseout="this.style.transform='rotate(-3deg)'">
+          <img src="Images/ReferenceLink.png" class="fragment" data-fragment-index="4"
+            style="border: 4px solid #666; border-radius: 15px; padding: 15px; max-width: 400px; margin: 20px auto; display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transform: rotate(-3deg); transition: transform 0.3s ease; position: absolute; top: 0; left: 0; right: 0;
+             "
+            onmouseover="this.style.transform='rotate(3deg)'" onmouseout="this.style.transform='rotate(-3deg)'">
+        </div>
+    </div>
+    </div>
+</section>
+<section>
     <h3>Four important questions</h3>
     <script>
       document.write(darkBox('1', 'Who is this project for?'));
@@ -292,79 +335,25 @@ See there for the licence under which it is released.
 
 
 
-<script>
-  document.write(titleSlideBoxed('What does this mean in practice?'));
-</script>
-
-
-<!-- A warning PhysLean? -->
 <section>
-  <h3>Use the right terminology.</h3>
-  <style>
-    .two-col {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      margin: 12px 0;
-      align-items: start;
-    }
-
-    .two-col .col {
-      background: rgba(240, 240, 240, 0.9);
-      padding: 14px;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
-      font-size: 0.95em;
-    }
-
-    @media (max-width: 800px) {
-      .two-col {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-
-  <div class="two-col">
-    <div class="col">
-      <h4 style="margin-top:0;">Meaning 1. To formalize physics ...</h4>
-      To write physics into Lean or another proof assistant.
-    </div>
-
-    <div class="col">
-      <h4 style="margin-top:0;">Meaning 2. To formalize physics ...</h4>
-      To axiomize physics in a way that is mathematically rigorous.
-    </div>
+  <h3>What does it mean in practice?</h3>
+  <div class = "fragment">
+  <script>
+  document.write(minimalBox('0', 'Include the physics context.'));
+  </script></div>
+  <div class="fragment"> <script>
+  document.write(minimalBox('1', 'Use the right terminology.'));
+  </script>
   </div>
-  <p>Sometimes I use the word <em>digitalize</em> to avoid confusion.</p>
+  <div class="fragment"> <script>
+  document.write(minimalBox('2', 'Write computable functions - interface with programs.'));
+  </script>
+  </div>
+  <div class="fragment"> <script>
+  document.write(minimalBox('3', 'Reference and connect with experimental data.'));
+  </script>
+  </div>
 </section>
-
-
-
-<!-- How does it differ from Mathlib? Basically the vision of PhysLean.
-  - looks like physics. -->
-<section>
-  <h2 style="color: #af774c; text-align: center; margin-bottom: 12px; font-size: 1.1em;">Keep in mind what is useful for the physicists.</h2>
-  <section>
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 20px; padding: 20px;">
-      <div class="fragment"
-        style="background-color: #af774c; color: #fff; padding: 15px; border-radius: 8px; text-align: center; font-size: 0.9em;">
-        Inclusion of Physics context
-      </div>
-      <div class="fragment"
-        style="background-color: #4ca1af; color: #fff; padding: 15px; border-radius: 8px; text-align: center; font-size: 0.9em;">
-        Interface with programs and simulations.
-      </div>
-      <div class="fragment"
-        style="background-color: #af774c; color: #fff; padding: 15px; border-radius: 8px; text-align: center; font-size: 0.9em;">
-        Interface with experimental data
-      </div>
-    </div>
-  </section>
-</section>
-
-
-
 
 <section>
   <h3>Four important questions</h3>
@@ -462,24 +451,24 @@ See there for the licence under which it is released.
       </div>
 
       <!-- Points -->
-      <div style="width:12px; height:12px; background:rgb(171, 24, 24); border-radius:50%; position:absolute; left:190px; top:220px;">
+      <div class = "fragment" data-fragment-index="5" style="width:12px; height:12px; background:rgb(171, 24, 24); border-radius:50%; position:absolute; left:190px; top:220px;">
       </div>
-      <div style="width:12px; height:12px; background:rgb(171, 24, 24); border-radius:50%; position:absolute; left:170px; top:240px;">
+      <div class = "fragment" data-fragment-index="2" style="width:12px; height:12px; background:rgb(171, 24, 24); border-radius:50%; position:absolute; left:170px; top:240px;">
       </div>
-      <div style="width:12px; height:12px; background:rgb(171, 24, 24); border-radius:50%; position:absolute; left:280px; top:350px;">
+      <div class = "fragment" data-fragment-index="1" style="width:12px; height:12px; background:rgb(171, 24, 24); border-radius:50%; position:absolute; left:280px; top:350px;">
       </div>
-      <div style="width:12px; height:12px; background:rgb(171, 24, 24); border-radius:50%; position:absolute; left:520px; top:60px;">
+      <div class = "fragment" data-fragment-index="3" style="width:12px; height:12px; background:rgb(171, 24, 24); border-radius:50%; position:absolute; left:520px; top:60px;">
       </div>
 
       <!-- Labels -->
-      <div style="position:absolute; color:#2f3b4c; font-size:18px; left:300px; top:350px;">Math<br>def'n</div>
-      <div style="position:absolute; color:#2f3b4c; font-size:18px; left:540px; top:60px;">Physics<br>def'n</div>
+      <div class = "fragment" data-fragment-index="1" style="position:absolute; color:#2f3b4c; font-size:18px; left:300px; top:350px;">Math<br>def'n</div>
+      <div class = "fragment" data-fragment-index="3" position:absolute; color:#2f3b4c; font-size:18px; left:540px; top:60px;">Physics<br>def'n</div>
 
       <!-- Lines -->
       <svg width="750" height="550" style="position:absolute; top:0; left:0;">
-        <line x1="196" y1="226" x2="524" y2="65" style="stroke:rgb(171, 24, 24); stroke-width:1;" />
-        <line x1="176" y1="246" x2="285" y2="355" style="stroke:rgb(171, 24, 24); stroke-width:1;" />
-        <line x1="285" y1="355" x2="524" y2="65" style="stroke:rgb(171, 24, 24); stroke-width:1; stroke-dasharray:5;" />
+        <line class = "fragment" data-fragment-index="5"  x1="196" y1="226" x2="524" y2="65" style="stroke:rgb(171, 24, 24); stroke-width:1;" />
+        <line  class = "fragment" data-fragment-index="2" x1="176" y1="246" x2="285" y2="355" style="stroke:rgb(171, 24, 24); stroke-width:1;" />
+        <line class = "fragment" data-fragment-index="4"  x1="285" y1="355" x2="524" y2="65" style="stroke:rgb(171, 24, 24); stroke-width:1; stroke-dasharray:5;" />
       </svg>
 
     </div>
@@ -498,7 +487,7 @@ See there for the licence under which it is released.
       allowfullscreen>
     </iframe>
     <div style="width: 20px;"></div>
-    <iframe src="https://arxiv.org/pdf/2505.07939"
+    <iframe src="https://arxiv.org/pdf/2507.16984"
       style="width: 50%; height: 100%; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
       allowfullscreen>
     </iframe>

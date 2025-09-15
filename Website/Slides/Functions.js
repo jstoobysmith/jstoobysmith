@@ -97,7 +97,22 @@ function numberedBox(number, text) {
     </div>`;
 }
 
+function halfBox(number, text) {
+  const colors = ['#4ca1af', '#af774c'];
+  const color = colors[(number - 1) % colors.length];
+  return `
+  <div style="display: flex; align-items: center; margin-bottom: 25px;">
+        <div
+        style="min-width: 60px; height: 60px; background-color: ${color}; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+        <span style="color: white; font-weight: bold; font-size: 1.5em;">${number}</span>
+        </div>
+        <div
+        style="margin-left: 20px; padding: 15px; background-color: #f5f5f5; border-left: 4px solid ${color}; border-radius: 0 8px 8px 0; flex-grow: 1; box-shadow: 2px 2px 5px rgba(0,0,0,0.1);">
+        <span style="font-size: 0.6em;">${text}</span>
+        </div>
+      </div>`
 
+}
 /**
 
 ## Title slides

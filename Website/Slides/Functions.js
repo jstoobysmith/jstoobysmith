@@ -113,6 +113,54 @@ function halfBox(number, text) {
       </div>`
 
 }
+
+/**
+ ## Quote boxes
+
+ */
+
+// Variation 1: Classic Style
+function classicQuote(quote) {
+  return `
+    <div style="margin: 30px auto; padding: 25px; border-left: 5px solid #e0e0e0; background-color: #fdfdfd; max-width: 80%;">
+      <p style="font-family: 'Georgia', serif; font-style: italic; font-size: 1em; color: #444; margin: 0 0 15px 0; line-height: 1.6;">${quote}</p>
+    </div>`;
+}
+
+// Variation 2: Modern Minimalist
+function modernQuote(quote) {
+  return `
+    <div style="margin: 30px auto; padding: 30px; background-color: white; border-radius: 8px; box-shadow: 0 6px 25px rgba(0,0,0,0.08); max-width: 80%;">
+      <p style="font-family: 'Inter', sans-serif; font-size: 1.25em; color: #333; margin: 0 0 20px 0; line-height: 1.5;">${quote}</p>
+    </div>`;
+}
+
+// Variation 3: Artistic with Background Quote Mark
+function artisticQuote(quote) {
+  return `
+    <div style="position: relative; margin: 40px auto; padding: 30px; background-color: #f7f9fc; border-radius: 10px; max-width: 80%;">
+      <div style="position: absolute; top: 10px; left: 15px; font-size: 8em; color: rgba(0, 0, 0, 0.05); font-family: 'Times New Roman', serif; z-index: 1; user-select: none;">“</div>
+      <div style="position: relative; z-index: 2;">
+        <p style="font-family: 'Playfair Display', serif; font-size: 1.4em; color: #3a3a3a; margin: 0 0 15px 0; line-height: 1.6;">${quote}</p>
+      </div>
+    </div>`;
+}
+
+// Variation 4: Dark Theme Quote
+function darkThemeQuote(quote) {
+  return `
+    <div style="margin: 30px auto; padding: 25px; background-color: #2d3436; border-left: 5px solid #00b894; border-radius: 5px; max-width: 80%;">
+      <p style="font-family: 'Roboto', sans-serif; font-size: 1.2em; color: #dfe6e9; margin: 0 0 15px 0; line-height: 1.6;">“${quote}”</p>
+    </div>`;
+}
+
+// Variation 5: Highlighted Text Style
+function highlightQuote(quote) {
+  return `
+    <div style="margin: 30px auto; padding: 20px; text-align: center; max-width: 80%;">
+      <p style="font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 1.5em; color: #333; margin: 0 0 15px 0; line-height: 1.5; background: linear-gradient(180deg, rgba(255,255,255,0) 60%, #fdcb6e 60%); display: inline;">${quote}</p>
+    </div>`;
+}
 /**
 
 ## Title slides

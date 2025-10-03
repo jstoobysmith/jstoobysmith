@@ -1,0 +1,248 @@
+<!--
+This file is corresponds to one of my talks.
+
+bundle exec jekyll serve
+
+-->
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>PhysLean</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/monokai.min.css">
+
+
+
+  <style>
+    .reveal h1,
+    .reveal h2,
+    .reveal h3,
+    .reveal h4,
+    .reveal h5,
+    .reveal h6 {
+      text-transform: none;
+    }
+  </style>
+
+  <style>
+    pre code {
+      font-size: 0.7em !important;
+    }
+  </style>
+  <style>
+    /* Change comment color in Highlight.js */
+    .hljs-comment {
+      color: #96b596; /* Specify your desired color here */
+    }
+  </style>
+
+  <!-- Predefined functions for use within the code. -->
+  <script src="Functions.js"></script>
+</head>
+
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!--
+Slides start here
+..........................
+..........................
+..........................
+..........................
+..........................
+-->
+
+
+<script>
+  let leanFiles = [];
+  fetch('https://api.github.com/repos/HEPLean/PhysLean/git/trees/master?recursive=1')
+    .then(response => response.json())
+    .then(data => {
+  leanFiles = data.tree.filter(file => file.path.endsWith('.lean')).map(file => file.path);
+  // You can now use the leanFiles array
+  // For example, log it to the console:
+  // console.log(leanFiles);
+    })
+    .catch(error => console.error('Error fetching repository tree:', error));
+</script>
+<section>
+  <h3>PhysLean structure</h3>
+  <div style="display: flex;">
+    <div id="lean-files-container" style="height: 600px; overflow-y: auto; border: 1px solid #4CAF50; padding: 10px; width: 30%; text-align: left; font-size: 0.5em; background-color: #2E3440; color: #A3BE8C; font-family: monospace;"></div>
+    <pre id="EM-slide-1" style="border: 2px solid #ccc; padding: 15px; border-radius: 5px; width: 60%; margin-left: 20px;">Click a file on the left to see code.</pre>
+  </div>
+  <script>
+    // Function to render the file list
+    function renderLeanFiles() {
+      const container = document.getElementById('lean-files-container');
+
+      function buildFileTree(files) {
+        const tree = {};
+        files.forEach(path => {
+          const parts = path.split('/');
+          let currentLevel = tree;
+          parts.forEach((part, index) => {
+            if (index === parts.length - 1) { // It's a file
+              if (!currentLevel._files) {
+                currentLevel._files = [];
+              }
+              currentLevel._files.push({name: part, path: path});
+            } else { // It's a directory
+              if (!currentLevel[part]) {
+                currentLevel[part] = {};
+              }
+              currentLevel = currentLevel[part];
+            }
+          });
+        });
+        return tree;
+      }
+
+      function createHtmlTree(node) {
+        const ul = document.createElement('ul');
+        ul.style.listStyleType = 'none';
+        ul.style.paddingLeft = '10px'; /* Removed indent */
+        ul.style.marginLeft = '0px'; /* Added margin reset */
+
+        // Sort directories first, then files
+        const sortedKeys = Object.keys(node).sort((a, b) => {
+          if (a === '_files') return 1;
+          if (b === '_files') return -1;
+          if (a < b) return -1;
+          if (a > b) return 1;
+          return 0;
+        });
+
+        for (const key of sortedKeys) {
+          if (key === '_files') {
+            node._files.sort((a, b) => a.name.localeCompare(b.name)).forEach(file => {
+              const li = document.createElement('li');
+              li.textContent = file.name;
+              li.style.paddingLeft = '5px';
+              li.style.cursor = 'pointer'; // Indicate it's clickable
+              li.style.marginLeft = '0px'; /* Added margin reset */
+
+              // Add click event listener
+              li.onclick = function() {
+                const filePath = file.path;
+                if (filePath) {
+                  const rawUrl = `https://raw.githubusercontent.com/HEPLean/PhysLean/master/${filePath}`;
+                  makeCodeSlide("EM-slide-1", rawUrl, "lean", "0.6em");
+                } else {
+                  console.error('File path not found for', file.name);
+                }
+              };
+              ul.appendChild(li);
+            });
+          } else {
+            const li = document.createElement('li');
+            const details = document.createElement('details');
+            const summary = document.createElement('summary');
+            summary.textContent = key;
+            summary.style.cursor = 'pointer';
+            details.appendChild(summary);
+            details.appendChild(createHtmlTree(node[key]));
+            li.appendChild(details);
+            ul.appendChild(li);
+          }
+        }
+        return ul;
+      }
+
+      if (leanFiles && leanFiles.length > 0) {
+        const fileTree = buildFileTree(leanFiles);
+        const htmlTree = createHtmlTree(fileTree);
+        container.innerHTML = ''; // Clear previous content
+        container.appendChild(htmlTree);
+      } else {
+        container.textContent = 'Loading Lean files...';
+        // Retry after a short delay if leanFiles isn't populated yet
+        setTimeout(renderLeanFiles, 500);
+      }
+    }
+
+    // Initial call to render the files
+    renderLeanFiles();
+  </script>
+  </section>
+
+  <!--
+End matter
+..........................
+..........................
+..........................
+..........................
+..........................
+-->
+    </div>
+  </div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script src="plugin/math/math.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="js/lean.min.js"></script>
+  <script src="js/lean-goal.js"></script>
+  <script src="js/merge-html.js"></script>
+  <script src="js/inline_svg.js"></script>
+  <script>
+    RevealHighlight().hljs.addPlugin(mergeHTMLPlugin);
+    Reveal.initialize({
+      mathjax3: {
+        mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js',
+        loader: { load: ['[tex]/mathtools', '[tex]/centernot'] },
+        tex: {
+          packages: { '[+]': ['mathtools', 'centernot'] },
+        },
+        chtml: {
+          mtextFont: 'Source Sans Pro',
+        },
+        options: {
+          skipHtmlTags: { '[-]': ['code', 'pre'] },
+        },
+      },
+      katex: {
+        macros: {
+          "\\smallunderbrace":
+            String.raw`{\tiny\underbrace{\huge{#1}}_{\huge\scriptsize#2}}`
+        },
+        trust: true,
+        strict: false,
+        ignoredTags: ['script', 'noscript', 'style'],
+      },
+      plugins: [
+        RevealInlineSvg,
+        RevealHighlight,
+        RevealMath.KaTeX,
+        RevealNotes,
+      ],
+      history: true,
+      center: false,
+      // defaultTiming: 40,
+      // slideNumber: 'c/t',
+      // width: 1280*0.96,
+      // height: 1024*0.96,
+      // width: 1856,
+      // height: 1016,
+      margin: 0.04,
+      navigationMode: 'linear',
+      totalTime: 25 * 60,
+      // showNotes: 'separate-page'
+      autoAnimateEasing: 'ease-out',
+      autoAnimateDuration: 0.8,
+      autoAnimateUnmatched: false,
+    });
+  </script>
+
+
+</body>
+
+</html>

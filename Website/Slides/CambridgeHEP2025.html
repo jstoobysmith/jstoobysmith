@@ -16,8 +16,6 @@ bundle exec jekyll serve
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/monokai.min.css">
 
-
-
 <style>
     .reveal h1,
     .reveal h2,
@@ -35,9 +33,16 @@ bundle exec jekyll serve
     }
 </style>
 
-
 <!-- Predefined functions for use within the code. -->
 <script src="Functions.js"></script>
+
+<style>
+  /* Change comment color in Highlight.js */
+  .hljs-comment {
+    color: #96b596;
+    /* Specify your desired color here */
+  }
+</style>
 </head>
 
 
@@ -246,9 +251,9 @@ Slides start here
       allowfullscreen>
     </iframe>
   </div>
-  <div style="text-align: center; margin-top: 10px; font-size: 0.8em; color: #666;">
+  <div style="text-align: center; margin-top: 10px; font-size: 0.6em; color: #666;">
     View at: https://<span style="color: #333;">josephtoobysmith</span>.<span style="color: #555;">com</span>/<span
-      style="color: #777;">Slides</span>/<span style="color: #999;">Iceland2025</span>.<span
+      style="color: #777;">Slides</span>/<span style="color: #999;">CambridgeHEP2025</span>.<span
       style="color: #555;">html</span>
   </div>
 </section>
@@ -387,23 +392,16 @@ Slides start here
 <section>
   <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 20px; text-align: center; font-weight: 50;">
     AI researchers: PutnamBench</h2>
-  <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
-    <iframe src="https://trishullab.github.io/PutnamBench/leaderboard.html"
-      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
-      allowfullscreen>
-    </iframe>
-  </div>
-
+  <script>
+    document.write(myIFrame('https://trishullab.github.io/PutnamBench/leaderboard.html'));
+  </script>
 </section>
 
 <section>
   <h3>Physcists:</h3>
-  <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
-    <iframe src="https://physlean.com"
-      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
-      allowfullscreen>
-    </iframe>
-  </div>
+  <script>
+    document.write(myIFrame('https://physlean.com'));
+  </script>
 </section>
 </section>
 
@@ -492,28 +490,29 @@ Slides start here
   <section>
     <script>
       document.write(minimalBox('1', 'Search engines'));
+      document.write(myIFrame('https://www.leanexplore.com', "500px"));
     </script>
-    <iframe src="https://www.leanexplore.com"
-      style="width: 100%; height:500px; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
-      allowfullscreen></iframe>
+  </section>
+
+  <section>
+    <script>
+      document.write(minimalBox('1', 'Search engines'));
+      document.write(myIFrame('https://loogle.lean-lang.org', "500px"));
+    </script>
   </section>
 
   <section>
     <script>
       document.write(minimalBox('2', 'Notes'));
+      document.write(myIFrame('https://notes.physlean.com', "500px"));
     </script>
-    <iframe src="https://notes.physlean.com"
-      style="width: 100%; height:500px; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
-      allowfullscreen></iframe>
   </section>
 
   <section>
     <script>
       document.write(minimalBox('3', 'Having a TOO list'));
+      document.write(myIFrame('https://physlean.com/TODOList', "500px"));
     </script>
-    <iframe src="https://physlean.com/TODOList"
-      style="width: 100%; height:500px; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
-      allowfullscreen></iframe>
   </section>
 </section>
 
@@ -553,53 +552,17 @@ Slides start here
 
 
 <section>
-  <h3>Electromagnetism</h3>
-  <!-- EM Slide 1 -->
-  <pre id="EM-slide-1" style="border: 2px solid #ccc; padding: 15px; border-radius: 5px; width: 95%;"></pre>
+  <h3>Electromagnetism & the Higgs potential</h3>
+  <div style="display: flex;">
+    <div id="lean-files-container"
+      style="height: 600px; overflow-y: auto; border: 1px solid #4CAF50; padding: 10px; width: 30%; text-align: left; font-size: 0.5em; background-color: #2E3440; color: #A3BE8C; font-family: monospace;">
+    </div>
+    <pre id="EM-slide-1"
+      style="border: 2px solid #ccc; padding: 15px; border-radius: 5px; width: 60%; margin-left: 20px;">Click a file on the left to see code.</pre>
+  </div>
   <script>
-    makeCodeSlide(
-      "EM-slide-1",
-      "https://raw.githubusercontent.com/HEPLean/PhysLean/master/PhysLean/Electromagnetism/Potential.lean",
-      "lean",
-      "0.6em"
-    );
+    renderLeanFiles();
   </script>
-  <button style="background:transparent;color:#000000;border:2px solid #000000;padding:8px 16px;border-radius:6px;cursor:pointer;"
-    onclick="makeCodeSlide('EM-slide-1',
-        'https://raw.githubusercontent.com/HEPLean/PhysLean/master/PhysLean/Electromagnetism/Potential.lean', 'lean', '0.6em'); ">
-    Potential
-  </button>
-  <button  style="background:transparent;color:#000000;border:2px solid #000000;padding:8px 16px;border-radius:6px;cursor:pointer;"
-    onclick="makeCodeSlide('EM-slide-1',
-      'https://raw.githubusercontent.com/HEPLean/PhysLean/master/PhysLean/Electromagnetism/Electrostatics/ThreeDimension/PointParticle.lean', 'lean', '0.6em'); ">
-    Point particle
-  </button>
-</section>
-
-<section>
-  <h3>Higgs potential</h3>
-  <!-- EM Slide 1 -->
-  <pre id="Higgs-code" style="border: 2px solid #ccc; padding: 15px; border-radius: 5px; width: 95%;"></pre>
-  <script>
-    makeCodeSlide(
-      "Higgs-code",
-      "https://raw.githubusercontent.com/HEPLean/PhysLean/master/PhysLean/Electromagnetism/Potential.lean",
-      "lean",
-      "0.6em"
-    );
-  </script>
-  <button
-    style="background:transparent;color:#000000;border:2px solid #000000;padding:8px 16px;border-radius:6px;cursor:pointer;"
-    onclick="makeCodeSlide('Higgs-code',
-        'https://raw.githubusercontent.com/HEPLean/PhysLean/master/PhysLean/Electromagnetism/Potential.lean', 'lean', '0.6em'); ">
-    Potential
-  </button>
-  <button
-    style="background:transparent;color:#000000;border:2px solid #000000;padding:8px 16px;border-radius:6px;cursor:pointer;"
-    onclick="makeCodeSlide('Higgs-code',
-      'https://raw.githubusercontent.com/HEPLean/PhysLean/master/PhysLean/Electromagnetism/Electrostatics/ThreeDimension/PointParticle.lean', 'lean', '0.6em'); ">
-    Point particle
-  </button>
 </section>
 
 
@@ -719,32 +682,16 @@ Slides start here
 <section>
   <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 20px; text-align: center; font-weight: 50;">
     What about AI?</h2>
-  <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
-    <iframe src="https://demo.projectnumina.ai"
-      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
-      allowfullscreen>
-    </iframe>
-  </div>
+  <script>
+  document.write(myIFrame("https://demo.projectnumina.ai"));
+  </script>
 </section>
 
-  <!-- Thank you slide -->
-  <section>
-    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 70vh;">
-      <h2
-        style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 20px; text-align: center; font-weight: 600;">
-        Thank You</h2>
-      <div style="width: 100px; height: 4px; background-color: #27ae60; margin: 20px 0;"></div>
-      <p style="font-family: 'Georgia', serif; color: #333; text-align: center; margin: 15px 0;">Joseph Tooby-Smith</p>
-      <div style="margin-top: 40px; max-width: 600px; text-align: center;">
-        <p style="font-size: 0.9em; color: #555;">
-          <a href="https://josephtoobysmith.com"
-            style="color: #27ae60; text-decoration: none; transition: color 0.3s ease;"
-            onmouseover="this.style.color='#219653'" onmouseout="this.style.color='#27ae60'">josephtoobysmith.com</a>
-        </p>
-        <p style="font-size: 0.9em; color: #555; margin-top: 10px;">Questions?</p>
-      </div>
-    </div>
-  </section>
+
+<!-- Thank you slide -->
+<script>
+  document.write(thankYouSlide());
+</script>
 
 
 
@@ -759,7 +706,7 @@ End matter
 </div>
 </div>
 
-<script src="dist/reveal.js"></script>
+  <script src="dist/reveal.js"></script>
   <script src="plugin/highlight/highlight.js"></script>
   <script src="plugin/math/math.js"></script>
   <script src="plugin/notes/notes.js"></script>

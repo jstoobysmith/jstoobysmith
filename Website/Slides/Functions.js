@@ -1,4 +1,32 @@
 /**
+ *
+ * Default slides:
+ *
+ */
+
+
+function thankYouSlide() {
+  return `
+<section>
+  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 70vh;">
+    <h2
+      style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 20px; text-align: center; font-weight: 600;">
+      Thank You</h2>
+    <div style="width: 100px; height: 4px; background-color: #27ae60; margin: 20px 0;"></div>
+    <p style="font-family: 'Georgia', serif; color: #333; text-align: center; margin: 15px 0;">Joseph Tooby-Smith</p>
+    <div style="margin-top: 40px; max-width: 600px; text-align: center;">
+      <p style="font-size: 0.9em; color: #555;">
+        <a href="https://josephtoobysmith.com"
+          style="color: #27ae60; text-decoration: none; transition: color 0.3s ease;"
+          onmouseover="this.style.color='#219653'" onmouseout="this.style.color='#27ae60'">josephtoobysmith.com</a>
+      </p>
+      <p style="font-size: 0.9em; color: #555; margin-top: 10px;">Questions?</p>
+    </div>
+  </div>
+</section>`
+}
+
+/**
 
 ## Box functions
 
@@ -105,7 +133,17 @@ function timelineBox(number, text) {
     </div>`;
 }
 
-// Original function retained for compatibility
+function timelineBoxAppear(number, text) {
+  let box = timelineBox(number, text);
+  return `<div class="fragment fade-in">${box}</div>`;
+}
+
+function timelineBoxList(items, startNumber = 1) {
+  return items.map((item, index) => timelineBoxAppear(startNumber + index, item)).join('');
+}
+
+// Variation 6: Numbered boxes
+
 function numberedBox(number, text) {
   const colors = ['#4ca1af', '#af774c'];
   const color = colors[(number - 1) % colors.length];
@@ -120,6 +158,16 @@ function numberedBox(number, text) {
         <span style="font-size: 1.1em;">${text}</span>
       </div>
     </div>`;
+}
+
+
+function numberedBoxAppear(number, text) {
+  let box = numberedBox(number, text);
+  return `<div class="fragment fade-in">${box}</div>`;
+}
+
+function numberedBoxList(items, startNumber = 1) {
+  return items.map((item, index) => numberedBoxAppear(startNumber + index, item)).join('');
 }
 
 function halfBox(number, text) {
@@ -432,4 +480,119 @@ function makeCodeSlide(containerId, url, lang = "lean", fontSize = "0.8em") {
       codeBlock.textContent = `Error loading code from URL:\n${url}\n\nDetails: ${error}`;
       console.error("Error loading text:", error);
     });
+}
+
+
+function myIFrame(url, height = "100%") {
+  return `
+  <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
+    <iframe src="${url}"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: ${height}; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
+      allowfullscreen>
+    </iframe>
+  </div>`
+}
+
+/**
+ * Lean file display
+ *
+*/
+
+let leanFiles = [];
+fetch('https://api.github.com/repos/HEPLean/PhysLean/git/trees/master?recursive=1')
+  .then(response => response.json())
+  .then(data => {
+    leanFiles = data.tree.filter(file => file.path.endsWith('.lean')).map(file => file.path);
+    // You can now use the leanFiles array
+    // For example, log it to the console:
+    // console.log(leanFiles);
+  })
+  .catch(error => console.error('Error fetching repository tree:', error));
+function renderLeanFiles() {
+
+  const container = document.getElementById('lean-files-container');
+
+  function buildFileTree(files) {
+    const tree = {};
+    files.forEach(path => {
+      const parts = path.split('/');
+      let currentLevel = tree;
+      parts.forEach((part, index) => {
+        if (index === parts.length - 1) { // It's a file
+          if (!currentLevel._files) {
+            currentLevel._files = [];
+          }
+          currentLevel._files.push({ name: part, path: path });
+        } else { // It's a directory
+          if (!currentLevel[part]) {
+            currentLevel[part] = {};
+          }
+          currentLevel = currentLevel[part];
+        }
+      });
+    });
+    return tree;
+  }
+
+  function createHtmlTree(node) {
+    const ul = document.createElement('ul');
+    ul.style.listStyleType = 'none';
+    ul.style.paddingLeft = '10px'; /* Removed indent */
+    ul.style.marginLeft = '0px'; /* Added margin reset */
+
+    // Sort directories first, then files
+    const sortedKeys = Object.keys(node).sort((a, b) => {
+      if (a === '_files') return 1;
+      if (b === '_files') return -1;
+      if (a < b) return -1;
+      if (a > b) return 1;
+      return 0;
+    });
+
+    for (const key of sortedKeys) {
+      if (key === '_files') {
+        node._files.sort((a, b) => a.name.localeCompare(b.name)).forEach(file => {
+          const li = document.createElement('li');
+          li.textContent = file.name;
+          li.style.paddingLeft = '5px';
+          li.style.cursor = 'pointer'; // Indicate it's clickable
+          li.style.marginLeft = '0px'; /* Added margin reset */
+
+          // Add click event listener
+          li.onclick = function () {
+            const filePath = file.path;
+            if (filePath) {
+              const rawUrl = `https://raw.githubusercontent.com/HEPLean/PhysLean/master/${filePath}`;
+              makeCodeSlide("EM-slide-1", rawUrl, "lean", "0.6em");
+            } else {
+              console.error('File path not found for', file.name);
+            }
+          };
+          ul.appendChild(li);
+        });
+      } else {
+        const li = document.createElement('li');
+        const details = document.createElement('details');
+        const summary = document.createElement('summary');
+        summary.textContent = key;
+        summary.style.cursor = 'pointer';
+        details.appendChild(summary);
+        details.appendChild(createHtmlTree(node[key]));
+        li.appendChild(details);
+        ul.appendChild(li);
+      }
+    }
+    return ul;
+  }
+
+  if (leanFiles && leanFiles.length > 0) {
+    const fileTree = buildFileTree(leanFiles);
+    const htmlTree = createHtmlTree(fileTree);
+    container.innerHTML = ''; // Clear previous content
+    container.appendChild(htmlTree);
+  } else {
+    container.textContent = 'Loading Lean files...';
+    // Retry after a short delay if leanFiles isn't populated yet
+    setTimeout(renderLeanFiles, 500);
+  }
 }

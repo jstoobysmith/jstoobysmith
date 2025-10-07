@@ -241,11 +241,34 @@ Veiwing the dependency graph of PhysLean
     const initialSource = "PhysLean.ClassicalMechanics.HamiltonsEquations";
     const initialTarget = "PhysLean";
 
-    const sourceToCheck = document.getElementById(`source-${initialSource}`);
-    if (sourceToCheck) sourceToCheck.checked = true;
+    // Read initial sources and targets from URL parameters.
+    // Example: ?sources=Source1,Source2&targets=Target1
+    // If not provided, use the default values defined in initialSource and initialTarget.
+    const urlParams = new URLSearchParams(window.location.search);
+    const sourcesFromUrl = urlParams.get('sources');
+    const targetsFromUrl = urlParams.get('targets');
 
-    const targetToCheck = document.getElementById(`target-${initialTarget}`);
-    if (targetToCheck) targetToCheck.checked = true;
+    let sourcesToCheck = sourcesFromUrl ? sourcesFromUrl.split(',') : [initialSource];
+    let targetsToCheck = targetsFromUrl ? targetsFromUrl.split(',') : [initialTarget];
+
+    // If sources or targets are provided in the URL, replace the defaults.
+    if (sourcesFromUrl) {
+      sourcesToCheck = sourcesFromUrl.split(',');
+    }
+
+    if (targetsFromUrl) {
+      targetsToCheck = targetsFromUrl.split(',');
+    }
+
+    sourcesToCheck.forEach(source => {
+      const checkbox = document.getElementById(`source-${source}`);
+      if (checkbox) checkbox.checked = true;
+    });
+
+    targetsToCheck.forEach(target => {
+      const checkbox = document.getElementById(`target-${target}`);
+      if (checkbox) checkbox.checked = true;
+    });
 
     updateGraph();
   }

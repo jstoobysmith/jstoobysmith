@@ -26,6 +26,7 @@ function thankYouSlide() {
 </section>`
 }
 
+
 /**
 
 ## Box functions
@@ -46,6 +47,17 @@ function modernBox(number, text) {
       </div>
     </div>`;
 }
+
+
+function modernBoxAppear(number, text) {
+  let box = modernBox(number, text);
+  return `<div class="fragment fade-in">${box}</div>`;
+}
+
+function modernBoxList(items, startNumber = 1) {
+  return items.map((item, index) => modernBoxAppear(startNumber + index, item)).join('');
+}
+
 
 // Variation 2: Minimalist Style
 function minimalBox(number, text) {
@@ -596,3 +608,13 @@ function renderLeanFiles() {
     setTimeout(renderLeanFiles, 500);
   }
 }
+
+
+function simpleCodeBlock(code) {
+  return `<div style="display: flex; justify-content: center; max-width: 90%; margin: 0 auto;">
+    <pre>
+        <code data-trim data-noescape class="language-lean" style="font-size: 1em !important;">
+                  ${code}
+                </code>
+                      </pre>
+  </div>`;}

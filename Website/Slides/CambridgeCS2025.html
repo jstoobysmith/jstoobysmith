@@ -163,7 +163,7 @@ See there for the licence under which it is released.
 </section>
 
 <section>
-  <h3>Mathematicians Post-2017: Mathlib</h3>
+  <h3>Mathematicians: Mathlib</h3>
 
   <div style="max-width: 90%; margin: 0 auto;">
     <ul style="list-style-type: none; padding-left: 5px; margin: 0;">
@@ -177,12 +177,9 @@ See there for the licence under which it is released.
       </li>
       <li style="margin-bottom: 0px; padding-left: 25px; position: relative;">
         <span style="position: absolute; left: 0; color: #27ae60;">•</span>
-        Over 400 contributors, 80,000 definitions and 160,000 theorems
+        Over 400 contributors, 100,000 definitions and 200,000 theorems
       </li>
-      <li style="padding-left: 25px; position: relative;">
-        <span style="position: absolute; left: 0; color: #27ae60;">•</span>
-        Promoted heavily by Kevin Buzzard
-      </li>
+
     </ul>
   </div>
   <div style="position: relative; width: 95%; margin: 0 auto; overflow: hidden;">
@@ -412,35 +409,42 @@ See there for the licence under which it is released.
   </div>
 </section>
 
-<!-- Searching PhysLean - loogle and (as seen eariler) Lean explorer -->
+<!-- Infarstructure slides -->
 <section>
   <h3>Infarstructure</h3>
-
   <section>
     <script>
       document.write(minimalBox('1', 'Search engines'));
+      document.write(myIFrame('https://www.leanexplore.com', "500px"));
     </script>
-    <iframe src="https://www.leanexplore.com"
-      style="width: 100%; height:500px; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
-      allowfullscreen></iframe>
   </section>
-
   <section>
     <script>
-      document.write(minimalBox('2', 'Notes'));
+      document.write(minimalBox('2', 'Documentation'));
+      document.write(myIFrame('https://physlean.com/docs/', "500px"));
     </script>
-    <iframe src="https://notes.physlean.com"
-      style="width: 100%; height:500px; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
-      allowfullscreen></iframe>
   </section>
-
   <section>
     <script>
-      document.write(minimalBox('3', 'Having a TOO list'));
+      document.write(minimalBox('3', 'Notes'));
+      document.write(myIFrame('https://notes.physlean.com', "500px"));
     </script>
-    <iframe src="https://physlean.com/TODOList"
-      style="width: 100%; height:500px; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
-      allowfullscreen></iframe>
+  </section>
+  <section>
+    <script>
+      document.write(minimalBox('4', 'Having a TOO list'));
+      document.write(myIFrame('https://physlean.com/TODOList', "500px"));
+    </script>
+  </section>
+  <section>
+    <script>
+      document.write(minimalBox('5', 'Informal definitions and lemmas list'));
+    </script>
+    <pre id="Cosmology"
+      style="border: 2px solid #ccc; padding: 15px; border-radius: 5px; width: 100%; margin-left: 20px;">Click a file on the left to see code.</pre>
+    <script>
+      makeCodeSlide('Cosmology', 'https://raw.githubusercontent.com/HEPLean/PhysLean/master/PhysLean/Cosmology/FLRW/Basic.lean');
+    </script>
   </section>
 </section>
 
@@ -564,7 +568,7 @@ See there for the licence under which it is released.
 </script>
 
 <section>
-  <h3>Twin paradox & the canonical ensemble</h3>
+  <h3>Twin paradox & the harmonic oscillator</h3>
   <div style="display: flex;">
     <div id="lean-files-container"
       style="height: 600px; overflow-y: auto; border: 1px solid #4CAF50; padding: 10px; width: 30%; text-align: left; font-size: 0.5em; background-color: #2E3440; color: #A3BE8C; font-family: monospace;">

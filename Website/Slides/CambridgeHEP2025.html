@@ -303,13 +303,67 @@ Slides start here
 </section>
 <section>
   <h2>Mathematicians Pre-2017: One-off projects</h2>
-  <ul>
-    <li>2004(Isabelle/HOL): Prime number theorem </li>
-    <li>2004(Rocq): Four color theorem</li>
-    <li>2005(Isabelle/HOL): Jordan Curve theorem</li>
-    <li>2013(Rocq): Odd order theorem</li>
-    <li>1998-2015(Isabelle/HOL): Kepler conjecture (Hales' proof)</li>
-  </ul>
+   <div style="position: relative; max-width: 90%; margin: 20px auto; padding: 20px; background-color: #fdfdfd; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); height: 450px; overflow-y: auto; border-left: 5px solid #3a5a78;">
+    <!-- Timeline Item 1 -->
+    <div class="timeline-item" style="position: relative; margin-bottom: 30px; padding-left: 80px;">
+      <div style="position: absolute; left: 40px; top: 5px; width: 20px; height: 20px; background-color: white; border: 4px solid #3a5a78; border-radius: 50%; z-index: 10; transition: transform 0.2s ease-in-out;"></div>
+      <div style="background-color: #f0f4f8; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
+      <h4 style="margin: 0 0 5px 0; color: #3a5a78; transition: color 0.3s ease;">1998-2015 (Isabelle/HOL)</h4>
+      <p style="margin: 0; font-size: 0.9em;">Kepler conjecture (Hales' proof)</p>
+      </div>
+    </div>
+
+    <!-- Timeline Item 2 -->
+    <div class="timeline-item" style="position: relative; margin-bottom: 30px; padding-left: 80px;">
+      <div style="position: absolute; left: 40px; top: 5px; width: 20px; height: 20px; background-color: white; border: 4px solid #3a5a78; border-radius: 50%; z-index: 10; transition: transform 0.2s ease-in-out;"></div>
+      <div style="background-color: #f0f4f8; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
+      <h4 style="margin: 0 0 5px 0; color: #3a5a78; transition: color 0.3s ease;">2004 (Isabelle/HOL)</h4>
+      <p style="margin: 0; font-size: 0.9em;">Prime number theorem</p>
+      </div>
+    </div>
+
+    <!-- Timeline Item 3 -->
+    <div class="timeline-item" style="position: relative; margin-bottom: 30px; padding-left: 80px;">
+      <div style="position: absolute; left: 40px; top: 5px; width: 20px; height: 20px; background-color: white; border: 4px solid #3a5a78; border-radius: 50%; z-index: 10; transition: transform 0.2s ease-in-out;"></div>
+      <div style="background-color: #f0f4f8; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
+      <h4 style="margin: 0 0 5px 0; color: #3a5a78; transition: color 0.3s ease;">2004 (Rocq)</h4>
+      <p style="margin: 0; font-size: 0.9em;">Four color theorem</p>
+      </div>
+    </div>
+
+    <!-- Timeline Item 4 -->
+    <div class="timeline-item" style="position: relative; margin-bottom: 30px; padding-left: 80px;">
+      <div style="position: absolute; left: 40px; top: 5px; width: 20px; height: 20px; background-color: white; border: 4px solid #3a5a78; border-radius: 50%; z-index: 10; transition: transform 0.2s ease-in-out;"></div>
+      <div style="background-color: #f0f4f8; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
+      <h4 style="margin: 0 0 5px 0; color: #3a5a78; transition: color 0.3s ease;">2005 (Isabelle/HOL)</h4>
+      <p style="margin: 0; font-size: 0.9em;">Jordan Curve theorem</p>
+      </div>
+    </div>
+
+    <!-- Timeline Item 5 -->
+    <div class="timeline-item" style="position: relative; margin-bottom: 30px; padding-left: 80px;">
+      <div style="position: absolute; left: 40px; top: 5px; width: 20px; height: 20px; background-color: white; border: 4px solid #3a5a78; border-radius: 50%; z-index: 10; transition: transform 0.2s ease-in-out;"></div>
+      <div style="background-color: #f0f4f8; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
+      <h4 style="margin: 0 0 5px 0; color: #3a5a78; transition: color 0.3s ease;">2013 (Rocq)</h4>
+      <p style="margin: 0; font-size: 0.9em;">Odd order theorem</p>
+      </div>
+    </div>
+    </div>
+    <style>
+    .timeline-item:hover div[style*="border-radius: 50%"] {
+      transform: scale(1.2);
+      background-color: #3a5a78;
+    }
+
+    .timeline-item:hover h4 {
+      color: #e45826;
+    }
+
+    .timeline-item:hover div[style*="background-color: #f0f4f8"] {
+      transform: translateX(10px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    </style>
 </section>
 <section>
   <h3>Mathematicians Post-2017: Mathlib</h3>
@@ -483,49 +537,69 @@ Slides start here
   </div>
 </section>
 
-<!-- Searching PhysLean - loogle and (as seen eariler) Lean explorer -->
+<!-- Infarstructure slides -->
 <section>
   <h3>Infarstructure</h3>
-
   <section>
     <script>
       document.write(minimalBox('1', 'Search engines'));
       document.write(myIFrame('https://www.leanexplore.com', "500px"));
     </script>
   </section>
-
   <section>
     <script>
       document.write(minimalBox('1', 'Search engines'));
       document.write(myIFrame('https://loogle.lean-lang.org', "500px"));
     </script>
   </section>
-
   <section>
     <script>
-      document.write(minimalBox('2', 'Notes'));
+      document.write(minimalBox('2', 'Documentation'));
+      document.write(myIFrame('https://physlean.com/docs/', "500px"));
+    </script>
+  </section>
+  <section>
+    <script>
+      document.write(minimalBox('3', 'Notes'));
       document.write(myIFrame('https://notes.physlean.com', "500px"));
     </script>
   </section>
-
   <section>
     <script>
-      document.write(minimalBox('3', 'Having a TOO list'));
+      document.write(minimalBox('4', 'Having a TOO list'));
       document.write(myIFrame('https://physlean.com/TODOList', "500px"));
     </script>
+  </section>
+  <section>
+    <script>
+      document.write(minimalBox('5', 'Informal definitions and lemmas list'));
+    </script>
+    <pre id="Cosmology"
+      style="border: 2px solid #ccc; padding: 15px; border-radius: 5px; width: 100%; margin-left: 20px;">Click a file on the left to see code.</pre>
+  <script>
+    makeCodeSlide('Cosmology','https://raw.githubusercontent.com/HEPLean/PhysLean/master/PhysLean/Cosmology/FLRW/Basic.lean');
+  </script>
+  </section>
+  <section>
+    <script>
+      document.write(minimalBox('6', 'Discussion Forum'));
+
+    </script>
+    <img src="./Images/Zulip.png" alt="Zulip Chat"
+      style="border: 4px solid #666; border-radius: 15px; padding: 15px; max-width: 600px; margin: 20px auto; display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: transform 0.3s ease;"
+      onmouseover="this.style.transform='rotate(3deg)'" onmouseout="this.style.transform='rotate(-3deg)'">
   </section>
 </section>
 
 <section>
  <h3>Why have PhysLean?</h3>
   <script>
-    document.write(minimalBoxAppear("1",'Allows you to have interconnected theories'));
-    document.write(minimalBoxAppear("2",'Better version control'));
-    document.write(minimalBoxAppear("3",'Allows a philosophy of improvement rather than duplication'));
-    document.write(minimalBoxAppear("4",'Allows searchability'));
-    document.write(minimalBoxAppear("5",'Allows quality standards'));
+   document.write(modernBoxList(['Allows you to have interconnected theories',
+   'Better version control',
+   'Allows a philosophy of improvement rather than duplication',
+   'Allows searchability',
+   'Allows quality standards']));
   </script>
-
 </section>
 
 <section>
@@ -565,128 +639,51 @@ Slides start here
   </script>
 </section>
 
-
+<!-- AI Slides -->
 <section>
   <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 20px; text-align: center; font-weight: 50;">
     What about AI?</h2>
-  <div style="display: flex; justify-content: center; max-width: 90%; margin: 0 auto;">
-    <pre>
-        <code data-trim data-noescape class="language-lean" style="font-size: 1em !important;">
-                  import Mathlib
+<section>
+    <script>
+    document.write(simpleCodeBlock(`
+import Mathlib
 
-                  inductive MyNat : Type
-                    | zero : MyNat
-                    | succ : MyNat → MyNat
+inductive MyNat : Type
+  | zero : MyNat
+  | succ : MyNat → MyNat
 
-                  namespace MyNat
+namespace MyNat
 
-                  def add : MyNat → MyNat → MyNat
-                    | .zero, a => a
-                    | .succ b, a => .succ (MyNat.add b a)
+def add : MyNat → MyNat → MyNat
+  | .zero, a => a
+  | .succ b, a => .succ (MyNat.add b a)
 
 
-                  lemma add_assoc (a b c : MyNat) : add a (add b c) = add (add a b) c := by
-                    sorry
-                </code>
-                      </pre>
+lemma add_assoc (a b c : MyNat) : add a (add b c) = add (add a b) c := by
+  sorry`));
+    </script>
 </section>
-
 <section>
-  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 20px; text-align: center; font-weight: 50;">
-    What about AI?</h2>
-  <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
-    <iframe src="https://demo.projectnumina.ai"
-      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
-      allowfullscreen>
-    </iframe>
-  </div>
-  <aside class="notes">
-    <code data-trim data-noescape class="language-lean" style="font-size: 1em !important;">
-        import Mathlib
-
-        inductive MyNat : Type
-          | zero : MyNat
-          | succ : MyNat → MyNat
-
-        namespace MyNat
-
-        def add : MyNat → MyNat → MyNat
-          | .zero, a => a
-          | .succ b, a => .succ (MyNat.add b a)
-
-
-        lemma add_assoc (a b c : MyNat) : add a (add b c) = add (add a b) c := by
-          sorry
-      </code>
-
-    <code data-trim data-noescape class="language-lean" style="font-size: 1em !important;">
-        import Mathlib
-
-        inductive MyNat : Type
-          | zero : MyNat
-          | succ : MyNat → MyNat
-
-        namespace MyNat
-
-        def add : MyNat → MyNat → MyNat
-          | .zero, a => a
-          | .succ b, a => .succ (MyNat.add b a)
-
-
-        lemma add_assoc (a b c : MyNat) : add a (add b c) = add (add a b) c := by
-          sorry
-      </code>
-    <code data-trim data-noescape class="language-lean" style="font-size: 1em !important;">
-        import Mathlib
-
-        inductive MyNat : Type
-          | zero : MyNat
-          | succ : MyNat → MyNat
-
-        namespace MyNat
-
-        def add : MyNat → MyNat → MyNat
-          | .zero, a => a
-          | .succ b, a => .succ (MyNat.add b a)
-
-
-        lemma add_assoc (a b c : MyNat) : add a (add b c) = add (add a b) c := by
-          sorry
-      </code>
-    <code>
-        import Mathlib
-
-        theorem ineq (N : Nat) (a : ℝ) (n : Fin N) :
-            -Real.pi / a ≤ 2 * Real.pi / (a * ↑N) * (↑↑n - ↑(N / 2)) := by
-          sorry
-      </code>
-
-  </aside>
+  <script>
+    document.write(myIFrame("https://demo.projectnumina.ai"));
+  </script>
 </section>
-
 <section>
-  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 20px; text-align: center; font-weight: 50;">
-    What about AI?</h2>
-  <div style="display: flex; justify-content: center; max-width: 90%; margin: 0 auto;">
-    <pre>
-        <code data-trim data-noescape class="language-lean" style="font-size: 1em !important;">
-          import Mathlib
+  <script>
+    document.write(simpleCodeBlock(`
+import Mathlib
 
-          theorem ineq (N : Nat) (a : ℝ) (n : Fin N) :
-              -Real.pi / a ≤ 2 * Real.pi / (a * ↑N) * (↑↑n - ↑(N / 2)) := by
-            sorry
-                </code>
-                      </pre>
+theorem ineq (N : Nat) (a : ℝ) (n : Fin N) :
+    -Real.pi / a ≤ 2 * Real.pi / (a * ↑N) * (↑↑n - ↑(N / 2)) := by
+  sorry`));
+  </script>
 </section>
-
 <section>
-  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 20px; text-align: center; font-weight: 50;">
-    What about AI?</h2>
   <script>
   document.write(myIFrame("https://demo.projectnumina.ai"));
   </script>
 </section>
-
+</section>
 
 <!-- Thank you slide -->
 <script>

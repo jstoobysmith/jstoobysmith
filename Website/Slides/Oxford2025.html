@@ -1,0 +1,569 @@
+<!--
+This file is corresponds to one of my talks.
+
+bundle exec jekyll serve
+
+-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>PhysLean</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/monokai.min.css">
+
+<style>
+    .reveal h1,
+    .reveal h2,
+    .reveal h3,
+    .reveal h4,
+    .reveal h5,
+    .reveal h6 {
+        text-transform: none;
+    }
+</style>
+
+<style>
+    pre code {
+        font-size: 0.7em !important;
+    }
+</style>
+
+<!-- Predefined functions for use within the code. -->
+<script src="Functions.js"></script>
+
+<style>
+  /* Change comment color in Highlight.js */
+  .hljs-comment {
+    color: #96b596;
+    /* Specify your desired color here */
+  }
+</style>
+</head>
+
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+<!--
+Slides start here
+..........................
+..........................
+..........................
+..........................
+..........................
+-->
+
+<!-- Title slide. -->
+<section style="color: #333;">
+  <div style="position: absolute; top: 20px; left: 20px;">
+    <img
+      src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://josephtoobysmith.com/Slides/Oxford2025.html"
+      alt="QR Code to Slides" style="border: 2px solid #666; border-radius: 8px; padding: 5px;">
+    <div style="font-size: 12px; text-align: center; margin-top: -30px; color: #666;">Scan for slides</div>
+  </div>
+    <img src="Images/PhysLeanLogo.jpeg" style="border: 4px solid #666; border-radius: 15px; padding: 15px; max-width: 400px; margin: 20px auto; display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transform: rotate(-3deg); transition: transform 0.3s ease;"
+    onmouseover="this.style.transform='rotate(3deg)'"
+    onmouseout="this.style.transform='rotate(-3deg)'">
+    <p>Digitalizing physics into Lean 4</p>
+    <p><small><span id="current-date"></span></small></p>
+    <script>
+      document.getElementById('current-date').textContent = new Date().toLocaleDateString(undefined, {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+    </script>
+    <p><small>Joseph Tooby-Smith, University of Bath</small></p>
+
+    <p><small>Slides at: https://josephtoobysmith.com/Slides/Oxford2025.html</small></p>
+</section>
+
+<!-- Overview Slide -->
+
+<section>
+  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 40px; text-align: center;">Talk overview</h2>
+  <script>
+    document.write(threeOverview('What is an interactive theorem prover?',
+      'Introduction to PhysLean', 'How you can get involved'));
+  </script>
+</section>
+
+<!-- Section 1 -->
+
+<section data-background-color="#000080">
+  <div style="font-family: 'Courier New', Courier, monospace; color: white; text-align: left; font-size: 24px; padding: 20px;">
+    <p>A problem has been detected and Windows has been shut down to prevent damage to your computer.</p>
+
+    <p>PAGE_FAULT_IN_NONPAGED_AREA</p>
+
+    <p>If this is the first time you've seen this Stop error screen, restart your computer. If this screen appears again, follow these steps:</p>
+
+    <p>Check to make sure any new hardware or software is properly installed. If this is a new installation, ask your hardware or software manufacturer for any Windows updates you might need.</p>
+
+    <p>If problems continue, disable or remove any newly installed hardware or software. Disable BIOS memory options such as caching or shadowing. If you need to use Safe Mode to remove or disable components, restart your computer, press F8 to select Advanced Startup Options, and then select Safe Mode.</p>
+
+    <p>Technical information:</p>
+
+    <p>*** STOP: 0x00000050 (0xFD3094C2, 0x00000001, 0xFBFE7617, 0x00000000)</p>
+  </div>
+</section>
+<section>
+  <!-- Story 1: The Crowd strike incident
+    There data set change to include a bit of data of length 15, which was placed
+      into an array of size 14. Cost $5.4 billion dollars -->
+  <section data-auto-animate>
+    <div style="display: flex; align-items: center; justify-content: space-between; margin: 30px auto; max-width: 90%;">
+      <div
+        style="flex: 1; background-color: #f8f5f2; padding: 30px; border-radius: 8px; border-left: 5px solid #3a5a78; box-shadow: 0 6px 12px rgba(0,0,0,0.08);">
+        <h2
+          style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 20px; text-align: center; font-weight: 600;">
+          Story 1</h2>
+        <h3 style="font-family: 'Georgia', serif; color: #333; text-align: center; line-height: 1.4;">
+          CrowdStrike incident
+        </h3>
+      </div>
+      <div style="flex: 1; text-align: center; margin-left: 40px;">
+        <img src="./Images/BugInCodeChatGPT.png" alt="Bug in code illustration"
+          style="max-width: 100%; max-height: 400px; border-radius: 6px; box-shadow: 0 8px 16px rgba(0,0,0,0.15); transition: transform 0.3s ease;"
+          onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+      </div>
+    </div>
+    <aside class="notes">
+      1st August 2012,
+      Tech forgot to update one of 8 servers.
+      440 million dollars lost in 45 minutes.
+    </aside>
+  </section>
+  <!-- Story 2: The arXiv paper hep-ph/0512212. -->
+  <section data-auto-animate>
+    <div style="text-align: center; margin: 20px auto; max-width: 90%;">
+      <div
+        style="background-color: #f8f5f2; padding: 15px; border-radius: 5px; border-left: 3px solid #3a5a78; box-shadow: 0 3px 6px rgba(0,0,0,0.08);">
+        <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 10px; font-size: 0.9em;">Story 2: The
+          arXiv paper hep-ph/0512212</h2>
+        <!-- Equations will appear and then disappear -->
+        <div style="position: relative; height: 40px; margin: 10px 0;">
+          <p class="fragment fade-in-then-out" data-fragment-index="1"
+            style="position: absolute; width: 100%; margin: 0; font-size: 0.8em; text-align: left;">$E = A_1 + A_2 + A_3
+            + \ldots + A_n$</p>
+          <p class="fragment fade-in-then-out" data-fragment-index="2"
+            style="position: absolute; width: 100%; margin: 0; font-size: 0.8em; text-align: left;">$E = A_1 + A_2 + A_3
+            + \ldots + A_n + B_1 + B_2$</p>
+          <p class="fragment fade-in-then-out" data-fragment-index="3"
+            style="position: absolute; width: 100%; margin: 0; font-size: 0.8em; text-align: left;">$E = A_1 + A_2 + A_3
+            + \ldots + A_n$</p>
+          <p class="fragment fade-in" data-fragment-index="4"
+            style="position: absolute; width: 100%; margin: 0; font-size: 0.8em; text-align: left;">$E = A_1 + A_2 + A_3
+            + \ldots + A_n + B_1 + B_2$</p>
+        </div>
+      </div>
+    </div>
+    <div style="position: relative; height: 700px; margin: 0 auto;">
+      <!-- Images with fragment classes to control appearance -->
+      <img src="./Images/arxiv_0512212/first.png" alt="First version" class="fragment fade-in" data-fragment-index="1"
+        style="position: absolute; left: 50%; transform: translateX(-50%); top: 0; z-index: 1;
+      max-width: 100%; max-height: 400px; border-radius: 6px; box-shadow: 0 8px 16px rgba(0,0,0,0.15);">
+      <img src="./Images/arxiv_0512212/second.png" alt="Reply" class="fragment fade-in" data-fragment-index="2" style="position: absolute; left: 50%; transform: translateX(-50%); top: 100px; z-index: 2;
+      max-width: 100%; max-height: 400px; border-radius: 6px; box-shadow: 0 8px 16px rgba(0,0,0,0.15);">
+      <img src="./Images/arxiv_0512212/third.png" alt="Reply to reply" class="fragment fade-in" data-fragment-index="3"
+        style="position: absolute; left: 50%; transform: translateX(-50%); top: 200px; z-index: 3;
+      max-width: 100%; max-height: 400px; border-radius: 6px; box-shadow: 0 8px 16px rgba(0,0,0,0.15);">
+      <img src="./Images/arxiv_0512212/fourth.png" alt="Reply to reply to reply" class="fragment fade-in"
+        data-fragment-index="4" style="position: absolute; left: 50%; transform: translateX(-50%); top: 300px; z-index: 4;
+      max-width: 100%; max-height: 400px; border-radius: 6px; box-shadow: 0 8px 16px rgba(0,0,0,0.15);">
+    </div>
+  </section>
+
+<section>
+  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; text-align: center; margin-bottom: 30px; font-weight: 600;">
+    Different Manifestations of the Same Problem
+  </h2>
+  <div style="display: flex; justify-content: center; max-width: 90%; margin: 0 auto;">
+    <textarea placeholder="Something like latex..."
+      style="width: 100%; height: 400px; padding: 15px; border: 2px solid #ddd; border-radius: 6px; font-size: 1.1em; box-sizing: border-box; resize: vertical; font-family: 'Georgia', serif; box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);"></textarea>
+  </div>
+
+</section>
+
+<!-- Different manifestations of common solution: Correct by construction. -->
+<section data-auto-animate>
+  <div
+    style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 40px; border-radius: 10px; box-shadow: 0 8px 30px rgba(0,0,0,0.12); margin: 0 auto; max-width: 90%;">
+    <h2
+      style="font-family: 'Georgia', serif; color: #3a5a78; text-align: center; margin-bottom: 30px; font-weight: 600;">
+      A solution
+    </h2>
+    <div class="fragment fade-in" style="text-align: center; margin: 20px 0;">
+      <span
+        style="display: inline-block; background-color: #4c6ef5; color: white; font-size: 1.4em; padding: 15px 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(76,110,245,0.3); transform: rotate(-3deg);">
+        Correct by construction
+      </span>
+    </div>
+    <p class="fragment fade-in">Proof assistants</p>
+</section>
+<!-- The different proof assistants. -->
+<section>
+  <section data-auto-animate></section>
+  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; text-align: center; margin-bottom: 30px;">Popular Proof
+    Assistants</h2>
+
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 100px; margin: 0 auto; max-width: 90%;">
+    <!-- Coq -->
+    <div style="flex: 1; min-width: 250px; background: linear-gradient(to right, #2c3e50 0%, #2c3e50 5px, #f8f9fa 5px, #f8f9fa 100%);
+          padding: 25px; border-radius: 10px; box-shadow: 0 6px 16px rgba(0,0,0,0.1); transition: transform 0.3s ease;"
+      onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+      <h3
+        style="margin-top: 0; color: #2c3e50; font-weight: 600; border-bottom: 2px solid rgba(44, 62, 80, 0.2); padding-bottom: 10px;">
+        Rocq</h3>
+    </div>
+
+    <!-- Isabelle -->
+    <div style="flex: 1; min-width: 250px; background: linear-gradient(to right, #8e44ad 0%, #8e44ad 5px, #f8f9fa 5px, #f8f9fa 100%);
+          padding: 25px; border-radius: 10px; box-shadow: 0 6px 16px rgba(0,0,0,0.1); transition: transform 0.3s ease;"
+      onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+      <h3
+        style="margin-top: 0; color: #8e44ad; font-weight: 600; border-bottom: 2px solid rgba(142, 68, 173, 0.2); padding-bottom: 10px;">
+        Isabelle/HOL</h3>
+    </div>
+
+    <!-- Lean -->
+    <div style="flex: 1; min-width: 250px; background: linear-gradient(to right, #27ae60 0%, #27ae60 5px, #f8f9fa 5px, #f8f9fa 100%);
+          padding: 25px; border-radius: 10px; box-shadow: 0 6px 16px rgba(0,0,0,0.1); transition: transform 0.3s ease;"
+      onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+      <h3
+        style="margin-top: 0; color: #27ae60; font-weight: 600; border-bottom: 2px solid rgba(39, 174, 96, 0.2); padding-bottom: 10px;">
+        Lean</h3>
+    </div>
+
+    <!-- Agda -->
+    <div style="flex: 1; min-width: 250px; background: linear-gradient(to right, #e74c3c 0%, #e74c3c 5px, #f8f9fa 5px, #f8f9fa 100%);
+          padding: 25px; border-radius: 10px; box-shadow: 0 6px 16px rgba(0,0,0,0.1); transition: transform 0.3s ease;"
+      onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+      <h3
+        style="margin-top: 0; color: #e74c3c; font-weight: 600; border-bottom: 2px solid rgba(231, 76, 60, 0.2); padding-bottom: 10px;">
+        Agda</h3>
+    </div>
+  </div>
+</section>
+<!-- An example of Lean. -->
+<section>
+  <h2>An example of Lean</h2>
+  <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
+    <iframe
+      src="https://live.lean-lang.org/#codez=JYWwDg9gTgLgBAWQIYwBYBtgCMBQf8GFHEAmApgGaICeAcinAFxwAq1YZTAvHFtXAGdoUangB2SEGQFgkAY04I6KPOSpISJJjXrxASYQ6GBpbu69+QqCNWU4IAK7ptJo4f1uzfQcNE50ZEBAkOA0SAH0kASE5OAAKYKw4GOYXGABKbVC4rISMmJ4c7M1eJIzGHi9LETg8NDJoALgoYDEAczCyAEdskpitZkASQjK4ELgAahKAKiTxuC1pmIBaUZ5YxImSDIXPURGq3zwAekWAQjxQSFhEFAxsc7ESezkYYAA3RWV4ZjYOHBGAHzgAC8yFAIM5Pn84ICBE9kh5jJCcBIpDJ5B9dDZ1MUUp84IjTASVAC4AA6EFggA0KwAfCEoYDSbC5DEsNTglw6Uy4XFUqSsokkGl8Go7I4IYSEW4GWSKRB2XBObLQRAZdyWbwFUqsvEMrEHE5BcK/AEgiFNBEohAYvFehKUMMdYUsHlFeatMF4sVEnIyhVdiM4C0YGDRj6oSMWo9nsAIGJRgB3YBoCPQ4EqxU01MjKAUdCpmE8+PAVCZ7NJVBINqcJ3FMTq1mugp1htFLQ+4WBwMCC5wOPofgAbVC1OZclJLQAVgBRToAXXLZAAHvJ4CX8HUGiAmi12l0ej65vb0tpRhNEtsNnBtssOXF1nMtjNyuYoWI43IIIEws02jhFocOBAA"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
+      allowfullscreen>
+    </iframe>
+  </div>
+  <div style="text-align: center; margin-top: 10px; font-size: 0.6em; color: #666;">
+    View at: https://<span style="color: #333;">josephtoobysmith</span>.<span style="color: #555;">com</span>/<span
+      style="color: #777;">Slides</span>/<span style="color: #999;">Oxford2025</span>.<span
+      style="color: #555;">html</span>
+  </div>
+</section>
+
+<section>
+  <h3 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 30px;">Advantages of Proof Assistants</h3>
+
+  <script>
+    document.write(timelineBox('1', 'Correctness'));
+    document.write(timelineBox('2', 'Tactic Automation'));
+    document.write(timelineBox('3', 'Searchable'));
+    document.write(timelineBox('4', 'Reusable'));
+    document.write(timelineBox('5', 'Executable'));
+  </script>
+</section>
+</section>
+
+<!-- Who is using proof assistances. -->
+<section>
+  <script>
+  document.write(titleSlideBoxed('Who is using interactive theorem provers?'));
+  </script>
+</section>
+
+<section>
+  <h3>Mathematicians: Mathlib</h3>
+
+  <div style="max-width: 90%; margin: 0 auto;">
+    <ul style="list-style-type: none; padding-left: 5px; margin: 0;">
+      <li style="margin-bottom: 0px; padding-left: 25px; position: relative;">
+        <span style="position: absolute; left: 0; color: #27ae60;">•</span>
+        A monolithic library of mathematics formalized in Lean
+      </li>
+      <li style="margin-bottom: 0px; padding-left: 25px; position: relative;">
+        <span style="position: absolute; left: 0; color: #27ae60;">•</span>
+        Started in 2017
+      </li>
+      <li style="margin-bottom: 0px; padding-left: 25px; position: relative;">
+        <span style="position: absolute; left: 0; color: #27ae60;">•</span>
+        Over 400 contributors, 80,000 definitions and 160,000 theorems
+      </li>
+      <li style="padding-left: 25px; position: relative;">
+        <span style="position: absolute; left: 0; color: #27ae60;">•</span>
+        Promoted heavily by Kevin Buzzard
+      </li>
+    </ul>
+  </div>
+  <div style="position: relative; width: 95%; margin: 0 auto; overflow: hidden;">
+    <!-- Scroll container -->
+    <div id="autoScroll"
+      style="display: flex; overflow-x: auto; padding: 20px 0; scroll-behavior: smooth; scrollbar-width: none; -ms-overflow-style: none;"
+      class="facts-scroll">
+      <!-- Fact cards -->
+       <script>
+          document.write(scrollBox('Algebra'));
+          document.write(scrollBox('Algebraic Geometry'));
+          document.write(scrollBox('Algebraic Topology'));
+          document.write(scrollBox('Analysis'));
+          document.write(scrollBox('Category Theory'));
+          document.write(scrollBox('Combinatorics'));
+          document.write(scrollBox('Condensed Mathematics'));
+          document.write(scrollBox('Control Theory'));
+          document.write(scrollBox('Dynamical systems'));
+          document.write(scrollBox('Field Theory'));
+          document.write(scrollBox('Geometry'));
+          document.write(scrollBox('Information Theory'));
+          document.write(scrollBox('Group Theory'));
+          document.write(scrollBox('Linear Algebra'));
+          document.write(scrollBox('Logic'));
+          document.write(scrollBox('Measure Theory'));
+          document.write(scrollBox('Model Theory'));
+          document.write(scrollBox('Number Theory'));
+          document.write(scrollBox('Probability'));
+          document.write(scrollBox('Representation Theory'));
+          document.write(scrollBox('Ring Theory'));
+          document.write(scrollBox('Set Theory'));
+          document.write(scrollBox('Topology'));
+       </script>
+    </div>
+</section>
+
+
+<section>
+  <h3>AI researchers: Google deepmind and the IMO</h3>
+
+  <div
+    style="max-width: 90%; margin: 50px auto; padding: 30px; background: linear-gradient(135deg, #f6f8fa 0%, #e9ecef 100%); border-radius: 10px; border-left: 5px solid #4285f4; box-shadow: 0 8px 30px rgba(0,0,0,0.1);">
+    "AI achieves silver-medal standard solving International Mathematical Olympiad problems"
+    <p style="text-align: right; margin-top: 15px; font-weight: 600; color: #5f6368; font-size: 0.9em;">
+      — Google DeepMind
+    </p>
+  </div>
+  <aside class="notes">
+    July 2024<br>
+    Had to solve 6 problems <br>
+    Solved 2 algebra, 1 Num theory and 1 Geometry, <br>
+    did not solve 2 combinatorics problems. <br>
+    Took 3.5 days not 4 hours
+  </aside>
+</section>
+
+
+<section>
+  <h3>Physcists:</h3>
+  <script>
+    document.write(myIFrame('https://physlean.com'));
+  </script>
+</section>
+</section>
+
+<!-- Overview slide -->
+<section>
+  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 40px; text-align: center;">Talk overview</h2>
+  <script>
+    document.write(threeOverview('What is an interactive theorem prover?',
+      'Introduction to PhysLean', 'How you can get involved'));
+  </script>
+</section>
+<section>
+  <h2 style="color: #af774c; text-align: center; margin-bottom: 12px; font-size: 1.1em;">What is PhysLean?</h2>
+  <script>
+    document.write(classicQuote('A community-run project to digitalize physics into the interactive theorem prover Lean 4.'));
+  </script>
+</section>
+
+<section>
+  <h2 style="color: #af774c; text-align: center; margin-bottom: 12px; font-size: 1.1em;">What is PhysLean?</h2>
+  <div style="display: flex; justify-content: center; align-items: center; height: 500px;">
+    <object data="Images/PhysLeanPDF.pdf" type="application/pdf"
+      style="width: 100%; height: 100%; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+    </object>
+  </div>
+</section>
+
+
+
+<section>
+  <h3>What is currently in PhysLean?</h3>
+
+  <img src="Images/PhysLeanChart.png"
+    style="width:100%; height: auto; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); margin: 20px auto; display: block;">
+  <script>
+    document.write(longBarChangeingText(['Classical harmonic oscillator', 'Quantum harmonic oscillator',
+      'Maxwell\'s equation', 'Lorentz group', 'Twin paradox', 'Tight binding chain', 'Anomaly cancellation',
+      'CKM matrix', 'Wick\'s theorem', 'String theoretic']));
+  </script>
+  <div style="position: relative; top: -30px; font-size: 0.6em; padding: 10px; text-align: right; margin-right: 10%;">
+    <p><small>Image credit: Shlok Vaibhav</small></p>
+  </div>
+</section>
+
+<section>
+  <h3>Searching PhysLean</h3>
+  <script>
+    document.write(myIFrame('https://www.leanexplore.com', "500px"));
+  </script>
+</section>
+
+<section>
+  <h3>Classical harmonic oscillator</h3>
+  <div style="display: flex;">
+    <div id="lean-files-container"
+      style="height: 600px; overflow-y: auto; border: 1px solid #4CAF50; padding: 10px; width: 30%; text-align: left; font-size: 0.5em; background-color: #2E3440; color: #A3BE8C; font-family: monospace;">
+    </div>
+    <pre id="EM-slide-1"
+      style="border: 2px solid #ccc; padding: 15px; border-radius: 5px; width: 60%; margin-left: 20px;">Click a file on the left to see code.</pre>
+  </div>
+  <script>
+    renderLeanFiles();
+  </script>
+</section>
+
+
+<section>
+  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 40px; text-align: center;">Talk overview</h2>
+  <script>
+    document.write(threeOverview('What is an interactive theorem prover?',
+      'Introduction to PhysLean', 'How you can get involved'));
+  </script>
+</section>
+
+
+<!-- Infarstructure slides -->
+<section>
+  <h3>How to get involved</h3>
+
+  <section>
+    <script>
+      document.write(minimalBox('1', 'Join the discussion forum'));
+
+    </script>
+    <img src="./Images/Zulip.png" alt="Zulip Chat"
+      style="border: 4px solid #666; border-radius: 15px; padding: 15px; max-width: 600px; margin: 20px auto; display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: transform 0.3s ease;"
+      onmouseover="this.style.transform='rotate(3deg)'" onmouseout="this.style.transform='rotate(-3deg)'">
+  </section>
+
+  <section>
+    <script>
+      document.write(minimalBox('2', 'Help write documentation'));
+      document.write(myIFrame('https://physlean.com/docs/', "500px"));
+    </script>
+  </section>
+
+  <section>
+    <script>
+      document.write(minimalBox('3', 'Write informal definitions and lemmas'));
+    </script>
+    <pre id="Cosmology"
+      style="border: 2px solid #ccc; padding: 15px; border-radius: 5px; width: 100%; margin-left: 20px;">Click a file on the left to see code.</pre>
+    <script>
+      makeCodeSlide('Cosmology', 'https://raw.githubusercontent.com/HEPLean/PhysLean/master/PhysLean/Cosmology/FLRW/Basic.lean');
+    </script>
+  </section>
+
+  <section>
+    <script>
+      document.write(minimalBox('4', 'Try formalizing something'));
+      document.write(myIFrame('https://physlean.com/TODOList', "500px"));
+    </script>
+  </section>
+
+
+</section>
+
+
+<!-- Thank you slide -->
+<script>
+  document.write(thankYouSlide());
+</script>
+
+
+
+<!--
+End matter
+..........................
+..........................
+..........................
+..........................
+..........................
+-->
+</div>
+</div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script src="plugin/math/math.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="js/lean.min.js"></script>
+  <script src="js/lean-goal.js"></script>
+  <script src="js/merge-html.js"></script>
+  <script src="js/inline_svg.js"></script>
+  <script>
+    RevealHighlight().hljs.addPlugin(mergeHTMLPlugin);
+    Reveal.initialize({
+      mathjax3: {
+        mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js',
+        loader: {load: ['[tex]/mathtools', '[tex]/centernot']},
+        tex: {
+          packages: {'[+]': ['mathtools', 'centernot']},
+        },
+        chtml: {
+          mtextFont: 'Source Sans Pro',
+        },
+        options: {
+          skipHtmlTags: {'[-]': ['code', 'pre']},
+        },
+      },
+      katex: {
+        macros: {
+          "\\smallunderbrace":
+            String.raw`{\tiny\underbrace{\huge{#1}}_{\huge\scriptsize#2}}`
+        },
+        trust: true,
+        strict: false,
+        ignoredTags: ['script', 'noscript', 'style'],
+      },
+      plugins: [
+        RevealInlineSvg,
+        RevealHighlight,
+        RevealMath.KaTeX,
+        RevealNotes,
+      ],
+      history: true,
+      center: false,
+      // defaultTiming: 40,
+      // slideNumber: 'c/t',
+      // width: 1280*0.96,
+      // height: 1024*0.96,
+      // width: 1856,
+      // height: 1016,
+      margin: 0.04,
+      navigationMode: 'linear',
+      totalTime: 25*60,
+      // showNotes: 'separate-page'
+        autoAnimateEasing: 'ease-out',
+        autoAnimateDuration: 0.8,
+        autoAnimateUnmatched: false,
+    });
+  </script>
+
+
+</body>
+</html>

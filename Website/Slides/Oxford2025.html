@@ -140,6 +140,12 @@ Slides start here
       440 million dollars lost in 45 minutes.
     </aside>
   </section>
+
+  <section>
+    <script>
+      document.write(classicQuote('Who has made a sign error or a factor of two mistake in a problem set?'));
+    </script>
+  </section>
   <!-- Story 2: The arXiv paper hep-ph/0512212. -->
   <section data-auto-animate>
     <div style="text-align: center; margin: 20px auto; max-width: 90%;">
@@ -181,37 +187,33 @@ Slides start here
   </section>
 
 <section>
-  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; text-align: center; margin-bottom: 30px; font-weight: 600;">
+  <h3 style="font-family: 'Georgia', serif; color: #3a5a78">
     Different Manifestations of the Same Problem
-  </h2>
+  </h3>
+  <p>Not helped by the following...</p>
   <div style="display: flex; justify-content: center; max-width: 90%; margin: 0 auto;">
-    <textarea placeholder="Something like latex..."
+    <textarea placeholder="Something like latex or MS word..."
       style="width: 100%; height: 400px; padding: 15px; border: 2px solid #ddd; border-radius: 6px; font-size: 1.1em; box-sizing: border-box; resize: vertical; font-family: 'Georgia', serif; box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);"></textarea>
   </div>
-
 </section>
 
+<section>
+  <script>
+    document.write(classicQuote('What if there was a way to guarantee your code, problem sets,or papers are correct?'));
+  </script>
+</section>
 <!-- Different manifestations of common solution: Correct by construction. -->
 <section data-auto-animate>
   <div
     style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 40px; border-radius: 10px; box-shadow: 0 8px 30px rgba(0,0,0,0.12); margin: 0 auto; max-width: 90%;">
-    <h2
-      style="font-family: 'Georgia', serif; color: #3a5a78; text-align: center; margin-bottom: 30px; font-weight: 600;">
-      A solution
-    </h2>
-    <div class="fragment fade-in" style="text-align: center; margin: 20px 0;">
-      <span
-        style="display: inline-block; background-color: #4c6ef5; color: white; font-size: 1.4em; padding: 15px 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(76,110,245,0.3); transform: rotate(-3deg);">
-        Correct by construction
-      </span>
-    </div>
-    <p class="fragment fade-in">Proof assistants</p>
+<p >Use an </p>
+    <p >Interactive theorem provers</p>
 </section>
+
 <!-- The different proof assistants. -->
 <section>
   <section data-auto-animate></section>
-  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; text-align: center; margin-bottom: 30px;">Popular Proof
-    Assistants</h2>
+  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; text-align: center; margin-bottom: 30px;">Popular ITPs</h2>
 
   <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 100px; margin: 0 auto; max-width: 90%;">
     <!-- Coq -->
@@ -269,7 +271,7 @@ Slides start here
 </section>
 
 <section>
-  <h3 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 30px;">Advantages of Proof Assistants</h3>
+  <h3 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 30px;">Advantages of ITPs</h3>
 
   <script>
     document.write(timelineBox('1', 'Correctness'));
@@ -365,9 +367,38 @@ Slides start here
   </aside>
 </section>
 
-
+<!-- AI Slides -->
 <section>
-  <h3>Physcists:</h3>
+  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 20px; text-align: center; font-weight: 50;">
+    An example of AI</h2>
+  <section>
+    <script>
+      document.write(simpleCodeBlock(`
+import Mathlib
+
+inductive MyNat : Type
+  | zero : MyNat
+  | succ : MyNat → MyNat
+
+namespace MyNat
+
+def add : MyNat → MyNat → MyNat
+  | .zero, a => a
+  | .succ b, a => .succ (MyNat.add b a)
+
+
+lemma add_assoc (a b c : MyNat) : add a (add b c) = add (add a b) c := by
+  sorry`));
+    </script>
+  </section>
+  <section>
+    <script>
+      document.write(myIFrame("https://demo.projectnumina.ai"));
+    </script>
+  </section>
+</section>
+<section>
+  <h3>Physicists:</h3>
   <script>
     document.write(myIFrame('https://physlean.com'));
   </script>
@@ -399,6 +430,60 @@ Slides start here
 </section>
 
 
+<section>
+  <h2>It is a project for the physicists</h2>
+  <div style="display: flex; justify-content: space-around; align-items: flex-start; margin-top: 20px;">
+    <div style="flex: 1; padding-right: 20px;">
+      <div style="max-width: 800px; margin: 0 auto; padding: 20px;">
+        <div class="fragment" data-fragment-index="1">
+          <script>
+            document.write(halfBox('1', 'Organization of the project'));
+          </script>
+        </div>
+        <div class="fragment" data-fragment-index="2">
+          <script>
+            document.write(halfBox('2', 'Physics names of results'));
+          </script>
+        </div>
+        <div class="fragment" data-fragment-index="3">
+          <script>
+            document.write(halfBox('3', 'Physics documentation'));
+          </script>
+        </div>
+        <div class="fragment" data-fragment-index="4">
+          <script>
+            document.write(halfBox('4', 'Physics references'));
+          </script>
+        </div>
+        <div class="fragment" data-fragment-index="5">
+          <script>
+            document.write(halfBox('5', 'Computable definitions'));
+          </script>
+        </div>
+      </div>
+    </div>
+    <div style="flex: 1; padding-left: 20px;">
+      <div style="position: relative; height: 500px;">
+        <img src="Images/PhysLeanDirect.png" class="fragment" data-fragment-index="1"
+          style="border: 4px solid #666;
+            border-radius: 15px;
+            padding: 15px; max-width: 400px; margin: 20px auto;
+              display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transform: rotate(-3deg); transition: transform 0.3s ease; position: absolute; top: 0; left: 0; right: 0;"
+          onmouseover="this.style.transform='rotate(3deg)'" onmouseout="this.style.transform='rotate(-3deg)'">
+        <img src="Images/HiggsVec.png" class="fragment" data-fragment-index="2"
+          style="border: 4px solid #666; border-radius: 15px; padding: 15px; max-width: 400px; margin: 20px auto; display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transform: rotate(-3deg); transition: transform 0.3s ease; position: absolute; top: 0; left: 0; right: 0;"
+          onmouseover="this.style.transform='rotate(3deg)'" onmouseout="this.style.transform='rotate(-3deg)'">
+        <img src="Images/ClassicalHarmonicOscilator.png" class="fragment" data-fragment-index="3" style="border: 4px solid #666; border-radius: 15px; padding: 15px; max-width: 400px; margin: 20px auto; display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transform: rotate(-3deg); transition: transform 0.3s ease; position: absolute; top: 0; left: 0; right: 0;
+            " onmouseover="this.style.transform='rotate(3deg)'" onmouseout="this.style.transform='rotate(-3deg)'">
+        <img src="Images/ReferenceLink.png" class="fragment" data-fragment-index="4" style="border: 4px solid #666; border-radius: 15px; padding: 15px; max-width: 400px; margin: 20px auto; display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transform: rotate(-3deg); transition: transform 0.3s ease; position: absolute; top: 0; left: 0; right: 0;
+             " onmouseover="this.style.transform='rotate(3deg)'" onmouseout="this.style.transform='rotate(-3deg)'">
+        <img src="Images/ComputableDefn.png" class="fragment" data-fragment-index="5" style="border: 4px solid #666; border-radius: 15px; padding: 15px; width: 293px; height : 600px; margin: 20px auto; display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transform: rotate(-3deg); transition: transform 0.3s ease; position: absolute; top: 0; left: 0; right: 0;
+                     " onmouseover="this.style.transform='rotate(3deg)'"
+          onmouseout="this.style.transform='rotate(-3deg)'">
+      </div>
+    </div>
+  </div>
+</section>
 
 <section>
   <h3>What is currently in PhysLean?</h3>
@@ -407,7 +492,7 @@ Slides start here
     style="width:100%; height: auto; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); margin: 20px auto; display: block;">
   <script>
     document.write(longBarChangeingText(['Classical harmonic oscillator', 'Quantum harmonic oscillator',
-      'Maxwell\'s equation', 'Lorentz group', 'Twin paradox', 'Tight binding chain', 'Anomaly cancellation',
+      'Maxwell\'s equation', 'Lorentz group', 'Twin paradox', 'Tight binding chain',
       'CKM matrix', 'Wick\'s theorem', 'String theoretic']));
   </script>
   <div style="position: relative; top: -30px; font-size: 0.6em; padding: 10px; text-align: right; margin-right: 10%;">
@@ -445,8 +530,13 @@ Slides start here
   </script>
 </section>
 
+<section>
+  <script>
+    document.write(titleSlideBoxed('PhysLean needs you 🫵'));
+  </script>
+</section>
 
-<!-- Infarstructure slides -->
+<!-- Infrastructure slides -->
 <section>
   <h3>How to get involved</h3>
 

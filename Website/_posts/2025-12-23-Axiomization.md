@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Axiomization vs Formalization"
-date:   2025-12-02
+date:   2025-12-23
 type: card-img-top
 categories:
 caption:

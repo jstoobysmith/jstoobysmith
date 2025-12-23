@@ -1,0 +1,45 @@
+---
+layout: page
+permalink: /MyBlog.html
+title: My Blog
+description: I write about Lean and physics
+header-img:
+last-updated: 2025-03-01 5:55 PM
+---
+<!-- Blog Entries Column -->
+<div class="col-md-12">
+  {% for post in site.posts %}
+    {% if forloop.first %}
+    <div class="blog-scroller"
+         style="display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch; gap: 1rem; scroll-snap-type: x mandatory; padding: 0.5rem 0;">
+    {% endif %}
+      <article class="blog-card {{ post.card }} mb-4 mt-4"
+               style="flex: 0 0 60%; scroll-snap-align: start; border: 1px solid #ddd; border-radius: 12px; padding: 1.5rem; background: #f9f9f9; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">
+         {{ post.title }}
+        </h3>
+        <a href="{{ post.url | relative_url }}"
+           class="badge badge-primary"
+           style="background-color: rgba(78, 34, 208, 0.1); color: #4e22d0; font-size: 0.85rem; padding: 0.3rem 0.6rem; border-radius: 4px;">
+          {{ post.date | date: "%Y-%m-%d" }}
+        </a>
+        {% if post.description %}
+        <p style="margin-top: 0.5rem; color: #555;">{{ post.description }}</p>
+        {% endif %}
+        {% if post.lead %}
+        <p style="margin-top: 0.5rem; font-style: italic; color: #777;">{{ post.lead }}</p>
+        {% endif %}
+        {% if post.image %}
+        <img src="{{ post.image | relative_url }}"
+             alt="{{ post.title }}"
+             style="max-width: 100%; border-radius: 8px; margin-top: 1rem;">
+        {% endif %}
+        <div class="post-content" style="margin-top: 1rem; color: #444;">
+          {{ post.content }}
+        </div>
+      </article>
+    {% if forloop.last %}
+    </div>
+    {% endif %}
+  {% endfor %}
+</div>

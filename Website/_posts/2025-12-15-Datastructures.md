@@ -15,4 +15,4 @@ One of the things which I found interesting from formalising Wick's theorem (the
 
 Take for example, Wick contractions, which are often taught in a Master's level quantum field theory course. In computer science they essentially correspond to unordered pairings of indices in a list where each index is in at most one pair. There are lots of ways one could represent this data structure in a program like Lean, from inductive types based on the inductive definition of a list, to involutions from the indices of the list back to itself. After lots of trail and error the definition I ended up with is the one shown below. It may not be the prettiest definition in the world, but it was the one that was easiest to work with, and to build and API around.
 
-![Wick Contraction](/assets/images/WickContraction.jpeg)
+<img src="/assets/images/WickContraction.jpeg" alt="Wick Contraction" width="600">

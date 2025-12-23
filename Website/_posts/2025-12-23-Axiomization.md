@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "A disire for trust"
+title:  "Axiomization vs Formalization"
 date:   2025-12-02
 type: card-img-top
 categories:

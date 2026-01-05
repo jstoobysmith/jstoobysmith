@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Citations and AI"
-date:   2025-12-23
+date:   2026-01-05
 type: card-img-top
 categories:
 caption:

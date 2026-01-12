@@ -1,0 +1,138 @@
+<!--
+This file is corresponds to one of my talks.
+
+bundle exec jekyll serve
+
+-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>PhysLean</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/monokai.min.css">
+
+<style>
+    .reveal h1,
+    .reveal h2,
+    .reveal h3,
+    .reveal h4,
+    .reveal h5,
+    .reveal h6 {
+        text-transform: none;
+    }
+</style>
+
+<style>
+    pre code {
+        font-size: 0.7em !important;
+    }
+</style>
+
+<!-- Predefined functions for use within the code. -->
+<script src="Functions.js"></script>
+
+<style>
+  /* Change comment color in Highlight.js */
+  .hljs-comment {
+    color: #96b596;
+    /* Specify your desired color here */
+  }
+</style>
+</head>
+
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+<!--
+Slides start here
+..........................
+..........................
+..........................
+..........................
+..........................
+-->
+<section>
+  <h2>Requirments of PhysLean</h2>
+  <ul>
+    <li>The project shall contain formalized results from physics, organized by
+      physics.
+    </li>
+    <li>The project shall contain Lean tactics, notation and syntax for physicists.</li>
+  </ul>
+</section>
+<!--
+End matter
+..........................
+..........................
+..........................
+..........................
+..........................
+-->
+</div>
+</div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script src="plugin/math/math.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="js/lean.min.js"></script>
+  <script src="js/lean-goal.js"></script>
+  <script src="js/merge-html.js"></script>
+  <script src="js/inline_svg.js"></script>
+  <script>
+    RevealHighlight().hljs.addPlugin(mergeHTMLPlugin);
+    Reveal.initialize({
+      mathjax3: {
+        mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js',
+        loader: {load: ['[tex]/mathtools', '[tex]/centernot']},
+        tex: {
+          packages: {'[+]': ['mathtools', 'centernot']},
+        },
+        chtml: {
+          mtextFont: 'Source Sans Pro',
+        },
+        options: {
+          skipHtmlTags: {'[-]': ['code', 'pre']},
+        },
+      },
+      katex: {
+        macros: {
+          "\\smallunderbrace":
+            String.raw`{\tiny\underbrace{\huge{#1}}_{\huge\scriptsize#2}}`
+        },
+        trust: true,
+        strict: false,
+        ignoredTags: ['script', 'noscript', 'style'],
+      },
+      plugins: [
+        RevealInlineSvg,
+        RevealHighlight,
+        RevealMath.KaTeX,
+        RevealNotes,
+      ],
+      history: true,
+      center: false,
+      // defaultTiming: 40,
+      // slideNumber: 'c/t',
+      width: 900,
+      height: 1600,
+      margin: 0.04,
+      navigationMode: 'linear',
+      totalTime: 25*60,
+      // showNotes: 'separate-page'
+        autoAnimateEasing: 'ease-out',
+        autoAnimateDuration: 0.8,
+        autoAnimateUnmatched: false,
+    });
+  </script>
+
+
+</body>
+</html>

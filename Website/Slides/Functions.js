@@ -620,11 +620,11 @@ function simpleCodeBlock(code) {
   </div>`;}
 
 
-function phoneCodeBlock(code) {
-  return `<div style="display: flex; justify-content: center; max-width: 90%; margin: 0 auto;">
-    <pre style="max-height: none; overflow-y: visible;">
-        <code data-trim data-noescape class="language-lean" style="font-size: 1em !important; max-height: none;">
-                  ${code}
-                </code>
-                      </pre>
-  </div>`;}
+  function phoneCodeBlock(code) {
+    return `<div style="display: flex; justify-content: center; max-width: 90%; margin: 0 auto;">
+      <pre style="max-height: none; overflow-y: visible;">
+          <code data-trim data-noescape class="language-lean" style="font-size: 1.5em !important; max-height: none; line-height: 1.4em;">
+                    ${code}
+                  </code>
+                        </pre>
+    </div>`;}

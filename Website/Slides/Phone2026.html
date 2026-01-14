@@ -29,7 +29,7 @@ bundle exec jekyll serve
 
 <style>
     pre code {
-        font-size: 0.7em !important;
+        font-size: 2em !important;
     }
 </style>
 
@@ -75,30 +75,21 @@ Slides start here
 <section>
   <script>
     document.write(phoneCodeBlock(`
-noncomputable def lagrangian (t : Time) (x : EuclideanSpace ℝ (Fin 1))
-    (v : EuclideanSpace ℝ (Fin 1)) : ℝ :=
-  1 / (2 : ℝ) * S.m * ⟪v, v⟫_ℝ - S.potentialEnergy x
+def lagrangian
+    (t : Time)
+    (x : EuclideanSpace ℝ (Fin 1))
+    (v : EuclideanSpace ℝ (Fin 1))
+    : ℝ :=
+  1 / (2 : ℝ) * S.m * ⟪v, v⟫_ℝ
+  - S.potentialEnergy x
 
-/-!
 
-#### D.1.1. Equalities for the lagrangian
-
-Equalities for the lagrangian. We prove some simple equalities for the lagrangian,
-in particular that when applied to a trajectory it is the kinetic energy minus the potential energy.
-
--/
-
-set_option linter.unusedVariables false in
-@[nolint unusedArguments]
-lemma lagrangian_eq : lagrangian S = fun t x v =>
-    1 / (2 : ℝ) * S.m * ⟪v, v⟫_ℝ - 1 / (2 : ℝ) * S.k * ⟪x, x⟫_ℝ := by
-  ext t x v
-  simp [lagrangian, potentialEnergy]
-  ring
-
-lemma lagrangian_eq_kineticEnergy_sub_potentialEnergy (t : Time)
+lemma lagrangian_eq_kineticEnergy_sub_potentialEnergy
+    (t : Time)
     (xₜ : Time → EuclideanSpace ℝ (Fin 1)) :
-    lagrangian S t (xₜ t) (∂ₜ xₜ t) = kineticEnergy S xₜ t - potentialEnergy S (xₜ t) := by
+    lagrangian S t (xₜ t) (∂ₜ xₜ t) =
+    kineticEnergy S xₜ t
+    - potentialEnergy S (xₜ t) := by
   rw [lagrangian_eq, kineticEnergy, potentialEnergy]
   simp only [one_div, smul_eq_mul, sub_right_inj]
   ring`));

@@ -1,0 +1,269 @@
+
+<!--
+This file is corresponds to one of my talks.
+
+PhysLean: Formalizing physics into Lean 4
+
+PhysLean is a project to create a monolithic library of results from physics in Lean 4, akin to Mathlib for mathematics.
+It contains results from a range of different areas of physics including classical mechanics, relativity, condensed matter physics, quantum field theory, string theory etc.
+In this talk I will give a high-level overview of the current content of PhysLean and
+explain how formalizing results from physics, for physicists, differs to from
+formalizing results from mathematics, for mathematicians, and what features we have
+put in place to make this as an efficient and open process as possible.
+This talk is aimed at those familiar with interactive theorem provers.
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>PhysLean</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/monokai.min.css">
+
+
+<!--
+All code within this file is part of the PhysLean project.
+See there for the licence under which it is released.
+
+-->
+
+<style>
+    .reveal h1,
+    .reveal h2,
+    .reveal h3,
+    .reveal h4,
+    .reveal h5,
+    .reveal h6 {
+        text-transform: none;
+    }
+</style>
+
+<style>
+    pre code {
+        font-size: 0.7em !important;
+    }
+</style>
+
+
+
+<!-- Predefined functions for use within the code. -->
+<script src="Functions.js"></script>
+
+<style>
+  /* Change comment color in Highlight.js */
+  .hljs-comment {
+    color: #96b596;
+    /* Specify your desired color here */
+  }
+</style>
+</head>
+
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+<!-- Title slide. -->
+<section style="color: #333;">
+  <div style="position: absolute; top: 20px; left: 20px;">
+    <img
+      src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://josephtoobysmith.com/Slides/London2025.html"
+      alt="QR Code to Slides" style="border: 2px solid #666; border-radius: 8px; padding: 5px;">
+    <div style="font-size: 12px; text-align: center; margin-top: -30px; color: #666;">Scan for slides</div>
+  </div>
+    <img src="Images/PhysLeanLogo.jpeg" style="border: 4px solid #666; border-radius: 15px; padding: 15px; max-width: 400px; margin: 20px auto; display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transform: rotate(-3deg); transition: transform 0.3s ease;"
+    onmouseover="this.style.transform='rotate(3deg)'"
+    onmouseout="this.style.transform='rotate(-3deg)'">
+    <p>Digitalizing physics into Lean 4</p>
+    <p><small><span id="current-date"></span></small></p>
+    <script>
+      document.getElementById('current-date').textContent = new Date().toLocaleDateString(undefined, {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+    </script>
+    <p><small>Joseph Tooby-Smith, University of Bath</small></p>
+
+    <p><small>Slides at: https://josephtoobysmith.com/Slides/London2026.html</small></p>
+</section>
+
+<!-- Introduce PhysLean. -->
+<!-- PhysLean -->
+<section>
+  <h2>PhysLean</h2>
+  <iframe src="https://physlean.com"
+    style="width: 100%; height:500px; border: 4px solid #4ca1af; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
+    allowfullscreen>
+  </iframe>
+</section>
+<section>
+  <h3>The community</h3>
+  <p>Over 38 contributors to the project.</p>
+  <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; max-width: 600px; margin: 40px auto;">
+
+    <script>
+      const colors = ['#4ca1af', '#af774c', '#6c757d'];
+      for (let i = 0; i < 20; i++) {
+        const color = colors[i % colors.length];
+        document.write(`
+          <div style="text-align: center;">
+            <svg width="60" height="80" viewBox="0 0 60 80">
+              <circle cx="30" cy="20" r="15" fill="${color}"/>
+              <rect x="10" y="40" width="40" height="40" rx="20" fill="${color}"/>
+            </svg>
+          </div>
+        `);
+      }
+    </script>
+  </div>
+</section>
+
+<!-- Introduce PhysLean. -->
+<!-- PhysLean -->
+<section>
+  <h2>How do we include the physics context?</h2>
+  <div style="display: flex; justify-content: space-around; align-items: flex-start; margin-top: 20px;">
+    <div style="flex: 1; padding-right: 20px;">
+      <div style="max-width: 800px; margin: 0 auto; padding: 20px;">
+      <div class="fragment" data-fragment-index="1"><script>
+        document.write(halfBox('1', 'Organization of the project'));
+      </script></div>
+      <div class="fragment" data-fragment-index="2"><script>
+        document.write(halfBox('2', 'Names of theorems or definitions'));
+      </script></div>
+      <div class="fragment" data-fragment-index="3"><script>
+        document.write(halfBox('3', 'Documentation'));
+      </script></div>
+      <div class="fragment" data-fragment-index="4"><script>
+        document.write(halfBox('4', 'References'));
+      </script></div>
+
+      </div>
+    </div>
+    <div style="flex: 1; padding-left: 20px;">
+        <div style="position: relative; height: 500px;">
+          <img src="Images/PhysLeanDirect.png" class="fragment" data-fragment-index="1"
+           style="border: 4px solid #666;
+            border-radius: 15px;
+            padding: 15px; max-width: 400px; margin: 20px auto;
+              display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transform: rotate(-3deg); transition: transform 0.3s ease; position: absolute; top: 0; left: 0; right: 0;"
+           onmouseover="this.style.transform='rotate(3deg)'" onmouseout="this.style.transform='rotate(-3deg)'">
+          <img src="Images/HiggsVec.png" class="fragment" data-fragment-index="2"
+           style="border: 4px solid #666; border-radius: 15px; padding: 15px; max-width: 400px; margin: 20px auto; display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transform: rotate(-3deg); transition: transform 0.3s ease; position: absolute; top: 0; left: 0; right: 0;"
+           onmouseover="this.style.transform='rotate(3deg)'" onmouseout="this.style.transform='rotate(-3deg)'">
+          <img src="Images/ClassicalHarmonicOscilator.png" class="fragment" data-fragment-index="3"
+            style="border: 4px solid #666; border-radius: 15px; padding: 15px; max-width: 400px; margin: 20px auto; display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transform: rotate(-3deg); transition: transform 0.3s ease; position: absolute; top: 0; left: 0; right: 0;
+            "
+            onmouseover="this.style.transform='rotate(3deg)'" onmouseout="this.style.transform='rotate(-3deg)'">
+          <img src="Images/ReferenceLink.png" class="fragment" data-fragment-index="4"
+            style="border: 4px solid #666; border-radius: 15px; padding: 15px; max-width: 400px; margin: 20px auto; display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transform: rotate(-3deg); transition: transform 0.3s ease; position: absolute; top: 0; left: 0; right: 0;
+             "
+            onmouseover="this.style.transform='rotate(3deg)'" onmouseout="this.style.transform='rotate(-3deg)'">
+        </div>
+    </div>
+    </div>
+</section>
+<!-- What is currently in PhysLean? -->
+<section>
+  <h3>What is currently in PhysLean?</h3>
+
+    <img src="Images/PhysLeanChart.png"
+      style="width:100%; height: auto; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); margin: 20px auto; display: block;">
+  <script>
+    document.write(longBarChangeingText(['Classical harmonic oscillator', 'Quantum harmonic oscillator',
+    'Maxwell\'s equation', 'Lorentz group', 'Twin paradox', 'Tight binding chain', 'Anomaly cancellation', 'Wick\'s theorem', 'String theoretic']));
+  </script>
+  <div
+    style="position: relative; top: -30px; font-size: 0.6em; padding: 10px; text-align: right; margin-right: 10%;">
+    <p><small>Image credit: Shlok Vaibhav</small></p>
+  </div>
+</section>
+
+<section>
+  <h3>The harmonic oscillator</h3>
+  <div style="display: flex;">
+    <div id="lean-files-container"
+      style="height: 600px; overflow-y: auto; border: 1px solid #4CAF50; padding: 10px; width: 30%; text-align: left; font-size: 0.5em; background-color: #2E3440; color: #A3BE8C; font-family: monospace;">
+    </div>
+    <pre id="EM-slide-1"
+      style="border: 2px solid #ccc; padding: 15px; border-radius: 5px; width: 60%; margin-left: 20px;">Click a file on the left to see code.</pre>
+  </div>
+  <script>
+    renderLeanFiles();
+  </script>
+</section>
+
+<section>
+ <h1>We need you!</h1>
+</section>
+
+<script>
+  document.write(thankYouSlide());
+</script>
+
+</div>
+</div>
+
+<script src="dist/reveal.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script src="plugin/math/math.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="js/lean.min.js"></script>
+  <script src="js/lean-goal.js"></script>
+  <script src="js/merge-html.js"></script>
+  <script src="js/inline_svg.js"></script>
+  <script>
+    RevealHighlight().hljs.addPlugin(mergeHTMLPlugin);
+    Reveal.initialize({
+      mathjax3: {
+        mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js',
+        loader: {load: ['[tex]/mathtools', '[tex]/centernot']},
+        tex: {
+          packages: {'[+]': ['mathtools', 'centernot']},
+        },
+        chtml: {
+          mtextFont: 'Source Sans Pro',
+        },
+        options: {
+          skipHtmlTags: {'[-]': ['code', 'pre']},
+        },
+      },
+      katex: {
+        macros: {
+          "\\smallunderbrace":
+            String.raw`{\tiny\underbrace{\huge{#1}}_{\huge\scriptsize#2}}`
+        },
+        trust: true,
+        strict: false,
+        ignoredTags: ['script', 'noscript', 'style'],
+      },
+      plugins: [
+        RevealInlineSvg,
+        RevealHighlight,
+        RevealMath.KaTeX,
+        RevealNotes,
+      ],
+      history: true,
+      center: false,
+      // defaultTiming: 40,
+      // slideNumber: 'c/t',
+      // width: 1280*0.96,
+      // height: 1024*0.96,
+      // width: 1856,
+      // height: 1016,
+      margin: 0.04,
+      navigationMode: 'linear',
+      totalTime: 25*60,
+      // showNotes: 'separate-page'
+        autoAnimateEasing: 'ease-out',
+        autoAnimateDuration: 0.8,
+        autoAnimateUnmatched: false,
+    });
+  </script>
+</body>
+</html>

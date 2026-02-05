@@ -1,0 +1,501 @@
+<!--
+This file is corresponds to one of my talks.
+
+bundle exec jekyll serve
+
+-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>PhysLean</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/monokai.min.css">
+
+<style>
+    .reveal h1,
+    .reveal h2,
+    .reveal h3,
+    .reveal h4,
+    .reveal h5,
+    .reveal h6 {
+        text-transform: none;
+    }
+</style>
+
+<style>
+    pre code {
+        font-size: 0.7em !important;
+    }
+</style>
+
+<!-- Predefined functions for use within the code. -->
+<script src="Functions.js"></script>
+
+<script src="SlideFunctions.js"></script>
+
+<style>
+  /* Change comment color in Highlight.js */
+  .hljs-comment {
+    color: #96b596;
+    /* Specify your desired color here */
+  }
+</style>
+</head>
+
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+<!--
+Slides start here
+..........................
+..........................
+..........................
+..........................
+..........................
+-->
+
+<!-- Title slide. -->
+<script>
+  document.write(physLeanTitleSlide('Bath2026'));
+</script>
+
+
+<!-- Overview Slide -->
+
+<section>
+  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 40px; text-align: center;">Talk overview</h2>
+  <script>
+    document.write(threeOverview('What is an interactive theorem prover?',
+      'Introduction to PhysLean', 'Examples'));
+  </script>
+</section>
+
+<!-- Section 1 -->
+<script>
+  document.write(crowdStrikeStory());
+</script>
+
+
+<!-- Who is using proof assistances. -->
+<section>
+  <script>
+  document.write(titleSlideBoxed('Who is using interactive theorem provers?'));
+  </script>
+</section>
+<section>
+  <h2>Mathematicians Pre-2017: One-off projects</h2>
+   <div style="position: relative; max-width: 90%; margin: 20px auto; padding: 20px; background-color: #fdfdfd; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); height: 450px; overflow-y: auto; border-left: 5px solid #3a5a78;">
+    <!-- Timeline Item 1 -->
+    <div class="timeline-item" style="position: relative; margin-bottom: 30px; padding-left: 80px;">
+      <div style="position: absolute; left: 40px; top: 5px; width: 20px; height: 20px; background-color: white; border: 4px solid #3a5a78; border-radius: 50%; z-index: 10; transition: transform 0.2s ease-in-out;"></div>
+      <div style="background-color: #f0f4f8; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
+      <h4 style="margin: 0 0 5px 0; color: #3a5a78; transition: color 0.3s ease;">1998-2015 (Isabelle/HOL)</h4>
+      <p style="margin: 0; font-size: 0.9em;">Kepler conjecture (Hales' proof)</p>
+      </div>
+    </div>
+
+    <!-- Timeline Item 2 -->
+    <div class="timeline-item" style="position: relative; margin-bottom: 30px; padding-left: 80px;">
+      <div style="position: absolute; left: 40px; top: 5px; width: 20px; height: 20px; background-color: white; border: 4px solid #3a5a78; border-radius: 50%; z-index: 10; transition: transform 0.2s ease-in-out;"></div>
+      <div style="background-color: #f0f4f8; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
+      <h4 style="margin: 0 0 5px 0; color: #3a5a78; transition: color 0.3s ease;">2004 (Isabelle/HOL)</h4>
+      <p style="margin: 0; font-size: 0.9em;">Prime number theorem</p>
+      </div>
+    </div>
+
+    <!-- Timeline Item 3 -->
+    <div class="timeline-item" style="position: relative; margin-bottom: 30px; padding-left: 80px;">
+      <div style="position: absolute; left: 40px; top: 5px; width: 20px; height: 20px; background-color: white; border: 4px solid #3a5a78; border-radius: 50%; z-index: 10; transition: transform 0.2s ease-in-out;"></div>
+      <div style="background-color: #f0f4f8; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
+      <h4 style="margin: 0 0 5px 0; color: #3a5a78; transition: color 0.3s ease;">2004 (Rocq)</h4>
+      <p style="margin: 0; font-size: 0.9em;">Four color theorem</p>
+      </div>
+    </div>
+
+    <!-- Timeline Item 4 -->
+    <div class="timeline-item" style="position: relative; margin-bottom: 30px; padding-left: 80px;">
+      <div style="position: absolute; left: 40px; top: 5px; width: 20px; height: 20px; background-color: white; border: 4px solid #3a5a78; border-radius: 50%; z-index: 10; transition: transform 0.2s ease-in-out;"></div>
+      <div style="background-color: #f0f4f8; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
+      <h4 style="margin: 0 0 5px 0; color: #3a5a78; transition: color 0.3s ease;">2005 (Isabelle/HOL)</h4>
+      <p style="margin: 0; font-size: 0.9em;">Jordan Curve theorem</p>
+      </div>
+    </div>
+
+    <!-- Timeline Item 5 -->
+    <div class="timeline-item" style="position: relative; margin-bottom: 30px; padding-left: 80px;">
+      <div style="position: absolute; left: 40px; top: 5px; width: 20px; height: 20px; background-color: white; border: 4px solid #3a5a78; border-radius: 50%; z-index: 10; transition: transform 0.2s ease-in-out;"></div>
+      <div style="background-color: #f0f4f8; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
+      <h4 style="margin: 0 0 5px 0; color: #3a5a78; transition: color 0.3s ease;">2013 (Rocq)</h4>
+      <p style="margin: 0; font-size: 0.9em;">Odd order theorem</p>
+      </div>
+    </div>
+    </div>
+    <style>
+    .timeline-item:hover div[style*="border-radius: 50%"] {
+      transform: scale(1.2);
+      background-color: #3a5a78;
+    }
+
+    .timeline-item:hover h4 {
+      color: #e45826;
+    }
+
+    .timeline-item:hover div[style*="background-color: #f0f4f8"] {
+      transform: translateX(10px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    </style>
+</section>
+<section>
+  <h3>Mathematicians Post-2017: Mathlib</h3>
+
+  <div style="max-width: 90%; margin: 0 auto;">
+    <ul style="list-style-type: none; padding-left: 5px; margin: 0;">
+      <li style="margin-bottom: 0px; padding-left: 25px; position: relative;">
+        <span style="position: absolute; left: 0; color: #27ae60;">•</span>
+        A monolithic library of mathematics formalized in Lean
+      </li>
+      <li style="margin-bottom: 0px; padding-left: 25px; position: relative;">
+        <span style="position: absolute; left: 0; color: #27ae60;">•</span>
+        Started in 2017
+      </li>
+      <li style="margin-bottom: 0px; padding-left: 25px; position: relative;">
+        <span style="position: absolute; left: 0; color: #27ae60;">•</span>
+        Over 400 contributors, 100,000 definitions and 200,000 theorems
+      </li>
+      <li style="padding-left: 25px; position: relative;">
+        <span style="position: absolute; left: 0; color: #27ae60;">•</span>
+        Promoted heavily by Kevin Buzzard
+      </li>
+    </ul>
+  </div>
+  <div style="position: relative; width: 95%; margin: 0 auto; overflow: hidden;">
+    <!-- Scroll container -->
+    <div id="autoScroll"
+      style="display: flex; overflow-x: auto; padding: 20px 0; scroll-behavior: smooth; scrollbar-width: none; -ms-overflow-style: none;"
+      class="facts-scroll">
+      <!-- Fact cards -->
+       <script>
+          document.write(scrollBox('Algebra'));
+          document.write(scrollBox('Algebraic Geometry'));
+          document.write(scrollBox('Algebraic Topology'));
+          document.write(scrollBox('Analysis'));
+          document.write(scrollBox('Category Theory'));
+          document.write(scrollBox('Combinatorics'));
+          document.write(scrollBox('Condensed Mathematics'));
+          document.write(scrollBox('Control Theory'));
+          document.write(scrollBox('Dynamical systems'));
+          document.write(scrollBox('Field Theory'));
+          document.write(scrollBox('Geometry'));
+          document.write(scrollBox('Information Theory'));
+          document.write(scrollBox('Group Theory'));
+          document.write(scrollBox('Linear Algebra'));
+          document.write(scrollBox('Logic'));
+          document.write(scrollBox('Measure Theory'));
+          document.write(scrollBox('Model Theory'));
+          document.write(scrollBox('Number Theory'));
+          document.write(scrollBox('Probability'));
+          document.write(scrollBox('Representation Theory'));
+          document.write(scrollBox('Ring Theory'));
+          document.write(scrollBox('Set Theory'));
+          document.write(scrollBox('Topology'));
+       </script>
+    </div>
+</section>
+
+
+<section>
+  <h3>AI researchers</h3>
+
+  <div
+    style="max-width: 90%; margin: 50px auto; padding: 30px; background: linear-gradient(135deg, #f6f8fa 0%, #e9ecef 100%); border-radius: 10px; border-left: 5px solid #4285f4; box-shadow: 0 8px 30px rgba(0,0,0,0.1);">
+    "AI achieves silver-medal standard solving International Mathematical Olympiad problems"
+    <p style="text-align: right; margin-top: 15px; font-weight: 600; color: #5f6368; font-size: 0.9em;">
+      — Google DeepMind
+    </p>
+  </div>
+  <aside class="notes">
+    July 2024<br>
+    Had to solve 6 problems <br>
+    Solved 2 algebra, 1 Num theory and 1 Geometry, <br>
+    did not solve 2 combinatorics problems. <br>
+    Took 3.5 days not 4 hours
+  </aside>
+</section>
+
+
+<section>
+  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 20px; text-align: center; font-weight: 50;">
+    AI researchers: PutnamBench</h2>
+  <script>
+    document.write(myIFrame('https://trishullab.github.io/PutnamBench/leaderboard.html'));
+  </script>
+</section>
+</section>
+<script>
+  document.write(AIExampleSlides());
+</script>
+<section>
+  <h3>Physcists:</h3>
+  <script>
+    document.write(myIFrame('https://physlean.com'));
+  </script>
+</section>
+
+
+<!-- Overview slide -->
+<section>
+  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 40px; text-align: center;">Talk overview</h2>
+  <script>
+    document.write(threeOverview('What is an interactive theorem prover?',
+      'Introduction to PhysLean', 'Examples'));
+  </script>
+</section>
+<section>
+  <h2 style="color: #af774c; text-align: center; margin-bottom: 12px; font-size: 1.1em;">What is PhysLean?</h2>
+  <script>
+    document.write(classicQuote('A community-run project to digitalize physics into the interactive theorem prover Lean 4.'));
+  </script>
+</section>
+
+<section>
+  <h2 style="color: #af774c; text-align: center; margin-bottom: 12px; font-size: 1.1em;">What is PhysLean?</h2>
+  <div style="display: flex; justify-content: center; align-items: center; height: 500px;">
+    <object data="Images/PhysLeanPDF.pdf" type="application/pdf"
+      style="width: 100%; height: 100%; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+    </object>
+  </div>
+</section>
+
+<section>
+  <h2>It is a project for the physicists</h2>
+  <div style="display: flex; justify-content: space-around; align-items: flex-start; margin-top: 20px;">
+    <div style="flex: 1; padding-right: 20px;">
+      <div style="max-width: 800px; margin: 0 auto; padding: 20px;">
+        <div class="fragment" data-fragment-index="1">
+          <script>
+            document.write(halfBox('1', 'Organization of the project'));
+          </script>
+        </div>
+        <div class="fragment" data-fragment-index="2">
+          <script>
+            document.write(halfBox('2', 'Physics names of results'));
+          </script>
+        </div>
+        <div class="fragment" data-fragment-index="3">
+          <script>
+            document.write(halfBox('3', 'Physics documentation'));
+          </script>
+        </div>
+        <div class="fragment" data-fragment-index="4">
+          <script>
+            document.write(halfBox('4', 'Physics references'));
+          </script>
+        </div>
+        <div class="fragment" data-fragment-index="5">
+          <script>
+            document.write(halfBox('5', 'Computable definitions'));
+          </script>
+        </div>
+      </div>
+    </div>
+    <div style="flex: 1; padding-left: 20px;">
+      <div style="position: relative; height: 500px;">
+        <img src="Images/PhysLeanDirect.png" class="fragment" data-fragment-index="1"
+          style="border: 4px solid #666;
+            border-radius: 15px;
+            padding: 15px; max-width: 400px; margin: 20px auto;
+              display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transform: rotate(-3deg); transition: transform 0.3s ease; position: absolute; top: 0; left: 0; right: 0;"
+          onmouseover="this.style.transform='rotate(3deg)'" onmouseout="this.style.transform='rotate(-3deg)'">
+        <img src="Images/HiggsVec.png" class="fragment" data-fragment-index="2"
+          style="border: 4px solid #666; border-radius: 15px; padding: 15px; max-width: 400px; margin: 20px auto; display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transform: rotate(-3deg); transition: transform 0.3s ease; position: absolute; top: 0; left: 0; right: 0;"
+          onmouseover="this.style.transform='rotate(3deg)'" onmouseout="this.style.transform='rotate(-3deg)'">
+        <img src="Images/ClassicalHarmonicOscilator.png" class="fragment" data-fragment-index="3" style="border: 4px solid #666; border-radius: 15px; padding: 15px; max-width: 400px; margin: 20px auto; display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transform: rotate(-3deg); transition: transform 0.3s ease; position: absolute; top: 0; left: 0; right: 0;
+            " onmouseover="this.style.transform='rotate(3deg)'" onmouseout="this.style.transform='rotate(-3deg)'">
+        <img src="Images/ReferenceLink.png" class="fragment" data-fragment-index="4" style="border: 4px solid #666; border-radius: 15px; padding: 15px; max-width: 400px; margin: 20px auto; display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transform: rotate(-3deg); transition: transform 0.3s ease; position: absolute; top: 0; left: 0; right: 0;
+             " onmouseover="this.style.transform='rotate(3deg)'" onmouseout="this.style.transform='rotate(-3deg)'">
+        <img src="Images/ComputableDefn.png" class="fragment" data-fragment-index="5" style="border: 4px solid #666; border-radius: 15px; padding: 15px; width: 293px; height : 600px; margin: 20px auto; display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transform: rotate(-3deg); transition: transform 0.3s ease; position: absolute; top: 0; left: 0; right: 0;
+                     " onmouseover="this.style.transform='rotate(3deg)'" onmouseout="this.style.transform='rotate(-3deg)'">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Infarstructure slides -->
+<section>
+  <h3>Infarstructure</h3>
+  <section>
+    <script>
+      document.write(minimalBox('1', 'Search engines'));
+      document.write(myIFrame('https://www.leanexplore.com', "500px"));
+    </script>
+  </section>
+  <section>
+    <script>
+      document.write(minimalBox('1', 'Search engines'));
+      document.write(myIFrame('https://loogle.lean-lang.org', "500px"));
+    </script>
+  </section>
+  <section>
+    <script>
+      document.write(minimalBox('2', 'Documentation'));
+      document.write(myIFrame('https://physlean.com/docs/', "500px"));
+    </script>
+  </section>
+  <section>
+    <script>
+      document.write(minimalBox('3', 'Notes'));
+      document.write(myIFrame('https://notes.physlean.com', "500px"));
+    </script>
+  </section>
+  <section>
+    <script>
+      document.write(minimalBox('4', 'Having a TOO list'));
+      document.write(myIFrame('https://physlean.com/TODOList', "500px"));
+    </script>
+  </section>
+  <section>
+    <script>
+      document.write(minimalBox('5', 'Informal definitions and lemmas list'));
+    </script>
+    <pre id="Cosmology"
+      style="border: 2px solid #ccc; padding: 15px; border-radius: 5px; width: 100%; margin-left: 20px;">Click a file on the left to see code.</pre>
+  <script>
+    makeCodeSlide('Cosmology','https://raw.githubusercontent.com/HEPLean/PhysLean/master/PhysLean/Cosmology/FLRW/Basic.lean');
+  </script>
+  </section>
+  <section>
+    <script>
+      document.write(minimalBox('6', 'Discussion Forum'));
+
+    </script>
+    <img src="./Images/Zulip.png" alt="Zulip Chat"
+      style="border: 4px solid #666; border-radius: 15px; padding: 15px; max-width: 600px; margin: 20px auto; display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: transform 0.3s ease;"
+      onmouseover="this.style.transform='rotate(3deg)'" onmouseout="this.style.transform='rotate(-3deg)'">
+  </section>
+</section>
+
+<section>
+  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 40px; text-align: center;">Talk overview</h2>
+  <script>
+    document.write(threeOverview('What is an interactive theorem prover?',
+      'Introduction to PhysLean', 'Examples'));
+  </script>
+</section>
+
+<section>
+  <h3>What is currently in PhysLean?</h3>
+
+  <img src="Images/PhysLeanChart.png"
+    style="width:100%; height: auto; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); margin: 20px auto; display: block;">
+  <script>
+    document.write(longBarChangeingText(['Classical harmonic oscillator', 'Quantum harmonic oscillator',
+      'Maxwell\'s equation', 'Lorentz group', 'Twin paradox', 'Tight binding chain', 'Anomaly cancellation',
+      'CKM matrix', 'Wick\'s theorem', 'String theoretic']));
+  </script>
+  <div style="position: relative; top: -30px; font-size: 0.6em; padding: 10px; text-align: right; margin-right: 10%;">
+    <p><small>Image credit: Shlok Vaibhav</small></p>
+  </div>
+</section>
+
+
+<section>
+  <h3>The classical harmonic oscillator</h3>
+  <div style="display: flex;">
+    <div id="lean-files-container"
+      style="height: 600px; overflow-y: auto; border: 1px solid #4CAF50; padding: 10px; width: 30%; text-align: left; font-size: 0.5em; background-color: #2E3440; color: #A3BE8C; font-family: monospace;">
+    </div>
+    <pre id="EM-slide-1"
+      style="border: 2px solid #ccc; padding: 15px; border-radius: 5px; width: 60%; margin-left: 20px;">Click a file on the left to see code.</pre>
+  </div>
+  <script>
+    renderLeanFiles();
+  </script>
+</section>
+
+
+<!-- Thank you slide -->
+<script>
+  document.write(thankYouSlide());
+</script>
+
+
+
+<!--
+End matter
+..........................
+..........................
+..........................
+..........................
+..........................
+-->
+</div>
+</div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script src="plugin/math/math.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="js/lean.min.js"></script>
+  <script src="js/lean-goal.js"></script>
+  <script src="js/merge-html.js"></script>
+  <script src="js/inline_svg.js"></script>
+  <script>
+    RevealHighlight().hljs.addPlugin(mergeHTMLPlugin);
+    Reveal.initialize({
+      mathjax3: {
+        mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js',
+        loader: {load: ['[tex]/mathtools', '[tex]/centernot']},
+        tex: {
+          packages: {'[+]': ['mathtools', 'centernot']},
+        },
+        chtml: {
+          mtextFont: 'Source Sans Pro',
+        },
+        options: {
+          skipHtmlTags: {'[-]': ['code', 'pre']},
+        },
+      },
+      katex: {
+        macros: {
+          "\\smallunderbrace":
+            String.raw`{\tiny\underbrace{\huge{#1}}_{\huge\scriptsize#2}}`
+        },
+        trust: true,
+        strict: false,
+        ignoredTags: ['script', 'noscript', 'style'],
+      },
+      plugins: [
+        RevealInlineSvg,
+        RevealHighlight,
+        RevealMath.KaTeX,
+        RevealNotes,
+      ],
+      history: true,
+      center: false,
+      // defaultTiming: 40,
+      // slideNumber: 'c/t',
+      // width: 1280*0.96,
+      // height: 1024*0.96,
+      // width: 1856,
+      // height: 1016,
+      margin: 0.04,
+      navigationMode: 'linear',
+      totalTime: 25*60,
+      // showNotes: 'separate-page'
+        autoAnimateEasing: 'ease-out',
+        autoAnimateDuration: 0.8,
+        autoAnimateUnmatched: false,
+    });
+  </script>
+
+
+</body>
+</html>

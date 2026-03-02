@@ -29,7 +29,13 @@ So how does this tie in with AI written code… as you can probably guess it is 
 
 So why should a physicist care about any of this? To me there is one killer reason, which every physicist should care about, even if they are not interested in helping the Lean ecosystem. This is readability. Lean does not check for many things, it does not check that definitions are correct, or that the theorem it is proving are the ones you want it to prove, it checks mathematical correctness only. The problem is that code which is not polished is often unreadable by anyone except the authors (go back to the example of a hand-written calculation), and thus one cannot verify or trust the correctness of these other aspects of the code.
 
-Another reason physicists should care is reusability. Namely, how easy is it for someone to take your code and reuse what you have done in your own proofs. Code which is only ‘merely-true’ usually only fits the single purpose it was written for and is often not reusable for other tasks. The problem here is that someone else must come along and essentially rewrite the code, often putting a lot more thought and care into it. My main issue here is that the person who does this, is likely to get essentially zero credit in the physics community, even if they have done the majority of the work (something I think we must change).
+This of course assumes that the (human) authors of the formalizaton themselves understand  it mathematically and can read the code. I think it is an even worse situation if they cannot,
+as then there is no trusted verification (at all) that the definitions are correct, or
+the right theorems are being proved. This leads to the questions whose job is it to provide
+such verification? To me, the answer should always be the human authors. Not reviewers.
+Not random members of the community.
+
+Another reason physicists should care about polishing is reusability. Namely, how easy is it for someone to take your code and reuse what you have done in your own proofs. Code which is only ‘merely-true’ usually only fits the single purpose it was written for and is often not reusable for other tasks. The problem here is that someone else must come along and essentially rewrite the code, often putting a lot more thought and care into it. My main issue here is that the person who does this, is likely to get essentially zero credit in the physics community, even if they have done the majority of the work (something I think we must change).
 
 The third and final reason physicists should care is reliability. This means how easy the code is to maintain long-term, how easy it is to run on small computers etc. Lean code written with an AI tends to be very long, which corresponds to very slow. This makes it hard to maintain and keep up to date with changes in the library.
 

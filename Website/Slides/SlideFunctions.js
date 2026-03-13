@@ -275,20 +275,6 @@ lemma add_assoc (a b c : MyNat) : add a (add b c) = add (add a b) c := by
     document.write(myIFrame("https://demo.projectnumina.ai"));
   </script>
 </section>
-<section>
-  <script>
-    document.write(simpleCodeBlock(\`
-import Mathlib
 
-theorem ineq (N : Nat) (a : ℝ) (n : Fin N) :
-    -Real.pi / a ≤ 2 * Real.pi / (a * ↑N) * (↑↑n - ↑(N / 2)) := by
-  sorry\`));
-  </script>
-</section>
-<section>
-  <script>
-  document.write(myIFrame("https://demo.projectnumina.ai"));
-  </script>
-</section>
 </section>`
 }

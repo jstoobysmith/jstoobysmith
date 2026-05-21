@@ -1,0 +1,414 @@
+
+<!--
+This file is corresponds to one of my talks.
+
+PhysLean: Formalizing physics into Lean 4
+
+PhysLean is a project to create a monolithic library of results from physics in Lean 4, akin to Mathlib for mathematics.
+It contains results from a range of different areas of physics including classical mechanics, relativity, condensed matter physics, quantum field theory, string theory etc.
+In this talk I will give a high-level overview of the current content of PhysLean and
+explain how formalizing results from physics, for physicists, differs to from
+formalizing results from mathematics, for mathematicians, and what features we have
+put in place to make this as an efficient and open process as possible.
+This talk is aimed at those familiar with interactive theorem provers.
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Physlib</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/monokai.min.css">
+
+
+<!--
+All code within this file is part of the PhysLean project.
+See there for the licence under which it is released.
+
+-->
+
+<style>
+    .reveal h1,
+    .reveal h2,
+    .reveal h3,
+    .reveal h4,
+    .reveal h5,
+    .reveal h6 {
+        text-transform: none;
+    }
+</style>
+
+<style>
+    pre code {
+        font-size: 0.7em !important;
+    }
+</style>
+
+
+
+<!-- Predefined functions for use within the code. -->
+<script src="Functions.js"></script>
+
+<style>
+  /* Change comment color in Highlight.js */
+  .hljs-comment {
+    color: #96b596;
+    /* Specify your desired color here */
+  }
+</style>
+
+<style>
+  /* ---------- Shared elevator-talk styling ---------- */
+  :root {
+    --pl-primary:  #3a5a78;
+    --pl-accent:   #e45826;
+    --pl-success:  #27ae60;
+    --pl-soft:     #f0f4f8;
+    --pl-ink:      #2c3e50;
+    --pl-muted:    #6b7a8a;
+  }
+  .reveal section h2 {
+    font-family: 'Georgia', serif;
+    color: var(--pl-primary);
+    margin-bottom: 28px;
+    letter-spacing: -0.5px;
+  }
+  .reveal section h2 .accent-bar {
+    display: inline-block;
+    width: 60px;
+    height: 4px;
+    background: var(--pl-accent);
+    border-radius: 2px;
+    vertical-align: middle;
+    margin-right: 14px;
+    transform: translateY(-6px);
+  }
+  .pl-list {
+    list-style: none !important;
+    padding-left: 6px;
+    margin: 0;
+  }
+  .pl-list li {
+    position: relative;
+    padding: 6px 0 6px 28px;
+    line-height: 1.45;
+    color: var(--pl-ink);
+    list-style-type: none !important;
+  }
+  .pl-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 18px;
+    width: 10px;
+    height: 10px;
+    background: var(--pl-success);
+    border-radius: 50%;
+  }
+  .pl-list ul {
+    list-style: none !important;
+    padding-left: 18px;
+    margin-top: 4px;
+  }
+  .pl-list ul li {
+    padding: 3px 0 3px 22px;
+    font-size: 0.88em;
+    color: var(--pl-muted);
+    list-style-type: none !important;
+  }
+  .pl-list ul li::before {
+    content: "";
+    top: 14px;
+    width: 6px;
+    height: 6px;
+    background: var(--pl-primary);
+    opacity: 0.6;
+  }
+  .pl-card {
+    background: #fdfdfd;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    border-left: 5px solid var(--pl-primary);
+    padding: 22px 26px;
+  }
+  .pl-card.accent { border-left-color: var(--pl-accent); }
+  .pl-card h3 {
+    margin: 0 0 10px 0;
+    color: var(--pl-primary);
+    font-size: 1.05em;
+    font-family: 'Georgia', serif;
+  }
+  .pl-card.accent h3 { color: var(--pl-accent); }
+  .pl-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    align-items: center;
+  }
+  .pl-stats {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin: 14px 0 22px 0;
+    flex-wrap: wrap;
+  }
+  .pl-stat {
+    text-align: center;
+    min-width: 130px;
+    padding: 10px 16px;
+    background: var(--pl-soft);
+    border-radius: 10px;
+  }
+  .pl-stat .num {
+    display: block;
+    font-size: 1.6em;
+    font-weight: 700;
+    color: var(--pl-accent);
+    line-height: 1;
+  }
+  .pl-stat .lbl {
+    display: block;
+    font-size: 0.7em;
+    color: var(--pl-muted);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .pl-callout {
+    text-align: center;
+    margin-top: 18px;
+    padding: 12px 18px;
+    background: linear-gradient(90deg, rgba(228,88,38,0.08), rgba(58,90,120,0.08));
+    border-radius: 10px;
+    color: var(--pl-primary);
+    font-style: italic;
+    font-size: 0.9em;
+  }
+</style>
+</head>
+
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+<!-- Title slide. -->
+<section style="color: var(--pl-ink);">
+
+
+  <div style="margin-top: 110px;">
+    <h1 style="font-family: 'Georgia', serif; color: var(--pl-primary); font-size: 2.4em; margin-bottom: 6px; letter-spacing: -1px;">
+      Lean &amp; <span style="color: var(--pl-accent);">Physlib</span>
+    </h1>
+    <div style="width: 120px; height: 4px; background: var(--pl-accent); margin: 14px auto 26px; border-radius: 2px;"></div>
+
+    <p style="font-size: 0.85em; color: var(--pl-ink); margin: 0;">
+      <strong>Joseph Tooby-Smith</strong>
+    </p>
+    <p style="font-size: 0.7em; color: var(--pl-muted); margin: 4px 0 28px;">
+      University of Bath &middot; <span id="current-date"></span>
+    </p>
+    <script>
+      document.getElementById('current-date').textContent = new Date().toLocaleDateString(undefined, {
+        year: 'numeric', month: 'long', day: 'numeric'
+      });
+    </script>
+
+    <p style="font-size: 0.55em; color: var(--pl-muted); margin-top: 30px;">
+      Slides: <code style="background: var(--pl-soft); padding: 2px 8px; border-radius: 4px; color: var(--pl-primary);">josephtoobysmith.com/Slides/Elevator2026.html</code>
+    </p>
+  </div>
+</section>
+
+<!-- An example of Lean. -->
+<section>
+  <h2 style="margin-bottom: 20px;"><span class="accent-bar"></span>What is Lean?</h2>
+
+  <div style="text-align: center; margin-bottom: 14px;">
+    <span style="font-size: 0.85em; color: var(--pl-muted); font-style: italic;">
+      An interactive theorem prover. Write definitions, theorems, and proofs
+      and have gaurenteed correctness, and mathematical consistency.
+    </span>
+  </div>
+
+  <!-- The code block -->
+  <div style="max-width: 1000px; margin: 0 auto 26px;">
+    <div style="background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); padding: 28px 32px; border-radius: 14px; box-shadow: 0 12px 32px rgba(0,0,0,0.2);">
+      <script>
+        document.write(simpleCodeBlock(`
+theorem wicks_theorem : (φs : List 𝓕.FieldOp) →
+    𝓣(ofFieldOpList φs) =
+    ∑ (φsΛ : WickContraction φs.length),
+      φsΛ.wickTerm := by ...`))
+      </script>
+    </div>
+  </div>
+
+  <!-- Clean benefit list -->
+  <div style="max-width: 750px; margin: 0 auto; display: flex; justify-content: space-around; gap: 20px;">
+    <div style="text-align: center; flex: 1;">
+      <div style="font-size: 0.75em; color: var(--pl-ink); font-weight: 600; margin-bottom: 3px;">Trust</div>
+      <div style="font-size: 0.65em; color: var(--pl-muted); line-height: 1.3;">of the correctness</div>
+    </div>
+
+    <div style="text-align: center; flex: 1;">
+      <div style="font-size: 0.75em; color: var(--pl-ink); font-weight: 600; margin-bottom: 3px;">Assumptions</div>
+      <div style="font-size: 0.65em; color: var(--pl-muted); line-height: 1.3;">Made explicit</div>
+    </div>
+
+    <div style="text-align: center; flex: 1;">
+      <div style="font-size: 0.75em; color: var(--pl-ink); font-weight: 600; margin-bottom: 3px;">Reuse</div>
+      <div style="font-size: 0.65em; color: var(--pl-muted); line-height: 1.3;">Searchable & composable results</div>
+    </div>
+  </div>
+</section>
+
+<!-- Driving forces. -->
+<section>
+  <h2><span class="accent-bar"></span>The recent driving forces</h2>
+  <div class="pl-grid-2">
+    <div class="pl-card">
+      <h3>📚 Mathlib</h3>
+      <ul class="pl-list" style="font-size: 0.78em;">
+        <li>Monolithic library of mathematics in Lean.</li>
+        <li>Large enough to work at a <strong>high level</strong>.</li>
+        <li>Open-source, community-driven, high standards
+            for maintainability and reusability.</li>
+      </ul>
+    </div>
+    <div class="pl-card accent">
+      <h3>🤖 Artificial Intelligence</h3>
+      <ul class="pl-list" style="font-size: 0.78em;">
+        <li>Tight feedback loop between AI and Lean.</li>
+        <li>Rapid improvement over <strong>recent months</strong>.</li>
+        <li>Open problems are starting to be solved this way.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PhysLean. -->
+<section>
+  <h2><span class="accent-bar"></span>Physlib</h2>
+
+  <!-- GitHub repo card -->
+  <div style="max-width: 750px; margin: 0 auto 24px; background: #fff; border: 1px solid #d0d7de; border-radius: 10px; padding: 24px 28px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px;">
+      <svg height="32" width="32" viewBox="0 0 16 16" fill="#6b7a8a">
+        <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+      </svg>
+      <div style="text-align: left;">
+        <div style="font-size: 1em; font-weight: 600; color: var(--pl-primary); font-family: 'Georgia', serif;">
+          leanprover-community/Physlib
+        </div>
+        <div style="font-size: 0.75em; color: var(--pl-muted); margin-top: 2px;">
+          A <i>community-driven</i> project to digitalise results from physics into Lean.
+        </div>
+      </div>
+    </div>
+
+    <div style="display: flex; gap: 20px; font-size: 0.75em; color: var(--pl-muted); align-items: center; flex-wrap: wrap;">
+      <span style="display: flex; align-items: center; gap: 6px;">
+        <span style="display: inline-block; width: 10px; height: 10px; background: #3178c6; border-radius: 50%;"></span>
+        Lean
+      </span>
+      <span>⭐ 575</span>
+      <span style="display: flex; align-items: center; gap: 6px;">
+        <svg height="14" width="14" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M2 5.5a3.5 3.5 0 1 1 5.898 2.549 5.508 5.508 0 0 1 3.034 4.084.75.75 0 1 1-1.482.235 4 4 0 0 0-7.9 0 .75.75 0 0 1-1.482-.236A5.507 5.507 0 0 1 3.102 8.05 3.493 3.493 0 0 1 2 5.5ZM11 4a3.001 3.001 0 0 1 2.22 5.018 5.01 5.01 0 0 1 2.56 3.012.749.749 0 0 1-.885.954.752.752 0 0 1-.549-.514 3.507 3.507 0 0 0-2.522-2.372.75.75 0 0 1-.574-.73v-.352a.75.75 0 0 1 .416-.672A1.5 1.5 0 0 0 11 5.5.75.75 0 0 1 11 4Zm-5.5-.5a2 2 0 1 0-.001 3.999A2 2 0 0 0 5.5 3.5Z"></path>
+        </svg>
+        60+ contributors
+      </span>
+      <span style="display: flex; align-items: center; gap: 6px;">
+        <svg height="14" width="14" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm7-3.25v2.992l2.028.812a.75.75 0 0 1-.557 1.392l-2.5-1A.751.751 0 0 1 7 8.25v-3.5a.75.75 0 0 1 1.5 0Z"></path>
+        </svg>
+        7 maintainers
+      </span>
+
+    </div>
+  </div>
+
+  <ul class="pl-list" style="font-size: 0.78em; max-width: 880px; margin: 0 auto;">
+    <li>A <strong>monolithic library</strong> for physics results.</li>
+    <li>Research-level results, with carefully standardized definitions and theorems
+        &mdash; a foundation for future formalization.</li>
+    <li>Community run (no bais to any academic or company) following open-source software workflows.</li>
+  </ul>
+
+</section>
+
+<section>
+  <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; gap: 40px;">
+    <h2 style="font-size: 2.5em; margin: 0;">Thank You</h2>
+    <div style="font-size: 1.2em; color: var(--pl-muted);">
+      Questions?
+    </div>
+  </div>
+</section>
+
+</div>
+</div>
+
+<script src="dist/reveal.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script src="plugin/math/math.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="js/lean.min.js"></script>
+  <script src="js/lean-goal.js"></script>
+  <script src="js/merge-html.js"></script>
+  <script src="js/inline_svg.js"></script>
+  <script>
+    RevealHighlight().hljs.addPlugin(mergeHTMLPlugin);
+    Reveal.initialize({
+      mathjax3: {
+        mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js',
+        loader: {load: ['[tex]/mathtools', '[tex]/centernot']},
+        tex: {
+          packages: {'[+]': ['mathtools', 'centernot']},
+        },
+        chtml: {
+          mtextFont: 'Source Sans Pro',
+        },
+        options: {
+          skipHtmlTags: {'[-]': ['code', 'pre']},
+        },
+      },
+      katex: {
+        macros: {
+          "\\smallunderbrace":
+            String.raw`{\tiny\underbrace{\huge{#1}}_{\huge\scriptsize#2}}`
+        },
+        trust: true,
+        strict: false,
+        ignoredTags: ['script', 'noscript', 'style'],
+      },
+      plugins: [
+        RevealInlineSvg,
+        RevealHighlight,
+        RevealMath.KaTeX,
+        RevealNotes,
+      ],
+      history: true,
+      center: false,
+      // defaultTiming: 40,
+      // slideNumber: 'c/t',
+      // width: 1280*0.96,
+      // height: 1024*0.96,
+      // width: 1856,
+      // height: 1016,
+      margin: 0.04,
+      navigationMode: 'linear',
+      totalTime: 25*60,
+      // showNotes: 'separate-page'
+        autoAnimateEasing: 'ease-out',
+        autoAnimateDuration: 0.8,
+        autoAnimateUnmatched: false,
+    });
+  </script>
+</body>
+</html>

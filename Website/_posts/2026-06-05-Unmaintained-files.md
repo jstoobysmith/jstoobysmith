@@ -24,7 +24,7 @@ I think all three problems have a common solution: introduce two tiers of Lean f
 
 **Unmaintained files** would receive a lighter check, closer to the arXiv model: the content should be mainstream physics, not duplicate anything already in Physlib, sit in a sensible part of the library, be reasonably readable, and build successfully. Beyond that, no maintenance is promised. If such a file breaks in a future version of Lean or Mathlib or an update to Physlib, we simply record the last commit in which it built as the last known working version.
 
-To make the distinction visible in the directory listing, unmaintained files could be prefixed with `zombie_`, which has the convenient side effect of placing them at the bottom of each directory.
+To make the distinction visible in the directory listing, unmaintained files could be prefixed with `ZUnmaintained_`, which has the convenient side effect of placing them at the bottom of each directory.
 
 Unmaintained status would propagate: any file that imports an unmaintained file would itself be considered unmaintained.
 

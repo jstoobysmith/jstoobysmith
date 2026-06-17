@@ -1,0 +1,583 @@
+<!--
+This file corresponds to one of my talks.
+
+PhD skills in an AI world.
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>PhD Skills 2026</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/monokai.min.css">
+
+
+  <!--
+All code within this file is part of the PhysLean project.
+See there for the licence under which it is released.
+
+-->
+
+  <style>
+    .reveal h1,
+    .reveal h2,
+    .reveal h3,
+    .reveal h4,
+    .reveal h5,
+    .reveal h6 {
+      text-transform: none;
+    }
+  </style>
+
+  <style>
+    pre code {
+      font-size: 0.7em !important;
+    }
+  </style>
+
+
+
+  <!-- Predefined functions for use within the code. -->
+  <script src="Functions.js"></script>
+
+  <style>
+    /* Change comment color in Highlight.js */
+    .hljs-comment {
+      color: #96b596;
+      /* Specify your desired color here */
+    }
+  </style>
+
+  <style>
+    /* ---------- Shared elevator-talk styling ---------- */
+    :root {
+      --pl-primary:  #3a5a78;
+      --pl-accent:   #e45826;
+      --pl-success:  #27ae60;
+      --pl-soft:     #f0f4f8;
+      --pl-ink:      #2c3e50;
+      --pl-muted:    #6b7a8a;
+    }
+    .reveal section h2 {
+      font-family: 'Georgia', serif;
+      color: var(--pl-primary);
+      margin-bottom: 28px;
+      letter-spacing: -0.5px;
+    }
+    .reveal section h2 .accent-bar {
+      display: inline-block;
+      width: 60px;
+      height: 4px;
+      background: var(--pl-accent);
+      border-radius: 2px;
+      vertical-align: middle;
+      margin-right: 14px;
+      transform: translateY(-6px);
+    }
+    .pl-list {
+      list-style: none !important;
+      padding-left: 6px;
+      margin: 0;
+    }
+    .pl-list li {
+      position: relative;
+      padding: 6px 0 6px 28px;
+      line-height: 1.45;
+      color: var(--pl-ink);
+      list-style-type: none !important;
+    }
+    .pl-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 18px;
+      width: 10px;
+      height: 10px;
+      background: var(--pl-success);
+      border-radius: 50%;
+    }
+    .pl-list ul {
+      list-style: none !important;
+      padding-left: 18px;
+      margin-top: 4px;
+    }
+    .pl-list ul li {
+      padding: 3px 0 3px 22px;
+      font-size: 0.88em;
+      color: var(--pl-muted);
+      list-style-type: none !important;
+    }
+    .pl-list ul li::before {
+      content: "";
+      top: 14px;
+      width: 6px;
+      height: 6px;
+      background: var(--pl-primary);
+      opacity: 0.6;
+    }
+    .pl-card {
+      background: #fdfdfd;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      border-left: 5px solid var(--pl-primary);
+      padding: 22px 26px;
+    }
+    .pl-card.accent { border-left-color: var(--pl-accent); }
+    .pl-card h3 {
+      margin: 0 0 10px 0;
+      color: var(--pl-primary);
+      font-size: 1.05em;
+      font-family: 'Georgia', serif;
+    }
+    .pl-card.accent h3 { color: var(--pl-accent); }
+    .pl-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+    .pl-stats {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin: 14px 0 22px 0;
+      flex-wrap: wrap;
+    }
+    .pl-stat {
+      text-align: center;
+      min-width: 130px;
+      padding: 10px 16px;
+      background: var(--pl-soft);
+      border-radius: 10px;
+    }
+    .pl-stat .num {
+      display: block;
+      font-size: 1.6em;
+      font-weight: 700;
+      color: var(--pl-accent);
+      line-height: 1;
+    }
+    .pl-stat .lbl {
+      display: block;
+      font-size: 0.7em;
+      color: var(--pl-muted);
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .pl-callout {
+      text-align: center;
+      margin-top: 18px;
+      padding: 12px 18px;
+      background: linear-gradient(90deg, rgba(228,88,38,0.08), rgba(58,90,120,0.08));
+      border-radius: 10px;
+      color: var(--pl-primary);
+      font-style: italic;
+      font-size: 0.9em;
+    }
+    .story-slide {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 70vh;
+      gap: 18px;
+    }
+    .story-label {
+      font-size: 0.62em;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--pl-muted);
+    }
+    .story-text {
+      font-family: 'Georgia', serif;
+      font-size: 1.02em;
+      color: var(--pl-ink);
+      line-height: 1.65;
+      max-width: 720px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Title slide. -->
+      <section style="color: #2c3e50;">
+        <div style="margin-top: 80px;">
+          <h1 style="
+            font-family: 'Georgia', serif;
+            color: #3a5a78;
+            font-size: 1.85em;
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+            line-height: 1.3;
+          ">
+            What skills are most important for a<br>
+            PhD student starting in <span style="color: #e45826;">2026</span>?
+          </h1>
+
+          <div style="width: 120px; height: 4px; background: #e45826; margin: 16px auto 28px; border-radius: 2px;"></div>
+
+          <p style="font-size: 0.85em; color: #2c3e50; margin: 0;">
+            <strong>Joseph Tooby-Smith</strong>
+          </p>
+          <p style="font-size: 0.7em; color: #6b7a8a; margin: 5px 0 28px;">
+            University of Bath &middot; <span id="current-date"></span>
+          </p>
+          <script>
+            document.getElementById('current-date').textContent = new Date().toLocaleDateString(undefined, {
+              year: 'numeric', month: 'long', day: 'numeric'
+            });
+          </script>
+
+          <p style="font-size: 0.52em; color: #6b7a8a; margin-top: 32px;">
+            Slides: <code style="background: #f0f4f8; padding: 2px 8px; border-radius: 4px; color: #3a5a78;">josephtoobysmith.com/Slides/PhDSkills2026.html</code>
+          </p>
+        </div>
+      </section>
+
+      <!--The short answer.-->
+      <section data-background-color="#1e2d3d">
+        <div class="story-slide" style="height: 72vh; gap: 14px;">
+
+
+          <div style="width: min(900px, 92%); display: flex; flex-direction: column; gap: 10px; margin-top: 4px;">
+            <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); border-radius: 10px; padding: 12px 14px; color: rgba(255,255,255,0.95); font-size: 0.82em; line-height: 1.45; text-align: left;" >
+              1) No one knows what the future of AI will look like.
+            </div>
+            <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); border-radius: 10px; padding: 12px 14px; color: rgba(255,255,255,0.95); font-size: 0.82em; line-height: 1.45; text-align: left;" >
+              2) Need skills for success in an unknown future.
+            </div>
+            <div style="background: linear-gradient(90deg, rgba(228,88,38,0.18), rgba(228,88,38,0.08)); border: 1px solid rgba(228,88,38,0.45); border-radius: 10px; padding: 12px 14px; color: white; font-size: 0.86em; font-weight: 600; line-height: 1.45; text-align: left;">
+              3) Because of this by far the most important skill is ...
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-background-color="#1e2d3d">
+        <div class="story-slide">
+          <div style="font-size: 0.62em; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.45);">Main skill:</div>
+          <h2 style="font-family: 'Georgia', serif; color: white; font-size: 2em; margin: 0; text-align: center;">
+            Adaptability</h2>
+          <div style="width: 80px; height: 4px; background: var(--pl-accent); border-radius: 2px;"></div>
+        </div>
+      </section>
+
+      <!-- Bridge: adaptability isn't practiced directly. -->
+      <section data-background-color="#1e2d3d">
+        <div class="story-slide" style="height: 72vh; gap: 18px;">
+          <div style="font-size: 0.62em; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.45);">But&hellip;</div>
+          <div style="font-family: 'Georgia', serif; color: white; font-size: 1.15em; max-width: 760px; text-align: center; line-height: 1.55;">
+            You can't practice adaptability directly.
+          </div>
+          <div style="font-family: 'Georgia', serif; color: rgba(255,255,255,0.85); font-size: 0.95em; max-width: 760px; text-align: center; line-height: 1.55;">
+            What you <em>can</em> practice are
+            <span style="color: var(--pl-accent); font-weight: 600;">foundational skills</span>
+            and
+            <span style="color: var(--pl-accent); font-weight: 600;">working skills</span>.
+          </div>
+        </div>
+      </section>
+
+      <!--Foundational skills.-->
+      <section>
+        <h2><span class="accent-bar"></span>Foundational skills</h2>
+        <div style="text-align: center; margin-bottom: 14px;">
+          <span style="font-size: 0.7em; color: var(--pl-muted); font-style: italic;">
+            Skills that pay off in any future.
+          </span>
+        </div>
+        <div
+          style="overflow-y: auto; max-height: 380px; padding: 16px 20px; border: 2px solid #c7dced; border-radius: 14px; background: linear-gradient(180deg, #eef5fb, #f8fbfe); box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
+
+          <ul style="margin: 0; padding-left: 1.4em; line-height: 1.7;">
+            <li>Knowledge of the field and the role and capability of AI.</li>
+            <li>How to use AI effectively in your workflow.</li>
+            <li>How to be a valued member of the community.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!--Working skills.-->
+      <section>
+        <h2><span class="accent-bar"></span>Working skills</h2>
+        <div style="text-align: center; margin-bottom: 14px;">
+          <span style="font-size: 0.7em; color: var(--pl-muted); font-style: italic;">
+            What you actually work on &mdash; depends on your view of the future.
+          </span>
+        </div>
+        <div
+          style="overflow-y: auto; max-height: 380px; padding: 16px 20px; border: 2px solid #c7dced; border-radius: 14px; background: linear-gradient(180deg, #eef5fb, #f8fbfe); box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
+
+          <ul style="margin: 0; padding-left: 1.4em; line-height: 1.7;">
+            <li>Evaluating and building good AI models and workflows.</li>
+            <li>Human-in-the-loop solutions to mathematical and physics problems.</li>
+            <li>Formalization <span style="color: var(--pl-muted);">(more to come on this)</span>.</li>
+          </ul>
+        </div>
+      </section>
+
+
+      <section data-background-color="#1e2d3d">
+        <div class="story-slide">
+
+          <h2 style="font-family: 'Georgia', serif; color: white; font-size: 2em; margin: 0; text-align: center;">
+            A personal story</h2>
+          <div style="width: 80px; height: 4px; background: var(--pl-accent); border-radius: 2px;"></div>
+        </div>
+      </section>
+
+
+      <section>
+        <div class="story-slide" style="height: 65vh;">
+          <div class="story-label">A personal story</div>
+          <div class="story-text">
+            <p style="margin-bottom: 12px;">During one of my postdoc, I tried to learn how to build AI systems.</p>
+            <p class="fragment fade-in" style="margin-bottom: 12px; color: var(--pl-muted);">I did not enjoy it.</p>
+            <p class="fragment fade-in" style="color: var(--pl-accent); font-weight: 600;">So I looked for a different path.</p>
+          </div>
+        </div>
+      </section>
+
+  <section>
+    <h2><span class="accent-bar"></span>Moral of the story</h2>
+    <div style="max-width: 820px; margin: 24px auto 0; display: flex; flex-direction: column; gap: 18px;">
+      <div style="padding: 18px 22px; border-left: 5px solid var(--pl-primary); background: var(--pl-soft); border-radius: 10px;">
+        <div style="font-size: 0.78em; color: var(--pl-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;">Foundational skills</div>
+        <div style="font-family: 'Georgia', serif; color: var(--pl-ink); font-size: 1em; line-height: 1.5;">
+          For everyone &mdash; the shared base of the community.
+        </div>
+      </div>
+      <div style="padding: 18px 22px; border-left: 5px solid var(--pl-accent); background: var(--pl-soft); border-radius: 10px;">
+        <div style="font-size: 0.78em; color: var(--pl-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;">Working skills</div>
+        <div style="font-family: 'Georgia', serif; color: var(--pl-ink); font-size: 1em; line-height: 1.5;">
+          Personal &mdash; different people will pick different ones, and that's how the community stays strong.
+        </div>
+      </div>
+    </div>
+  </section>
+
+      <section data-background-color="#1e2d3d">
+        <div class="story-slide" style="height: 72vh; gap: 14px;">
+          <div style="font-size: 0.62em; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.45);">The path I found</div>
+          <h2 style="font-family: 'Georgia', serif; color: white; font-size: 2em; margin: 0; text-align: center;">Formalization and Lean</h2>
+          <div style="width: 80px; height: 4px; background: var(--pl-accent); border-radius: 2px;"></div>
+        </div>
+      </section>
+
+<!-- An example of Lean. -->
+<section>
+  <h2 style="margin-bottom: 20px;"><span class="accent-bar"></span>What is Lean?</h2>
+
+  <div style="text-align: center; margin-bottom: 14px;">
+    <span style="font-size: 0.85em; color: var(--pl-muted); font-style: italic;">
+      An interactive theorem prover. Write definitions, theorems, and proofs
+      and have guaranteed correctness, and mathematical consistency.
+    </span>
+  </div>
+    <div style="text-align: center; margin: -2px 0 18px; font-size: 0.62em; color: var(--pl-muted);">
+      (Formalization = writing physics or maths into an ITP like Lean)
+    </div>
+
+  <!-- The code block -->
+  <div style="max-width: 1000px; margin: 0 auto 26px;">
+    <div
+      style="background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); padding: 28px 32px; border-radius: 14px; box-shadow: 0 12px 32px rgba(0,0,0,0.2);">
+      <script>
+        document.write(simpleCodeBlock(`
+theorem wicks_theorem : (φs : List 𝓕.FieldOp) →
+    𝓣(ofFieldOpList φs) =
+    ∑ (φsΛ : WickContraction φs.length),
+      φsΛ.wickTerm := by ...`))
+      </script>
+    </div>
+  </div>
+
+  <!-- Clean benefit list -->
+  <div style="max-width: 750px; margin: 0 auto; display: flex; justify-content: space-around; gap: 20px;">
+    <div style="text-align: center; flex: 1;">
+      <div style="font-size: 0.75em; color: var(--pl-ink); font-weight: 600; margin-bottom: 3px;">Trust</div>
+      <div style="font-size: 0.65em; color: var(--pl-muted); line-height: 1.3;">of the correctness</div>
+    </div>
+
+    <div style="text-align: center; flex: 1;">
+      <div style="font-size: 0.75em; color: var(--pl-ink); font-weight: 600; margin-bottom: 3px;">Assumptions</div>
+      <div style="font-size: 0.65em; color: var(--pl-muted); line-height: 1.3;">Made explicit</div>
+    </div>
+
+    <div style="text-align: center; flex: 1;">
+      <div style="font-size: 0.75em; color: var(--pl-ink); font-weight: 600; margin-bottom: 3px;">Reuse</div>
+      <div style="font-size: 0.65em; color: var(--pl-muted); line-height: 1.3;">Searchable & composable results</div>
+    </div>
+  </div>
+</section>
+
+<!-- Driving forces. -->
+<section>
+  <h2><span class="accent-bar"></span>The recent driving forces</h2>
+  <div class="pl-grid-2">
+    <div class="pl-card">
+      <h3>📚 Mathlib</h3>
+      <ul class="pl-list" style="font-size: 0.78em;">
+        <li>Monolithic library of mathematics in Lean.</li>
+        <li>Large enough to work at a <strong>high level</strong>.</li>
+        <li>Open-source, community-driven, high standards
+          for maintainability and reusability.</li>
+      </ul>
+    </div>
+    <div class="pl-card accent">
+      <h3>🤖 Artificial Intelligence</h3>
+      <ul class="pl-list" style="font-size: 0.78em;">
+        <li>Tight feedback loop between AI and Lean.</li>
+        <li>Rapid improvement over <strong>recent months</strong>.</li>
+        <li>Open problems are starting to be solved this way.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PhysLean. -->
+<section>
+  <h2><span class="accent-bar"></span>Physlib</h2>
+
+  <!-- GitHub repo card -->
+  <div
+    style="max-width: 750px; margin: 0 auto 24px; background: #fff; border: 1px solid #d0d7de; border-radius: 10px; padding: 24px 28px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px;">
+      <svg height="32" width="32" viewBox="0 0 16 16" fill="#6b7a8a">
+        <path
+          d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z">
+        </path>
+      </svg>
+      <div style="text-align: left;">
+        <div style="font-size: 1em; font-weight: 600; color: var(--pl-primary); font-family: 'Georgia', serif;">
+          leanprover-community/Physlib
+        </div>
+        <div style="font-size: 0.75em; color: var(--pl-muted); margin-top: 2px;">
+          A <i>community-driven</i> project to digitalise results from physics into Lean.
+        </div>
+      </div>
+    </div>
+
+    <div
+      style="display: flex; gap: 20px; font-size: 0.75em; color: var(--pl-muted); align-items: center; flex-wrap: wrap;">
+      <span style="display: flex; align-items: center; gap: 6px;">
+        <span style="display: inline-block; width: 10px; height: 10px; background: #3178c6; border-radius: 50%;"></span>
+        Lean
+      </span>
+      <span>⭐ 602</span>
+      <span style="display: flex; align-items: center; gap: 6px;">
+        <svg height="14" width="14" viewBox="0 0 16 16" fill="currentColor">
+          <path
+            d="M2 5.5a3.5 3.5 0 1 1 5.898 2.549 5.508 5.508 0 0 1 3.034 4.084.75.75 0 1 1-1.482.235 4 4 0 0 0-7.9 0 .75.75 0 0 1-1.482-.236A5.507 5.507 0 0 1 3.102 8.05 3.493 3.493 0 0 1 2 5.5ZM11 4a3.001 3.001 0 0 1 2.22 5.018 5.01 5.01 0 0 1 2.56 3.012.749.749 0 0 1-.885.954.752.752 0 0 1-.549-.514 3.507 3.507 0 0 0-2.522-2.372.75.75 0 0 1-.574-.73v-.352a.75.75 0 0 1 .416-.672A1.5 1.5 0 0 0 11 5.5.75.75 0 0 1 11 4Zm-5.5-.5a2 2 0 1 0-.001 3.999A2 2 0 0 0 5.5 3.5Z">
+          </path>
+        </svg>
+        60+ contributors
+      </span>
+      <span style="display: flex; align-items: center; gap: 6px;">
+        <svg height="14" width="14" viewBox="0 0 16 16" fill="currentColor">
+          <path
+            d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm7-3.25v2.992l2.028.812a.75.75 0 0 1-.557 1.392l-2.5-1A.751.751 0 0 1 7 8.25v-3.5a.75.75 0 0 1 1.5 0Z">
+          </path>
+        </svg>
+        7 maintainers
+      </span>
+
+    </div>
+  </div>
+
+  <ul class="pl-list" style="font-size: 0.78em; max-width: 880px; margin: 0 auto;">
+    <li>A <strong>monolithic library</strong> for physics results from standard physics (not just axiomisations).,</li>
+    <li>Research-level results, with carefully standardized definitions and theorems
+      &mdash; a foundation for future formalization.</li>
+    <li>Community run (no bias to any academic or company) following open-source software workflows.</li>
+  </ul>
+
+</section>
+
+<section data-background-color="#1e2d3d">
+  <div class="story-slide" style="height: 72vh; gap: 20px;">
+    <h2 style="font-family: 'Georgia', serif; color: white; font-size: 2em; margin: 0; text-align: center;">
+      Thank you
+    </h2>
+    <div style="width: 80px; height: 4px; background: var(--pl-accent); border-radius: 2px;"></div>
+    <div style="font-family: 'Georgia', serif; color: rgba(255,255,255,0.85); font-size: 0.95em; max-width: 680px; text-align: center; line-height: 1.6;">
+      In a changing world, the most important skill is
+      <span style="color: white; font-weight: 600;">adaptability</span>
+    </div>
+  </div>
+</section>
+
+
+    </div>
+  </div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script src="plugin/math/math.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="js/lean.min.js"></script>
+  <script src="js/lean-goal.js"></script>
+  <script src="js/merge-html.js"></script>
+  <script src="js/inline_svg.js"></script>
+  <script>
+    RevealHighlight().hljs.addPlugin(mergeHTMLPlugin);
+    Reveal.initialize({
+      mathjax3: {
+        mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js',
+        loader: { load: ['[tex]/mathtools', '[tex]/centernot'] },
+        tex: {
+          packages: { '[+]': ['mathtools', 'centernot'] },
+        },
+        chtml: {
+          mtextFont: 'Source Sans Pro',
+        },
+        options: {
+          skipHtmlTags: { '[-]': ['code', 'pre'] },
+        },
+      },
+      katex: {
+        macros: {
+          "\\smallunderbrace":
+            String.raw`{\tiny\underbrace{\huge{#1}}_{\huge\scriptsize#2}}`
+        },
+        trust: true,
+        strict: false,
+        ignoredTags: ['script', 'noscript', 'style'],
+      },
+      plugins: [
+        RevealInlineSvg,
+        RevealHighlight,
+        RevealMath.KaTeX,
+        RevealNotes,
+      ],
+      history: true,
+      center: false,
+      // defaultTiming: 40,
+      // slideNumber: 'c/t',
+      // width: 1280*0.96,
+      // height: 1024*0.96,
+      // width: 1856,
+      // height: 1016,
+      margin: 0.04,
+      navigationMode: 'linear',
+      totalTime: 25 * 60,
+      // showNotes: 'separate-page'
+      autoAnimateEasing: 'ease-out',
+      autoAnimateDuration: 0.8,
+      autoAnimateUnmatched: false,
+    });
+  </script>
+</body>
+
+</html>

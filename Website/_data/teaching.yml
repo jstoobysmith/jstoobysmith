@@ -1,3 +1,11 @@
+- School: University of Bath
+  Role: co-lecturer
+  Course: "Cybersecurity (Online & in-person) "
+  Date: 2026
+  first: true   # one must be true to properly display
+  CSTag: true
+  description:
+
 - School: Reykjavik University
   Role: co-instructor
   Course: "Algebra and Combinatorics"

@@ -15,8 +15,8 @@ to computer science.  Back in my high-energy physics days, I used to work
 on higher categories and how they could be applied and used in physics.
 Now I'm part of the Mathematical Foundations group at the University of Bath,
 and I research interactive theorem provers and their use in the physical sciences.
-Interactive theorem provers are computer langauges that allow you to write
+Interactive theorem provers are computer languages that allow you to write
 definitions, and theorems and their proofs, in a way such that
 mathematical correctness is guaranteed.
-In particular, I am a maintainer of the project  [PhysLean](physlean.com) (something
+In particular, I am a maintainer of the project [Physlib](https://physlib.io) (something
 which I started).

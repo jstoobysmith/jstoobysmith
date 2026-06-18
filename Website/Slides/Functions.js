@@ -320,6 +320,128 @@ function threeOverview(text1, text2, text3) {
 
 /**
  *
+ * Descent navigator — shows a drill-down through a fixed list of levels,
+ * with the `active` level (1-indexed) highlighted. Each level is indented
+ * a little further to convey "going down" into the structure.
+ *
+ * */
+
+function descentNav(active) {
+  // [label, indent-level]. Infrastructure "comes back up" the scale (shallower indent).
+  const levels = [
+    ['Organization of the project', 0],
+    ['Large-scale structure', 1],
+    ['Directory organization', 2],
+    ['Content philosophy', 3],
+    ['Infrastructure', 1]
+  ];
+  const step = 30;
+  // data-id attributes give every box/arrow a stable identity, so reveal.js
+  // auto-animate keeps the diagram stationary between slides and only animates
+  // the highlight as `active` changes.
+  let html = '<div data-id="dn-wrap" data-auto-animate-duration="0" style="text-align: left;">';
+  levels.forEach((item, i) => {
+    const [lvl, lvlIndent] = item;
+    const n = i + 1;
+    const isActive = n === active;
+    const isDone = n < active;
+    const bg = isActive ? '#af774c' : (isDone ? '#dfe6ec' : '#eef1f3');
+    const col = isActive ? '#ffffff' : (isDone ? '#3d6b99' : '#aab2b8');
+    const weight = isActive ? '700' : '500';
+    const shadow = isActive ? '0 6px 18px rgba(175,119,76,0.35)' : 'none';
+    const indent = lvlIndent * step;
+    if (i > 0) {
+      const prevIndent = levels[i - 1][1];
+      const goingUp = lvlIndent < prevIndent;
+      const arrow = goingUp ? '&#8598;' : '&#8600;';   // up-left when climbing back out, down-right when descending
+      const arrowIndent = Math.min(indent, prevIndent * step) + 12;
+      html += `<div data-id="dn-arrow-${n}" data-auto-animate-duration="0" style="margin-left: ${arrowIndent}px; color: #c2c9ce; font-size: 1.1em; line-height: 1.0;">${arrow}</div>`;
+    }
+    html += `<div data-id="dn-box-${n}" data-auto-animate-duration="0" style="margin-left: ${indent}px; background: ${bg}; color: ${col}; font-weight: ${weight}; padding: 9px 16px; border-radius: 9px; box-shadow: ${shadow}; font-size: 0.72em;">${n}. ${lvl}</div>`;
+  });
+  html += '</div>';
+  return html;
+}
+
+/* Two-column "Inside Physlib" layout: descent diagram on the left, content on the right. */
+function insideLayout(active, rightHtml) {
+  return `
+  <div style="display: flex; align-items: center; gap: 36px; height: 86vh;">
+    <div style="flex: 0 0 34%;">
+      <p style="text-transform: uppercase; letter-spacing: 3px; color: #5f7286; font-size: 0.6em; margin: 0 0 18px;">Inside Physlib</p>
+      ${descentNav(active)}
+    </div>
+    <div style="flex: 1; text-align: left; border-left: 2px solid #e6e9ec; padding-left: 34px;">
+      ${rightHtml}
+    </div>
+  </div>`;
+}
+
+/**
+ *
+ * Trust gauge — a vertical meter that grounds the Trust section as a common
+ * thread. Across consecutive auto-animate slides the fill height and colour
+ * change, so reveal.js animates the meter rising/falling. Fixed px sizing keeps
+ * the track and label stationary; only `tg-fill` moves.
+ *
+ * percent: 0-100 fill, color: fill colour, label: qualitative caption.
+ *
+ * */
+
+function trustGauge(percent, color, label) {
+  const trackH = 360;
+  const fillH = Math.round(trackH * percent / 100);
+  return `
+  <div style="display: flex; flex-direction: column; align-items: center;">
+    <p data-id="tg-title" style="text-transform: uppercase; letter-spacing: 3px; color: #5f7286; font-size: 0.6em; margin: 0 0 14px; white-space: nowrap;">Trust</p>
+    <div data-id="tg-track" style="position: relative; width: 96px; height: ${trackH}px; background: #eef1f3; border: 2px solid #d0d7de; border-radius: 14px; overflow: hidden; box-shadow: inset 0 2px 6px rgba(0,0,0,0.08);">
+      <div data-id="tg-fill" style="position: absolute; left: 0; right: 0; bottom: 0; height: ${fillH}px; background: ${color};"></div>
+    </div>
+    <p style="margin: 14px 0 0; height: 1.2em; font-weight: 700; font-size: 0.85em; color: ${color}; white-space: nowrap;">${label}</p>
+  </div>`;
+}
+
+/**
+ *
+ * Flywheel — the "rise of Lean" common thread. The whole diagram is present on
+ * every slide at fixed absolute coordinates; only each piece's opacity (reveal)
+ * and highlight ring (focus) change with `stage` (1-4). So across auto-animate
+ * slides nothing reflows: pieces fade in and the focus glides.
+ *
+ *   [Mathlib] -> [Lean] (loop) [AI] -> check Erdos
+ *
+ * */
+
+function flywheel(stage) {
+  const vis = (intro) => (stage >= intro ? '1' : '0');
+  const ring = (active, color) =>
+    active ? `box-shadow: 0 0 0 4px ${color}59, 0 8px 18px rgba(0,0,0,0.18);`
+           : 'box-shadow: 0 4px 10px rgba(0,0,0,0.10);';
+  const chip = 'display: flex; align-items: center; justify-content: center; text-align: center; height: 58px; border-radius: 12px; color: #fff; font-weight: 700; padding: 0 8px; box-sizing: border-box;';
+  return `
+  <div style="position: relative; width: 100%; height: 170px;">
+    <div data-id="fw-mathlib" style="position: absolute; left: 0; top: 56px; width: 16%; background: #27ae60; font-size: 0.62em; ${chip} opacity: ${vis(1)}; ${ring(stage <= 2, '#27ae60')}">Mathlib</div>
+
+    <div data-id="fw-arr1" style="position: absolute; left: 16.5%; top: 64px; width: 13%; text-align: center; color: #9aa5ad; font-size: 1.4em; opacity: ${vis(3)};">&#10230;</div>
+
+    <div data-id="fw-lean" style="position: absolute; left: 30%; top: 56px; width: 13%; background: #3d6b99; font-size: 0.62em; ${chip} opacity: ${vis(3)}; ${ring(stage === 3, '#3d6b99')}">Lean</div>
+
+    <div data-id="fw-loop" style="position: absolute; left: 43.5%; top: 46px; width: 13%; text-align: center; color: #3d6b99; opacity: ${vis(3)};">
+      <div style="font-size: 0.5em; color: #27ae60;">verified</div>
+      <div style="font-size: 1.5em; line-height: 0.9;">&#8652;</div>
+      <div style="font-size: 0.5em; color: #af774c;">generates</div>
+    </div>
+
+    <div data-id="fw-ai" style="position: absolute; left: 57%; top: 56px; width: 13%; background: #af774c; font-size: 0.62em; ${chip} opacity: ${vis(1)}; ${ring(stage === 1 || stage === 3, '#af774c')}">AI</div>
+
+    <div data-id="fw-arr2" style="position: absolute; left: 70.5%; top: 64px; width: 9%; text-align: center; color: #9aa5ad; font-size: 1.4em; opacity: ${vis(4)};">&#10230;</div>
+
+    <div data-id="fw-result" style="position: absolute; left: 80%; top: 56px; width: 19%; background: #2f7b4f; font-size: 0.56em; ${chip} opacity: ${vis(4)}; ${ring(stage === 4, '#2f7b4f')}">&#10003;&nbsp;Erd&#337;s #728</div>
+  </div>`;
+}
+
+/**
+ *
  * Scroll boxes
  *
  * */

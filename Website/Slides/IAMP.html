@@ -10,7 +10,7 @@ bundle exec jekyll serve
 <html>
 <head>
     <meta charset="utf-8">
-    <title>PhysLean</title>
+    <title>Physlib</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.min.css">
@@ -63,7 +63,7 @@ Slides start here
 <section style="color: #333;">
   <div style="position: absolute; top: 20px; left: 20px;">
     <img
-      src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://josephtoobysmith.com/Slides/StringData2025.html"
+      src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://josephtoobysmith.com/Slides/IAMP.html"
       alt="QR Code to Slides" style="border: 2px solid #666; border-radius: 8px; padding: 5px;">
     <div style="font-size: 12px; text-align: center; margin-top: -30px; color: #666;">Scan for slides</div>
   </div>
@@ -82,7 +82,7 @@ Slides start here
     </script>
     <p><small>Joseph Tooby-Smith, University of Bath</small></p>
 
-    <p><small>Slides at: https://josephtoobysmith.com/Slides/StringData2025.html</small></p>
+    <p><small>Slides at: https://josephtoobysmith.com/Slides/IAMP.html</small></p>
 </section>
 
 <!-- Overview Slide -->
@@ -97,34 +97,161 @@ Slides start here
 
 <!-- I want to start with the concept of trust -->
 
-<section>
-    <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 40px; text-align: center;">Emil Rupp</h2>
+<!-- Opening hook: the arXiv paper hep-ph/0512212 and its correction thread -->
+<section data-auto-animate>
+  <div style="text-align: center; margin: 0 auto 10px; max-width: 90%;">
+    <div style="background-color: #f8f5f2; padding: 15px; border-radius: 5px; border-left: 4px solid #3a5a78; box-shadow: 0 3px 6px rgba(0,0,0,0.08);">
+      <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 10px; font-size: 0.9em;">The arXiv paper hep-ph/0512212</h2>
+      <!-- A term that comes, goes, and comes back again -->
+      <div style="position: relative; height: 40px; margin: 10px 0;">
+        <p class="fragment fade-in-then-out" data-fragment-index="1"
+          style="position: absolute; width: 100%; margin: 0; font-size: 0.8em; text-align: left;">$E = A_1 + A_2 + A_3 + \ldots + A_n$</p>
+        <p class="fragment fade-in-then-out" data-fragment-index="2"
+          style="position: absolute; width: 100%; margin: 0; font-size: 0.8em; text-align: left;">$E = A_1 + A_2 + A_3 + \ldots + A_n + B_1 + B_2$</p>
+        <p class="fragment fade-in-then-out" data-fragment-index="3"
+          style="position: absolute; width: 100%; margin: 0; font-size: 0.8em; text-align: left;">$E = A_1 + A_2 + A_3 + \ldots + A_n$</p>
+        <p class="fragment fade-in" data-fragment-index="4"
+          style="position: absolute; width: 100%; margin: 0; font-size: 0.8em; text-align: left;">$E = A_1 + A_2 + A_3 + \ldots + A_n + B_1 + B_2$</p>
+      </div>
+    </div>
+  </div>
+  <div style="position: relative; height: 700px; margin: 0 auto;">
+    <img src="Images/arxiv_0512212/first.png" alt="Original paper" class="fragment fade-in" data-fragment-index="1"
+      style="position: absolute; left: 50%; transform: translateX(-50%); top: 0; z-index: 1; max-width: 100%; max-height: 400px; border-radius: 6px; box-shadow: 0 8px 16px rgba(0,0,0,0.15);">
+    <img src="Images/arxiv_0512212/second.png" alt="Comment" class="fragment fade-in" data-fragment-index="2"
+      style="position: absolute; left: 50%; transform: translateX(-50%); top: 100px; z-index: 2; max-width: 100%; max-height: 400px; border-radius: 6px; box-shadow: 0 8px 16px rgba(0,0,0,0.15);">
+    <img src="Images/arxiv_0512212/third.png" alt="Reply" class="fragment fade-in" data-fragment-index="3"
+      style="position: absolute; left: 50%; transform: translateX(-50%); top: 200px; z-index: 3; max-width: 100%; max-height: 400px; border-radius: 6px; box-shadow: 0 8px 16px rgba(0,0,0,0.15);">
+    <img src="Images/arxiv_0512212/fourth.png" alt="Reply to the reply" class="fragment fade-in" data-fragment-index="4"
+      style="position: absolute; left: 50%; transform: translateX(-50%); top: 300px; z-index: 4; max-width: 100%; max-height: 400px; border-radius: 6px; box-shadow: 0 8px 16px rgba(0,0,0,0.15);">
+  </div>
+  <aside class="notes">
+    A published paper, and a chain of comments and replies arguing over whether a pair of
+    terms (B&#8321; + B&#8322;) belongs in the result &mdash; in, then out, then back in.
+    Even careful, peer-reviewed physics is hard to be sure of.
+  </aside>
+</section>
 
+<section>
+  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 92vh;">
+    <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin: 0 0 12px; text-align: center; font-size: 1.2em;">&hellip; and one of my own papers</h2>
+    <img src="Images/myPaperBug.png" alt="A bug in one of my own papers"
+      style="max-width: 90%; max-height: 78vh; width: auto; height: auto; border-radius: 6px; box-shadow: 0 8px 16px rgba(0,0,0,0.15); display: block;">
+  </div>
+  <aside class="notes">
+    It happens to all of us &mdash; including me. The point is not blame; it is that there is
+    currently no scalable way to be <em>sure</em> a result is correct.
+  </aside>
 </section>
 <section>
-    <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 40px; text-align: center;">Key concepts</h2>
-    - Trust
+  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 70vh;">
+    <p style="text-transform: uppercase; letter-spacing: 4px; color: #5f7286; font-size: 0.7em; margin-bottom: 10px;">The key concept</p>
+    <h1 style="font-family: 'Georgia', serif; font-size: 4.5em; color: #af774c; margin: 0; font-weight: 700; letter-spacing: -1px;">Trust</h1>
+    <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 24px;">
+      <div style="width: 120px; height: 4px; background: #3d6b99; border-radius: 999px;"></div>
+      <div style="width: 14px; height: 14px; border-radius: 50%; background: #af774c; box-shadow: 0 0 0 6px rgba(175,119,76,0.18);"></div>
+      <div style="width: 120px; height: 4px; background: #3d6b99; border-radius: 999px;"></div>
+    </div>
+  </div>
 </section>
-<section>
-    <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 40px; text-align: center;">Trust in academia</h2>
-    - Trust by authority (journals)
-    - Trust by reputation (e.g. authors of a preprint)
-    - Trust by replication (e.g. checking the proof yourself)
+<!-- ===== Trust gauge: common thread for the trust argument ===== -->
+<!-- Stage 1: errors in papers &mdash; trust starts low -->
+<section data-auto-animate>
+  <div data-id="trust-row" style="position: relative; height: 640px;">
+    <div data-id="trust-left" style="position: absolute; left: 0; top: 0; width: 30%; height: 640px; display: flex; align-items: center; justify-content: center;">
+      <script>document.write(trustGauge(15, '#d9534f', 'Low'));</script>
+    </div>
+    <div style="position: absolute; left: 34%; right: 0; top: 0; height: 640px; display: flex; flex-direction: column; justify-content: center; text-align: left; border-left: 2px solid #e6e9ec; padding-left: 40px; box-sizing: border-box;">
+      <h2 style="margin: 0 0 16px; color: #3a5a78; font-family: 'Georgia', serif; font-size: 1.3em;">Papers have errors</h2>
+      <p style="margin: 0 0 12px; color: #444; font-size: 0.9em;">Even carefully done physics contains mistakes &mdash; as we just saw.</p>
+      <p style="margin: 0; color: #555; font-size: 0.9em;">So a result starts from a position of <strong style="color: #d9534f;">low trust</strong>.</p>
+    </div>
+  </div>
 </section>
 
-<section>
-  In May 2026 over 30,000 papers were published on the arXiv. These concepts of trust do not
-  scale to this size of papers.
+<!-- Stage 2: Authority &mdash; trust ticks up -->
+<section data-auto-animate>
+  <div data-id="trust-row" style="position: relative; height: 640px;">
+    <div data-id="trust-left" style="position: absolute; left: 0; top: 0; width: 30%; height: 640px; display: flex; align-items: center; justify-content: center;">
+      <script>document.write(trustGauge(34, '#e0a324', 'Rebuilding'));</script>
+    </div>
+    <div style="position: absolute; left: 34%; right: 0; top: 0; height: 640px; display: flex; flex-direction: column; justify-content: center; text-align: left; border-left: 2px solid #e6e9ec; padding-left: 40px; box-sizing: border-box;">
+      <h2 data-id="academia-title" style="margin: 0 0 6px; color: #3a5a78; font-family: 'Georgia', serif; font-size: 1.3em;">Trust in academia</h2>
+      <p data-id="academia-sub" style="margin: 0 0 18px; color: #5f7286; font-size: 0.8em;">Three traditional bases rebuild it:</p>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div data-id="basis-auth" style="background: #f5f5f5; border-left: 4px solid #4ca1af; border-radius: 0 8px 8px 0; padding: 10px 16px; font-size: 0.82em; color: #333;"><strong>Authority</strong> &mdash; e.g. the journal it appeared in</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section>
-  To accomany the AI-revolution we need a revolution in trust.
+<!-- Stage 3: + Reputation -->
+<section data-auto-animate>
+  <div data-id="trust-row" style="position: relative; height: 640px;">
+    <div data-id="trust-left" style="position: absolute; left: 0; top: 0; width: 30%; height: 640px; display: flex; align-items: center; justify-content: center;">
+      <script>document.write(trustGauge(50, '#e0a324', 'Rebuilding'));</script>
+    </div>
+    <div style="position: absolute; left: 34%; right: 0; top: 0; height: 640px; display: flex; flex-direction: column; justify-content: center; text-align: left; border-left: 2px solid #e6e9ec; padding-left: 40px; box-sizing: border-box;">
+      <h2 data-id="academia-title" style="margin: 0 0 6px; color: #3a5a78; font-family: 'Georgia', serif; font-size: 1.3em;">Trust in academia</h2>
+      <p data-id="academia-sub" style="margin: 0 0 18px; color: #5f7286; font-size: 0.8em;">Three traditional bases rebuild it:</p>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div data-id="basis-auth" style="background: #f5f5f5; border-left: 4px solid #4ca1af; border-radius: 0 8px 8px 0; padding: 10px 16px; font-size: 0.82em; color: #333;"><strong>Authority</strong> &mdash; e.g. the journal it appeared in</div>
+        <div data-id="basis-rep" style="background: #f5f5f5; border-left: 4px solid #af774c; border-radius: 0 8px 8px 0; padding: 10px 16px; font-size: 0.82em; color: #333;"><strong>Reputation</strong> &mdash; e.g. the authors of a preprint</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section>
-  ITPs form part of this solution.
-  They give us automatic (scalable) guarantees of mathematical correctness and
-  mathematical consistency of results written into them.
+<!-- Stage 4: + Replication -->
+<section data-auto-animate>
+  <div data-id="trust-row" style="position: relative; height: 640px;">
+    <div data-id="trust-left" style="position: absolute; left: 0; top: 0; width: 30%; height: 640px; display: flex; align-items: center; justify-content: center;">
+      <script>document.write(trustGauge(66, '#27ae60', 'Holding'));</script>
+    </div>
+    <div style="position: absolute; left: 34%; right: 0; top: 0; height: 640px; display: flex; flex-direction: column; justify-content: center; text-align: left; border-left: 2px solid #e6e9ec; padding-left: 40px; box-sizing: border-box;">
+      <h2 data-id="academia-title" style="margin: 0 0 6px; color: #3a5a78; font-family: 'Georgia', serif; font-size: 1.3em;">Trust in academia</h2>
+      <p data-id="academia-sub" style="margin: 0 0 18px; color: #5f7286; font-size: 0.8em;">Three traditional bases rebuild it:</p>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div data-id="basis-auth" style="background: #f5f5f5; border-left: 4px solid #4ca1af; border-radius: 0 8px 8px 0; padding: 10px 16px; font-size: 0.82em; color: #333;"><strong>Authority</strong> &mdash; e.g. the journal it appeared in</div>
+        <div data-id="basis-rep" style="background: #f5f5f5; border-left: 4px solid #af774c; border-radius: 0 8px 8px 0; padding: 10px 16px; font-size: 0.82em; color: #333;"><strong>Reputation</strong> &mdash; e.g. the authors of a preprint</div>
+        <div data-id="basis-repl" style="background: #f5f5f5; border-left: 4px solid #3d6b99; border-radius: 0 8px 8px 0; padding: 10px 16px; font-size: 0.82em; color: #333;"><strong>Replication</strong> &mdash; e.g. checking the proof yourself</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stage 5: the AI revolution &mdash; trust crashes -->
+<section data-auto-animate>
+  <div data-id="trust-row" style="position: relative; height: 640px;">
+    <div data-id="trust-left" style="position: absolute; left: 0; top: 0; width: 30%; height: 640px; display: flex; align-items: center; justify-content: center;">
+      <script>document.write(trustGauge(10, '#d9534f', 'Failing'));</script>
+    </div>
+    <div style="position: absolute; left: 34%; right: 0; top: 0; height: 640px; display: flex; flex-direction: column; justify-content: center; text-align: left; border-left: 2px solid #e6e9ec; padding-left: 40px; box-sizing: border-box;">
+      <h2 style="margin: 0 0 16px; color: #3a5a78; font-family: 'Georgia', serif; font-size: 1.3em;">An AI revolution</h2>
+      <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px;">
+        <div style="background: #fdf2f1; border-left: 4px solid #d9534f; border-radius: 0 8px 8px 0; padding: 10px 16px; font-size: 0.82em; color: #333;"><strong>Volume</strong> &mdash; 30,000+ papers a month; the traditional methods do not scale.</div>
+        <div style="background: #fdf2f1; border-left: 4px solid #d9534f; border-radius: 0 8px 8px 0; padding: 10px 16px; font-size: 0.82em; color: #333;"><strong>Hallucinations</strong> &mdash; fluent, confident, and sometimes simply wrong.</div>
+      </div>
+      <p style="margin: 0; font-family: 'Georgia', serif; font-size: 1.05em; color: #333;">&rarr; we need a <strong style="color: #27ae60;">revolution in trust</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Stage 6: ITPs restore trust (to ~90, not 100) -->
+<section data-auto-animate>
+  <div data-id="trust-row" style="position: relative; height: 640px;">
+    <div data-id="trust-left" style="position: absolute; left: 0; top: 0; width: 30%; height: 640px; display: flex; align-items: center; justify-content: center;">
+      <script>document.write(trustGauge(90, '#27ae60', 'Restored &#10003;'));</script>
+    </div>
+    <div style="position: absolute; left: 34%; right: 0; top: 0; height: 640px; display: flex; flex-direction: column; justify-content: center; text-align: left; border-left: 2px solid #e6e9ec; padding-left: 40px; box-sizing: border-box;">
+      <h2 style="margin: 0 0 16px; color: #3a5a78; font-family: 'Georgia', serif; font-size: 1.3em;">ITPs are part of the answer</h2>
+      <div style="padding: 18px 22px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 12px; border-left: 6px solid #27ae60; box-shadow: 0 6px 16px rgba(0,0,0,0.08); margin-bottom: 16px;">
+        <div style="font-size: 0.66em; text-transform: uppercase; letter-spacing: 1px; color: #5f7286; font-weight: 700; margin-bottom: 8px;">Interactive Theorem Prover</div>
+        <p style="font-family: 'Georgia', serif; font-style: italic; color: #333; margin: 0; line-height: 1.5; font-size: 0.95em;">A programming language in which you can write mathematical theorems and definitions, and mathematical correctness is guaranteed.</p>
+      </div>
+      <p style="margin: 0; font-size: 0.95em; color: #333;">A <strong style="color: #27ae60;">scalable</strong> way to enhance trust.</p>
+    </div>
+  </div>
 </section>
 <!-- Popular ITPs. -->
 <section>
@@ -171,7 +298,7 @@ Slides start here
 </section>
 
 <section>
-  <h3 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 30px;">Advantages of Proof Assistants</h3>
+  <h3 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 30px;">Advantages of ITPs</h3>
 
   <script>
     document.write(timelineBox('1', 'Correctness'));
@@ -198,15 +325,23 @@ Slides start here
   </div>
 </section>
 
-<section>
-  The rise of Lean has been driven by two factors:
+<!-- ===== Rise of Lean: assembling flywheel thread ===== -->
+<!-- Stage 1: the two engines -->
+<section data-auto-animate>
+  <p data-id="fw-kicker" style="text-transform: uppercase; letter-spacing: 3px; color: #5f7286; font-size: 0.6em; text-align: center; margin: 0 0 14px;">Why Lean is rising</p>
+  <script>document.write(flywheel(1));</script>
+  <div style="max-width: 82%; margin: 20px auto 0; text-align: center;">
+    <p style="font-size: 1.05em; color: #444; line-height: 1.5; margin: 0;">Two engines: <strong style="color: #27ae60;">Mathlib</strong>, a vast library to build on, and increasingly capable <strong style="color: #af774c;">AI</strong>.</p>
+  </div>
 </section>
 
-<section>
-  <h3> Mathlib</h3>
+<!-- Stage 2: Mathlib -->
+<section data-auto-animate>
+  <p data-id="fw-kicker" style="text-transform: uppercase; letter-spacing: 3px; color: #5f7286; font-size: 0.6em; text-align: center; margin: 0 0 14px;">Why Lean is rising</p>
+  <script>document.write(flywheel(2));</script>
 
-  <div style="max-width: 90%; margin: 0 auto;">
-    <ul style="list-style-type: none; padding-left: 5px; margin: 0;">
+  <div style="max-width: 90%; margin: 14px auto 0;">
+    <ul style="list-style-type: none; padding-left: 5px; margin: 0; font-size: 0.85em;">
       <li style="margin-bottom: 0px; padding-left: 25px; position: relative;">
         <span style="position: absolute; left: 0; color: #27ae60;">•</span>
         A monolithic library of mathematics formalized in Lean
@@ -259,37 +394,40 @@ Slides start here
     </div>
 </section>
 
-<section>
-  AI research
-  Feedback loop
+<!-- Stage 3: the trustworthy feedback loop -->
+<section data-auto-animate>
+  <p data-id="fw-kicker" style="text-transform: uppercase; letter-spacing: 3px; color: #5f7286; font-size: 0.6em; text-align: center; margin: 0 0 14px;">Why Lean is rising</p>
+  <script>document.write(flywheel(3));</script>
+  <div style="max-width: 80%; margin: 24px auto 0; text-align: center;">
+    <h3 style="margin: 0 0 8px; color: #3a5a78; font-family: 'Georgia', serif; font-size: 1.05em;">A trustworthy feedback loop</h3>
+    <p style="font-size: 0.95em; color: #444; line-height: 1.5; margin: 0;">AI generates at scale; <strong>Lean</strong> verifies and feeds back &mdash; so the output can be <strong style="color: #27ae60;">trusted</strong>.</p>
+  </div>
 </section>
 
-<section>
-  <h3>AI researchers: Google deepmind and the IMO</h3>
-
+<!-- Stage 4: the loop already delivers -->
+<section data-auto-animate>
+  <p data-id="fw-kicker" style="text-transform: uppercase; letter-spacing: 3px; color: #5f7286; font-size: 0.6em; text-align: center; margin: 0 0 14px;">Why Lean is rising</p>
+  <script>document.write(flywheel(4));</script>
   <div
-    style="max-width: 90%; margin: 50px auto; padding: 30px; background: linear-gradient(135deg, #f6f8fa 0%, #e9ecef 100%); border-radius: 10px; border-left: 5px solid #4285f4; box-shadow: 0 8px 30px rgba(0,0,0,0.1);">
-    "AI achieves silver-medal standard solving International Mathematical Olympiad problems"
-    <p style="text-align: right; margin-top: 15px; font-weight: 600; color: #5f6368; font-size: 0.9em;">
-      — Google DeepMind
+    style="max-width: 88%; margin: 24px auto 0; padding: 22px 28px; background: linear-gradient(135deg, #f6f8fa 0%, #e9ecef 100%); border-radius: 10px; border-left: 5px solid #27ae60; box-shadow: 0 8px 30px rgba(0,0,0,0.1);">
+    "Erdős Problem #728 &mdash; the first Erdős problem resolved fully autonomously by an AI system,
+    produced directly as a <strong>formal proof in Lean</strong>."
+    <p style="text-align: right; margin-top: 12px; font-weight: 600; color: #5f6368; font-size: 0.9em;">
+      — GPT-5.2 Pro (OpenAI) + Aristotle (Harmonic), January 2026
     </p>
   </div>
+  <p style="text-align: center; font-size: 0.6em; color: #666; margin-top: 10px;">
+    <a href="https://arxiv.org/pdf/2601.07421" style="color: inherit;">arXiv:2601.07421 — Resolution of Erdős Problem #728: a writeup of Aristotle's Lean proof</a>
+  </p>
   <aside class="notes">
-    July 2024<br>
-    Had to solve 6 problems <br>
-    Solved 2 algebra, 1 Num theory and 1 Geometry, <br>
-    did not solve 2 combinatorics problems. <br>
-    Took 3.5 days not 4 hours
+    January 2026 &mdash; the first Erdős problem solved fully autonomously by an AI system.<br>
+    The system: a combination of GPT-5.2 Pro (OpenAI) and Aristotle (Harmonic), operated by Kevin Barreto.
+    It generated the proof <em>directly in Lean</em>; Nat Sothanaphan then wrote up an informal version (arXiv:2601.07421).<br>
+    The statement: for any 0 &lt; C&#8321; &lt; C&#8322; and 0 &lt; &epsilon; &lt; 1/2, there are infinitely many triples
+    (a, b, n) with a!&middot;b! dividing n!&middot;(a+b&minus;n)! and C&#8321; log n &lt; a+b&minus;n &lt; C&#8322; log n.<br>
+    The trust point: because the output is a machine-checked Lean proof, it is a <strong>result</strong>, not a claim &mdash;
+    contrast October 2025, when "solved" Erdős problems turned out to already be in the literature.
   </aside>
-</section>
-
-
-<section>
-  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 20px; text-align: center; font-weight: 50;">
-    AI researchers: PutnamBench</h2>
-  <script>
-    document.write(myIFrame('https://trishullab.github.io/PutnamBench/leaderboard.html'));
-  </script>
 </section>
 
 
@@ -298,151 +436,201 @@ Slides start here
   <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 40px; text-align: center;">Talk overview</h2>
   <script>
     document.write(threeOverview('What is an interactive theorem prover?',
-      'Introduction to PhysLean', 'Examples'));
+      'Introduction to Physlib', 'Examples'));
   </script>
 </section>
 <section>
-  <h2 style="color: #af774c; text-align: center; margin-bottom: 12px; font-size: 1.1em;">What is PhysLean?</h2>
-  <script>
-    document.write(classicQuote('A community-run project to digitalize physics into the interactive theorem prover Lean 4.'));
-  </script>
-</section>
-<section>
-  <h3>The community</h3>
-  <p>Over 30 contributors to the project, and over 150 people in the Zulip channel.</p>
-  <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; max-width: 600px; margin: 40px auto;">
+  <h2 style="color: #af774c; text-align: center; margin-bottom: 2px; font-size: 1.1em;">What is Physlib?</h2>
+  <p style="text-align: center; color: #999; font-size: 0.7em; margin-top: 0; margin-bottom: 24px;">(formerly PhysLean)</p>
 
-    <script>
-      const colors = ['#4ca1af', '#af774c', '#6c757d'];
-      for (let i = 0; i < 20; i++) {
-        const color = colors[i % colors.length];
-        document.write(`
-          <div style="text-align: center;">
-            <svg width="60" height="80" viewBox="0 0 60 80">
-              <circle cx="30" cy="20" r="15" fill="${color}"/>
-              <rect x="10" y="40" width="40" height="40" rx="20" fill="${color}"/>
-            </svg>
-          </div>
-        `);
-      }
-    </script>
-  </div>
-</section>
-<section>
-  <h2 style="color: #af774c; text-align: center; margin-bottom: 12px; font-size: 1.1em;">What is PhysLean?</h2>
-  <div style="display: flex; justify-content: center; align-items: center; height: 500px;">
-    <object data="Images/PhysLeanPDF.pdf" type="application/pdf"
-      style="width: 100%; height: 100%; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
-    </object>
-  </div>
-</section>
-
-<section>
-  <h2>It is a project for the physicists</h2>
-  <div style="display: flex; justify-content: space-around; align-items: flex-start; margin-top: 20px;">
-    <div style="flex: 1; padding-right: 20px;">
-      <div style="max-width: 800px; margin: 0 auto; padding: 20px;">
-        <div class="fragment" data-fragment-index="1">
-          <script>
-            document.write(halfBox('1', 'Organization of the project'));
-          </script>
+  <!-- GitHub repo card -->
+  <div style="max-width: 750px; margin: 0 auto 24px; background: #fff; border: 1px solid #d0d7de; border-radius: 10px; padding: 24px 28px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px;">
+      <svg height="32" width="32" viewBox="0 0 16 16" fill="#6b7a8a">
+        <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+      </svg>
+      <div style="text-align: left;">
+        <div style="font-size: 1em; font-weight: 600; color: #24476b; font-family: 'Georgia', serif;">
+          leanprover-community/Physlib
         </div>
-        <div class="fragment" data-fragment-index="2">
-          <script>
-            document.write(halfBox('2', 'Physics names of results'));
-          </script>
-        </div>
-        <div class="fragment" data-fragment-index="3">
-          <script>
-            document.write(halfBox('3', 'Physics documentation'));
-          </script>
-        </div>
-        <div class="fragment" data-fragment-index="4">
-          <script>
-            document.write(halfBox('4', 'Physics references'));
-          </script>
-        </div>
-        <div class="fragment" data-fragment-index="5">
-          <script>
-            document.write(halfBox('5', 'Computable definitions'));
-          </script>
+        <div style="font-size: 0.75em; color: #6b7a8a; margin-top: 2px;">
+          A <i>community-driven</i> project to digitalise results from physics into Lean.
         </div>
       </div>
     </div>
-    <div style="flex: 1; padding-left: 20px;">
-      <div style="position: relative; height: 500px;">
-        <img src="Images/PhysLeanDirect.png" class="fragment" data-fragment-index="1"
-          style="border: 4px solid #666;
-            border-radius: 15px;
-            padding: 15px; max-width: 400px; margin: 20px auto;
-              display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transform: rotate(-3deg); transition: transform 0.3s ease; position: absolute; top: 0; left: 0; right: 0;"
-          onmouseover="this.style.transform='rotate(3deg)'" onmouseout="this.style.transform='rotate(-3deg)'">
-        <img src="Images/HiggsVec.png" class="fragment" data-fragment-index="2"
-          style="border: 4px solid #666; border-radius: 15px; padding: 15px; max-width: 400px; margin: 20px auto; display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transform: rotate(-3deg); transition: transform 0.3s ease; position: absolute; top: 0; left: 0; right: 0;"
-          onmouseover="this.style.transform='rotate(3deg)'" onmouseout="this.style.transform='rotate(-3deg)'">
-        <img src="Images/ClassicalHarmonicOscilator.png" class="fragment" data-fragment-index="3" style="border: 4px solid #666; border-radius: 15px; padding: 15px; max-width: 400px; margin: 20px auto; display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transform: rotate(-3deg); transition: transform 0.3s ease; position: absolute; top: 0; left: 0; right: 0;
-            " onmouseover="this.style.transform='rotate(3deg)'" onmouseout="this.style.transform='rotate(-3deg)'">
-        <img src="Images/ReferenceLink.png" class="fragment" data-fragment-index="4" style="border: 4px solid #666; border-radius: 15px; padding: 15px; max-width: 400px; margin: 20px auto; display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transform: rotate(-3deg); transition: transform 0.3s ease; position: absolute; top: 0; left: 0; right: 0;
-             " onmouseover="this.style.transform='rotate(3deg)'" onmouseout="this.style.transform='rotate(-3deg)'">
-        <img src="Images/ComputableDefn.png" class="fragment" data-fragment-index="5" style="border: 4px solid #666; border-radius: 15px; padding: 15px; width: 293px; height : 600px; margin: 20px auto; display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transform: rotate(-3deg); transition: transform 0.3s ease; position: absolute; top: 0; left: 0; right: 0;
-                     " onmouseover="this.style.transform='rotate(3deg)'" onmouseout="this.style.transform='rotate(-3deg)'">
+
+    <div style="display: flex; gap: 20px; font-size: 0.75em; color: #6b7a8a; align-items: center; flex-wrap: wrap;">
+      <span style="display: flex; align-items: center; gap: 6px;">
+        <span style="display: inline-block; width: 10px; height: 10px; background: #3178c6; border-radius: 50%;"></span>
+        Lean
+      </span>
+      <span>⭐ 610</span>
+      <span style="display: flex; align-items: center; gap: 6px;">
+        <svg height="14" width="14" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M2 5.5a3.5 3.5 0 1 1 5.898 2.549 5.508 5.508 0 0 1 3.034 4.084.75.75 0 1 1-1.482.235 4 4 0 0 0-7.9 0 .75.75 0 0 1-1.482-.236A5.507 5.507 0 0 1 3.102 8.05 3.493 3.493 0 0 1 2 5.5ZM11 4a3.001 3.001 0 0 1 2.22 5.018 5.01 5.01 0 0 1 2.56 3.012.749.749 0 0 1-.885.954.752.752 0 0 1-.549-.514 3.507 3.507 0 0 0-2.522-2.372.75.75 0 0 1-.574-.73v-.352a.75.75 0 0 1 .416-.672A1.5 1.5 0 0 0 11 5.5.75.75 0 0 1 11 4Zm-5.5-.5a2 2 0 1 0-.001 3.999A2 2 0 0 0 5.5 3.5Z"></path>
+        </svg>
+        70+ contributors
+      </span>
+      <span style="display: flex; align-items: center; gap: 6px;">
+        <svg height="14" width="14" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm7-3.25v2.992l2.028.812a.75.75 0 0 1-.557 1.392l-2.5-1A.751.751 0 0 1 7 8.25v-3.5a.75.75 0 0 1 1.5 0Z"></path>
+        </svg>
+        7 maintainers
+      </span>
+    </div>
+  </div>
+
+  <p style="text-align: center; color: #555;">Aiming to replicate the success of <strong>Mathlib</strong> &mdash; for physics.</p>
+</section>
+<!-- ===== Inside Physlib: two-column descent walk-through ===== -->
+<!-- Level 1: organization of the project -->
+<section data-auto-animate>
+  <div data-id="inside-row" style="position: relative; height: 640px;">
+    <div data-id="inside-left" data-auto-animate-duration="0" style="position: absolute; left: 0; top: 0; width: 34%; height: 640px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start;">
+      <p data-id="inside-kicker" data-auto-animate-duration="0" style="text-transform: uppercase; letter-spacing: 3px; color: #5f7286; font-size: 0.6em; margin: 0 0 16px;">Inside Physlib</p>
+      <script>document.write(descentNav(1));</script>
+    </div>
+    <div style="position: absolute; left: 38%; right: 0; top: 0; height: 640px; display: flex; flex-direction: column; justify-content: center; text-align: left; border-left: 2px solid #e6e9ec; padding-left: 34px; box-sizing: border-box;">
+      <h2 style="margin: 0 0 16px; color: #3a5a78; font-family: 'Georgia', serif; font-size: 1.25em;">A community-run project</h2>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="padding: 12px 16px; background: linear-gradient(135deg, #f8f9fa, #e9ecef); border-radius: 10px; border-left: 5px solid #4ca1af;">
+          <strong style="color: #4ca1af; font-size: 0.85em;">Community-run</strong>
+          <div style="font-size: 0.72em; color: #444; margin-top: 3px;">You can have a say in how it is run.</div>
+        </div>
+        <div style="padding: 12px 16px; background: linear-gradient(135deg, #f8f9fa, #e9ecef); border-radius: 10px; border-left: 5px solid #3d6b99;">
+          <strong style="color: #3d6b99; font-size: 0.85em;">Open repository</strong>
+          <div style="font-size: 0.72em; color: #444; margin-top: 3px;">Developed in the open on GitHub.</div>
+        </div>
+        <div style="padding: 12px 16px; background: linear-gradient(135deg, #f8f9fa, #e9ecef); border-radius: 10px; border-left: 5px solid #e67e22;">
+          <strong style="color: #e67e22; font-size: 0.85em;">Discussion forum</strong>
+          <div style="font-size: 0.72em; color: #444; margin-top: 3px;">Everything discussed openly on the Lean Zulip.</div>
+        </div>
       </div>
+      <p style="margin: 18px 0 0; color: #555; font-size: 0.8em;">Over <strong>70</strong> contributors &middot; <strong>270+</strong> on the Lean Zulip.</p>
     </div>
   </div>
 </section>
 
-<!-- Infarstructure slides -->
-<section>
-  <h3>Infarstructure</h3>
-  <section>
-    <script>
-      document.write(minimalBox('1', 'Search engines'));
-      document.write(myIFrame('https://www.leanexplore.com', "500px"));
-    </script>
-  </section>
-  <section>
-    <script>
-      document.write(minimalBox('1', 'Search engines'));
-      document.write(myIFrame('https://loogle.lean-lang.org', "500px"));
-    </script>
-  </section>
-  <section>
-    <script>
-      document.write(minimalBox('2', 'Documentation'));
-      document.write(myIFrame('https://physlean.com/docs/', "500px"));
-    </script>
-  </section>
-  <section>
-    <script>
-      document.write(minimalBox('3', 'Notes'));
-      document.write(myIFrame('https://notes.physlean.com', "500px"));
-    </script>
-  </section>
-  <section>
-    <script>
-      document.write(minimalBox('4', 'Having a TOO list'));
-      document.write(myIFrame('https://physlean.com/TODOList', "500px"));
-    </script>
-  </section>
-  <section>
-    <script>
-      document.write(minimalBox('5', 'Informal definitions and lemmas list'));
-    </script>
-    <pre id="Cosmology"
-      style="border: 2px solid #ccc; padding: 15px; border-radius: 5px; width: 100%; margin-left: 20px;">Click a file on the left to see code.</pre>
-  <script>
-    makeCodeSlide('Cosmology','https://raw.githubusercontent.com/HEPLean/PhysLean/master/PhysLean/Cosmology/FLRW/Basic.lean');
-  </script>
-  </section>
-  <section>
-    <script>
-      document.write(minimalBox('6', 'Discussion Forum'));
+<!-- Level 2: the large-scale structure -->
+<section data-auto-animate>
+  <div data-id="inside-row" style="position: relative; height: 640px;">
+    <div data-id="inside-left" data-auto-animate-duration="0" style="position: absolute; left: 0; top: 0; width: 34%; height: 640px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start;">
+      <p data-id="inside-kicker" data-auto-animate-duration="0" style="text-transform: uppercase; letter-spacing: 3px; color: #5f7286; font-size: 0.6em; margin: 0 0 16px;">Inside Physlib</p>
+      <script>document.write(descentNav(2));</script>
+    </div>
+    <div style="position: absolute; left: 38%; right: 0; top: 0; height: 640px; display: flex; flex-direction: column; justify-content: center; text-align: left; border-left: 2px solid #e6e9ec; padding-left: 34px; box-sizing: border-box;">
+      <div style="padding: 30px; background: linear-gradient(180deg, #fff7f3, #fffdfa); border: 2px solid #f2c8b6; border-radius: 14px; margin-bottom: 20px; text-align: center;">
+        <span style="color: #d95729; font-size: 1.4em; font-weight: 700;">Physlib</span>
+      </div>
+      <div style="padding: 30px; background: linear-gradient(180deg, #f3faf5, #fbfefc); border: 2px solid #cfe5d5; border-radius: 14px; text-align: center;">
+        <span style="color: #2f7b4f; font-size: 1.4em; font-weight: 700;">PhyslibAlpha</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-    </script>
-    <img src="./Images/Zulip.png" alt="Zulip Chat"
-      style="border: 4px solid #666; border-radius: 15px; padding: 15px; max-width: 600px; margin: 20px auto; display: block; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: transform 0.3s ease;"
-      onmouseover="this.style.transform='rotate(3deg)'" onmouseout="this.style.transform='rotate(-3deg)'">
-  </section>
+<!-- Level 3: directory organization -->
+<section data-auto-animate>
+  <div data-id="inside-row" style="position: relative; height: 640px;">
+    <div data-id="inside-left" data-auto-animate-duration="0" style="position: absolute; left: 0; top: 0; width: 34%; height: 640px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start;">
+      <p data-id="inside-kicker" data-auto-animate-duration="0" style="text-transform: uppercase; letter-spacing: 3px; color: #5f7286; font-size: 0.6em; margin: 0 0 16px;">Inside Physlib</p>
+      <script>document.write(descentNav(3));</script>
+    </div>
+    <div style="position: absolute; left: 38%; right: 0; top: 0; height: 640px; display: flex; flex-direction: column; justify-content: center; text-align: left; border-left: 2px solid #e6e9ec; padding-left: 34px; box-sizing: border-box;">
+      <h2 style="margin: 0 0 12px; color: #3a5a78; font-family: 'Georgia', serif; font-size: 1.25em;">Structured by field of physics</h2>
+      <p style="margin: 0 0 14px; color: #5f7286; font-size: 0.78em;">Like Mathlib &mdash; folders organized by field of physics.</p>
+      <img src="Images/PhysLeanDirectories.png" alt="Physlib directory structure, organized by field of physics"
+        style="width: 100%; height: auto; max-height: 500px; display: block; border: 3px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+    </div>
+  </div>
+</section>
+
+<!-- Level 4a: content philosophy &mdash; the physics context -->
+<section data-auto-animate>
+  <div data-id="inside-row" style="position: relative; height: 640px;">
+    <div data-id="inside-left" data-auto-animate-duration="0" style="position: absolute; left: 0; top: 0; width: 34%; height: 640px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start;">
+      <p data-id="inside-kicker" data-auto-animate-duration="0" style="text-transform: uppercase; letter-spacing: 3px; color: #5f7286; font-size: 0.6em; margin: 0 0 16px;">Inside Physlib</p>
+      <script>document.write(descentNav(4));</script>
+    </div>
+    <div style="position: absolute; left: 38%; right: 0; top: 0; height: 640px; display: flex; flex-direction: column; justify-content: center; text-align: left; border-left: 2px solid #e6e9ec; padding-left: 34px; box-sizing: border-box;">
+      <h2 style="margin: 0 0 4px; color: #3a5a78; font-family: 'Georgia', serif; font-size: 1.25em;">For the physicists</h2>
+      <p style="margin: 0 0 16px; color: #5f7286; font-size: 0.78em;">What "carrying the physics context" means in practice:</p>
+      <script>
+        const contextItems = [
+          ['Organization of the project', '#4ca1af'],
+          ['Physics names of results', '#af774c'],
+          ['Physics documentation', '#27ae60'],
+          ['Physics references', '#3d6b99'],
+          ['Computable definitions', '#8e44ad']
+        ];
+        contextItems.forEach(([label, color], i) => {
+          document.write(`
+            <div class="fragment fade-in" style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px; background: #f5f5f5; border-left: 4px solid ${color}; border-radius: 0 8px 8px 0; padding: 9px 14px;">
+              <span style="min-width: 28px; height: 28px; background: ${color}; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.8em;">${i + 1}</span>
+              <span style="font-size: 0.82em; color: #333;">${label}</span>
+            </div>`);
+        });
+      </script>
+    </div>
+  </div>
+</section>
+
+<!-- Level 4b: content philosophy &mdash; how we formalize -->
+<section data-auto-animate>
+  <div data-id="inside-row" style="position: relative; height: 640px;">
+    <div data-id="inside-left" data-auto-animate-duration="0" style="position: absolute; left: 0; top: 0; width: 34%; height: 640px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start;">
+      <p data-id="inside-kicker" data-auto-animate-duration="0" style="text-transform: uppercase; letter-spacing: 3px; color: #5f7286; font-size: 0.6em; margin: 0 0 16px;">Inside Physlib</p>
+      <script>document.write(descentNav(4));</script>
+    </div>
+    <div style="position: absolute; left: 38%; right: 0; top: 0; height: 640px; display: flex; flex-direction: column; justify-content: center; text-align: left; border-left: 2px solid #e6e9ec; padding-left: 34px; box-sizing: border-box;">
+      <h2 style="margin: 0 0 14px; color: #3a5a78; font-family: 'Georgia', serif; font-size: 1.25em;">How do we formalize physics?</h2>
+
+      <script>
+        const formalizeSteps = [
+          ['1', 'Pick the right starting point', 'for each result', '#4ca1af'],
+          ['2', 'State the physical assumptions', 'explicitly and honestly', '#af774c'],
+          ['3', 'Formalize rigorously', 'from there', '#27ae60']
+        ];
+        formalizeSteps.forEach(([n, lead, rest, color]) => {
+          document.write(`
+            <div class="fragment fade-in" style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px; background: #f5f5f5; border-left: 4px solid ${color}; border-radius: 0 8px 8px 0; padding: 9px 14px;">
+              <span style="min-width: 28px; height: 28px; background: ${color}; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.8em;">${n}</span>
+              <span style="font-size: 0.8em; color: #333;"><strong>${lead}</strong> ${rest}</span>
+            </div>`);
+        });
+      </script>
+    </div>
+  </div>
+</section>
+
+<!-- Level 5: infrastructure &mdash; back up the scale, spanning the whole library -->
+<section data-auto-animate>
+  <div data-id="inside-row" style="position: relative; height: 640px;">
+    <div data-id="inside-left" data-auto-animate-duration="0" style="position: absolute; left: 0; top: 0; width: 34%; height: 640px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start;">
+      <p data-id="inside-kicker" data-auto-animate-duration="0" style="text-transform: uppercase; letter-spacing: 3px; color: #5f7286; font-size: 0.6em; margin: 0 0 16px;">Inside Physlib</p>
+      <script>document.write(descentNav(5));</script>
+    </div>
+    <div style="position: absolute; left: 38%; right: 0; top: 0; height: 640px; display: flex; flex-direction: column; justify-content: center; text-align: left; border-left: 2px solid #e6e9ec; padding-left: 34px; box-sizing: border-box;">
+      <h2 style="margin: 0 0 4px; color: #3a5a78; font-family: 'Georgia', serif; font-size: 1.25em;">Infrastructure</h2>
+      <p style="margin: 0 0 16px; color: #5f7286; font-size: 0.78em;">Tooling that wraps the whole library.</p>
+      <script>
+        const infraItems = [
+          ['Search engines', 'LeanExplore &amp; Loogle', '#4ca1af'],
+          ['Documentation', 'physlean.com/docs', '#af774c'],
+          ['Notes', 'notes.physlean.com', '#27ae60'],
+          ['TODO list', 'open tasks to pick up', '#3d6b99'],
+          ['Informal defs &amp; lemmas', 'a roadmap of what is still to formalize', '#8e44ad']
+        ];
+        infraItems.forEach(([title, sub, color]) => {
+          document.write(`
+            <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 10px; background: #f5f5f5; border-left: 4px solid ${color}; border-radius: 0 8px 8px 0; padding: 9px 14px;">
+              <strong style="font-size: 0.82em; color: #243447; min-width: 38%;">${title}</strong>
+              <span style="font-size: 0.72em; color: #5f7286;">${sub}</span>
+            </div>`);
+        });
+      </script>
+    </div>
+  </div>
 </section>
 
 
@@ -450,12 +638,12 @@ Slides start here
   <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 40px; text-align: center;">Talk overview</h2>
   <script>
     document.write(threeOverview('What is an interactive theorem prover?',
-      'Introduction to PhysLean', 'Examples'));
+      'Introduction to Physlib', 'Examples'));
   </script>
 </section>
 
 <section>
-  <h3>What is currently in PhysLean?</h3>
+  <h3>What is currently in Physlib?</h3>
 
   <img src="Images/PhysLeanChart.png"
     style="width:100%; height: auto; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); margin: 20px auto; display: block;">
@@ -471,19 +659,51 @@ Slides start here
 
 
 <section>
-  <h3>Building APIs</h3>
-  <div style="display: flex;">
-    <div id="lean-files-container"
-      style="height: 600px; overflow-y: auto; border: 1px solid #4CAF50; padding: 10px; width: 30%; text-align: left; font-size: 0.5em; background-color: #2E3440; color: #A3BE8C; font-family: monospace;">
+  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 4px; text-align: center;">Explore the library</h2>
+
+  <!-- Editor-style window chrome -->
+  <div style="max-width: 96%; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 12px 30px rgba(0,0,0,0.18); border: 1px solid #3b4252;">
+    <!-- Title bar -->
+    <div style="display: flex; align-items: center; gap: 8px; background: #3b4252; padding: 10px 14px;">
+      <span style="width: 12px; height: 12px; border-radius: 50%; background: #ff5f56; display: inline-block;"></span>
+      <span style="width: 12px; height: 12px; border-radius: 50%; background: #ffbd2e; display: inline-block;"></span>
+      <span style="width: 12px; height: 12px; border-radius: 50%; background: #27c93f; display: inline-block;"></span>
+      <span style="margin-left: 10px; color: #d8dee9; font-family: monospace; font-size: 0.6em;">leanprover-community/Physlib</span>
     </div>
-    <pre id="EM-slide-1"
-      style="border: 2px solid #ccc; padding: 15px; border-radius: 5px; width: 60%; margin-left: 20px;">Click a file on the left to see code.</pre>
+    <!-- Body: file tree + code -->
+    <div style="display: flex; height: 560px;">
+      <div id="lean-files-container"
+        style="height: 100%; overflow-y: auto; padding: 12px; width: 30%; text-align: left; font-size: 0.5em; background-color: #2E3440; color: #A3BE8C; font-family: monospace; border-right: 1px solid #3b4252;">
+      </div>
+      <pre id="EM-slide-1"
+        style="margin: 0; border: none; border-radius: 0; padding: 15px; width: 70%; height: 100%; overflow: auto; background: #2E3440; color: #d8dee9;">Click a file on the left to see its code.</pre>
+    </div>
   </div>
   <script>
     renderLeanFiles();
   </script>
 </section>
 
+
+<!-- Get involved: call to action -->
+<section>
+  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 22px; text-align: center;">Get involved</h2>
+  <div style="display: flex; justify-content: center; gap: 18px; max-width: 94%; margin: 0 auto; flex-wrap: nowrap;">
+    <div style="flex: 1; min-width: 0; padding: 18px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 14px; box-shadow: 0 6px 16px rgba(0,0,0,0.08); border-top: 5px solid #e67e22;">
+      <h3 style="margin: 0 0 8px; color: #e67e22; font-size: 0.85em;">Join the conversation</h3>
+      <p style="margin: 0; font-size: 0.66em; color: #444; line-height: 1.45;">Say hello on the <strong>Lean Zulip</strong> &mdash; help shape how Physlib is run.</p>
+    </div>
+    <div style="flex: 1; min-width: 0; padding: 18px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 14px; box-shadow: 0 6px 16px rgba(0,0,0,0.08); border-top: 5px solid #3d6b99;">
+      <h3 style="margin: 0 0 8px; color: #3d6b99; font-size: 0.85em;">Contribute &amp; review</h3>
+      <p style="margin: 0; font-size: 0.66em; color: #444; line-height: 1.45;">Open a PR or review one at <strong>github.com/leanprover-community/Physlib</strong>.</p>
+    </div>
+    <div style="flex: 1; min-width: 0; padding: 18px; background: linear-gradient(135deg, #f3faf5 0%, #fbfefc 100%); border-radius: 14px; box-shadow: 0 6px 16px rgba(0,0,0,0.08); border-top: 5px solid #2f7b4f;">
+      <h3 style="margin: 0 0 8px; color: #2f7b4f; font-size: 0.85em;">Start where suits you</h3>
+      <p style="margin: 0; font-size: 0.66em; color: #444; line-height: 1.45;"><strong>Physlib</strong> for the trusted core, or <strong>PhyslibAlpha</strong> for fast contributions.</p>
+    </div>
+  </div>
+  <p style="text-align: center; color: #555; margin-top: 22px; font-size: 0.9em;">Everyone is welcome &mdash; physicists and mathematicians alike.</p>
+</section>
 
 <!-- Thank you slide -->
 <script>

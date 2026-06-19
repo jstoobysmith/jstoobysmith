@@ -237,6 +237,18 @@ Slides start here
   </div>
 </section>
 
+<!-- Stage 5b: the pivot question (gauge still failing) -->
+<section data-auto-animate>
+  <div data-id="trust-row" style="position: relative; height: 640px;">
+    <div data-id="trust-left" style="position: absolute; left: 0; top: 0; width: 30%; height: 640px; display: flex; align-items: center; justify-content: center;">
+      <script>document.write(trustGauge(10, '#d9534f', 'Failing'));</script>
+    </div>
+    <div style="position: absolute; left: 34%; right: 0; top: 0; height: 640px; display: flex; flex-direction: column; justify-content: center; text-align: left; border-left: 2px solid #e6e9ec; padding-left: 40px; box-sizing: border-box;">
+      <h2 style="margin: 0; color: #3a5a78; font-family: 'Georgia', serif; font-size: 1.9em; line-height: 1.3;">What can we do to<br>increase trust?</h2>
+    </div>
+  </div>
+</section>
+
 <!-- Stage 6: ITPs restore trust (to ~90, not 100) -->
 <section data-auto-animate>
   <div data-id="trust-row" style="position: relative; height: 640px;">
@@ -244,19 +256,23 @@ Slides start here
       <script>document.write(trustGauge(90, '#27ae60', 'Restored &#10003;'));</script>
     </div>
     <div style="position: absolute; left: 34%; right: 0; top: 0; height: 640px; display: flex; flex-direction: column; justify-content: center; text-align: left; border-left: 2px solid #e6e9ec; padding-left: 40px; box-sizing: border-box;">
-      <h2 style="margin: 0 0 16px; color: #3a5a78; font-family: 'Georgia', serif; font-size: 1.3em;">ITPs are part of the answer</h2>
-      <div style="padding: 18px 22px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 12px; border-left: 6px solid #27ae60; box-shadow: 0 6px 16px rgba(0,0,0,0.08); margin-bottom: 16px;">
-        <div style="font-size: 0.66em; text-transform: uppercase; letter-spacing: 1px; color: #5f7286; font-weight: 700; margin-bottom: 8px;">Interactive Theorem Prover</div>
-        <p style="font-family: 'Georgia', serif; font-style: italic; color: #333; margin: 0; line-height: 1.5; font-size: 0.95em;">A programming language in which you can write mathematical theorems and definitions, and mathematical correctness is guaranteed.</p>
-      </div>
-      <p style="margin: 0; font-size: 0.95em; color: #333;">A <strong style="color: #27ae60;">scalable</strong> way to enhance trust.</p>
+      <h2 style="margin: 0 0 14px; color: #3a5a78; font-family: 'Georgia', serif; font-size: 1.5em;">Interactive theorem provers</h2>
+      <p style="margin: 0; font-size: 1.05em; color: #333;">A <strong style="color: #27ae60;">scalable</strong> way to increase trust.</p>
     </div>
   </div>
 </section>
-<!-- Popular ITPs. -->
-<section>
-  <section data-auto-animate></section>
-  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; text-align: center; margin-bottom: 30px;">Popular ITPs</h2>
+
+<!-- ===== Interactive theorem provers: define -> examples -> live demo ===== -->
+<!-- ITP, slide 1: definition -->
+<section data-auto-animate>
+  <h2 data-id="itp-title" style="font-family: 'Georgia', serif; color: #3a5a78; text-align: center; font-size: 1.2em; white-space: nowrap; margin: 0 0 24px;">Interactive theorem provers</h2>
+  <div style="max-width: 78%; margin: 0 auto; padding: 22px 28px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 12px; border-left: 6px solid #27ae60; box-shadow: 0 6px 16px rgba(0,0,0,0.08);">
+    <p style="font-family: 'Georgia', serif; font-style: italic; color: #333; margin: 0; line-height: 1.5; font-size: 0.95em;">A programming language in which you can write mathematical theorems and definitions, with mathematical <strong>correctness</strong> and <strong>consistency</strong> guaranteed.</p>
+  </div>
+</section>
+<!-- ITP, slide 2: examples (popular provers) -->
+<section data-auto-animate>
+  <h2 data-id="itp-title" style="font-family: 'Georgia', serif; color: #3a5a78; text-align: center; font-size: 1.2em; white-space: nowrap; margin: 0 0 24px;">Interactive theorem provers</h2>
 
   <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 100px; margin: 0 auto; max-width: 90%;">
     <!-- Coq -->
@@ -296,24 +312,12 @@ Slides start here
     </div>
   </div>
 </section>
-
-<section>
-  <h3 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 30px;">Advantages of ITPs</h3>
-
-  <script>
-    document.write(timelineBox('1', 'Correctness'));
-    document.write(timelineBox('2', 'Tactic Automation'));
-    document.write(timelineBox('3', 'Searchable'));
-    document.write(timelineBox('4', 'Reusable'));
-    document.write(timelineBox('5', 'Executable'));
-  </script>
-</section>
-<!-- An example of Lean. -->
-<section>
-  <h2>An example of Lean</h2>
-  <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
+<!-- ITP, slide 3: live demo -->
+<section data-auto-animate>
+  <h2 data-id="itp-title" style="font-family: 'Georgia', serif; color: #3a5a78; text-align: center; font-size: 1.2em; white-space: nowrap; margin: 0 0 16px;">Interactive theorem provers</h2>
+  <div style="position: relative; width: 100%; height: 440px;">
     <iframe
-      src="https://live.lean-lang.org/#codez=JYWwDg9gTgLgBAWQIYwBYBtgCMBQf8GFHEAmApgGaICeAcinAFxwAq1YZTAvHFtXAGdoUangB2SEGQFgkAY04I6KPOSpISJJjXrxASYQ6GBpbu69+QqCNWU4IAK7ptJo4f1uzfQcNE50ZEBAkOA0SAH0kASE5OAAKYKw4GOYXGABKbVC4rISMmJ4c7M1eJIzGHi9LETg8NDJoALgoYDEAczCyAEdskpitZkASQjK4ELgAahKAKiTxuC1pmIBaUZ5YxImSDIXPURGq3zwAekWAQjxQSFhEFAxsc7ESezkYYAA3RWV4ZjYOHBGAHzgAC8yFAIM5Pn84ICBE9kh5jJCcBIpDJ5B9dDZ1MUUp84IjTASVAC4AA6EFggA0KwAfCEoYDSbC5DEsNTglw6Uy4XFUqSsokkGl8Go7I4IYSEW4GWSKRB2XBObLQRAZdyWbwFUqsvEMrEHE5BcK/AEgiFNBEohAYvFehKUMMdYUsHlFeatMF4sVEnIyhVdiM4C0YGDRj6oSMWo9nsAIGJRgB3YBoCPQ4EqxU01MjKAUdCpmE8+PAVCZ7NJVBINqcJ3FMTq1mugp1htFLQ+4WBwMCC5wOPofgAbVC1OZclJLQAVgBRToAXXLZAAHvJ4CX8HUGiAmi12l0ej65vb0tpRhNEtsNnBtssOXF1nMtjNyuYoWI43IIIEws02jhFocOBAA"
+      src="https://live.lean-lang.org/#url=https%3A%2F%2Fgithub.com%2Fjstoobysmith%2FJTSphyslib%2Fblob%2FHiggsExample%2FPhyslib%2FParticles%2FStandardModel%2FHiggsBoson%2FExample.lean"
       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
       allowfullscreen>
     </iframe>
@@ -325,10 +329,21 @@ Slides start here
   </div>
 </section>
 
+<!-- Beyond trust: other advantages -->
+<section data-auto-animate>
+  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; text-align: center; margin: 0 0 24px;">Beyond trust &mdash; what else do they give you?</h2>
+  <script>
+    document.write(timelineBox('1', 'Tactic Automation'));
+    document.write(timelineBox('2', 'Searchable'));
+    document.write(timelineBox('3', 'Reusable'));
+    document.write(timelineBox('4', 'Executable'));
+  </script>
+</section>
+
 <!-- ===== Rise of Lean: assembling flywheel thread ===== -->
 <!-- Stage 1: the two engines -->
 <section data-auto-animate>
-  <p data-id="fw-kicker" style="text-transform: uppercase; letter-spacing: 3px; color: #5f7286; font-size: 0.6em; text-align: center; margin: 0 0 14px;">Why Lean is rising</p>
+  <h2 data-id="rise-title" style="font-family: 'Georgia', serif; color: #3a5a78; text-align: center; margin: 0 0 14px; font-size: 1.2em;">Lean's rise in popularity</h2>
   <script>document.write(flywheel(1));</script>
   <div style="max-width: 82%; margin: 20px auto 0; text-align: center;">
     <p style="font-size: 1.05em; color: #444; line-height: 1.5; margin: 0;">Two engines: <strong style="color: #27ae60;">Mathlib</strong>, a vast library to build on, and increasingly capable <strong style="color: #af774c;">AI</strong>.</p>
@@ -337,11 +352,11 @@ Slides start here
 
 <!-- Stage 2: Mathlib -->
 <section data-auto-animate>
-  <p data-id="fw-kicker" style="text-transform: uppercase; letter-spacing: 3px; color: #5f7286; font-size: 0.6em; text-align: center; margin: 0 0 14px;">Why Lean is rising</p>
+  <h2 data-id="rise-title" style="font-family: 'Georgia', serif; color: #3a5a78; text-align: center; margin: 0 0 14px; font-size: 1.2em;">Lean's rise in popularity</h2>
   <script>document.write(flywheel(2));</script>
 
-  <div style="max-width: 90%; margin: 14px auto 0;">
-    <ul style="list-style-type: none; padding-left: 5px; margin: 0; font-size: 0.85em;">
+  <div style="max-width: 90%; margin: 8px auto 0;">
+    <ul style="list-style-type: none; padding-left: 5px; margin: 0; font-size: 0.78em;">
       <li style="margin-bottom: 0px; padding-left: 25px; position: relative;">
         <span style="position: absolute; left: 0; color: #27ae60;">•</span>
         A monolithic library of mathematics formalized in Lean
@@ -354,16 +369,17 @@ Slides start here
         <span style="position: absolute; left: 0; color: #27ae60;">•</span>
         Over 500 contributors, 100,000 definitions and 200,000 theorems
       </li>
-      <li style="padding-left: 25px; position: relative;">
-        <span style="position: absolute; left: 0; color: #27ae60;">•</span>
-        Promoted heavily by Kevin Buzzard
-      </li>
     </ul>
   </div>
-  <div style="position: relative; width: 95%; margin: 0 auto; overflow: hidden;">
+  <!-- Shrink the subject cards on this slide only (scoped to #autoScroll) -->
+  <style>
+    #autoScroll > div { flex: 0 0 190px !important; padding: 13px 18px !important; margin: 0 9px !important; }
+    #autoScroll p { font-size: 0.7em !important; }
+  </style>
+  <div style="position: relative; width: 95%; margin: 6px auto 0; overflow: hidden;">
     <!-- Scroll container -->
     <div id="autoScroll"
-      style="display: flex; overflow-x: auto; padding: 20px 0; scroll-behavior: smooth; scrollbar-width: none; -ms-overflow-style: none;"
+      style="display: flex; overflow-x: auto; padding: 8px 0; scroll-behavior: smooth; scrollbar-width: none; -ms-overflow-style: none;"
       class="facts-scroll">
       <!-- Fact cards -->
        <script>
@@ -396,7 +412,7 @@ Slides start here
 
 <!-- Stage 3: the trustworthy feedback loop -->
 <section data-auto-animate>
-  <p data-id="fw-kicker" style="text-transform: uppercase; letter-spacing: 3px; color: #5f7286; font-size: 0.6em; text-align: center; margin: 0 0 14px;">Why Lean is rising</p>
+  <h2 data-id="rise-title" style="font-family: 'Georgia', serif; color: #3a5a78; text-align: center; margin: 0 0 14px; font-size: 1.2em;">Lean's rise in popularity</h2>
   <script>document.write(flywheel(3));</script>
   <div style="max-width: 80%; margin: 24px auto 0; text-align: center;">
     <h3 style="margin: 0 0 8px; color: #3a5a78; font-family: 'Georgia', serif; font-size: 1.05em;">A trustworthy feedback loop</h3>
@@ -406,13 +422,13 @@ Slides start here
 
 <!-- Stage 4: the loop already delivers -->
 <section data-auto-animate>
-  <p data-id="fw-kicker" style="text-transform: uppercase; letter-spacing: 3px; color: #5f7286; font-size: 0.6em; text-align: center; margin: 0 0 14px;">Why Lean is rising</p>
+  <h2 data-id="rise-title" style="font-family: 'Georgia', serif; color: #3a5a78; text-align: center; margin: 0 0 14px; font-size: 1.2em;">Lean's rise in popularity</h2>
   <script>document.write(flywheel(4));</script>
   <div
-    style="max-width: 88%; margin: 24px auto 0; padding: 22px 28px; background: linear-gradient(135deg, #f6f8fa 0%, #e9ecef 100%); border-radius: 10px; border-left: 5px solid #27ae60; box-shadow: 0 8px 30px rgba(0,0,0,0.1);">
+    style="max-width: 88%; margin: 16px auto 0; padding: 16px 24px; background: linear-gradient(135deg, #f6f8fa 0%, #e9ecef 100%); border-radius: 10px; border-left: 5px solid #27ae60; box-shadow: 0 8px 30px rgba(0,0,0,0.1); font-size: 0.85em;">
     "Erdős Problem #728 &mdash; the first Erdős problem resolved fully autonomously by an AI system,
     produced directly as a <strong>formal proof in Lean</strong>."
-    <p style="text-align: right; margin-top: 12px; font-weight: 600; color: #5f6368; font-size: 0.9em;">
+    <p style="text-align: right; margin-top: 10px; font-weight: 600; color: #5f6368; font-size: 0.68em;">
       — GPT-5.2 Pro (OpenAI) + Aristotle (Harmonic), January 2026
     </p>
   </div>
@@ -491,7 +507,6 @@ Slides start here
       <script>document.write(descentNav(1));</script>
     </div>
     <div style="position: absolute; left: 38%; right: 0; top: 0; height: 640px; display: flex; flex-direction: column; justify-content: center; text-align: left; border-left: 2px solid #e6e9ec; padding-left: 34px; box-sizing: border-box;">
-      <h2 style="margin: 0 0 16px; color: #3a5a78; font-family: 'Georgia', serif; font-size: 1.25em;">A community-run project</h2>
       <div style="display: flex; flex-direction: column; gap: 12px;">
         <div style="padding: 12px 16px; background: linear-gradient(135deg, #f8f9fa, #e9ecef); border-radius: 10px; border-left: 5px solid #4ca1af;">
           <strong style="color: #4ca1af; font-size: 0.85em;">Community-run</strong>
@@ -537,10 +552,8 @@ Slides start here
       <script>document.write(descentNav(3));</script>
     </div>
     <div style="position: absolute; left: 38%; right: 0; top: 0; height: 640px; display: flex; flex-direction: column; justify-content: center; text-align: left; border-left: 2px solid #e6e9ec; padding-left: 34px; box-sizing: border-box;">
-      <h2 style="margin: 0 0 12px; color: #3a5a78; font-family: 'Georgia', serif; font-size: 1.25em;">Structured by field of physics</h2>
-      <p style="margin: 0 0 14px; color: #5f7286; font-size: 0.78em;">Like Mathlib &mdash; folders organized by field of physics.</p>
-      <img src="Images/PhysLeanDirectories.png" alt="Physlib directory structure, organized by field of physics"
-        style="width: 100%; height: auto; max-height: 500px; display: block; border: 3px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+      <img src="Images/PhysLeanDirect.png" alt="Physlib folders, organized by field of physics"
+        style="max-height: 580px; width: auto; max-width: 100%; display: block; margin: 0 auto; border: 3px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
     </div>
   </div>
 </section>
@@ -553,8 +566,7 @@ Slides start here
       <script>document.write(descentNav(4));</script>
     </div>
     <div style="position: absolute; left: 38%; right: 0; top: 0; height: 640px; display: flex; flex-direction: column; justify-content: center; text-align: left; border-left: 2px solid #e6e9ec; padding-left: 34px; box-sizing: border-box;">
-      <h2 style="margin: 0 0 4px; color: #3a5a78; font-family: 'Georgia', serif; font-size: 1.25em;">For the physicists</h2>
-      <p style="margin: 0 0 16px; color: #5f7286; font-size: 0.78em;">What "carrying the physics context" means in practice:</p>
+      <h2 style="margin: 0 0 4px; color: #3a5a78; font-family: 'Georgia', serif; font-size: 1.25em;">Physics context included</h2>
       <script>
         const contextItems = [
           ['Organization of the project', '#4ca1af'],
@@ -583,7 +595,7 @@ Slides start here
       <script>document.write(descentNav(4));</script>
     </div>
     <div style="position: absolute; left: 38%; right: 0; top: 0; height: 640px; display: flex; flex-direction: column; justify-content: center; text-align: left; border-left: 2px solid #e6e9ec; padding-left: 34px; box-sizing: border-box;">
-      <h2 style="margin: 0 0 14px; color: #3a5a78; font-family: 'Georgia', serif; font-size: 1.25em;">How do we formalize physics?</h2>
+      <h2 style="margin: 0 0 14px; color: #3a5a78; font-family: 'Georgia', serif; font-size: 1.25em;">Approach to formalizing</h2>
 
       <script>
         const formalizeSteps = [
@@ -611,8 +623,6 @@ Slides start here
       <script>document.write(descentNav(5));</script>
     </div>
     <div style="position: absolute; left: 38%; right: 0; top: 0; height: 640px; display: flex; flex-direction: column; justify-content: center; text-align: left; border-left: 2px solid #e6e9ec; padding-left: 34px; box-sizing: border-box;">
-      <h2 style="margin: 0 0 4px; color: #3a5a78; font-family: 'Georgia', serif; font-size: 1.25em;">Infrastructure</h2>
-      <p style="margin: 0 0 16px; color: #5f7286; font-size: 0.78em;">Tooling that wraps the whole library.</p>
       <script>
         const infraItems = [
           ['Search engines', 'LeanExplore &amp; Loogle', '#4ca1af'],

@@ -379,6 +379,52 @@ function insideLayout(active, rightHtml) {
 
 /**
  *
+ * Question stepper — a horizontal progress bar that ticks off the questions the
+ * audience is likely asking. Answered steps show a check, the current step is
+ * highlighted, upcoming steps are greyed. Fixed geometry (fixed circle/step
+ * sizes) so it stays stationary across auto-animate slides; only the colour and
+ * the number-to-check swap change.
+ *
+ * active: 1-based index of the current question (0 = none yet).
+ *
+ * */
+
+function questionStepper(active) {
+  const labels = ['What is it?', 'Popular ones', 'In practice', 'What else?', 'Why rising?'];
+  const connector = '<div style="flex: 0 0 26px; height: 2px; background: #e0e4e8; margin-top: 19px;"></div>';
+  const steps = labels.map((label, i) => {
+    const n = i + 1;
+    const done = n < active;
+    const isActive = n === active;
+    const bg = done ? '#27ae60' : (isActive ? '#af774c' : '#eef1f3');
+    const bd = done ? '#27ae60' : (isActive ? '#af774c' : '#d0d7de');
+    const fg = (done || isActive) ? '#ffffff' : '#aab2b8';
+    const labCol = isActive ? '#af774c' : (done ? '#5f7286' : '#aab2b8');
+    const labWt = isActive ? '700' : '500';
+    const mark = done ? '&#10003;' : n;
+    // Caret under the active step points down into the hero question below.
+    const caret = isActive ? '#af774c' : 'transparent';
+    return `<div data-id="qs-step-${n}" style="display: flex; flex-direction: column; align-items: center; width: 96px;">
+      <div style="width: 40px; height: 40px; border-radius: 50%; background: ${bg}; border: 2px solid ${bd}; color: ${fg}; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8em; box-sizing: border-box;">${mark}</div>
+      <div style="margin-top: 8px; font-size: 0.45em; line-height: 1.15; color: ${labCol}; font-weight: ${labWt}; text-align: center; height: 2.3em;">${label}</div>
+      <div style="font-size: 0.7em; line-height: 1; color: ${caret};">&#9660;</div>
+    </div>`;
+  }).join(connector);
+  return `<div data-id="qs-wrap" style="display: flex; align-items: flex-start; justify-content: center;">${steps}</div>`;
+}
+
+/* Hero question for a stepper slide: an accent-brown badge (matching the active
+   step's circle) + the full question in the same brown, so it reads as the
+   "expansion" of the highlighted step in the bar above. */
+function questionHero(active, text) {
+  return `<div style="display: flex; align-items: center; justify-content: center; gap: 13px; margin: 12px auto 22px; max-width: 88%;">
+    <div style="width: 38px; height: 38px; border-radius: 50%; background: #af774c; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85em; flex: 0 0 auto;">${active}</div>
+    <h2 style="margin: 0; font-family: 'Georgia', serif; color: #af774c; font-size: 1.05em; text-align: left;">${text}</h2>
+  </div>`;
+}
+
+/**
+ *
  * Trust gauge — a vertical meter that grounds the Trust section as a common
  * thread. Across consecutive auto-animate slides the fill height and colour
  * change, so reveal.js animates the meter rising/falling. Fixed px sizing keeps

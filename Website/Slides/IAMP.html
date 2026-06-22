@@ -133,17 +133,6 @@ Slides start here
 </section>
 
 <section>
-  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 92vh;">
-    <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin: 0 0 12px; text-align: center; font-size: 1.2em;">&hellip; and one of my own papers</h2>
-    <img src="Images/myPaperBug.png" alt="A bug in one of my own papers"
-      style="max-width: 90%; max-height: 78vh; width: auto; height: auto; border-radius: 6px; box-shadow: 0 8px 16px rgba(0,0,0,0.15); display: block;">
-  </div>
-  <aside class="notes">
-    It happens to all of us &mdash; including me. The point is not blame; it is that there is
-    currently no scalable way to be <em>sure</em> a result is correct.
-  </aside>
-</section>
-<section>
   <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 70vh;">
     <p style="text-transform: uppercase; letter-spacing: 4px; color: #5f7286; font-size: 0.7em; margin-bottom: 10px;">The key concept</p>
     <h1 style="font-family: 'Georgia', serif; font-size: 4.5em; color: #af774c; margin: 0; font-weight: 700; letter-spacing: -1px;">Trust</h1>
@@ -312,34 +301,6 @@ Slides start here
     </div>
   </div>
 </section>
-<!-- ITP, slide 3: live demo -->
-<section data-auto-animate>
-  <h2 data-id="itp-title" style="font-family: 'Georgia', serif; color: #3a5a78; text-align: center; font-size: 1.2em; white-space: nowrap; margin: 0 0 16px;">Interactive theorem provers</h2>
-  <div style="position: relative; width: 100%; height: 440px;">
-    <iframe
-      src="https://live.lean-lang.org/#url=https%3A%2F%2Fgithub.com%2Fjstoobysmith%2FJTSphyslib%2Fblob%2FHiggsExample%2FPhyslib%2FParticles%2FStandardModel%2FHiggsBoson%2FExample.lean"
-      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
-      allowfullscreen>
-    </iframe>
-  </div>
-  <div style="text-align: center; margin-top: 10px; font-size: 0.6em; color: #666;">
-    View at: https://<span style="color: #333;">josephtoobysmith</span>.<span style="color: #555;">com</span>/<span
-      style="color: #777;">Slides</span>/<span style="color: #999;">IAMP</span>.<span
-      style="color: #555;">html</span>
-  </div>
-</section>
-
-<!-- Beyond trust: other advantages -->
-<section data-auto-animate>
-  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; text-align: center; margin: 0 0 24px;">Beyond trust &mdash; what else do they give you?</h2>
-  <script>
-    document.write(timelineBox('1', 'Tactic Automation'));
-    document.write(timelineBox('2', 'Searchable'));
-    document.write(timelineBox('3', 'Reusable'));
-    document.write(timelineBox('4', 'Executable'));
-  </script>
-</section>
-
 <!-- ===== Rise of Lean: assembling flywheel thread ===== -->
 <!-- Stage 1: the two engines -->
 <section data-auto-animate>
@@ -444,6 +405,43 @@ Slides start here
     The trust point: because the output is a machine-checked Lean proof, it is a <strong>result</strong>, not a claim &mdash;
     contrast October 2025, when "solved" Erdős problems turned out to already be in the literature.
   </aside>
+</section>
+
+<!-- Live Lean demo (moved to after "Lean's rise in popularity") -->
+<section>
+  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; text-align: center; font-size: 1.2em; margin: 0 0 16px;">Lean, live</h2>
+  <div style="position: relative; width: 100%; height: 440px;">
+    <iframe
+      src="https://live.lean-lang.org/#url=https%3A%2F%2Fgithub.com%2Fjstoobysmith%2FJTSphyslib%2Fblob%2FHiggsExample%2FPhyslib%2FParticles%2FStandardModel%2FHiggsBoson%2FExample.lean"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 4px solid #666; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
+      allowfullscreen>
+    </iframe>
+  </div>
+  <div style="text-align: center; margin-top: 10px; font-size: 0.6em; color: #666;">
+    View at: https://<span style="color: #333;">josephtoobysmith</span>.<span style="color: #555;">com</span>/<span
+      style="color: #777;">Slides</span>/<span style="color: #999;">IAMP</span>.<span
+      style="color: #555;">html</span>
+  </div>
+</section>
+
+<!-- PutnamBench leaderboard -->
+<section>
+  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 20px; text-align: center; font-weight: 50;">
+    AI researchers: PutnamBench</h2>
+  <script>
+    document.write(myIFrame('https://trishullab.github.io/PutnamBench/leaderboard.html'));
+  </script>
+</section>
+
+<!-- Beyond trust: other advantages (moved after the live demo) -->
+<section data-auto-animate>
+  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; text-align: center; margin: 0 0 24px;">Beyond trust &mdash; what else do they give you?</h2>
+  <script>
+    document.write(timelineBox('1', 'Tactic Automation'));
+    document.write(timelineBox('2', 'Searchable'));
+    document.write(timelineBox('3', 'Reusable'));
+    document.write(timelineBox('4', 'Executable'));
+  </script>
 </section>
 
 
@@ -668,7 +666,7 @@ Slides start here
 
 
 <section>
-  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 4px; text-align: center;">Explore the library</h2>
+  <h2 style="font-family: 'Georgia', serif; color: #3a5a78; margin-bottom: 4px; text-align: center;">Reusable APIs</h2>
 
   <!-- Editor-style window chrome -->
   <div style="max-width: 96%; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 12px 30px rgba(0,0,0,0.18); border: 1px solid #3b4252;">

@@ -18,6 +18,7 @@ I would like to promote the use of the following term: **AI-safe task** to mean 
 > human to verify whether the task has been completed or not based on the changes made by the AI.
 
 I'm not familiar with any other term used to mean the same thing, but if there is one - please let me know!
+I know that I'm just giving a name to something, but I think in some cases that can be very useful.
 
 Examples of AI-safe tasks would be:
 - Changing the color of a page in html.

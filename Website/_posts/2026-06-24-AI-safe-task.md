@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "AI-safe tasks"
-date:   2026-06-05
+date:   2026-06-24
 type: card-img-top
 categories:
 caption:

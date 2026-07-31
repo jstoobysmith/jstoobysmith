@@ -1,3 +1,29 @@
+
+- Title: "Organizing Mathematical Knowledge in the Age of AI and Formalization Meeting"
+  Date: July 2026
+  Description: National Academy of Sciences, Washington DC, USA
+  MathTag: true
+
+- Title: "AI reasoning in theoretical physics"
+  Date: June 2026
+  Description: Aspen Center for Physics, Summer 2026 Program
+
+- Title: "AI reasoning in theoretical physics"
+  Date: June 2026
+  Description: Aspen Center for Physics, Summer 2026 Program
+  PhysTag: true
+
+- Title: "String Data 2025"
+  Date: Dec 2025
+  Description: London Institute for Mathematical Sciences
+  PhysTag: true
+
+- Title: "EuroProofNet Workshop on Proof Libraries"
+  Date: Sep 2025
+  Description: Orsay, France.
+  CSTag: true
+
+
 - Title: "Lean Together 2025"
   Date: Jan 2025
   CSTag: true
@@ -28,7 +54,7 @@
   PhyTag: true
 
 - Title: Young Experimentalists & Theorists Institute
-  Date: Jan 2019 
+  Date: Jan 2019
   PhyTag: true
 
 - Title: "YTF 11"
@@ -36,29 +62,9 @@
   PhyTag: true
 
 - Title: "Annual Theory Meeting"
-  Date: Dec 2018 
+  Date: Dec 2018
   PhyTag: true
-  
+
 - Title: British Universities Summer School in Theoretical Elementary Particle Physics (BUSSTEPP)
-  Date: Aug 2018 
+  Date: Aug 2018
   PhyTag: true
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

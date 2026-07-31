@@ -1,4 +1,21 @@
 
+- Title: "Formalizing the stability of the two Higgs doublet model potential into Lean: identifying an error in the literature"
+  Authors: J. Tooby-Smith
+  Date: Mar 2026
+  Journal: arXiv-2603.08139 [hep-ph]
+  Link: https://arxiv.org/abs/2603.08139
+  CSTag: true
+  PhyTag: true
+
+
+- Title: "Physics as Code: From Scans to Theorems with ITP APIs in SU(5) Model Building"
+  Authors: S. Krippendorf, J. Tooby-Smith
+  Date: Mar 2026
+  Journal: arXiv-2603.28406 [hep-th]
+  Link: https://arxiv.org/abs/2603.28406
+  CSTag: true
+  PhyTag: true
+
 - Title: "A Perspective on Interactive Theorem Provers in Physics"
   Authors: J. Tooby-Smith
   Date: Oct 2025

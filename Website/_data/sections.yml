@@ -11,6 +11,13 @@
   url: teaching.html
   first: false
 
+- name: Service
+  id: service
+  description: Academic service work I do.
+  content:
+  url:
+  first: false
+
 - name: Awards
   id: awards
   description: Awards and honors I have received.

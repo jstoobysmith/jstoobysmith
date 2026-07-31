@@ -165,6 +165,34 @@ layout: default
                     </div>
                     {% endfor %}
               </div>
+              {% elsif section.name == "Service" %}
+              <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">
+                <p><i>{{section.description}}</i></p>
+                    {% for service in site.data.ServiceWork %}
+                    <div class="list-group">
+                      <div class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1">{{ service.Title }}</h5>
+                          {% if service.Date %}<h5>{{ service.Date }}</h5>{% endif %}
+                        </div>
+                        {% if service.Role %}<h6>{{ service.Role }}</h6>{% endif %}
+                        <p class="mb-1">{{ service.Description }}</p>
+                      {% if service.CSTag == true %}
+                      <p href="#" class="badge badge-primary" style="background-color: rgba(78, 34, 208, 0.1);color: #4e22d0;">CS</p>
+                      {% endif %}
+                      {% if service.PhyTag == true %}
+                      <p href="#" class="badge badge-primary" style="background-color: rgba(65, 105, 225, 0.1);color: #1e40af;">Phys</p>
+                      {% endif %}
+                      {% if service.MathTag == true %}
+                      <p class="badge badge-primary" style="background-color: rgba(0, 128, 128, 0.1);color: #008080;">Math</p>
+                      {% endif %}
+                      {% if service.Link and service.Link != empty %}
+                      <a href="{{ service.Link }}" class="badge badge-primary" style="background-color: rgba(78, 34, 208, 0.1);color: #4e22d0;">Link</a>
+                      {% endif %}
+                      </div>
+                    </div>
+                    {% endfor %}
+              </div>
               {% elsif section.name == "Awards" %}
               <div class="tab-pane overflow-auto" id="{{section.id}}" role="tabpanel" aria-labelledby="{{section.id}}-tab">
                 <p><i>{{section.description}}</i></p>

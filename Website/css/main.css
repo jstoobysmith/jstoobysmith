@@ -1,21 +1,26 @@
 /* ============================================================
-   Joseph Tooby-Smith — site styles
+   Joseph Tooby-Smith — "editorial scholar" design system
+   Paper & ink palette, Newsreader serif + Inter small-caps,
+   hairline rules instead of card chrome.
    Built on the Dumbarton Jekyll theme (Bootstrap 4).
    ============================================================ */
 
 :root {
-  --ink:        #3d2b4f;   /* aubergine — nav, headings        */
-  --ink-soft:   #4d3862;
-  --accent:     #9b5d8c;   /* mauve — links, highlights        */
-  --accent-dk:  #804a73;
-  --text:       #2d3748;   /* body copy                        */
-  --muted:      #6b7785;   /* secondary text                   */
-  --line:       #ebe6ee;   /* hairline borders                 */
-  --surface:    #ffffff;   /* cards                            */
-  --bg:         #f6f4f7;   /* page background                  */
-  --shadow:     0 1px 2px rgba(61,43,79,.04), 0 6px 24px rgba(61,43,79,.07);
-  --shadow-lg:  0 6px 14px rgba(61,43,79,.08), 0 18px 48px rgba(61,43,79,.12);
-  --radius:     14px;
+  --paper:        #f6f2ea;   /* page background                  */
+  --paper-deep:   #efe9dd;   /* hover tint                       */
+  --ink:          #1c1e24;   /* headings, body                   */
+  --ink-soft:     #44474f;   /* secondary body                   */
+  --muted:        #7a7568;   /* meta text                        */
+  --line:         #e0d9ca;   /* hairline rules                   */
+  --line-strong:  #c9c2b0;   /* emphasised rules                 */
+  --accent:       #7d2a20;   /* oxblood — links, active states   */
+  --accent-dk:    #5e1f18;
+  --navy:         #24405e;   /* masthead & footer band           */
+  --navy-soft:    #3a5a78;
+  --cream:        #f6f2ea;   /* text on navy                     */
+  --gold:         #b98a2f;   /* small flourishes                 */
+  --serif:        'Newsreader', Georgia, 'Times New Roman', serif;
+  --sans:         'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
 }
 
 /* ---------- Base / typography ------------------------------ */
@@ -24,161 +29,247 @@ html { position: relative; min-height: 100%; scroll-behavior: smooth; }
 body {
   margin-bottom: 64px;
   position: relative;
-  background-color: var(--bg);
-  color: var(--text);
-  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.08rem;
   font-weight: 400;
-  line-height: 1.65;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--ink);
-  font-weight: 600;
+  font-family: var(--serif);
+  font-weight: 500;
   letter-spacing: -0.01em;
-  line-height: 1.3;
+  line-height: 1.25;
 }
 
 p { margin-bottom: 1rem; }
 
-::selection { background: rgba(155,93,140,.18); }
+::selection { background: rgba(125,42,32,.16); }
+
+/* Small-caps label utility — applied to tabs, meta, dates */
+.smallcaps,
+.nav-tabs .nav-link,
+.education-years {
+  font-family: var(--sans);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-weight: 500;
+}
 
 code {
   font: 0.85em 'SFMono-Regular', Monaco, Consolas, 'Courier New', monospace;
-  background: #eef1f4;
+  background: var(--paper-deep);
   color: var(--ink);
   padding: .15em .4em;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 /* ---------- Links ------------------------------------------ */
-a            { color: var(--accent); text-decoration: none; transition: color .15s ease; }
+a         { color: var(--accent); text-decoration: none; transition: color .15s ease; }
 a:hover,
-a:focus      { color: var(--accent-dk); text-decoration: none; }
+a:focus   { color: var(--accent-dk); text-decoration: underline; text-underline-offset: 3px; }
 
-/* Headings & generic content keep the ink colour for links */
-.card-body a:not(.badge):not(.btn):not(.nav-link):not(.list-group):not(.list-group-item) {
-  color: var(--accent);
-}
-.card-body a:not(.badge):not(.btn):not(.nav-link):hover { color: var(--accent-dk); }
-
-/* Animated gold underline on opt-in links */
 a.highlighted,
 a.highlighted:link {
   color: var(--ink);
-  text-decoration: none;
-  background-position-y: 0%;
-  background-image: linear-gradient(transparent 50%, rgba(155,93,140,.30) 50%);
-  transition: background-position .35s ease;
-  background-size: auto 175%;
+  text-decoration: underline;
+  text-decoration-color: var(--line-strong);
+  text-underline-offset: 4px;
+  transition: text-decoration-color .2s ease, color .2s ease;
 }
-a.highlighted:hover { background-position-y: 100%; color: var(--ink); }
+a.highlighted:hover { color: var(--accent); text-decoration-color: var(--accent); }
 
-/* ---------- Navbar ----------------------------------------- */
+/* ---------- Navbar — deep navy masthead band --------------- */
 .navbar {
-  padding: .65rem 1.1rem;
-  box-shadow: 0 2px 14px rgba(61,43,79,.18);
+  background-color: var(--navy) !important;
   border: 0 !important;
+  border-bottom: 3px solid var(--gold) !important;
+  box-shadow: none;
+  padding: .9rem 1.25rem .8rem;
 }
 .navbar-brand h4 {
   margin: 0;
-  font-weight: 700 !important;
-  font-size: 1.35rem;
+  font-family: var(--serif) !important;
+  font-weight: 600 !important;
+  font-style: italic;
+  font-size: 1.45rem;
   letter-spacing: -0.015em;
+  color: var(--cream) !important;
 }
 .navbar .nav-link {
-  position: relative;
+  font-family: var(--sans) !important;
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .14em;
   font-weight: 500;
+  color: var(--cream) !important;
   padding: .35rem .9rem !important;
-  opacity: .9;
-  transition: opacity .15s ease;
+  opacity: .8;
+  transition: opacity .15s ease, color .15s ease;
 }
-.navbar .nav-link:hover { opacity: 1; }
-.navbar .nav-link::after {
-  content: '';
-  position: absolute;
-  left: .9rem; right: .9rem; bottom: .1rem;
-  height: 2px;
-  background: var(--accent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform .22s ease;
-}
-.navbar .nav-link:hover::after { transform: scaleX(1); }
-.navbar-toggler { border-color: rgba(255,255,255,.4); }
+.navbar .nav-link:hover { opacity: 1; text-decoration: none; color: #e8c987 !important; }
+.navbar-toggler { border: 1px solid rgba(246,242,234,.5); color: var(--cream); }
+.navbar .social-link, .navbar i { color: var(--cream); }
 
-/* ---------- Cards ------------------------------------------ */
+/* ---------- Cards stripped of chrome ----------------------- */
 .card {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface);
-  box-shadow: var(--shadow);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
-
-/* The "glowing-border" class wraps the nav and the highlights card.
-   Replace the old grey glow with a clean, soft elevation.            */
-.glowing-border {
-  outline: none;
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
-}
-nav.glowing-border { border: 0; }
-
+.glowing-border { outline: none; border: 0; box-shadow: none; }
 .card-header {
   background: transparent !important;
-  border-bottom: 1px solid var(--line);
-  padding-top: .6rem;
+  border-bottom: 1px solid var(--line-strong);
+  padding: .25rem 0 0;
+}
+.card-body { padding: 1.25rem 0; }
+
+/* ---------- Hero / masthead -------------------------------- */
+.card-body h1 {
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: .35rem;
+}
+/* two-tone rule under the name */
+.card-body h1::after {
+  content: '';
+  display: block;
+  width: 96px;
+  height: 3px;
+  margin-top: .55rem;
+  background: linear-gradient(to right, var(--accent) 0 60%, var(--gold) 60% 100%);
+}
+/* the italic role line right after the name */
+.card-body h1 + p > em,
+.card-body h1 + p > i {
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: .82rem;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-weight: 500;
+  color: var(--navy-soft);
 }
 
-/* ---------- Profile / hero card ---------------------------- */
-.img-thumbnail {
-  border-radius: 16px;
-  border: 4px solid #fff;
-  box-shadow: var(--shadow-lg);
+/* ---------- Physlib call-to-action banner ------------------ */
+.physlib-banner {
+  background: var(--navy);
+  border-left: 4px solid var(--gold);
+  padding: 1rem 1.35rem .9rem;
+  margin: 1.35rem 0 1.5rem;
+  box-shadow: 6px 6px 0 0 var(--paper-deep);
+}
+.physlib-banner-title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--cream) !important;
+  margin-bottom: .45rem;
+}
+.physlib-banner-title a,
+.card-body .physlib-banner-title a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-decoration-color: rgba(185,138,47,.5);
+  text-underline-offset: 3px;
+}
+.physlib-banner-title a:hover { color: #e8c987; text-decoration-color: #e8c987; }
+.physlib-banner-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .2rem 1.5rem;
+  margin: 0;
   padding: 0;
 }
+.physlib-banner-links a,
+.card-body .physlib-banner-links a {
+  font-family: var(--sans);
+  font-size: .76rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-weight: 500;
+  color: rgba(246,242,234,.85);
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  border-bottom: 1px solid transparent;
+  transition: color .15s ease, border-color .15s ease;
+}
+.physlib-banner-links a:hover {
+  color: #e8c987;
+  border-bottom-color: #e8c987;
+  text-decoration: none;
+}
+.physlib-banner-links a i { font-size: 1.05em; opacity: .85; }
+
+/* Portrait — full colour, sharp corners, navy offset slab */
+.img-thumbnail {
+  border-radius: 0;
+  border: 1px solid var(--line-strong);
+  background: var(--paper);
+  padding: 0;
+  box-shadow: 10px 10px 0 0 rgba(36,64,94,.22);
+  transition: box-shadow .35s ease;
+}
+.img-thumbnail:hover { box-shadow: 10px 10px 0 0 var(--gold); }
 .profile-photo {
   width: 100%;
-  max-width: 240px;
+  max-width: 235px;
   height: auto;
-  margin-bottom: 1.1rem;
+  margin-bottom: 1.35rem;
 }
-.card-body p { color: var(--text); }
+.card-body p { color: var(--ink-soft); }
 
-/* Profile links — tidy chip row under the avatar */
+/* Profile links — understated index under the portrait */
 .profile-links { margin-bottom: .5rem; }
 .profile-links ul {
   display: flex;
   flex-wrap: wrap;
-  gap: .45rem;
+  gap: .15rem .9rem;
   margin: 0;
   justify-content: center;
 }
+.profile-links li { line-height: 1.9; }
 .profile-links a {
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
-  padding: .32rem .8rem;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  font-size: .85rem;
+  gap: .45rem;
+  font-family: var(--sans);
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
   font-weight: 500;
-  color: var(--ink);
-  background: #fff;
+  color: var(--ink-soft);
   white-space: nowrap;
-  transition: border-color .15s ease, color .15s ease, background .15s ease, transform .15s ease;
+  border-bottom: 1px solid transparent;
+  transition: color .15s ease, border-color .15s ease;
 }
-.profile-links a:hover {
-  border-color: var(--accent);
-  color: var(--accent-dk);
-  background: rgba(155,93,140,.07);
-  transform: translateY(-1px);
-}
-.profile-links a i { font-size: .95em; opacity: .85; }
+.profile-links a:hover { color: var(--accent); border-bottom-color: var(--accent); text-decoration: none; }
+.profile-links a i { font-size: 1em; opacity: .7; }
 
 @media (min-width: 768px) {
-  .profile-links ul { justify-content: flex-start; }
+  .profile-links ul { flex-direction: column; justify-content: flex-start; gap: 0; }
+}
+
+/* Academic career list — institution logos in full colour */
+.media img[src*="assets/images"] { opacity: .95; }
+.education-years {
+  display: inline-block;
+  margin-left: .55rem;
+  font-size: .62em;
+  color: var(--muted);
+  white-space: nowrap;
 }
 
 /* ---------- Accessible keyboard focus ---------------------- */
@@ -188,84 +279,115 @@ button:focus-visible,
 .list-group-item-action:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
-  border-radius: 6px;
 }
-/* Don't show the ring on mouse click, only keyboard nav */
 a:focus:not(:focus-visible),
 button:focus:not(:focus-visible) { outline: none; }
 
-/* ---------- Highlights tabs -------------------------------- */
-.nav-tabs { border-bottom: none; gap: .15rem; }
+/* ---------- Section tabs — an index, not pills ------------- */
+.nav-tabs { border-bottom: none; gap: .1rem 1.35rem; padding-bottom: .55rem; }
 .nav-tabs .nav-link {
   border: none !important;
-  border-radius: 8px;
-  font-weight: 500;
-  padding: .5rem .95rem !important;
+  border-radius: 0;
+  background: transparent !important;
+  font-size: .8rem;
+  padding: .4rem 0 .45rem !important;
   color: var(--muted) !important;
-  transition: background .15s ease, color .15s ease;
+  position: relative;
+  transition: color .15s ease;
 }
-.nav-tabs .nav-link:hover { background: rgba(155,93,140,.09); color: var(--ink) !important; }
+.nav-tabs .nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 100%; bottom: -1px;
+  height: 2px;
+  background: var(--accent);
+  transition: right .22s ease;
+}
+.nav-tabs .nav-link:hover { color: var(--ink) !important; text-decoration: none; }
 .nav-tabs .nav-link.active {
-  background: rgba(155,93,140,.12) !important;
-  color: var(--accent-dk) !important;
-  box-shadow: inset 0 -2px 0 var(--accent);
+  color: var(--accent) !important;
+  box-shadow: none;
 }
+.nav-tabs .nav-link.active::after { right: 0; }
 
-.tab-pane { padding-top: .25rem; }
-.tab-content .overflow-auto { max-height: 540px; }
+.tab-pane { padding-top: .5rem; }
+.tab-content .overflow-auto {
+  max-height: 560px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+.tab-content .overflow-auto::-webkit-scrollbar { width: 6px; }
+.tab-content .overflow-auto::-webkit-scrollbar-thumb { background: var(--line-strong); }
+.tab-pane > p > i { color: var(--muted); font-size: .95em; }
 
-/* ---------- List-group entries (pubs, talks, teaching…) ---- */
-.list-group { margin-bottom: .75rem; }
+/* ---------- Entries — bibliography style, not boxes -------- */
+.list-group { margin-bottom: 0; }
 .list-group-item {
-  border: 1px solid var(--line);
-  border-radius: 12px !important;
-  margin-bottom: .55rem;
-  padding: 1rem 1.15rem;
-  transition: transform .18s cubic-bezier(.2,.7,.3,1), box-shadow .18s ease, border-color .18s ease;
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--line) !important;
+  border-radius: 0 !important;
+  margin-bottom: 0;
+  padding: .95rem .35rem .8rem;
+  transition: background .15s ease;
 }
 .list-group-item-action:hover {
-  transform: translateY(-2px);
-  border-color: rgba(155,93,140,.45);
-  box-shadow: 0 8px 22px rgba(61,43,79,.10);
-  z-index: 1;
+  background: var(--paper-deep);
+  transform: none;
+  box-shadow: none;
 }
-.list-group-item h5 { font-size: 1.05rem; margin-bottom: .2rem; }
-.list-group-item h6 { color: var(--muted); font-weight: 500; font-size: .9rem; }
-.list-group-item p  { margin-bottom: .35rem; }
+.list-group-item h5 {
+  font-size: 1.12rem;
+  font-weight: 500;
+  margin-bottom: .15rem;
+}
+.list-group-item h6 { color: var(--muted); font-weight: 400; font-size: .95rem; font-style: italic; }
+.list-group-item p  { margin-bottom: .3rem; color: var(--ink-soft); font-size: .98rem; }
+.list-group-item small { color: var(--muted); }
+/* right-hand column (date / place) in small caps */
 .list-group-item .d-flex h5:last-child,
-.list-group-item .d-flex h5 + h5 { color: var(--muted); font-weight: 500; font-size: .95rem; white-space: nowrap; }
+.list-group-item .d-flex h5 + h5 {
+  font-family: var(--sans);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--muted);
+  font-weight: 500;
+  font-size: .72rem;
+  white-space: nowrap;
+  padding-top: .35rem;
+  margin-left: 1rem;
+}
+/* publications are wrapped in <a class="list-group"> */
+a.list-group { color: inherit; }
+a.list-group:hover { text-decoration: none; color: inherit; }
 
 /* Coursework buttons */
-.list-group-item.text-left { border-radius: 10px !important; }
-.list-group-item.text-left:hover { background: rgba(155,93,140,.09); }
+.list-group-item.text-left:hover { background: var(--paper-deep); }
 
 /* Project media rows */
-.media img.img-thumbnail { max-width: 110px; border-radius: 12px; }
+.media img.img-thumbnail { max-width: 110px; }
 .media-body h5 { font-size: 1.1rem; }
 
-/* ---------- Badges / tags ---------------------------------- */
+/* ---------- Badges / tags — coloured small-caps chips ------ */
+/* Inline styles on each badge supply the subject colours
+   (CS purple, Phys blue, Math teal); we only shape them here. */
 .badge {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  letter-spacing: .04em;
+  font-family: var(--sans);
+  font-weight: 500 !important;
+  letter-spacing: .1em;
   text-transform: uppercase;
-  border-radius: 999px;
-  padding: .35em .75em;
-  font-size: .68rem;
-  margin-top: .2rem;
+  border-radius: 3px;
+  padding: .35em .7em;
+  font-size: .62rem;
+  margin: .2rem .15rem 0 0;
 }
-.badge-secondary { background-color: rgba(155,93,140,.12); color: var(--accent-dk); }
-.badge-m  { font-size: 13px; padding: 8px 16px; }
-.badge-s  { font-size: 11px; padding: 5px 12px; }
-.badge-xs { font-size: 11px; padding: 3px 8px; }
+a.badge:hover { text-decoration: none; filter: brightness(.85); }
+.badge-secondary { background: rgba(36,64,94,.12); color: var(--navy); }
 
-mark { background: rgba(255, 213, 79, .45); padding: 0 .2em; border-radius: 3px; }
+mark { background: rgba(125,42,32,.12); padding: 0 .2em; }
 
 /* ---------- Spacers (theme helpers) ------------------------ */
-.dumbarton-home {
-  width: 50%; max-width: 300px; max-height: 150px;
-  padding-right: 10px; padding-top: 10px;
-}
+.dumbarton-home { width: 50%; max-width: 300px; max-height: 150px; padding-right: 10px; padding-top: 10px; }
 .dumbarton-icon { padding: 2px 10px 0 2px; }
 .dumbarton-spacer { padding: 50px 0; }
 .dumbarton-spacer-sm { padding: 14px 0; }
@@ -275,32 +397,34 @@ mark { background: rgba(255, 213, 79, .45); padding: 0 .2em; border-radius: 3px;
 .navbar-fixed-bottom,
 #sticky-footer,
 .footer {
-  background: var(--ink) !important;
-  color: rgba(255,255,255,.7);
+  background: var(--navy) !important;
+  color: rgba(246,242,234,.75);
   border: 0;
+  border-top: 3px solid var(--gold);
 }
-.navbar-fixed-bottom .navbar-text { color: rgba(255,255,255,.72); font-size: .85rem; }
-.navbar-fixed-bottom a { color: #fff; }
-.navbar-fixed-bottom a:hover { color: var(--accent); }
+.navbar-fixed-bottom .navbar-text { color: rgba(246,242,234,.75); font-family: var(--sans); font-size: .8rem; }
+.navbar-fixed-bottom a { color: var(--cream); }
+.navbar-fixed-bottom a:hover { color: #e8c987; }
 #page-content { flex: 1 0 auto; }
 
-/* ---------- Blog cards ------------------------------------- */
+/* ---------- Blog cards — editorial list -------------------- */
 .blogcard {
-  border-radius: var(--radius);
-  background: var(--surface);
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
-  transition: transform .25s cubic-bezier(.155,1.105,.295,1.12), box-shadow .25s;
-  padding: 16px 80px 18px 28px;
+  border-radius: 0;
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--line);
+  box-shadow: none;
+  transition: background .15s ease;
+  padding: 22px 80px 18px 12px;
   cursor: pointer;
 }
-.blogcard:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-.blogcard h3 { font-weight: 600; }
-.blogcard img { position: absolute; top: 20px; right: 15px; max-height: 120px; }
+.blogcard:hover { transform: none; background: var(--paper-deep); box-shadow: none; }
+.blogcard h3 { font-weight: 500; font-family: var(--serif); }
+.blogcard img { position: absolute; top: 20px; right: 15px; max-height: 110px; }
 
 @media (max-width: 990px) {
   .blogcard { margin: 20px; }
-  .navbar-brand h4 { font-size: 1.15rem; }
+  .navbar-brand h4 { font-size: 1.2rem; }
 }
 
 /* ---------- Timeline (alternate home layout) --------------- */
@@ -315,12 +439,10 @@ mark { background: rgba(255, 213, 79, .45); padding: 0 .2em; border-radius: 3px;
 .timeline-event-copy h3 { font-size: 1.75em; }
 .timeline-event-copy h4 { font-size: 1.2em; margin-bottom: 1.2em; }
 .timeline-event-icon {
-  background-color: var(--accent); outline: 10px solid var(--bg);
+  background-color: var(--accent); outline: 10px solid var(--paper);
   display: block; margin: .5em .5em .5em -.5em; position: absolute;
   top: 0; left: 2em; width: 1em; height: 1em; transform: rotate(45deg);
-  transition: transform .2s ease-in;
 }
-.timeline-event:hover .timeline-event-icon { transform: rotate(-45deg); background-color: var(--accent-dk); }
 
 /* ---------- Share buttons (unchanged behaviour) ------------ */
 .resp-sharing-button__link,
@@ -353,9 +475,9 @@ mark { background: rgba(255, 213, 79, .45); padding: 0 .2em; border-radius: 3px;
 .resp-sharing-button--whatsapp  { background-color: #25D366; }
 .resp-sharing-button--whatsapp:hover { background-color: #1da851; }
 
-/* ---------- Syntax highlighting (Rouge / Monokai-ish) ------ */
+/* ---------- Syntax highlighting (Rouge) -------------------- */
 .highlight .hll { background-color: #333333 }
-.highlight { background: #212121; color: #ffffff; border-radius: 8px; }
+.highlight { background: #212121; color: #ffffff; border-radius: 4px; }
 .highlight .c, .highlight .ch, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs { color: #008800; font-style: italic; background-color: #0f140f }
 .highlight .cp { color: #ff0007; font-weight: bold; font-style: italic; background-color: #0f140f }
 .highlight .k, .highlight .kc, .highlight .kd, .highlight .kn, .highlight .kr { color: #fb660a; font-weight: bold }

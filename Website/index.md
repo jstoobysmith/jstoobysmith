@@ -3,8 +3,18 @@ layout: home
 title:
 date: 2020-11-20
 ---
-### Hi, I'm Joseph Tooby-Smith
-_Lecturer (Assistant Professor) in computer science at University of Bath_
+# Joseph Tooby-Smith
+_Lecturer (Assistant Professor) in Computer Science · University of Bath_
+
+<div class="physlib-banner">
+  <p class="physlib-banner-title">Help me build the future of physics with <a href="https://physlib.io">Physlib</a></p>
+  <ul class="physlib-banner-links">
+    <li><a href="https://github.com/leanprover-community/physlib"><i class="fab fa-github"></i> GitHub</a></li>
+    <li><a href="https://leanprover.zulipchat.com/#narrow/channel/479953-Physlib/"><i class="fas fa-comments"></i> Zulip forum</a></li>
+    <li><a href="https://jstoobysmith.github.io/PhyslibVerso/"><i class="fas fa-book-open"></i> Wiki</a></li>
+    <li><a href="https://physlib.io"><i class="fas fa-globe"></i> Website</a></li>
+  </ul>
+</div>
 
 _contact me at_: <span style="unicode-bidi:bidi-override; direction: rtl;">ku.ca.<!--comemfslj-->htab@4184sj</span>
 

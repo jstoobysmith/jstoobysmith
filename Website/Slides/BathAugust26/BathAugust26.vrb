@@ -1,0 +1,43 @@
+\frametitle{Local models, and citizen science}
+\vfill
+  \begin{columns}[c,onlytextwidth]
+
+    \begin{column}{0.235\textwidth}
+      \begin{plcard}{plblue}{\plchip{plblue}{THE QUESTION}}
+        \normalsize What can we do \emph{now}, with the models people already have?
+      \end{plcard}
+    \end{column}
+
+    \begin{column}{0.745\textwidth}
+      % ---- GitHub issue mock ------------------------------------------------
+      \begin{tcolorbox}[enhanced, arc=8pt, outer arc=8pt, colback=white,
+          colframe=plrule, boxrule=1.2pt, left=11pt,right=11pt,top=7pt,bottom=7pt,
+          halign=flush left, drop fuzzy shadow={black!55}]
+        {\color{plgreen}\faIcon{dot-circle}}\;
+        {\bfseries\color{plnavy}Docstring for \texttt{rep} incorrectly refers to
+         Lorentz vectors instead of covectors}\;
+        {\color{plmuted}\#1495}\\[4pt]
+        {\scriptsize\plchip{plgreen}{open}\;\plchip{plorange}{good first issue}\;
+         {\color{plmuted}opened by \texttt{jstoobysmith}}}
+
+        \vspace{4pt}
+        \begin{pldiff}{plrust}
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize\color{plink}]
+- /-- The representation of the Lorentz group on Lorentz vectors. -/
+\end{lstlisting}
+        \end{pldiff}
+        \begin{pldiff}{plgreen}
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize\color{plink}]
++ /-- The representation of the Lorentz group on Lorentz covectors. -/
+\end{lstlisting}
+        \end{pldiff}
+
+        \vspace{5pt}
+        {\scriptsize\color{plmuted}\itshape
+          Found with a local LLM pass over Physlib docs (\texttt{qwen3.5:9b});
+          10 of 10 independent verification runs agreed before filing.}
+      \end{tcolorbox}
+    \end{column}
+
+  \end{columns}
+  \vfill

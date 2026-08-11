@@ -1,0 +1,538 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Formalization and physics: a new frontier for AI
+%  Joseph Tooby-Smith -- University of Bath, August 2026
+%
+%  Compile with: pdflatex BathAugust26.tex   (run twice)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[aspectratio=169,10pt]{beamer}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[sfdefault]{FiraSans}
+\usefonttheme[onlymath]{serif}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{fontawesome5}
+\usepackage[most]{tcolorbox}
+\usetikzlibrary{calc,positioning,fadings}
+% radial falloff, so the background glows read as light rather than as discs
+\tikzfading[name=plglow, inner color=transparent!0, outer color=transparent!100]
+
+\graphicspath{{../Images/}{Images/}}
+
+% Clickable links, sane PDF metadata, no ugly boxes.
+\hypersetup{
+  pdftitle={Formalization and physics: a new frontier for AI},
+  pdfauthor={Joseph Tooby-Smith},
+  pdfsubject={Formalization, Lean, and physics},
+  pdfkeywords={Lean, Physlib, formalization, Standard Model, AI},
+  colorlinks=false, pdfborder={0 0 0},
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  PALETTE  (PhysLib house style)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{plnavy}  {HTML}{24476B}
+\definecolor{plblue}  {HTML}{3D6B99}
+\definecolor{plsky}   {HTML}{6FA3CE}
+\definecolor{plorange}{HTML}{EF6B3B}
+\definecolor{plrust}  {HTML}{D95729}
+\definecolor{plgreen} {HTML}{3FA56A}
+\definecolor{plpaper} {HTML}{F7FAFD}
+\definecolor{plink}   {HTML}{243447}
+\definecolor{plmuted} {HTML}{5C7187}
+\definecolor{plrule}  {HTML}{C7DCED}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  BACKGROUNDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% A faint dot lattice -- reads as "structure" without competing with content.
+\newcommand{\pldotgrid}[2]{%
+  \foreach \x in {0,0.60,...,16.2}{%
+    \foreach \y in {0,0.60,...,9.4}{%
+      \fill[#1,opacity=#2] ([shift={(\x cm,\y cm)}]current page.south west) circle (0.42pt);}}%
+}
+
+% One background for the whole deck: navy gradient, dot lattice, soft glows,
+% faint orbital arcs, and a progress bar along the foot.
+% The glows use "fade out" so they read as light, not as hard-edged discs.
+\newcommand{\plBackground}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \shade[top color=plnavy!95, bottom color=plnavy!74]
+      (current page.south west) rectangle (current page.north east);
+    \begin{scope}
+      \clip (current page.south west) rectangle (current page.north east);
+      \pldotgrid{white}{0.85}
+      \fill[plsky,   opacity=0.30, path fading=plglow]
+        ([shift={(-2.0cm,-1.0cm)}]current page.north east) circle (7.6cm);
+      \fill[plorange,opacity=0.24, path fading=plglow]
+        ([shift={( 0.4cm,-0.2cm)}]current page.south west) circle (6.2cm);
+      \foreach \r in {3.2,4.4,5.6,6.8}{%
+        \draw[white,opacity=0.07,line width=0.7pt]
+          ([shift={(-1.2cm,-0.6cm)}]current page.north east) circle (\r cm);}
+    \end{scope}
+    % progress bar: how far through the deck we are
+    \pgfmathsetmacro{\plfrac}{\insertframenumber/\inserttotalframenumber}%
+    \fill[plsky!30!plnavy] (current page.south west)
+      rectangle ([yshift=0.16cm]current page.south east);
+    \fill[plorange] (current page.south west)
+      rectangle ([xshift=\plfrac\paperwidth,yshift=0.16cm]current page.south west);
+  \end{tikzpicture}%
+}
+
+\setbeamertemplate{background}{\plBackground}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  BEAMER FURNITURE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{navigation symbols}{}
+\setbeamersize{text margin left=0.62cm,text margin right=0.62cm}
+\setbeamercolor{normal text}{fg=plink}
+\setbeamercolor{frametitle}{fg=white}
+\setbeamercolor{itemize item}{fg=plblue}
+\setbeamerfont{frametitle}{size=\LARGE,series=\bfseries}
+\setbeamertemplate{itemize item}{\raisebox{0.15ex}{\tiny$\blacksquare$}}
+\setlength{\parskip}{2pt}
+\setlength{\leftmargini}{1.2em}
+% displayed maths inside cards should hug its surroundings, not float in space
+\setlength{\abovedisplayskip}{4pt}
+\setlength{\belowdisplayskip}{2pt}
+\setlength{\abovedisplayshortskip}{4pt}
+\setlength{\belowdisplayshortskip}{2pt}
+
+\setbeamertemplate{frametitle}{%
+  \vspace*{0.34cm}%
+  \begin{minipage}{\dimexpr\paperwidth-1.4cm\relax}
+    \raggedright
+    {\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle\par}
+    \vspace{4pt}
+    {\color{plorange}\rule{1.4cm}{2.4pt}}{\color{plsky!40!plnavy}\rule{\dimexpr\linewidth-1.4cm\relax}{2.4pt}}
+  \end{minipage}\par\vspace{0.16cm}%
+}
+
+\setbeamertemplate{footline}{%
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.0ex,dp=3.6ex,leftskip=0.62cm,rightskip=0.62cm]{}%
+      {\scriptsize\color{plsky!25!white}Joseph Tooby-Smith\;\textbullet\;University of Bath}%
+      \hfill
+      {\scriptsize\color{plsky!25!white}\textbf{\insertframenumber}\,/\,\inserttotalframenumber}%
+    \end{beamercolorbox}}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  CARDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tcbset{
+  plbase/.style={
+    enhanced, arc=6pt, outer arc=6pt, boxrule=0pt, leftrule=4pt,
+    colback=white, left=10pt, right=10pt, top=8pt, bottom=8pt,
+    halign=flush left,
+    drop fuzzy shadow={black!55}, before skip=4pt, after skip=4pt,
+  }
+}
+% Each argument: [extra tcolorbox options] {accent colour} {heading}
+\newtcolorbox{plcard}[3][]{plbase, colframe=#2, #1,
+  before upper={{\bfseries\color{#2}#3}\par\vspace{5pt}}}
+% fixed-height variant, so a row of cards lines up
+\newtcolorbox{plcardh}[4][]{plbase, colframe=#2, height=#4, #1,
+  before upper={{\bfseries\color{#2}#3}\par\vspace{5pt}}}
+\newtcolorbox{plplain}[2][]{plbase, colframe=#2, #1}
+
+% big tinted panel
+\newtcolorbox{plpanel}[2]{enhanced, arc=10pt, outer arc=10pt, boxrule=1.2pt,
+  colframe=#1!45, colback=#1!7, left=10pt, right=10pt, top=10pt, bottom=10pt,
+  before skip=3pt, after skip=3pt, halign=center, valign=center, height=#2,
+  drop fuzzy shadow={black!55}}
+
+% one line of a diff, GitHub-style
+\newtcolorbox{pldiff}[1]{enhanced, arc=2pt, boxrule=0pt, colback=#1!11,
+  colframe=#1!11, left=6pt, right=6pt, top=3pt, bottom=3pt,
+  before skip=2pt, after skip=2pt}
+
+\newcommand{\plchip}[2]{%
+  \tikz[baseline=(t.base)]{\node[fill=#1,text=white,rounded corners=5pt,
+    inner xsep=5pt,inner ysep=1.8pt,font=\bfseries\tiny] (t) {#2};}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  LEAN LISTINGS  (ASCII-only source, so pdflatex stays happy)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lstdefinelanguage{lean}{
+  morekeywords={theorem,lemma,def,abbrev,example,structure,instance,class,where,
+    by,fun,have,show,from,let,match,with,namespace,end,open,variable,
+    intro,exact,apply,simp,rfl,ring,unfold,positivity,sorry,Type,Prop,Sort},
+  sensitive=true,
+  morecomment=[l]{--},
+  morecomment=[s]{/-}{-/},
+  morestring=[b]",
+}
+\lstset{
+  language=lean,
+  basicstyle=\ttfamily\small\color{plink},
+  keywordstyle=\bfseries\color{plnavy},
+  commentstyle=\itshape\color{plgreen!80!black},
+  showstringspaces=false,
+  columns=fullflexible,
+  breaklines=false,
+  aboveskip=1pt, belowskip=1pt,
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Formalization and physics: a new frontier for AI}
+\author{Joseph Tooby-Smith}
+\date{August 2026}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  0.  TITLE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{
+\setbeamertemplate{footline}{}
+\begin{frame}[plain]
+  \vfill
+  \begin{center}
+    {\color{plsky}\footnotesize\bfseries UNIVERSITY OF BATH \;\textbullet\; AUGUST 2026}
+
+    \vspace{0.55cm}
+
+    {\color{white}\fontsize{27}{31}\selectfont\bfseries
+      Formalization and physics:\\[1pt]
+      a new frontier for AI\par}
+
+    \vspace{0.45cm}
+
+    \begin{tikzpicture}
+      \fill[plsky!75] (0,0) rectangle (2.5cm,2pt);
+      \fill[plorange] (2.75cm,-3pt) circle (4.5pt);
+      \fill[plsky!75] (3.2cm,0) rectangle (5.7cm,2pt);
+    \end{tikzpicture}
+
+    \vspace{0.45cm}
+
+    {\color{white}\Large\bfseries Joseph Tooby-Smith\par}
+    \vspace{3pt}
+    {\color{plsky!30!white}\small Mathematical Foundations group,
+      Department of Computer Science\par}
+
+    \vspace{0.55cm}
+
+    {\color{white!80}\footnotesize
+      \href{https://github.com/leanprover-community/physlib}{%
+        \color{white!80}\faIcon{github}\; \texttt{leanprover-community/physlib}}
+      \qquad
+      \href{https://josephtoobysmith.com/}{%
+        \color{white!80}\faIcon{globe}\; \texttt{josephtoobysmith.com}}\par}
+  \end{center}
+  \vfill
+\end{frame}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  1.  A NEW ERA OF PROVING
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{A new era of proving}
+  \vfill
+  \begin{columns}[T,onlytextwidth]
+
+    \begin{column}{0.315\textwidth}
+      \begin{plcardh}{plorange}{\plchip{plorange}{MAY 2026}}{4.1cm}
+        \large\bfseries\color{plnavy}
+        The unit-distance\\problem
+        \par\vspace{8pt}
+        {\normalsize\normalfont\color{plink}Erd\H{o}s, 1946.\\ Disproved.}
+        \par\vfill
+        {\footnotesize\normalfont\color{plmuted}OpenAI, internal model}
+      \end{plcardh}
+    \end{column}
+
+    \begin{column}{0.315\textwidth}
+      \begin{plcardh}{plorange}{\plchip{plorange}{JUL 2026}}{4.1cm}
+        \large\bfseries\color{plnavy}
+        The Jacobian\\conjecture
+        \par\vspace{8pt}
+        {\normalsize\normalfont\color{plink}Keller, 1939.\\ Counterexample in $\mathbb{C}^{3}$.}
+        \par\vfill
+        {\footnotesize\normalfont\color{plmuted}Alpoge, with Claude Fable 5}
+      \end{plcardh}
+    \end{column}
+
+    \begin{column}{0.315\textwidth}
+      \begin{plcardh}{plorange}{\plchip{plorange}{AUG 2026}}{4.1cm}
+        \large\bfseries\color{plnavy}
+        Ten open\\problems
+        \par\vspace{8pt}
+        {\normalsize\normalfont\color{plink}Each with a\\ Lean 4 certificate.}
+        \par\vfill
+        {\footnotesize\normalfont\color{plmuted}OpenAI ``Astra''}
+      \end{plcardh}
+    \end{column}
+
+  \end{columns}
+  \vfill
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  2.  TWO WAYS OF VERIFYING
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Two ways of verifying}
+  \vfill
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.475\textwidth}
+      \begin{plpanel}{plblue}{4.7cm}
+        {\color{plblue}\fontsize{46}{46}\selectfont\faIcon{microchip}}\\[14pt]
+        {\color{plnavy}\fontsize{23}{26}\selectfont\bfseries Computer}
+      \end{plpanel}
+    \end{column}
+    \begin{column}{0.475\textwidth}
+      \begin{plpanel}{plorange}{4.7cm}
+        {\color{plorange}\fontsize{46}{46}\selectfont\faIcon{user-graduate}}\\[14pt]
+        {\color{plnavy}\fontsize{23}{26}\selectfont\bfseries Expert review}
+      \end{plpanel}
+    \end{column}
+  \end{columns}
+  \vfill
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  3.  A RAPID OVERVIEW OF LEAN
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{A rapid overview of Lean}
+  \vfill
+  \begin{columns}[c,onlytextwidth]
+
+    \begin{column}{0.455\textwidth}
+      \begin{plcard}[halign=center,top=5pt,bottom=5pt]%
+                    {plnavy}{\hfill One way to check by computer\hfill}
+        \small Definitions, theorems, proofs\\[2pt]
+        {\color{plorange}$\downarrow$}\\[2pt]
+        \textbf{consistency \& correctness, guaranteed}
+      \end{plcard}
+
+      \begin{plcard}[top=5pt,bottom=5pt,before skip=2pt]{plblue}{Built on type theory}
+        \small
+        Lean knows the \textbf{type} of everything, and checks
+        that things have the type expected.\par
+        \vspace{4pt}
+        {\centering\small
+          $\underbrace{p}_{\text{proof}}\,:\,\underbrace{P}_{\text{theorem}}
+           \qquad
+           \underbrace{7}_{\text{term}}\,:\,\underbrace{\mathbb{N}}_{\text{type}}$\par}
+      \end{plcard}
+    \end{column}
+
+    \begin{column}{0.525\textwidth}
+      \begin{plplain}{plorange}
+        {\footnotesize\bfseries\color{plorange}A definition, a theorem, a proof}
+        \vspace{5pt}
+\begin{lstlisting}
+def energy (m v : Real) : Real :=
+  m * v ^ 2 / 2
+
+theorem energy_nonneg
+    (m v : Real) (hm : 0 <= m) :
+    0 <= energy m v := by
+  unfold energy
+  positivity
+\end{lstlisting}
+      \end{plplain}
+    \end{column}
+
+  \end{columns}
+  \vfill
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  4.  MY BROAD INTEREST -- PHYSLIB
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{My broad interest}
+  \vfill
+  \begin{center}
+  \begin{tcolorbox}[enhanced, width=0.92\textwidth, arc=10pt, outer arc=10pt,
+      colback=white, colframe=plrule, boxrule=1.2pt,
+      left=18pt,right=18pt,top=14pt,bottom=14pt, drop fuzzy shadow={black!55}]
+    \begin{minipage}[c]{0.10\textwidth}
+      {\color{plmuted}\fontsize{30}{30}\selectfont\faIcon{github}}
+    \end{minipage}\hfill
+    \begin{minipage}[c]{0.70\textwidth}
+      {\Large\bfseries\color{plnavy}leanprover-community\,/\,physlib}\\[4pt]
+      {\small\color{plmuted}\raggedright A \emph{community-driven} project to
+       digitalise results from physics into Lean.\par}
+    \end{minipage}\hfill
+    \begin{minipage}[c]{0.17\textwidth}
+      \raggedleft\plchip{plgreen}{public}\\[3pt]\plchip{plnavy}{Lean 4}
+    \end{minipage}
+
+    \vspace{12pt}{\color{plrule}\rule{\linewidth}{0.8pt}}\vspace{7pt}
+
+    {\small\color{plmuted}
+      \tikz[baseline=-2pt]{\fill[plnavy] (0,0) circle (3.4pt);}\; Lean
+      \hspace{1.1em}\faIcon{star}\;\textbf{676} stars
+      \hspace{1.1em}\faIcon{code-branch}\;\textbf{153} forks
+      \hspace{1.1em}\faIcon{users}\;\textbf{85} contributors
+      \hspace{1.1em}\faIcon{clock}\;started 2024}
+  \end{tcolorbox}
+  \end{center}
+  \vfill
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  SECTION DIVIDER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[plain]
+  \vfill
+  \begin{center}
+    \plchip{plorange}{TWO THINGS}
+
+    \vspace{0.45cm}
+
+    {\color{white}\fontsize{30}{34}\selectfont\bfseries
+      What I am interested in now\par}
+
+    \vspace{0.45cm}
+
+    \begin{tikzpicture}
+      \fill[plsky!75] (0,0) rectangle (2.2cm,2pt);
+      \fill[plorange] (2.45cm,-3pt) circle (4.5pt);
+      \fill[plsky!75] (2.9cm,0) rectangle (5.1cm,2pt);
+    \end{tikzpicture}
+  \end{center}
+  \vfill
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  5.  EXCITING #1 -- LOCAL MODELS AND CITIZEN SCIENCE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Local models, and citizen science}
+  \vfill
+  \begin{columns}[c,onlytextwidth]
+
+    \begin{column}{0.235\textwidth}
+      \begin{plcard}{plblue}{\plchip{plblue}{THE QUESTION}}
+        \normalsize What can we do \emph{now}, with the models people already have?
+      \end{plcard}
+    \end{column}
+
+    \begin{column}{0.745\textwidth}
+      % ---- GitHub issue mock ------------------------------------------------
+      \begin{tcolorbox}[enhanced, arc=8pt, outer arc=8pt, colback=white,
+          colframe=plrule, boxrule=1.2pt, left=11pt,right=11pt,top=7pt,bottom=7pt,
+          halign=flush left, drop fuzzy shadow={black!55}]
+        {\color{plgreen}\faIcon{dot-circle}}\;
+        {\bfseries\color{plnavy}Docstring for \texttt{rep} incorrectly refers to
+         Lorentz vectors instead of covectors}\;
+        {\color{plmuted}\#1495}\\[4pt]
+        {\scriptsize\plchip{plgreen}{open}\;\plchip{plorange}{good first issue}\;
+         {\color{plmuted}opened by \texttt{jstoobysmith}}}
+
+        \vspace{4pt}
+        \begin{pldiff}{plrust}
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize\color{plink}]
+- /-- The representation of the Lorentz group on Lorentz vectors. -/
+\end{lstlisting}
+        \end{pldiff}
+        \begin{pldiff}{plgreen}
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize\color{plink}]
++ /-- The representation of the Lorentz group on Lorentz covectors. -/
+\end{lstlisting}
+        \end{pldiff}
+
+        \vspace{5pt}
+        {\scriptsize\color{plmuted}\itshape
+          Found with a local LLM pass over Physlib docs (\texttt{qwen3.5:9b});
+          10 of 10 independent verification runs agreed before filing.}
+      \end{tcolorbox}
+    \end{column}
+
+  \end{columns}
+  \vfill
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  6.  EXCITING #2 -- FORMALIZING THE STANDARD MODEL
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Formalizing the Standard Model}
+  \vfill
+  \begin{plplain}[top=3pt,bottom=3pt]{plnavy}
+    \vspace{1pt}
+    \begin{align*}
+      \mathcal{L}_{\text{SM}} \;=\;
+        & -\tfrac{1}{4}\,G^{A}_{\mu\nu}G^{A\,\mu\nu}
+          -\tfrac{1}{4}\,W^{I}_{\mu\nu}W^{I\,\mu\nu}
+          -\tfrac{1}{4}\,B_{\mu\nu}B^{\mu\nu}
+          \;+\;\sum_{\psi}\, i\,\bar{\psi}\,\gamma^{\mu}D_{\mu}\psi\\
+        & +\,(D_{\mu}H)^{\dagger}(D^{\mu}H)
+          \;+\;\mu^{2}\,H^{\dagger}H\;-\;\lambda\,(H^{\dagger}H)^{2}\\
+        & -\,\Big(\bar{Q}_{L}\,Y_{u}\,\tilde{H}\,u_{R}
+                 +\bar{Q}_{L}\,Y_{d}\,H\,d_{R}
+                 +\bar{L}_{L}\,Y_{e}\,H\,e_{R}
+                 +\text{h.c.}\Big)
+    \end{align*}
+    \vspace{-9pt}
+  \end{plplain}
+
+  \begin{plplain}[top=3pt,bottom=3pt,before skip=2pt]{plblue}
+    {\scriptsize
+    \vspace{-3pt}
+    \begin{align*}
+      D_{\mu} &= \partial_{\mu} - i g_{3} G^{A}_{\mu}T^{A}
+                 - i g_{2} W^{I}_{\mu}t^{I} - i g_{1} Y B_{\mu}\,,
+      \qquad
+      B_{\mu\nu} = \partial_{\mu}B_{\nu}-\partial_{\nu}B_{\mu}\,,\\
+      G^{A}_{\mu\nu} &= \partial_{\mu}G^{A}_{\nu}-\partial_{\nu}G^{A}_{\mu}
+                 + g_{3} f^{ABC} G^{B}_{\mu}G^{C}_{\nu}\,,
+      \qquad
+      W^{I}_{\mu\nu} = \partial_{\mu}W^{I}_{\nu}-\partial_{\nu}W^{I}_{\mu}
+                 + g_{2}\,\epsilon^{IJK} W^{J}_{\mu}W^{K}_{\nu}\,.
+    \end{align*}
+    \vspace{-12pt}}
+    \begin{center}\scriptsize
+      $G=\big(SU(3)\times SU(2)\times U(1)\big)/\Gamma$, acting on three generations of\\
+      $Q_{L}(\mathbf{3},\mathbf{2})_{1/6}$,
+      $u_{R}(\mathbf{3},\mathbf{1})_{2/3}$,
+      $d_{R}(\mathbf{3},\mathbf{1})_{-1/3}$,
+      $L_{L}(\mathbf{1},\mathbf{2})_{-1/2}$,
+      $e_{R}(\mathbf{1},\mathbf{1})_{-1}$, and $H(\mathbf{1},\mathbf{2})_{1/2}$.
+    \end{center}
+  \end{plplain}
+  \vfill
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  CLOSING
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{
+\setbeamertemplate{footline}{}
+\begin{frame}[plain]
+  \vfill
+  \begin{center}
+    {\color{white}\fontsize{36}{40}\selectfont\bfseries
+      Thank you for watching\par}
+
+    \vspace{0.50cm}
+
+    \begin{tikzpicture}
+      \fill[plsky!75] (0,0) rectangle (2.5cm,2pt);
+      \fill[plorange] (2.75cm,-3pt) circle (4.5pt);
+      \fill[plsky!75] (3.2cm,0) rectangle (5.7cm,2pt);
+    \end{tikzpicture}
+
+    \vspace{0.50cm}
+
+    {\color{plsky!30!white}\normalsize Joseph Tooby-Smith\;\textbullet\;University of Bath\par}
+
+    \vspace{0.40cm}
+
+    {\color{white!80}\footnotesize
+      \href{https://github.com/leanprover-community/physlib}{%
+        \color{white!80}\faIcon{github}\; \texttt{leanprover-community/physlib}}
+      \qquad
+      \href{https://josephtoobysmith.com/}{%
+        \color{white!80}\faIcon{globe}\; \texttt{josephtoobysmith.com}}\par}
+  \end{center}
+  \vfill
+\end{frame}
+}
+
+\end{document}

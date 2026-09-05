@@ -1,12 +1,24 @@
 {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2,
-    "editor.rulers": [
-        100
-    ],
-    "files.encoding": "utf8",
-    "files.eol": "\n",
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
-    "files.trimTrailingWhitespace": true
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#40304E",
+        "activityBar.foreground": "#F4F1F7",
+        "activityBar.inactiveForeground": "#A896B8",
+        "activityBarBadge.background": "#D9A441",
+        "activityBarBadge.foreground": "#2A2033",
+        "statusBar.background": "#40304E",
+        "statusBar.foreground": "#F4F1F7",
+        "statusBar.debuggingBackground": "#B03A57",
+        "titleBar.activeBackground": "#40304E",
+        "titleBar.activeForeground": "#F4F1F7",
+        "titleBar.inactiveBackground": "#52405F",
+        "titleBar.inactiveForeground": "#A896B8",
+        "sideBar.background": "#c7d9b8",
+        "sideBar.foreground": "#000000",
+        "auxiliaryBar.background": "#33452B",
+        "auxiliaryBar.foreground": "#F2F2F2"
+    },
+    "window.title": "🛜 Website - ${folderName}",
+    "gitdoc.enabled": true,
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.openSideBySideDirection": "down"
 }

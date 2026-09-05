@@ -1,0 +1,35 @@
+\frametitle{Step 5 (theorem): $\mathcal {V}_0 = \mathcal {V}$}
+\vfill
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.465\textwidth}
+      \begin{plcardh}[top=5pt,bottom=5pt]{plblue}%
+                     {\plchip{plblue}{STEP 3}}{1.35cm}
+        \centering$x \in \mathcal{V}\;\iff\;$viability conditions
+      \end{plcardh}
+    \end{column}
+    \begin{column}{0.465\textwidth}
+      \begin{plcardh}[top=5pt,bottom=5pt]{plorange}%
+                     {\plchip{plorange}{STEP 4}}{1.35cm}
+        \centering$\mathcal{V}_0$, a list you can print
+      \end{plcardh}
+    \end{column}
+  \end{columns}
+
+  \vspace{8pt}
+  {\centering{\color{plgreen}\fontsize{20}{20}\selectfont$\Downarrow$}\par}
+  \vspace{8pt}
+
+  \begin{center}
+    \begin{plplain}[width=0.90\textwidth, top=5pt, bottom=5pt]{plgreen}
+\begin{lstlisting}[basicstyle=\ttfamily\fontsize{6.9}{8.3}\selectfont]
+lemma mem_viableCharges_iff {I} {x : ChargeSpectrum}
+    (hsub : x ∈ ofFinset I.allowedBarFiveCharges I.allowedTenCharges) :
+    x ∈ viableCharges I ↔
+      AllowsTerm x topYukawa ∧
+      ¬ IsPhenoConstrained x ∧
+      ¬ YukawaGeneratesDangerousAtLevel x 1 ∧
+      IsComplete x := ...
+\end{lstlisting}
+    \end{plplain}
+  \end{center}
+  \vfill

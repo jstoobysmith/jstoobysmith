@@ -1,8 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  Formalization and physics: a new frontier for AI
-%  Joseph Tooby-Smith -- University of Bath, August 2026
+%  Joseph Tooby-Smith -- University of Bath, September 2026
 %
-%  Compile with: pdflatex BathAugust26.tex   (run twice)
+%  Compile with: pdflatex BathSeptember26.tex   (run twice)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[aspectratio=169,10pt]{beamer}
 
@@ -155,6 +155,12 @@
   \tikz[baseline=(t.base)]{\node[fill=#1,text=white,rounded corners=5pt,
     inner xsep=5pt,inner ysep=1.8pt,font=\bfseries\tiny] (t) {#2};}}
 
+% a bigger badge, for when chips are the main content of a slide (e.g. a
+% directory/topic grid) rather than a small label on a card
+\newcommand{\plchipbig}[2]{%
+  \tikz[baseline=(t.base)]{\node[fill=#1,text=white,rounded corners=6pt,
+    inner xsep=8pt,inner ysep=4.5pt,font=\bfseries\small] (t) {#2};}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  LEAN LISTINGS  (ASCII-only source, so pdflatex stays happy)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -181,7 +187,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title{Formalization and physics: a new frontier for AI}
 \author{Joseph Tooby-Smith}
-\date{August 2026}
+\date{September 2026}
 
 \begin{document}
 
@@ -193,7 +199,7 @@
 \begin{frame}[plain]
   \vfill
   \begin{center}
-    {\color{plsky}\footnotesize\bfseries UNIVERSITY OF BATH \;\textbullet\; AUGUST 2026}
+    {\color{plsky}\footnotesize\bfseries UNIVERSITY OF BATH \;\textbullet\; SEPTEMBER 2026}
 
     \vspace{0.55cm}
 
@@ -236,36 +242,51 @@
   \vfill
   \begin{columns}[T,onlytextwidth]
 
-    \begin{column}{0.315\textwidth}
-      \begin{plcardh}{plorange}{\plchip{plorange}{MAY 2026}}{4.1cm}
+    \begin{column}{0.475\textwidth}
+      \begin{plcardh}{plorange}{\plchip{plorange}{MAY 2026}}{2.80cm}
         \large\bfseries\color{plnavy}
-        The unit-distance\\problem
-        \par\vspace{8pt}
-        {\normalsize\normalfont\color{plink}Erd\H{o}s, 1946.\\ Disproved.}
+        The unit-distance problem
+        \par\vspace{4pt}
+        {\normalsize\normalfont\color{plink}Erd\H{o}s, 1946. Disproved.}
         \par\vfill
         {\footnotesize\normalfont\color{plmuted}OpenAI, internal model}
       \end{plcardh}
     \end{column}
 
-    \begin{column}{0.315\textwidth}
-      \begin{plcardh}{plorange}{\plchip{plorange}{JUL 2026}}{4.1cm}
+    \begin{column}{0.475\textwidth}
+      \begin{plcardh}{plorange}{\plchip{plorange}{JUL 2026}}{2.80cm}
         \large\bfseries\color{plnavy}
-        The Jacobian\\conjecture
-        \par\vspace{8pt}
-        {\normalsize\normalfont\color{plink}Keller, 1939.\\ Counterexample in $\mathbb{C}^{3}$.}
+        The Jacobian conjecture
+        \par\vspace{4pt}
+        {\normalsize\normalfont\color{plink}Keller, 1939. Counterexample in $\mathbb{C}^{3}$.}
         \par\vfill
         {\footnotesize\normalfont\color{plmuted}Alpoge, with Claude Fable 5}
       \end{plcardh}
     \end{column}
 
-    \begin{column}{0.315\textwidth}
-      \begin{plcardh}{plorange}{\plchip{plorange}{AUG 2026}}{4.1cm}
+  \end{columns}
+  \vspace{1pt}
+  \begin{columns}[T,onlytextwidth]
+
+    \begin{column}{0.475\textwidth}
+      \begin{plcardh}{plorange}{\plchip{plorange}{AUG 2026}}{2.80cm}
         \large\bfseries\color{plnavy}
-        Ten open\\problems
-        \par\vspace{8pt}
-        {\normalsize\normalfont\color{plink}Each with a\\ Lean 4 certificate.}
+        Ten open problems
+        \par\vspace{4pt}
+        {\normalsize\normalfont\color{plink}From maths and CS}
         \par\vfill
         {\footnotesize\normalfont\color{plmuted}OpenAI ``Astra''}
+      \end{plcardh}
+    \end{column}
+
+    \begin{column}{0.475\textwidth}
+      \begin{plcardh}{plorange}{\plchip{plorange}{SEP 2026}}{2.80cm}
+        \large\bfseries\color{plnavy}
+        Navier--Stokes existence
+        \par\vspace{4pt}
+        {\normalsize\normalfont\color{plink}Disproved.}
+        \par\vfill
+        {\footnotesize\normalfont\color{plmuted}OpenAI, internal model}
       \end{plcardh}
     \end{column}
 
@@ -292,6 +313,17 @@
       \end{plpanel}
     \end{column}
   \end{columns}
+  \vfill
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  2b.  NAVIER-STOKES ANNOUNCEMENT SCREENSHOT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{The Navier--Stokes announcement}
+  \vfill
+  \begin{center}
+    \includegraphics[width=0.95\textwidth]{NavierStokes.png}
+  \end{center}
   \vfill
 \end{frame}
 
@@ -323,9 +355,9 @@
     \end{column}
 
     \begin{column}{0.525\textwidth}
-      \begin{plplain}{plorange}
+      \begin{plplain}[top=3pt,bottom=3pt]{plorange}
         {\footnotesize\bfseries\color{plorange}A definition, a theorem, a proof}
-        \vspace{5pt}
+        \vspace{3pt}
 \begin{lstlisting}
 def energy (m v : Real) : Real :=
   m * v ^ 2 / 2
@@ -337,6 +369,20 @@ theorem energy_nonneg
   positivity
 \end{lstlisting}
       \end{plplain}
+      \vspace{3pt}
+      \noindent
+      \begin{minipage}[c]{1.9cm}
+        \href{https://live.lean-lang.org/}%
+          {\includegraphics[width=1.9cm]{LeanExampleQR.pdf}}
+      \end{minipage}%
+      \hfill
+      \begin{minipage}[c]{\dimexpr\linewidth-2.1cm\relax}
+        {\footnotesize\color{white!85}\faIcon{globe}\;
+          \href{https://live.lean-lang.org/}%
+            {\color{white!85}Open the live editor}}\par
+        \vspace{2pt}
+        {\tiny\color{white!70}scan to open on your phone}
+      \end{minipage}
     \end{column}
 
   \end{columns}
@@ -417,6 +463,17 @@ theorem energy_nonneg
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  5b.  FERMAT'S LAST THEOREM FORMALIZATION SCREENSHOT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Formalizing Fermat's Last Theorem}
+  \vfill
+  \begin{center}
+    \includegraphics[width=0.95\textwidth]{FormalizationFermat.png}
+  \end{center}
+  \vfill
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  6.  MY BROAD INTEREST -- PHYSLIB
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{My broad interest}
@@ -451,81 +508,169 @@ theorem energy_nonneg
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%  SECTION DIVIDER
+%  6b.  WHAT PHYSLIB IS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[plain]
+\begin{frame}{What Physlib is}
+  \vfill
+  \setbeamercolor{normal text}{fg=white}
+  \usebeamercolor*{normal text}
+  \setbeamercolor{itemize item}{fg=plsky}
+  \begin{center}
+    \begin{minipage}{0.85\textwidth}
+      \large
+      \begin{itemize}
+        \item A \textbf{monolithic library} for physics results from standard
+          physics (not just axiomatisations).
+        \item[] \vspace{4pt}
+        \item Research-level results, with carefully standardized definitions
+          and theorems --- a foundation for future formalization.
+        \item[] \vspace{4pt}
+        \item Community run (no bias to any academic or company), following
+          open-source software workflows.
+      \end{itemize}
+    \end{minipage}
+  \end{center}
+  \vfill
+  % restore, since setbeamercolor{normal text} + usebeamercolor* is global state
+  \setbeamercolor{normal text}{fg=plink}
+  \usebeamercolor*{normal text}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  6c.  STRUCTURE OF PHYSLIB
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Structure of Physlib}
   \vfill
   \begin{center}
-    \plchip{plorange}{TWO THINGS}
+    {\footnotesize\color{plsky!70!white}\bfseries UPSTREAM}\quad
+    {\color{white}\bfseries Mathlib}\\[2pt]
+    {\color{plsky!60!white}\Large$\Downarrow$}\\[4pt]
+    {\footnotesize\color{plsky!70!white}\bfseries THIS REPOSITORY}
+  \end{center}
 
-    \vspace{0.45cm}
+  \vspace{4pt}
+  \begin{columns}[T,onlytextwidth]
 
-    {\color{white}\fontsize{30}{34}\selectfont\bfseries
-      What I am interested in now\par}
+    \begin{column}{0.315\textwidth}
+      \begin{plcardh}{plorange}{\plchip{plorange}{CORE}}{2.95cm}
+        \large\bfseries\color{plnavy}
+        Physlib
+        \par\vspace{4pt}
+        {\normalsize\normalfont\color{plink}Curated to a high standard for long-term reuse.}
+      \end{plcardh}
+    \end{column}
 
-    \vspace{0.45cm}
+    \begin{column}{0.315\textwidth}
+      \begin{plcardh}{plblue}{\plchip{plblue}{RAPID}}{2.95cm}
+        \large\bfseries\color{plnavy}
+        PhyslibAlpha
+        \par\vspace{4pt}
+        {\normalsize\normalfont\color{plink}Lighter review, for large-scale AI-assisted contributions.}
+      \end{plcardh}
+    \end{column}
 
-    \begin{tikzpicture}
-      \fill[plsky!75] (0,0) rectangle (2.2cm,2pt);
-      \fill[plorange] (2.45cm,-3pt) circle (4.5pt);
-      \fill[plsky!75] (2.9cm,0) rectangle (5.1cm,2pt);
-    \end{tikzpicture}
+    \begin{column}{0.315\textwidth}
+      \begin{plcardh}{plgreen}{\plchip{plgreen}{QI}}{2.95cm}
+        \large\bfseries\color{plnavy}
+        QuantumInfo
+        \par\vspace{4pt}
+        {\normalsize\normalfont\color{plink}Quantum information theory, being brought closer to Physlib.}
+      \end{plcardh}
+    \end{column}
+
+  \end{columns}
+  \vspace{4pt}
+
+  \begin{center}
+    {\footnotesize\color{plsky!70!white}\bfseries ADJACENT}\quad
+    {\color{plsky!60!white}\Large$\Rightarrow$}\quad
+    {\color{white}\bfseries CSLib}
   \end{center}
   \vfill
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%  7.  EXCITING #1 -- LOCAL MODELS AND CITIZEN SCIENCE
+%  6d.  WHAT PHYSLIB CONTAINS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Local models, and citizen science}
+\begin{frame}{What Physlib contains}
   \vfill
-  \begin{columns}[c,onlytextwidth]
+  \begin{center}
+    \begin{minipage}{0.92\textwidth}
+      \centering
+      \plchipbig{plblue}{ClassicalMechanics}\,
+      \plchipbig{plblue}{Electromagnetism}\,
+      \plchipbig{plblue}{Optics}\,
+      \plchipbig{plblue}{Thermodynamics}\,
+      \plchipbig{plblue}{StatisticalMechanics}\,
+      \plchipbig{plblue}{CondensedMatter}\,
+      \plchipbig{plblue}{FluidDynamics}
 
-    \begin{column}{0.235\textwidth}
-      \begin{plcard}{plblue}{\plchip{plblue}{THE QUESTION}}
-        \normalsize What can we do \emph{now}, with the models people already have?
-      \end{plcard}
-    \end{column}
+      \vspace{10pt}
+      \plchipbig{plorange}{QuantumMechanics}\,
+      \plchipbig{plorange}{QFT}\,
+      \plchipbig{plorange}{LatticeQFT}\,
+      \plchipbig{plorange}{Particles}\,
+      \plchipbig{plorange}{ClassicalFieldTheory}\,
+      \plchipbig{plorange}{StringTheory}
 
-    \begin{column}{0.745\textwidth}
-      % ---- GitHub issue mock ------------------------------------------------
-      \begin{tcolorbox}[enhanced, arc=8pt, outer arc=8pt, colback=white,
-          colframe=plrule, boxrule=1.2pt, left=11pt,right=11pt,top=7pt,bottom=7pt,
-          halign=flush left, drop fuzzy shadow={black!55}]
-        {\color{plgreen}\faIcon{dot-circle}}\;
-        {\bfseries\color{plnavy}Docstring for \texttt{rep} incorrectly refers to
-         Lorentz vectors instead of covectors}\;
-        {\color{plmuted}\#1495}\\[4pt]
-        {\scriptsize\plchip{plgreen}{open}\;\plchip{plorange}{good first issue}\;
-         {\color{plmuted}opened by \texttt{jstoobysmith}}}
-
-        \vspace{4pt}
-        \begin{pldiff}{plrust}
-\begin{lstlisting}[basicstyle=\ttfamily\scriptsize\color{plink}]
-- /-- The representation of the Lorentz group on Lorentz vectors. -/
-\end{lstlisting}
-        \end{pldiff}
-        \begin{pldiff}{plgreen}
-\begin{lstlisting}[basicstyle=\ttfamily\scriptsize\color{plink}]
-+ /-- The representation of the Lorentz group on Lorentz covectors. -/
-\end{lstlisting}
-        \end{pldiff}
-
-        \vspace{5pt}
-        {\scriptsize\color{plmuted}\itshape
-          Found with a local LLM pass over Physlib docs (\texttt{qwen3.5:9b});
-          10 of 10 independent verification runs agreed before filing.}
-      \end{tcolorbox}
-    \end{column}
-
-  \end{columns}
+      \vspace{10pt}
+      \plchipbig{plgreen}{Relativity}\,
+      \plchipbig{plgreen}{Cosmology}\,
+      \plchipbig{plgreen}{SpaceAndTime}\,
+      \plchipbig{plmuted}{Mathematics}\,
+      \plchipbig{plmuted}{Units}\,
+      \plchipbig{plmuted}{Meta}
+    \end{minipage}
+  \end{center}
   \vfill
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%  8.  EXCITING #2 -- FORMALIZING THE STANDARD MODEL
+%  6f.  INTERESTING RESULTS IN PHYSLIB
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Formalizing the Standard Model}
+\begin{frame}[fragile]{Interesting results in Physlib}
+  \vfill
+  \setbeamercolor{normal text}{fg=white}
+  \usebeamercolor*{normal text}
+  \begin{columns}[T,onlytextwidth]
+
+    \begin{column}{0.475\textwidth}
+      \begin{itemize}
+        \item[{\color{plgreen}\faIcon{check-circle}}] Classical harmonic oscillator
+        \item[{\color{plgreen}\faIcon{check-circle}}] Quantum harmonic oscillator
+        \item[{\color{plgreen}\faIcon{check-circle}}] Maxwell's equation
+        \item[{\color{plgreen}\faIcon{check-circle}}] Lorentz group
+        \item[{\color{plgreen}\faIcon{check-circle}}] Twin paradox
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.475\textwidth}
+      \begin{itemize}
+        \item[{\color{plgreen}\faIcon{check-circle}}] Tight binding chain
+        \item[{\color{plgreen}\faIcon{check-circle}}] Anomaly cancellation
+        \item[{\color{plgreen}\faIcon{check-circle}}] CKM matrix
+        \item[{\color{plgreen}\faIcon{check-circle}}] Wick's theorem
+        \item[{\color{plgreen}\faIcon{check-circle}}] String theoretic
+      \end{itemize}
+    \end{column}
+
+  \end{columns}
+
+  \vspace{10pt}
+  \begin{center}
+    {\footnotesize\color{white!85}\faIcon{globe}\;
+      \href{https://live.lean-lang.org/\#url=https\%3A\%2F\%2Fgithub.com\%2Fjstoobysmith\%2FJTSphyslib\%2Fblob\%2FHiggsExample\%2FPhyslib\%2FParticles\%2FStandardModel\%2FHiggsBoson\%2FExample.lean}%
+        {\color{white!85}Example of Higgs result}}
+  \end{center}
+  \vfill
+  \setbeamercolor{normal text}{fg=plink}
+  \usebeamercolor*{normal text}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  7.  ONGOING WORK -- FORMALIZING THE STANDARD MODEL
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Ongoing work}
   \vfill
   \begin{plplain}[top=3pt,bottom=3pt]{plnavy}
     \vspace{1pt}
@@ -561,7 +706,7 @@ theorem energy_nonneg
     \end{align*}
     \vspace{-12pt}}
     \begin{center}\scriptsize
-      $G=\big(SU(3)\times SU(2)\times U(1)\big)/\Gamma$, acting on three generations of\\
+      $G=SU(3)\times SU(2)\times U(1)$, acting on three generations of\\
       $Q_{L}(\mathbf{3},\mathbf{2})_{1/6}$,
       $u_{R}(\mathbf{3},\mathbf{1})_{2/3}$,
       $d_{R}(\mathbf{3},\mathbf{1})_{-1/3}$,
@@ -569,6 +714,28 @@ theorem energy_nonneg
       $e_{R}(\mathbf{1},\mathbf{1})_{-1}$, and $H(\mathbf{1},\mathbf{2})_{1/2}$.
     \end{center}
   \end{plplain}
+  \vfill
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  APPENDIX -- OTHER WORK ON LEAN AT BATH
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Other work on Lean at Bath}
+  \vfill
+  \begin{center}
+  \begin{tcolorbox}[enhanced, width=0.85\textwidth, arc=10pt, outer arc=10pt,
+      colback=white, colframe=plrule, boxrule=1.2pt,
+      left=20pt,right=20pt,top=16pt,bottom=16pt, drop fuzzy shadow={black!55}]
+    {\Large\bfseries\color{plnavy}Proof mining in Lean}\\[8pt]
+    {\normalsize\color{plink}\raggedright A library for partially automating the extraction of
+     computational information from proofs, with a focus on convergence rates
+     for optimization algorithms.\par}
+
+    \vspace{12pt}{\color{plrule}\rule{\linewidth}{0.8pt}}\vspace{8pt}
+
+    {\small\color{plmuted}Thomas Powell \;\textbullet\; Ben Langton}
+  \end{tcolorbox}
+  \end{center}
   \vfill
 \end{frame}
 

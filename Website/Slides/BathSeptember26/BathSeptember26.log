@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.1.8)  11 AUG 2026 08:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.1.8)  10 SEP 2026 12:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**BathAugust26.tex
-(./BathAugust26.tex
+**BathSeptember26.tex
+(./BathSeptember26.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (/usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamer.cls
@@ -993,7 +993,7 @@ File: tikzlibraryshadows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
 Package hyperref Info: Option `colorlinks' set `false' on input line 32.
 LaTeX Font Info:    Trying to load font information for T1+FiraSans-OsF on inpu
-t line 186.
+t line 192.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/fira/T1FiraSans-OsF.fd
 File: T1FiraSans-OsF.fd 2019/10/10 (autoinst) Font definitions for T1/FiraSans-
@@ -1002,31 +1002,31 @@ OsF.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/m/n' in size <10> not available
 
 (Font)              Font shape `T1/FiraSans-OsF/regular/n' tried instead on inp
-ut line 186.
+ut line 192.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/n' will be
-(Font)              scaled to size 10.0pt on input line 186.
+(Font)              scaled to size 10.0pt on input line 192.
 
-(./BathAugust26.aux)
-\openout1 = `BathAugust26.aux'.
+(./BathSeptember26.aux)
+\openout1 = `BathSeptember26.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 192.
+LaTeX Font Info:    ... okay on input line 192.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 192.
+LaTeX Font Info:    ... okay on input line 192.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 192.
+LaTeX Font Info:    ... okay on input line 192.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 192.
+LaTeX Font Info:    ... okay on input line 192.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 192.
+LaTeX Font Info:    ... okay on input line 192.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 192.
+LaTeX Font Info:    ... okay on input line 192.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 192.
+LaTeX Font Info:    ... okay on input line 192.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 192.
+LaTeX Font Info:    ... okay on input line 192.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 192.
+LaTeX Font Info:    ... okay on input line 192.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1084,11 +1084,11 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 186.
+Package hyperref Info: Link coloring OFF on input line 192.
 
-(./BathAugust26.out) (./BathAugust26.out)
+(./BathSeptember26.out) (./BathSeptember26.out)
 \@outlinefile=\write5
-\openout5 = `BathAugust26.out'.
+\openout5 = `BathSeptember26.out'.
 
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-basic-dicti
@@ -1118,19 +1118,19 @@ Dictionary: translator-theorem-dictionary, Language: English
 \c@mv@tabular=\count379
 \c@mv@boldtabular=\count380
 \c@lstlisting=\count381
- (./BathAugust26.nav)
+ (./BathSeptember26.nav)
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/m/n' in size <5> not available
 (Font)              Font shape `T1/FiraSans-OsF/regular/n' tried instead on inp
-ut line 186.
+ut line 192.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/n' will be
-(Font)              scaled to size 5.0pt on input line 186.
+(Font)              scaled to size 5.0pt on input line 192.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/m/n' in size <7> not available
 (Font)              Font shape `T1/FiraSans-OsF/regular/n' tried instead on inp
-ut line 186.
+ut line 192.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/n' will be
-(Font)              scaled to size 7.0pt on input line 186.
+(Font)              scaled to size 7.0pt on input line 192.
 LaTeX Font Info:    Trying to load font information for TS1+FiraSans-OsF on inp
-ut line 186.
+ut line 192.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/fira/TS1FiraSans-OsF.fd
 File: TS1FiraSans-OsF.fd 2019/10/10 (autoinst) Font definitions for TS1/FiraSan
@@ -1139,70 +1139,70 @@ s-OsF.
 LaTeX Font Info:    Font shape `TS1/FiraSans-OsF/m/n' in size <7> not available
 
 (Font)              Font shape `TS1/FiraSans-OsF/regular/n' tried instead on in
-put line 186.
+put line 192.
 LaTeX Font Info:    Font shape `TS1/FiraSans-OsF/regular/n' will be
-(Font)              scaled to size 7.0pt on input line 186.
+(Font)              scaled to size 7.0pt on input line 192.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/b/n' in size <7> not available
 (Font)              Font shape `T1/FiraSans-OsF/bold/n' tried instead on input 
-line 186.
+line 192.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/bold/n' will be
-(Font)              scaled to size 7.0pt on input line 186.
+(Font)              scaled to size 7.0pt on input line 192.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/m/n' in size <8> not available
 (Font)              Font shape `T1/FiraSans-OsF/regular/n' tried instead on inp
-ut line 229.
+ut line 235.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/n' will be
-(Font)              scaled to size 8.0pt on input line 229.
+(Font)              scaled to size 8.0pt on input line 235.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/b/n' in size <8> not available
 (Font)              Font shape `T1/FiraSans-OsF/bold/n' tried instead on input 
-line 229.
+line 235.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/bold/n' will be
-(Font)              scaled to size 8.0pt on input line 229.
+(Font)              scaled to size 8.0pt on input line 235.
 LaTeX Font Info:    Font shape `TS1/FiraSans-OsF/b/n' in size <8> not available
 
 (Font)              Font shape `TS1/FiraSans-OsF/bold/n' tried instead on input
- line 229.
+ line 235.
 LaTeX Font Info:    Font shape `TS1/FiraSans-OsF/bold/n' will be
-(Font)              scaled to size 8.0pt on input line 229.
+(Font)              scaled to size 8.0pt on input line 235.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/m/n' in size <27> not available
 
 (Font)              Font shape `T1/FiraSans-OsF/regular/n' tried instead on inp
-ut line 229.
+ut line 235.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/n' will be
-(Font)              scaled to size 27.0pt on input line 229.
+(Font)              scaled to size 27.0pt on input line 235.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/b/n' in size <27> not available
 
 (Font)              Font shape `T1/FiraSans-OsF/bold/n' tried instead on input 
-line 229.
+line 235.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/bold/n' will be
-(Font)              scaled to size 27.0pt on input line 229.
+(Font)              scaled to size 27.0pt on input line 235.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/m/n' in size <14.4> not availab
 le
 (Font)              Font shape `T1/FiraSans-OsF/regular/n' tried instead on inp
-ut line 229.
+ut line 235.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/n' will be
-(Font)              scaled to size 14.4pt on input line 229.
+(Font)              scaled to size 14.4pt on input line 235.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/b/n' in size <14.4> not availab
 le
 (Font)              Font shape `T1/FiraSans-OsF/bold/n' tried instead on input 
-line 229.
+line 235.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/bold/n' will be
-(Font)              scaled to size 14.4pt on input line 229.
+(Font)              scaled to size 14.4pt on input line 235.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/m/n' in size <9> not available
 (Font)              Font shape `T1/FiraSans-OsF/regular/n' tried instead on inp
-ut line 229.
+ut line 235.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/n' will be
-(Font)              scaled to size 9.0pt on input line 229.
+(Font)              scaled to size 9.0pt on input line 235.
 LaTeX Font Info:    Trying to load font information for U+fontawesomebrands0 on
- input line 229.
+ input line 235.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/fontawesome5/ufontawesomebrands0.
 fd)
 LaTeX Font Info:    Font shape `U/fontawesomebrands0/solid/n' in size <8> not a
 vailable
 (Font)              Font shape `U/fontawesomebrands0/regular/n' tried instead o
-n input line 229.
+n input line 235.
 LaTeX Font Info:    Trying to load font information for U+fontawesomefree1 on i
-nput line 229.
+nput line 235.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/fontawesome5/ufontawesomefree1.fd
 )
@@ -1218,33 +1218,33 @@ ive/2025/texmf-dist/fonts/enc/dvips/fira/fir_d67aat.enc}{/usr/local/texlive/202
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/b/n' in size <10> not available
 
 (Font)              Font shape `T1/FiraSans-OsF/bold/n' tried instead on input 
-line 274.
+line 295.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/bold/n' will be
-(Font)              scaled to size 10.0pt on input line 274.
+(Font)              scaled to size 10.0pt on input line 295.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/b/n' in size <5> not available
 (Font)              Font shape `T1/FiraSans-OsF/bold/n' tried instead on input 
-line 274.
+line 295.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/bold/n' will be
-(Font)              scaled to size 5.0pt on input line 274.
+(Font)              scaled to size 5.0pt on input line 295.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/m/n' in size <12> not available
 
 (Font)              Font shape `T1/FiraSans-OsF/regular/n' tried instead on inp
-ut line 274.
+ut line 295.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/n' will be
-(Font)              scaled to size 12.0pt on input line 274.
+(Font)              scaled to size 12.0pt on input line 295.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/b/n' in size <12> not available
 
 (Font)              Font shape `T1/FiraSans-OsF/bold/n' tried instead on input 
-line 274.
+line 295.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/bold/n' will be
-(Font)              scaled to size 12.0pt on input line 274.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 274
+(Font)              scaled to size 12.0pt on input line 295.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 295
 .
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 274
+LaTeX Font Info:    Trying to load font information for U+msb on input line 295
 .
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1253,50 +1253,50 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/m/n' in size <17.28> not availa
 ble
 (Font)              Font shape `T1/FiraSans-OsF/regular/n' tried instead on inp
-ut line 274.
+ut line 295.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/n' will be
-(Font)              scaled to size 17.28pt on input line 274.
+(Font)              scaled to size 17.28pt on input line 295.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/b/n' in size <17.28> not availa
 ble
 (Font)              Font shape `T1/FiraSans-OsF/bold/n' tried instead on input 
-line 274.
+line 295.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/bold/n' will be
-(Font)              scaled to size 17.28pt on input line 274.
+(Font)              scaled to size 17.28pt on input line 295.
 
 
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/m/n' in size <4> not available
 (Font)              Font shape `T1/FiraSans-OsF/regular/n' tried instead on inp
-ut line 274.
+ut line 295.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/n' will be
-(Font)              scaled to size 4.0pt on input line 274.
+(Font)              scaled to size 4.0pt on input line 295.
 [2
 
 ]
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/m/n' in size <46> not available
 
 (Font)              Font shape `T1/FiraSans-OsF/regular/n' tried instead on inp
-ut line 296.
+ut line 317.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/n' will be
-(Font)              scaled to size 46.0pt on input line 296.
+(Font)              scaled to size 46.0pt on input line 317.
 LaTeX Font Info:    Trying to load font information for U+fontawesomefree3 on i
-nput line 296.
+nput line 317.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/fontawesome5/ufontawesomefree3.fd
 )
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/m/n' in size <23> not available
 
 (Font)              Font shape `T1/FiraSans-OsF/regular/n' tried instead on inp
-ut line 296.
+ut line 317.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/n' will be
-(Font)              scaled to size 23.0pt on input line 296.
+(Font)              scaled to size 23.0pt on input line 317.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/b/n' in size <23> not available
 
 (Font)              Font shape `T1/FiraSans-OsF/bold/n' tried instead on input 
-line 296.
+line 317.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/bold/n' will be
-(Font)              scaled to size 23.0pt on input line 296.
+(Font)              scaled to size 23.0pt on input line 317.
 LaTeX Font Info:    Trying to load font information for U+fontawesomefree2 on i
-nput line 296.
+nput line 317.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/fontawesome5/ufontawesomefree2.fd
 )
@@ -1305,9 +1305,19 @@ nput line 296.
 
 {/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free3.enc}{
 /usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free2.enc}]
-\openout4 = `BathAugust26.vrb'.
+<NavierStokes.png, id=86, 1629.08624pt x 665.48625pt>
+File: NavierStokes.png Graphic file (type png)
+<use NavierStokes.png>
+Package pdftex.def Info: NavierStokes.png  used on input line 328.
+(pdftex.def)             Requested size: 398.96352pt x 162.97955pt.
 
- (./BathAugust26.vrb
+
+[4
+
+ <./NavierStokes.png>]
+\openout4 = `BathSeptember26.vrb'.
+
+ (./BathSeptember26.vrb
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/b/n' in size <9> not available
 (Font)              Font shape `T1/FiraSans-OsF/bold/n' tried instead on input 
 line 10.
@@ -1320,80 +1330,62 @@ LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/n' will be
 (Font)              scaled to size 6.0pt on input line 19.
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <9> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 30.
+<LeanExampleQR.pdf, id=95, 102.75389pt x 103.75462pt>
+File: LeanExampleQR.pdf Graphic file (type pdf)
+<use LeanExampleQR.pdf>
+Package pdftex.def Info: LeanExampleQR.pdf  used on input line 44.
+(pdftex.def)             Requested size: 54.06006pt x 54.58755pt.
 )
 
-[4
+[5
 
-]
+ <./LeanExampleQR.pdf>]
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/m/n' in size <31> not available
 
 (Font)              Font shape `T1/FiraSans-OsF/regular/n' tried instead on inp
-ut line 381.
+ut line 427.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/n' will be
-(Font)              scaled to size 31.0pt on input line 381.
+(Font)              scaled to size 31.0pt on input line 427.
 LaTeX Font Info:    Trying to load font information for U+fontawesomefree0 on i
-nput line 381.
+nput line 427.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/fontawesome5/ufontawesomefree0.fd
 )
 
-[5
+[6
 
 {/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free0.enc}]
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/m/n' in size <30> not available
 
 (Font)              Font shape `T1/FiraSans-OsF/regular/n' tried instead on inp
-ut line 417.
+ut line 463.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/n' will be
-(Font)              scaled to size 30.0pt on input line 417.
+(Font)              scaled to size 30.0pt on input line 463.
 LaTeX Font Info:    Font shape `U/fontawesomebrands0/solid/n' in size <30> not 
 available
 (Font)              Font shape `U/fontawesomebrands0/regular/n' tried instead o
-n input line 417.
+n input line 463.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/m/it' in size <9> not available
 
 (Font)              Font shape `T1/FiraSans-OsF/regular/it' tried instead on in
-put line 417.
+put line 463.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/it' will be
-(Font)              scaled to size 9.0pt on input line 417.
+(Font)              scaled to size 9.0pt on input line 463.
 
-
-[6
-
-]
 
 [7
 
 ]
-LaTeX Font Info:    Font shape `T1/FiraSans-OsF/b/n' in size <30> not available
-
-(Font)              Font shape `T1/FiraSans-OsF/bold/n' tried instead on input 
-line 475.
-LaTeX Font Info:    Font shape `T1/FiraSans-OsF/bold/n' will be
-(Font)              scaled to size 30.0pt on input line 475.
+<FormalizationFermat.png, id=121, 704.6325pt x 286.06876pt>
+File: FormalizationFermat.png Graphic file (type png)
+<use FormalizationFermat.png>
+Package pdftex.def Info: FormalizationFermat.png  used on input line 474.
+(pdftex.def)             Requested size: 398.96352pt x 161.96962pt.
 
 
 [8
 
-]
-\openout4 = `BathAugust26.vrb'.
-
- (./BathAugust26.vrb
-LaTeX Font Info:    Font shape `T1/FiraSans-OsF/m/it' in size <10> not availabl
-e
-(Font)              Font shape `T1/FiraSans-OsF/regular/it' tried instead on in
-put line 7.
-LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/it' will be
-(Font)              scaled to size 10.0pt on input line 7.
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 17.
-LaTeX Font Info:    Font shape `T1/FiraSans-OsF/m/it' in size <7> not available
-
-(Font)              Font shape `T1/FiraSans-OsF/regular/it' tried instead on in
-put line 36.
-LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/it' will be
-(Font)              scaled to size 7.0pt on input line 36.
-)
+ <./FormalizationFermat.png>]
 
 [9
 
@@ -1402,54 +1394,84 @@ LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/it' will be
 [10
 
 ]
-LaTeX Font Info:    Font shape `T1/FiraSans-OsF/m/n' in size <36> not available
-
-(Font)              Font shape `T1/FiraSans-OsF/regular/n' tried instead on inp
-ut line 608.
-LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/n' will be
-(Font)              scaled to size 36.0pt on input line 608.
-LaTeX Font Info:    Font shape `T1/FiraSans-OsF/b/n' in size <36> not available
-
-(Font)              Font shape `T1/FiraSans-OsF/bold/n' tried instead on input 
-line 608.
-LaTeX Font Info:    Font shape `T1/FiraSans-OsF/bold/n' will be
-(Font)              scaled to size 36.0pt on input line 608.
-LaTeX Font Info:    Font shape `TS1/FiraSans-OsF/m/n' in size <10> not availabl
-e
-(Font)              Font shape `TS1/FiraSans-OsF/regular/n' tried instead on in
-put line 608.
-LaTeX Font Info:    Font shape `TS1/FiraSans-OsF/regular/n' will be
-(Font)              scaled to size 10.0pt on input line 608.
-
 
 [11
 
 ]
+
+[12
+
+]
+\openout4 = `BathSeptember26.vrb'.
+
+ (./BathSeptember26.vrb)
+
+[13
+
+]
+
+[14
+
+]
+LaTeX Font Info:    Font shape `TS1/FiraSans-OsF/m/n' in size <9> not available
+
+(Font)              Font shape `TS1/FiraSans-OsF/regular/n' tried instead on in
+put line 740.
+LaTeX Font Info:    Font shape `TS1/FiraSans-OsF/regular/n' will be
+(Font)              scaled to size 9.0pt on input line 740.
+
+
+[15
+
+]
+LaTeX Font Info:    Font shape `T1/FiraSans-OsF/m/n' in size <36> not available
+
+(Font)              Font shape `T1/FiraSans-OsF/regular/n' tried instead on inp
+ut line 775.
+LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/n' will be
+(Font)              scaled to size 36.0pt on input line 775.
+LaTeX Font Info:    Font shape `T1/FiraSans-OsF/b/n' in size <36> not available
+
+(Font)              Font shape `T1/FiraSans-OsF/bold/n' tried instead on input 
+line 775.
+LaTeX Font Info:    Font shape `T1/FiraSans-OsF/bold/n' will be
+(Font)              scaled to size 36.0pt on input line 775.
+LaTeX Font Info:    Font shape `TS1/FiraSans-OsF/m/n' in size <10> not availabl
+e
+(Font)              Font shape `TS1/FiraSans-OsF/regular/n' tried instead on in
+put line 775.
+LaTeX Font Info:    Font shape `TS1/FiraSans-OsF/regular/n' will be
+(Font)              scaled to size 10.0pt on input line 775.
+
+
+[16
+
+]
 \tf@nav=\write6
-\openout6 = `BathAugust26.nav'.
+\openout6 = `BathSeptember26.nav'.
 
 \tf@toc=\write7
-\openout7 = `BathAugust26.toc'.
+\openout7 = `BathSeptember26.toc'.
 
 \tf@snm=\write8
-\openout8 = `BathAugust26.snm'.
+\openout8 = `BathSeptember26.snm'.
 
- (./BathAugust26.aux)
+ (./BathSeptember26.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-Package rerunfilecheck Info: File `BathAugust26.out' has not changed.
+Package rerunfilecheck Info: File `BathSeptember26.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 36424 strings out of 473190
- 768078 string characters out of 5715801
- 1353935 words of memory out of 5000000
- 58944 multiletter control sequences out of 15000+600000
- 1033005 words of font info for 149 fonts, out of 8000000 for 9000
+ 36513 strings out of 473190
+ 770084 string characters out of 5715801
+ 1358852 words of memory out of 5000000
+ 59024 multiletter control sequences out of 15000+600000
+ 990806 words of font info for 151 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,15n,123p,393b,2369s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,15n,123p,396b,1842s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/fira/FiraSans-Bold.pfb
 ></usr/local/texlive/2025/texmf-dist/fonts/type1/public/fira/FiraSans-Italic.pf
 b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/fira/FiraSans-Regular.
@@ -1458,29 +1480,27 @@ some5Brands-Regular.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/
 fontawesome5/FontAwesome5Free-Solid.pfb></usr/local/texlive/2025/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2025/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/
-type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2025/texmf-dist/fon
-ts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/local/texlive/2025/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2025/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2025/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmsy5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmsy9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfon
+type1/public/amsfonts/cmextra/cmex9.pfb></usr/local/texlive/2025/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2025/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmsy5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/
+symbols/msam5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfon
 ts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm
--super/sfit0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-s
-uper/sftt0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-sup
-er/sftt0900.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super
-/sftt1000.pfb>
-Output written on BathAugust26.pdf (11 pages, 754112 bytes).
+-super/sftt0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-s
+uper/sftt0900.pfb>
+Output written on BathSeptember26.pdf (16 pages, 905230 bytes).
 PDF statistics:
- 281 PDF objects out of 1000 (max. 8388607)
- 175 compressed objects within 2 object streams
- 23 named destinations out of 1000 (max. 500000)
- 211 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 309 PDF objects out of 1000 (max. 8388607)
+ 197 compressed objects within 2 object streams
+ 33 named destinations out of 1000 (max. 500000)
+ 226 words of extra memory for PDF output out of 10000 (max. 10000000)
 

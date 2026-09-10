@@ -16,7 +16,7 @@
 
 | | Description |
 |-----|-----|
-|[PhysLean](https://github.com/HEPLean/PhysLean)| This is a community project to digitalize results from  physics in Lean.  |
+|[Physlib](https://github.com/HEPLean/PhysLean)| This is a community project to digitalize results from  physics in Lean.  |
 
 ## Academic skills
 

@@ -1,6 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1789033654.44978 "/Users/js4814/Documents/GitHub/jstoobysmith/Website/Slides/BathSeptember26/BathSeptember26.tex" "BathSeptember26.pdf" "BathSeptember26" 1789033662.47093 0
-  "/Users/js4814/Documents/GitHub/jstoobysmith/Website/Slides/BathSeptember26/BathSeptember26.tex" 1789033646.1685 27858 64c7622524e22c873f67246dfb25a095 ""
+["pdflatex"] 1789126063.60119 "BathSeptember26.tex" "BathSeptember26.pdf" "BathSeptember26" 1789126071.27192 0
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/fira/fir_d67aat.enc" 1570828436 3385 21a7e8c8dac3c39de5acda2c56e7bd7e ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/fira/fir_iln36p.enc" 1570828436 3071 cfa92ee28d698dd9275559d9d1c3a233 ""
@@ -67,7 +66,6 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb" 1248133631 32915 7bf7720c61a5b3a7ff25b0964421c9b6 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb" 1248133631 32442 c975af247b6702f7ca0c299af3616b80 ""
-  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb" 1248133631 30457 bc0868ebece724ed7c3d37e3d9bff7bd ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb" 1248133631 30212 b6aafa449db0097a6b9b890f66741063 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam5.pfb" 1248133631 33536 2645d35275aa4ba040fe69615db002f1 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
@@ -315,12 +313,13 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1767872621 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1767872574 3345742 a251379779fbc4355f9f5bc150c4e203 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "BathSeptember26.aux" 1789033662.34292 3103 5e1896f4e9ab7b36113ac606e0933f2f "pdflatex"
-  "BathSeptember26.nav" 1789033662.34413 1667 223530e0d280496bcaab89de82b2e7ab "pdflatex"
-  "BathSeptember26.out" 1789033655.24451 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "BathSeptember26.tex" 1789033646.1685 27858 64c7622524e22c873f67246dfb25a095 ""
-  "BathSeptember26.vrb" 1789033657.19494 1329 0411c673096cb0f2731aa0b02d138abc "pdflatex"
+  "BathSeptember26.aux" 1789126071.11461 3103 ff28ac4a2ca68c7925ab96d47c0928ba "pdflatex"
+  "BathSeptember26.nav" 1789126071.11548 1667 223530e0d280496bcaab89de82b2e7ab "pdflatex"
+  "BathSeptember26.out" 1789126064.69616 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "BathSeptember26.tex" 1789126057.8575 29467 035e2126ba2fd7bc34cb637d58da8afb ""
+  "BathSeptember26.vrb" 1789126069.61341 1529 b3a39a21dda6e88d15e1e68155ce8d0e "pdflatex"
   "FormalizationFermat.png" 1789031424.20934 46029 0b788ecac3584c67d57abdb4925957a1 ""
+  "LeanExampleQR.pdf" 1789038550.07965 3044 833c1f3879b7540637c00d186f17f13b ""
   "NavierStokes.png" 1789031196.74172 82202 3fdae8c221de77ba5919b1da17ec4dea ""
   (generated)
   "BathSeptember26.aux"

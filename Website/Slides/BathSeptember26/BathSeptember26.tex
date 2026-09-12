@@ -44,6 +44,9 @@
 \definecolor{plink}   {HTML}{243447}
 \definecolor{plmuted} {HTML}{5C7187}
 \definecolor{plrule}  {HTML}{C7DCED}
+% plorange is a fill/icon colour: too light to set small text on white.
+% plember is its text-weight sibling, used wherever orange has to be read.
+\definecolor{plember} {HTML}{B0421B}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  BACKGROUNDS
@@ -151,14 +154,23 @@
   colframe=#1!11, left=6pt, right=6pt, top=3pt, bottom=3pt,
   before skip=2pt, after skip=2pt}
 
+% One type scale for the whole deck, so the same kind of text is the same
+% size on every slide:
+%   \plbody  -- body text inside a card
+%   \plmeta  -- captions, attributions, stat rows, small print
+%   \pllabel -- the small bold label that sits above a block
+\newcommand{\plbody}{\small}
+\newcommand{\plmeta}{\footnotesize}
+\newcommand{\pllabel}{\footnotesize\bfseries}
+
 \newcommand{\plchip}[2]{%
-  \tikz[baseline=(t.base)]{\node[fill=#1,text=white,rounded corners=5pt,
-    inner xsep=5pt,inner ysep=1.8pt,font=\bfseries\tiny] (t) {#2};}}
+  \tikz[baseline=(t.base)]{\node[fill=#1!85!black,text=white,rounded corners=5pt,
+    inner xsep=5pt,inner ysep=1.8pt,font=\bfseries\scriptsize] (t) {#2};}}
 
 % a bigger badge, for when chips are the main content of a slide (e.g. a
 % directory/topic grid) rather than a small label on a card
 \newcommand{\plchipbig}[2]{%
-  \tikz[baseline=(t.base)]{\node[fill=#1,text=white,rounded corners=6pt,
+  \tikz[baseline=(t.base)]{\node[fill=#1!85!black,text=white,rounded corners=6pt,
     inner xsep=8pt,inner ysep=4.5pt,font=\bfseries\small] (t) {#2};}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -167,7 +179,8 @@
 \lstdefinelanguage{lean}{
   morekeywords={theorem,lemma,def,abbrev,example,structure,instance,class,where,
     by,fun,have,show,from,let,match,with,namespace,end,open,variable,
-    intro,exact,apply,simp,rfl,ring,unfold,positivity,sorry,Type,Prop,Sort},
+    intro,exact,apply,simp,rfl,ring,unfold,positivity,sorry,Type,Prop,Sort,
+    inductive,cases,Empty,Ne,Nat},
   sensitive=true,
   morecomment=[l]{--},
   morecomment=[s]{/-}{-/},
@@ -199,7 +212,7 @@
 \begin{frame}[plain]
   \vfill
   \begin{center}
-    {\color{plsky}\footnotesize\bfseries UNIVERSITY OF BATH \;\textbullet\; SEPTEMBER 2026}
+    {\color{plsky!35!white}\pllabel UNIVERSITY OF BATH \;\textbullet\; SEPTEMBER 2026}
 
     \vspace{0.55cm}
 
@@ -219,17 +232,17 @@
 
     {\color{white}\Large\bfseries Joseph Tooby-Smith\par}
     \vspace{3pt}
-    {\color{plsky!30!white}\small Mathematical Foundations group,
+    {\color{plsky!25!white}\plbody Mathematical Foundations group,
       Department of Computer Science\par}
 
     \vspace{0.55cm}
 
-    {\color{white!80}\footnotesize
+    {\color{white!85}\plmeta
       \href{https://github.com/leanprover-community/physlib}{%
-        \color{white!80}\faIcon{github}\; \texttt{leanprover-community/physlib}}
+        \color{white!85}\faIcon{github}\; \texttt{leanprover-community/physlib}}
       \qquad
       \href{https://josephtoobysmith.com/}{%
-        \color{white!80}\faIcon{globe}\; \texttt{josephtoobysmith.com}}\par}
+        \color{white!85}\faIcon{globe}\; \texttt{josephtoobysmith.com}}\par}
   \end{center}
   \vfill
 \end{frame}
@@ -247,9 +260,9 @@
         \large\bfseries\color{plnavy}
         The unit-distance problem
         \par\vspace{4pt}
-        {\normalsize\normalfont\color{plink}Erd\H{o}s, 1946. Disproved.}
+        {\plbody\normalfont\color{plink}Erd\H{o}s, 1946. Disproved.}
         \par\vfill
-        {\footnotesize\normalfont\color{plmuted}OpenAI, internal model}
+        {\plmeta\normalfont\color{plmuted}OpenAI, internal model}
       \end{plcardh}
     \end{column}
 
@@ -258,9 +271,9 @@
         \large\bfseries\color{plnavy}
         The Jacobian conjecture
         \par\vspace{4pt}
-        {\normalsize\normalfont\color{plink}Keller, 1939. Counterexample in $\mathbb{C}^{3}$.}
+        {\plbody\normalfont\color{plink}Keller, 1939. Counterexample in $\mathbb{C}^{3}$.}
         \par\vfill
-        {\footnotesize\normalfont\color{plmuted}Alpoge, with Claude Fable 5}
+        {\plmeta\normalfont\color{plmuted}Alpoge, with Claude Fable 5}
       \end{plcardh}
     \end{column}
 
@@ -273,20 +286,20 @@
         \large\bfseries\color{plnavy}
         Ten open problems
         \par\vspace{4pt}
-        {\normalsize\normalfont\color{plink}From maths and CS}
+        {\plbody\normalfont\color{plink}From maths and CS}
         \par\vfill
-        {\footnotesize\normalfont\color{plmuted}OpenAI ``Astra''}
+        {\plmeta\normalfont\color{plmuted}OpenAI ``Astra''}
       \end{plcardh}
     \end{column}
 
     \begin{column}{0.475\textwidth}
       \begin{plcardh}{plorange}{\plchip{plorange}{SEP 2026}}{2.80cm}
         \large\bfseries\color{plnavy}
-        Navier--Stokes existence
+        Navier--Stokes problem
         \par\vspace{4pt}
-        {\normalsize\normalfont\color{plink}Disproved.}
+        {\plbody\normalfont\color{plink}Finite time blow-up.}
         \par\vfill
-        {\footnotesize\normalfont\color{plmuted}OpenAI, internal model}
+        {\plmeta\normalfont\color{plmuted}AI models}
       \end{plcardh}
     \end{column}
 
@@ -307,10 +320,12 @@
       \end{plpanel}
     \end{column}
     \begin{column}{0.475\textwidth}
+      % the computer only arrives on the second click
+      \uncover<2->{%
       \begin{plpanel}{plblue}{4.7cm}
         {\color{plblue}\fontsize{46}{46}\selectfont\faIcon{microchip}}\\[14pt]
         {\color{plnavy}\fontsize{23}{26}\selectfont\bfseries Computer}
-      \end{plpanel}
+      \end{plpanel}}
     \end{column}
   \end{columns}
   \vfill
@@ -337,17 +352,17 @@
     \begin{column}{0.455\textwidth}
       \begin{plcard}[halign=center,top=5pt,bottom=5pt]%
                     {plnavy}{\hfill One way to check by computer\hfill}
-        \small Definitions, theorems, proofs\\[2pt]
+        \plbody Definitions, theorems, proofs\\[2pt]
         {\color{plorange}$\downarrow$}\\[2pt]
         \textbf{consistency \& correctness, guaranteed}
       \end{plcard}
 
       \begin{plcard}[top=5pt,bottom=5pt,before skip=2pt]{plblue}{Built on type theory}
-        \small
+        \plbody
         Lean knows the \textbf{type} of everything, and checks
         that things have the type expected.\par
         \vspace{4pt}
-        {\centering\small
+        {\centering\plbody
           $\underbrace{p}_{\text{proof}}\,:\,\underbrace{P}_{\text{theorem}}
            \qquad
            \underbrace{7}_{\text{term}}\,:\,\underbrace{\mathbb{N}}_{\text{type}}$\par}
@@ -356,7 +371,7 @@
 
     \begin{column}{0.525\textwidth}
       \begin{plplain}[top=3pt,bottom=3pt]{plorange}
-        {\footnotesize\bfseries\color{plorange}A definition, a theorem, a proof}
+        {\pllabel\color{plember}A definition, a theorem, a proof}
         \vspace{3pt}
 \begin{lstlisting}
 def energy (m v : Real) : Real :=
@@ -369,20 +384,12 @@ theorem energy_nonneg
   positivity
 \end{lstlisting}
       \end{plplain}
-      \vspace{3pt}
-      \noindent
-      \begin{minipage}[c]{1.9cm}
-        \href{https://live.lean-lang.org/}%
-          {\includegraphics[width=1.9cm]{LeanExampleQR.pdf}}
-      \end{minipage}%
-      \hfill
-      \begin{minipage}[c]{\dimexpr\linewidth-2.1cm\relax}
-        {\footnotesize\color{white!85}\faIcon{globe}\;
-          \href{https://live.lean-lang.org/}%
-            {\color{white!85}Open the live editor}}\par
-        \vspace{2pt}
-        {\tiny\color{white!70}scan to open on your phone}
-      \end{minipage}
+      \vspace{4pt}
+      \begin{center}
+        {\plmeta\color{white!85}\faIcon{globe}\;
+          \href{https://live.lean-lang.org/\#codez=JYWwDg9gTgLgBAWQIYwBYBtgCMBQP0CmIIScwAdgMYTkDOwtMB5MA\%2BmgdEXABSkBccQCSEASl4AzOIMCohHEBJhHGljBkgLxwB6rAE84taFF15CxUgHcoNAObtUnKN0EAGOOoBMUrbv1RDcY0QkcNS\%2BBJRsHFwgvKRYwVLCyjFwANRwcWmUIgB6ACyuOHBFxUh5qellmXmFxUVpuQBUpQDMDRlwjS0NlDW19U1t2c3ljVhD3b3F\%2FUjdQyNts82TdXAAbE3ZboMeaeulW5Sb5etjB5vL5QCMW\%2FsLlFc3290PA1izHvxeNVAUVnjkNGo4AArjAkFhCHAACYESTMAhQKy6HjRABuCQASgQkOgklicZ4atEGnB0dk4B4APQUmo4SIOaLwxHaVgA8jkAhWXhozHY3G8VDRZxwAA86hAyhqLjFcCZSLgPM\%2B6W0NWB5HEEHQUNlHOZNUg9BgwFRwBg2iAA}%
+            {\color{white!85}Open this example in the live editor}}
+      \end{center}
     \end{column}
 
   \end{columns}
@@ -393,7 +400,7 @@ theorem energy_nonneg
 %  4.  THE LEAN <-> AI FEEDBACK LOOP
 %  AI generates, Lean checks; the verified output is what trains the next model.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{A feedback loop}
+\begin{frame}{Bringing AI in to the story}
   \vfill
   \begin{center}
   \begin{tikzpicture}[
@@ -427,6 +434,50 @@ theorem energy_nonneg
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  4b.  THE CATCH -- CORRECTNESS IS NOT RELEVANCE
+%  Lean checks the proof, never the statement: the definitions carry the meaning.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{There is a problem!}
+  \vfill
+  \begin{columns}[c,onlytextwidth]
+
+    \begin{column}{0.415\textwidth}
+      \begin{plcard}[top=9pt,bottom=9pt]{plember}{The catch}
+        {\plbody Mathematical \textbf{correctness} and \textbf{consistency}
+         do \emph{not} imply the mathematics is about the
+         \textbf{right thing}.\par}
+      \end{plcard}
+    \end{column}
+
+    \begin{column}{0.565\textwidth}
+      \begin{plplain}[top=3pt,bottom=3pt]{plember}
+        {\pllabel\color{plember}Fermat's Last Theorem, made trivial}
+        \vspace{3pt}
+\begin{lstlisting}
+-- "the integers"
+def MyInt : Type := Empty
+
+def add (a b : MyInt) : MyInt :=
+  Empty.elim a
+def pow (a : MyInt) (n : Nat) : MyInt :=
+  Empty.elim a
+
+theorem fermat_last_theorem (a b c : MyInt)
+    (n : Nat) (hn : 3 <= n) :
+    Ne (add (pow a n) (pow b n)) (pow c n) :=
+  Empty.elim a
+\end{lstlisting}
+      \end{plplain}
+      \vspace{2pt}
+      {\plmeta\color{white!85}\faIcon{check-double}\;
+        Lean accepts it. Nothing here is about numbers.\par}
+    \end{column}
+
+  \end{columns}
+  \vfill
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  5.  WHAT MAKES THE LOOP WORK -- MATHLIB
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{What the loop is built on}
@@ -440,7 +491,7 @@ theorem energy_nonneg
     \end{minipage}\hfill
     \begin{minipage}[c]{0.70\textwidth}
       {\Large\bfseries\color{plnavy}leanprover-community\,/\,mathlib4}\\[4pt]
-      {\small\color{plmuted}\raggedright A \emph{monolithic} library of
+      {\plbody\color{plmuted}\raggedright A \emph{monolithic} library of
        mathematics formalized in Lean --- large enough to work at a high level.\par}
     \end{minipage}\hfill
     \begin{minipage}[c]{0.17\textwidth}
@@ -449,9 +500,8 @@ theorem energy_nonneg
 
     \vspace{12pt}{\color{plrule}\rule{\linewidth}{0.8pt}}\vspace{7pt}
 
-    % footnotesize (not \small as on the Physlib card): five longer stats,
-    % and the row has to stay on one line.
-    {\footnotesize\color{plmuted}
+    % the row has to stay on one line, so it is set tight
+    {\plmeta\color{plmuted}
       \tikz[baseline=-2pt]{\fill[plnavy] (0,0) circle (3.4pt);}\; Lean
       \hspace{0.5em}\faIcon{book}\;\textbf{100{,}000} definitions
       \hspace{0.5em}\faIcon{check}\;\textbf{200{,}000} theorems
@@ -487,7 +537,7 @@ theorem energy_nonneg
     \end{minipage}\hfill
     \begin{minipage}[c]{0.70\textwidth}
       {\Large\bfseries\color{plnavy}leanprover-community\,/\,physlib}\\[4pt]
-      {\small\color{plmuted}\raggedright A \emph{community-driven} project to
+      {\plbody\color{plmuted}\raggedright A \emph{community-driven} project to
        digitalise results from physics into Lean.\par}
     \end{minipage}\hfill
     \begin{minipage}[c]{0.17\textwidth}
@@ -496,7 +546,7 @@ theorem energy_nonneg
 
     \vspace{12pt}{\color{plrule}\rule{\linewidth}{0.8pt}}\vspace{7pt}
 
-    {\small\color{plmuted}
+    {\plmeta\color{plmuted}
       \tikz[baseline=-2pt]{\fill[plnavy] (0,0) circle (3.4pt);}\; Lean
       \hspace{1.1em}\faIcon{star}\;\textbf{733} stars
       \hspace{1.1em}\faIcon{code-branch}\;\textbf{185} forks
@@ -542,10 +592,10 @@ theorem energy_nonneg
 \begin{frame}{Structure of Physlib}
   \vfill
   \begin{center}
-    {\footnotesize\color{plsky!70!white}\bfseries UPSTREAM}\quad
+    {\pllabel\color{plsky!35!white} UPSTREAM}\quad
     {\color{white}\bfseries Mathlib}\\[2pt]
-    {\color{plsky!60!white}\Large$\Downarrow$}\\[4pt]
-    {\footnotesize\color{plsky!70!white}\bfseries THIS REPOSITORY}
+    {\color{plsky!40!white}\Large$\Downarrow$}\\[4pt]
+    {\pllabel\color{plsky!35!white} THIS REPOSITORY}
   \end{center}
 
   \vspace{4pt}
@@ -556,7 +606,7 @@ theorem energy_nonneg
         \large\bfseries\color{plnavy}
         Physlib
         \par\vspace{4pt}
-        {\normalsize\normalfont\color{plink}Curated to a high standard for long-term reuse.}
+        {\plbody\normalfont\color{plink}Curated to a high standard for long-term reuse.}
       \end{plcardh}
     \end{column}
 
@@ -565,7 +615,7 @@ theorem energy_nonneg
         \large\bfseries\color{plnavy}
         PhyslibAlpha
         \par\vspace{4pt}
-        {\normalsize\normalfont\color{plink}Lighter review, for large-scale AI-assisted contributions.}
+        {\plbody\normalfont\color{plink}Lighter review, for large-scale AI-assisted contributions.}
       \end{plcardh}
     \end{column}
 
@@ -574,7 +624,7 @@ theorem energy_nonneg
         \large\bfseries\color{plnavy}
         QuantumInfo
         \par\vspace{4pt}
-        {\normalsize\normalfont\color{plink}Quantum information theory, being brought closer to Physlib.}
+        {\plbody\normalfont\color{plink}Quantum information theory, being brought closer to Physlib.}
       \end{plcardh}
     \end{column}
 
@@ -582,8 +632,8 @@ theorem energy_nonneg
   \vspace{4pt}
 
   \begin{center}
-    {\footnotesize\color{plsky!70!white}\bfseries ADJACENT}\quad
-    {\color{plsky!60!white}\Large$\Rightarrow$}\quad
+    {\pllabel\color{plsky!35!white} ADJACENT}\quad
+    {\color{plsky!40!white}\Large$\Rightarrow$}\quad
     {\color{white}\bfseries CSLib}
   \end{center}
   \vfill
@@ -636,21 +686,21 @@ theorem energy_nonneg
 
     \begin{column}{0.475\textwidth}
       \begin{itemize}
-        \item[{\color{plgreen}\faIcon{check-circle}}] Classical harmonic oscillator
-        \item[{\color{plgreen}\faIcon{check-circle}}] Quantum harmonic oscillator
-        \item[{\color{plgreen}\faIcon{check-circle}}] Maxwell's equation
-        \item[{\color{plgreen}\faIcon{check-circle}}] Lorentz group
-        \item[{\color{plgreen}\faIcon{check-circle}}] Twin paradox
+        \item[{\color{plgreen!45!white}\faIcon{check-circle}}] Classical harmonic oscillator
+        \item[{\color{plgreen!45!white}\faIcon{check-circle}}] Quantum harmonic oscillator
+        \item[{\color{plgreen!45!white}\faIcon{check-circle}}] Maxwell's equation
+        \item[{\color{plgreen!45!white}\faIcon{check-circle}}] Lorentz group
+        \item[{\color{plgreen!45!white}\faIcon{check-circle}}] Twin paradox
       \end{itemize}
     \end{column}
 
     \begin{column}{0.475\textwidth}
       \begin{itemize}
-        \item[{\color{plgreen}\faIcon{check-circle}}] Tight binding chain
-        \item[{\color{plgreen}\faIcon{check-circle}}] Anomaly cancellation
-        \item[{\color{plgreen}\faIcon{check-circle}}] CKM matrix
-        \item[{\color{plgreen}\faIcon{check-circle}}] Wick's theorem
-        \item[{\color{plgreen}\faIcon{check-circle}}] String theoretic
+        \item[{\color{plgreen!45!white}\faIcon{check-circle}}] Tight binding chain
+        \item[{\color{plgreen!45!white}\faIcon{check-circle}}] Anomaly cancellation
+        \item[{\color{plgreen!45!white}\faIcon{check-circle}}] CKM matrix
+        \item[{\color{plgreen!45!white}\faIcon{check-circle}}] Wick's theorem
+        \item[{\color{plgreen!45!white}\faIcon{check-circle}}] String theoretic
       \end{itemize}
     \end{column}
 
@@ -658,9 +708,9 @@ theorem energy_nonneg
 
   \vspace{10pt}
   \begin{center}
-    {\footnotesize\color{white!85}\faIcon{globe}\;
-      \href{https://live.lean-lang.org/\#url=https\%3A\%2F\%2Fgithub.com\%2Fjstoobysmith\%2FJTSphyslib\%2Fblob\%2FHiggsExample\%2FPhyslib\%2FParticles\%2FStandardModel\%2FHiggsBoson\%2FExample.lean}%
-        {\color{white!85}Example of Higgs result}}
+    {\plmeta\color{white!85}\faIcon{globe}\;
+      \href{https://live.lean-lang.org/\#url=https\%3A\%2F\%2Fgithub.com\%2Fleanprover-community\%2Fphyslib\%2Fblob\%2Fmaster\%2FPhyslib\%2FClassicalMechanics\%2FHarmonicOscillator\%2FBasic.lean}%
+        {\color{white!85}Example of classical harmonic oscillator}}
   \end{center}
   \vfill
   \setbeamercolor{normal text}{fg=plink}
@@ -670,7 +720,7 @@ theorem energy_nonneg
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  7.  ONGOING WORK -- FORMALIZING THE STANDARD MODEL
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Ongoing work}
+\begin{frame}{Ongoing work: Standard Model}
   \vfill
   \begin{plplain}[top=3pt,bottom=3pt]{plnavy}
     \vspace{1pt}
@@ -727,13 +777,13 @@ theorem energy_nonneg
       colback=white, colframe=plrule, boxrule=1.2pt,
       left=20pt,right=20pt,top=16pt,bottom=16pt, drop fuzzy shadow={black!55}]
     {\Large\bfseries\color{plnavy}Proof mining in Lean}\\[8pt]
-    {\normalsize\color{plink}\raggedright A library for partially automating the extraction of
+    {\plbody\color{plink}\raggedright A library for partially automating the extraction of
      computational information from proofs, with a focus on convergence rates
      for optimization algorithms.\par}
 
     \vspace{12pt}{\color{plrule}\rule{\linewidth}{0.8pt}}\vspace{8pt}
 
-    {\small\color{plmuted}Thomas Powell \;\textbullet\; Ben Langton}
+    {\plmeta\color{plmuted}Thomas Powell \;\textbullet\; Ben Langton}
   \end{tcolorbox}
   \end{center}
   \vfill
@@ -760,16 +810,16 @@ theorem energy_nonneg
 
     \vspace{0.50cm}
 
-    {\color{plsky!30!white}\normalsize Joseph Tooby-Smith\;\textbullet\;University of Bath\par}
+    {\color{plsky!25!white}\plbody Joseph Tooby-Smith\;\textbullet\;University of Bath\par}
 
     \vspace{0.40cm}
 
-    {\color{white!80}\footnotesize
+    {\color{white!85}\plmeta
       \href{https://github.com/leanprover-community/physlib}{%
-        \color{white!80}\faIcon{github}\; \texttt{leanprover-community/physlib}}
+        \color{white!85}\faIcon{github}\; \texttt{leanprover-community/physlib}}
       \qquad
       \href{https://josephtoobysmith.com/}{%
-        \color{white!80}\faIcon{globe}\; \texttt{josephtoobysmith.com}}\par}
+        \color{white!85}\faIcon{globe}\; \texttt{josephtoobysmith.com}}\par}
   \end{center}
   \vfill
 \end{frame}

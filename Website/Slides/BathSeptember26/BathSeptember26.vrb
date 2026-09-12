@@ -6,21 +6,21 @@
 
     \begin{column}{0.475\textwidth}
       \begin{itemize}
-        \item[{\color{plgreen}\faIcon{check-circle}}] Classical harmonic oscillator
-        \item[{\color{plgreen}\faIcon{check-circle}}] Quantum harmonic oscillator
-        \item[{\color{plgreen}\faIcon{check-circle}}] Maxwell's equation
-        \item[{\color{plgreen}\faIcon{check-circle}}] Lorentz group
-        \item[{\color{plgreen}\faIcon{check-circle}}] Twin paradox
+        \item[{\color{plgreen!45!white}\faIcon{check-circle}}] Classical harmonic oscillator
+        \item[{\color{plgreen!45!white}\faIcon{check-circle}}] Quantum harmonic oscillator
+        \item[{\color{plgreen!45!white}\faIcon{check-circle}}] Maxwell's equation
+        \item[{\color{plgreen!45!white}\faIcon{check-circle}}] Lorentz group
+        \item[{\color{plgreen!45!white}\faIcon{check-circle}}] Twin paradox
       \end{itemize}
     \end{column}
 
     \begin{column}{0.475\textwidth}
       \begin{itemize}
-        \item[{\color{plgreen}\faIcon{check-circle}}] Tight binding chain
-        \item[{\color{plgreen}\faIcon{check-circle}}] Anomaly cancellation
-        \item[{\color{plgreen}\faIcon{check-circle}}] CKM matrix
-        \item[{\color{plgreen}\faIcon{check-circle}}] Wick's theorem
-        \item[{\color{plgreen}\faIcon{check-circle}}] String theoretic
+        \item[{\color{plgreen!45!white}\faIcon{check-circle}}] Tight binding chain
+        \item[{\color{plgreen!45!white}\faIcon{check-circle}}] Anomaly cancellation
+        \item[{\color{plgreen!45!white}\faIcon{check-circle}}] CKM matrix
+        \item[{\color{plgreen!45!white}\faIcon{check-circle}}] Wick's theorem
+        \item[{\color{plgreen!45!white}\faIcon{check-circle}}] String theoretic
       \end{itemize}
     \end{column}
 
@@ -28,9 +28,9 @@
 
   \vspace{10pt}
   \begin{center}
-    {\footnotesize\color{white!85}\faIcon{globe}\;
-      \href{https://live.lean-lang.org/\#url=https\%3A\%2F\%2Fgithub.com\%2Fjstoobysmith\%2FJTSphyslib\%2Fblob\%2FHiggsExample\%2FPhyslib\%2FParticles\%2FStandardModel\%2FHiggsBoson\%2FExample.lean}%
-        {\color{white!85}Example of Higgs result}}
+    {\plmeta\color{white!85}\faIcon{globe}\;
+      \href{https://live.lean-lang.org/\#url=https\%3A\%2F\%2Fgithub.com\%2Fleanprover-community\%2Fphyslib\%2Fblob\%2Fmaster\%2FPhyslib\%2FClassicalMechanics\%2FHarmonicOscillator\%2FBasic.lean}%
+        {\color{white!85}Example of classical harmonic oscillator}}
   \end{center}
   \vfill
   \setbeamercolor{normal text}{fg=plink}

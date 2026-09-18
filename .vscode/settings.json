@@ -18,7 +18,7 @@
         "auxiliaryBar.foreground": "#F2F2F2"
     },
     "window.title": "🛜 Website - ${folderName}",
-    "gitdoc.enabled": true,
+    "gitdoc.enabled": false,
     "workbench.editor.enablePreview": false,
     "workbench.editor.openSideBySideDirection": "down"
 }

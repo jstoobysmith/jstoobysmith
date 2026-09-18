@@ -9,7 +9,7 @@ layout: page
   <div class="card-body">
     <h5 class="card-title text-center" style="font-size:{{ theme.post-tag-size }};">{{ page.tag }}</h5>
     <h5 class="card-title text-center" style="font-size:{{ theme.post-title-size }};font-weight:{{ theme.post-font-weight }};">{{ page.title }}</h5>
-    <h6 class="card-subtitle text-center" style="font-size:{{ theme.post-author-size }};">Author: {{page.author}} | Published {{page.date}}</h6>
+    <h6 class="card-subtitle text-center" style="font-size:{{ theme.post-author-size }};">Author: {{page.author}} | Published {{ page.date | date: "%Y-%m-%d" }}</h6>
     {% include social-cards-copy.html %}
   </div>
 </div>

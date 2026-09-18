@@ -6,8 +6,8 @@ type: card-img-top
 categories:
 caption:
 last-updated:
-categories: CS
-tag: CS
+categories: Math
+tag: Math
 author: Joseph Tooby-Smith
 card: card-1
 ---

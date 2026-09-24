@@ -1,52 +1,22 @@
 ---
 layout: page
 ---
-{% assign words = content | number_of_words %}
-{% assign minutes = words | divided_by: 220 | plus: 1 %}
+{% assign theme = site.data.themes[site.ui_theme] %}
 
-<article class="post">
 
-  <header class="post-header">
-    {% if page.tag %}<p class="post-kicker">{{ page.tag }}</p>{% endif %}
-    <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-byline">
-      <span class="post-byline-author">{{ page.author | default: site.author }}</span>
-      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time>
-      <span class="post-byline-read">{{ minutes }} min read</span>
-    </p>
-    {% if page.last-updated %}
-    <p class="post-updated">Updated {{ page.last-updated | date: "%-d %B %Y" }}</p>
-    {% endif %}
-  </header>
 
-  <div class="post-body">
-    {{ content }}
+<div class="blogcard {{ page.card }} mb-4 mt-4" style="width: 100%;">
+  <div class="card-body">
+    <h5 class="card-title text-center" style="font-size:{{ theme.post-tag-size }};">{{ page.tag }}</h5>
+    <h5 class="card-title text-center" style="font-size:{{ theme.post-title-size }};font-weight:{{ theme.post-font-weight }};">{{ page.title }}</h5>
+    <h6 class="card-subtitle text-center" style="font-size:{{ theme.post-author-size }};">Author: {{page.author}} | Published {{ page.date | date: "%Y-%m-%d" }}</h6>
+    {% include social-cards-copy.html %}
   </div>
+</div>
 
-  <footer class="post-footer">
-    {% include share-post.html %}
+<div class="card border-0" style="width: 100%;">
+  <div class="card-body">
+    <p class="card-text">{{ content | markdownify }}</p>
+  </div>
+</div>
 
-    <nav class="post-nav" aria-label="More posts">
-      {% if page.previous %}
-      <a class="post-nav-item post-nav-prev" href="{{ page.previous.url | relative_url }}">
-        <span class="post-nav-label"><i class="fas fa-arrow-left" aria-hidden="true"></i> Previous</span>
-        <span class="post-nav-title">{{ page.previous.title }}</span>
-      </a>
-      {% else %}<span class="post-nav-item post-nav-empty"></span>{% endif %}
-
-      {% if page.next %}
-      <a class="post-nav-item post-nav-next" href="{{ page.next.url | relative_url }}">
-        <span class="post-nav-label">Next <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-        <span class="post-nav-title">{{ page.next.title }}</span>
-      </a>
-      {% else %}<span class="post-nav-item post-nav-empty"></span>{% endif %}
-    </nav>
-
-    <p class="post-back">
-      <a href="{{ '/blog.html' | relative_url }}">All posts</a>
-      <span class="post-back-sep">&middot;</span>
-      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
-    </p>
-  </footer>
-
-</article>

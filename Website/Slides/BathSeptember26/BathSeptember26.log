@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2024.4.4)  12 SEP 2026 08:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2024.4.4)  12 SEP 2026 17:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1537,7 +1537,7 @@ put line 8.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/it' will be
 (Font)              scaled to size 9.0pt on input line 8.
 
-Overfull \hbox (3.09381pt too wide) in paragraph at lines 28--29
+Overfull \hbox (3.09381pt too wide) in paragraph at lines 33--34
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
@@ -1547,20 +1547,20 @@ Overfull \hbox (3.09381pt too wide) in paragraph at lines 28--29
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/m/n' in size <30> not available
 
 (Font)              Font shape `T1/FiraSans-OsF/regular/n' tried instead on inp
-ut line 513.
+ut line 518.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/n' will be
-(Font)              scaled to size 30.0pt on input line 513.
+(Font)              scaled to size 30.0pt on input line 518.
 LaTeX Font Info:    Font shape `U/fontawesomebrands0/solid/n' in size <30> not 
 available
 (Font)              Font shape `U/fontawesomebrands0/regular/n' tried instead o
-n input line 513.
+n input line 518.
  [9
 
 ]
 <FormalizationFermat.png, id=128, 704.6325pt x 286.06876pt>
 File: FormalizationFermat.png Graphic file (type png)
 <use FormalizationFermat.png>
-Package pdftex.def Info: FormalizationFermat.png  used on input line 524.
+Package pdftex.def Info: FormalizationFermat.png  used on input line 529.
 (pdftex.def)             Requested size: 398.96352pt x 161.96962pt.
  [10
 
@@ -1584,30 +1584,30 @@ Package pdftex.def Info: FormalizationFermat.png  used on input line 524.
 LaTeX Font Info:    Font shape `TS1/FiraSans-OsF/m/n' in size <8> not available
 
 (Font)              Font shape `TS1/FiraSans-OsF/regular/n' tried instead on in
-put line 790.
+put line 795.
 LaTeX Font Info:    Font shape `TS1/FiraSans-OsF/regular/n' will be
-(Font)              scaled to size 8.0pt on input line 790.
+(Font)              scaled to size 8.0pt on input line 795.
  [17
 
 ]
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/m/n' in size <36> not available
 
 (Font)              Font shape `T1/FiraSans-OsF/regular/n' tried instead on inp
-ut line 825.
+ut line 830.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/n' will be
-(Font)              scaled to size 36.0pt on input line 825.
+(Font)              scaled to size 36.0pt on input line 830.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/b/n' in size <36> not available
 
 (Font)              Font shape `T1/FiraSans-OsF/bold/n' tried instead on input 
-line 825.
+line 830.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/bold/n' will be
-(Font)              scaled to size 36.0pt on input line 825.
+(Font)              scaled to size 36.0pt on input line 830.
 LaTeX Font Info:    Font shape `TS1/FiraSans-OsF/m/n' in size <9> not available
 
 (Font)              Font shape `TS1/FiraSans-OsF/regular/n' tried instead on in
-put line 825.
+put line 830.
 LaTeX Font Info:    Font shape `TS1/FiraSans-OsF/regular/n' will be
-(Font)              scaled to size 9.0pt on input line 825.
+(Font)              scaled to size 9.0pt on input line 830.
  [18
 
 ]
@@ -1629,10 +1629,10 @@ Package rerunfilecheck Info: File `BathSeptember26.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 36651 strings out of 476358
- 791166 string characters out of 2790907
- 2003493 words of memory out of 3000000
- 58003 multiletter control sequences out of 15000+600000
+ 36653 strings out of 476358
+ 791201 string characters out of 2790907
+ 2005493 words of memory out of 3000000
+ 58005 multiletter control sequences out of 15000+600000
  974234 words of font info for 147 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
  128i,15n,123p,595b,1847s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1684,7 +1684,7 @@ ublic/amsfonts/cm/cmsy9.pfb></Users/josephsmith/Library/Application Support/MiK
 TeX/texmfs/install/fonts/type1/public/amsfonts/symbols/msam5.pfb></Users/joseph
 smith/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsf
 onts/symbols/msbm10.pfb>
-Output written on BathSeptember26.pdf (18 pages, 964702 bytes).
+Output written on BathSeptember26.pdf (18 pages, 965742 bytes).
 PDF statistics:
  393 PDF objects out of 1000 (max. 8388607)
  37 named destinations out of 1000 (max. 500000)

@@ -1,0 +1,6 @@
+# Only the source and the rendered deck are published.  Build artefacts,
+# helper scripts and the LinkedIn extracts stay local.
+*
+!.gitignore
+!Sussex2026.tex
+!Sussex2026.pdf

@@ -1,0 +1,6 @@
+# Only the source and the rendered deck are published.  Build artefacts stay
+# local.
+*
+!.gitignore
+!SummarySlide.tex
+!SummarySlide.pdf

@@ -1,0 +1,73 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{xcolor}
+\definecolor{mycolor}{RGB}{0, 128, 128}
+\usepackage[colorlinks=true, linkcolor=mycolor, urlcolor=mycolor, citecolor=mycolor]{hyperref}
+\usepackage{parskip}
+\usepackage{csquotes}
+
+\title{An essay on Physics 2.0}
+\author{Joseph Tooby-Smith}
+\date{27 October 2026}
+
+\begin{document}
+
+\maketitle
+
+\noindent Inspired by Terence Tao's concept of \href{https://terrytao.wordpress.com/2026/10/10/math-2-0/}{Math 2.0}, this essay sets out what I think ``Physics 2.0'' could look like. It is a written version of a talk I gave at the University of Sussex; the slides are available \href{https://josephtoobysmith.com/Slides/Sussex2026/Sussex2026.pdf}{here}.
+
+\begin{center}\rule{0.3\textwidth}{0.4pt}\end{center}
+
+As AI gets better and better at solving the tasks that humans used to do, physics and academia, more generally, start to face problems. AI starts to scoop human-led efforts at an unprecedented scale. Inequalities form around AI access, and the current systems of recognition are not designed and do not keep up with the rapid changes that are happening.
+
+The conclusion of this is that the current way that physics works as a discipline is no longer viable in the age that we are going to go into. In other words, physics 1.0 is untenable.
+
+However, to quote Karl Popper, ``Optimism is a duty. The future is open.'' I personally think that we should feel our duty as academics to be optimistic about the future and to push academia to a place where it can best serve the needs of humanity in this new world. My goal in this post is to convince you that a plan and a solution for what physics will look like in the future exist: a plan that preserves what I consider to be four core tenets of academia: truth, trust, community, and recognition. I call this plan Physics 2.0.
+
+Let's start with truth. Truth is currently disseminated through academic papers, and the biggest question with regard to what happens in the future is: do we want to keep academic papers? My answer to this is no. There are many reasons for this, including that it's hard to find information in papers, it's hard to reuse results within them, and it's hard to find connections. These reasons have existed for a very long time, but recently there's been a bigger push away from papers. That push is that AI can write them, it can read them, and it can review them. AI can do every step of the process when it comes to an academic paper. Therefore, the reasons and the motivations for sticking with academic papers are no longer there, and we should and we can look for a better way to disseminate academic truth.
+
+Although it's this push away from academic papers due to the role that AI can play, there is a pull towards something else. I want you to recall the wow moments you've experienced when it comes to AI. One of those wow moments was probably AlphaFold. AlphaFold exists because of something called the Protein Data Bank. The Protein Data Bank is a resource of structured data about proteins. AI likes structured data. Humans like structured data. It's easy to find, reuse, and connect structured data. So while there is pushed away from papers, there's a pull towards structured data.
+
+With this, we can discuss our first ingredient of Physics 2.0: that is, to replace papers with a structured, open-source, community-run corpus of knowledge. By ``corpus of knowledge,'' here I just mean something very broad: a way to store information about physics (whether that's definitions, theorems, proofs, or experimental results) in a structured way so that the results are easy to find and easy to connect with one another. Now you're probably thinking, ``Why have we never used such a corpus of knowledge in the past?'' The reason is that it's hard to maintain and it's hard to keep up to date. Whilst AI is the catalyst for this transition, it is also the thing that helps push it through. An AI allows us to be more clever with the way that we store information. It makes that possible by doing the tasks that would have been unfeasible for us to do in the past.
+
+So that's truth. Instead of writing academic papers, we're going to store information in some sort of corpus of knowledge. This corpus of knowledge exists, and it's called Physlib. I'll explain exactly what Physlib is later.
+
+Let's turn to trust. The current way that academic trust is given is through the peer review process. Somebody writes a paper, and they submit it to a journal. The journal sends that to reviewers. Reviewers come back and say, ``Yes, you can trust this paper. It's of good quality, it's readable, etc.'' If the journal agrees, they put their stamp on it, and that stamp is the signal of trust by authority. That's how trust works currently.
+
+The big question is: do we want to keep this sort of peer review system? My answer to that is absolutely, but we should be aware of some problems that exist around it. The main one is that it does not scale efficiently with AI. As AI produces lots and lots of results, this peer review system doesn't scale because it requires humans.
+
+A solution to this exists: to combine peer review with automated checks on correctness through processes like formalization. Formalization means writing mathematical results into an interactive theorem prover. An interactive theorem prover takes in mathematical definitions, theorems, and their proofs, and gives guarantees of correctness and consistency.
+
+We have reached a point where you can formalize basically anything you want. However, formalization does not give you the complete truth. This is because, while it checks mathematical correctness and consistency of the result, it does not check whether the results written into it correspond to the things that you actually want it to correspond to (whether it actually corresponds to something like a fermion or the standard model or something like that). There are no checks on the physics context that goes behind it.
+
+Nevertheless, this gives us ingredient 2a of physics 2.0, and that is that the corpus of knowledge of physics should, where possible, contain formally verified results. This is not to say that every result that goes into this corpus of knowledge should be formally verified or can be formally verified, but when it can be formally verified, it should be.
+
+Now, this formal verification should be accompanied by human review to check things like the physics context, the style, and the organization and quality. Scaling in here can happen more efficiently because the human is having to do less work. They're not having to necessarily check the mathematical content explicitly. This is exactly what Physlib is. It's a corpus of knowledge where the results, which can be written in the interactive theorem prover Lean, are written in that language.
+
+You can also enable scaling in a different way, and that is to introduce, alongside a rigorously reviewed corpus of knowledge (which, in our case, is Physlib), a faster-moving corpus of knowledge with a less stringent review process that is more adaptable to scaling. This one-look review process is the same thing that was adapted by the archive, and it's what enabled the preprint system to scale efficiently with academics producing more and more results.
+
+So, the next ingredient: ingredient 2B of physics 2.0 is that, alongside the rigorously reviewed corpus of knowledge, Physlib, there is a faster-moving corpus of knowledge, which we call PhyslibAlpha.
+
+Now let's turn to the next tenant community. When you're reading this, you're probably wondering, ``Okay, what is the community actually going to do in this new world?'' I think this is a really important question.
+
+In Physics 2.0, the community has a very definite role. The role is to maintain, review, formalize, document, understand this corpus of knowledge, and overcome the difficulties about trust and verification of the results in it. Their aim is to make the best-quality corpus of knowledge possible, to make sure that it can be trusted and understood by humans, to make sure that it serves the needs of humanity as best it can.
+
+This is no small feat, and there is lots of work to do here. It's work that AI will never be able to do because it's by design explicitly human-focused. Ingredient 3 of Physlib.0 is that the community will be building, maintaining, reviewing, and growing the corpus of knowledge.
+
+The good news is that there is a large collection of people already doing this work. The project Physlib has over 100 contributors already, and the project is always looking to grow and is always looking to get more people on board.
+
+Now the fourth tenant: recognition. Currently recognition is done through papers and citations. To me this system is completely outdated. There are lots of contributions to the academic world that are not best presented in academic papers. As we've seen and as I've said above, it seems to me that papers are no longer verifiable or a good way to disseminate truth.
+
+In other words in this new world, papers and citations are a poor proxy for the work that actually matters because it is precisely the work that we have seen AI is very capable of. Ingredient 4 of physics 2.0, is incredibly natural: recognition will be given for the work that actually matters in this new world. We've made steps in this direction with something called formal contributions (\url{https://formalcontributions.com}).
+
+This is a site where people can review, record, and get verification for their contributions to projects like Physlib so that they can be put on CVs, cited in papers, and written in grant applications. This gives people the recognition that they deserve for working on these sorts of projects, which will, in the future, be relevant in pushing physics forward.
+
+\begin{center}\rule{0.3\textwidth}{0.4pt}\end{center}
+
+{\small\noindent This essay was written with the help of Wispr due to dyslexia. However, no further AI modifications were done on it.}
+
+\end{document}

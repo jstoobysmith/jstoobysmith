@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2024.4.4)  2 NOV 2026 17:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2024.4.4)  4 NOV 2026 09:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1801,24 +1801,39 @@ LaTeX Font Info:    Font shape `T1/FiraSans-OsF/bold/n' will be
  [24
 
 ]
+LaTeX Font Info:    Font shape `T1/FiraSans-OsF/m/n' in size <40> not available
+
+(Font)              Font shape `T1/FiraSans-OsF/regular/n' tried instead on inp
+ut line 1143.
+LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/n' will be
+(Font)              scaled to size 40.0pt on input line 1143.
+LaTeX Font Info:    Font shape `T1/FiraSans-OsF/b/n' in size <26> not available
+
+(Font)              Font shape `T1/FiraSans-OsF/bold/n' tried instead on input 
+line 1143.
+LaTeX Font Info:    Font shape `T1/FiraSans-OsF/bold/n' will be
+(Font)              scaled to size 26.0pt on input line 1143.
+ [25
+
+]
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/m/n' in size <30> not available
 
 (Font)              Font shape `T1/FiraSans-OsF/regular/n' tried instead on inp
-ut line 1168.
+ut line 1186.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/n' will be
-(Font)              scaled to size 30.0pt on input line 1168.
+(Font)              scaled to size 30.0pt on input line 1186.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/b/n' in size <30> not available
 
 (Font)              Font shape `T1/FiraSans-OsF/bold/n' tried instead on input 
-line 1168.
+line 1186.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/bold/n' will be
-(Font)              scaled to size 30.0pt on input line 1168.
+(Font)              scaled to size 30.0pt on input line 1186.
 
-Underfull \hbox (badness 10000) detected at line 1168
+Underfull \hbox (badness 10000) detected at line 1186
 [][][][][][][][][]
  []
 
-[25
+[26
 
 ]
 \tf@nav=\write6
@@ -1839,11 +1854,11 @@ Package rerunfilecheck Info: File `Pittsburg2026.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 38896 strings out of 476358
- 838809 string characters out of 2790907
+ 38929 strings out of 476358
+ 839624 string characters out of 2790907
  1953493 words of memory out of 3000000
- 59833 multiletter control sequences out of 15000+600000
- 1310927 words of font info for 353 fonts, out of 8000000 for 9000
+ 59846 multiletter control sequences out of 15000+600000
+ 1342428 words of font info for 366 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
  128i,14n,123p,1012b,1339s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/Users/josephsmith/Library/Application Support/MiKTeX/texmfs/install/fonts/e
@@ -1867,9 +1882,9 @@ me5/FontAwesome5Free-Solid.pfb></Users/josephsmith/Library/Application Support/
 MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/josephs
 mith/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfo
 nts/cm/cmsy8.pfb>
-Output written on Pittsburg2026.pdf (25 pages, 593599 bytes).
+Output written on Pittsburg2026.pdf (26 pages, 594946 bytes).
 PDF statistics:
- 258 PDF objects out of 1000 (max. 8388607)
- 51 named destinations out of 1000 (max. 500000)
- 189125 words of extra memory for PDF output out of 221844 (max. 10000000)
+ 263 PDF objects out of 1000 (max. 8388607)
+ 53 named destinations out of 1000 (max. 500000)
+ 197317 words of extra memory for PDF output out of 221844 (max. 10000000)
 

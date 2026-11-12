@@ -1,0 +1,45 @@
+\frametitle{A rapid overview of Lean}
+\lstset{basicstyle=\ttfamily\footnotesize\color{jtslate}}
+  \vfill
+  \begin{columns}[T,onlytextwidth]
+
+    \begin{column}{0.455\textwidth}
+      \begin{jtblockcap}[top=4pt,bottom=3pt]{jtslate}{Proof compiler}
+        {\jtbody\color{jtslate}Definitions, theorems, proofs\par
+         \vspace{2pt}
+         {\color{jtcopper}$\longrightarrow$}\;
+         \textbf{consistency \& correctness, guaranteed}\par}
+      \end{jtblockcap}
+
+      \begin{jtblockcap}[top=4pt,bottom=3pt]{jttealink}{Built on type theory}
+        {\jtbody\color{jtslate}Lean knows the \textbf{type} of everything, and
+         checks that things have the type expected.\par}
+        \vspace{1pt}
+        {\centering\jtbody
+          $\underbrace{p}_{\text{proof}}\,:\,\underbrace{P}_{\text{theorem}}
+           \qquad
+           \underbrace{7}_{\text{term}}\,:\,\underbrace{\mathbb{N}}_{\text{type}}$\par}
+      \end{jtblockcap}
+    \end{column}
+
+    \begin{column}{0.515\textwidth}
+      \begin{jtblockcap}[top=5pt,bottom=3pt]{jtcopper}{An example}
+\begin{lstlisting}
+def energy (m v : Real) : Real :=
+  m * v ^ 2 / 2
+
+theorem energy_nonneg
+    (m v : Real) (hm : 0 <= m) :
+    0 <= energy m v := by
+  unfold energy
+  positivity
+\end{lstlisting}
+      \end{jtblockcap}
+      \vspace{1pt}
+      {\fontsize{7.2}{8.6}\selectfont\color{jtgrey}%
+        \href{https://live.lean-lang.org/\#codez=JYWwDg9gTgLgBAWQIYwBYBtgCMBQP0CmIIScwAdgMYTkDOwtMB5MA\%2BmgdEXABSkBccQCSEASl4AzOIMCohHEBJhHGljBkgLxwB6rAE84taFF15CxUgHcoNAObtUnKN0EAGOOoBMUrbv1RDcY0QkcNS\%2BBJRsHFwgvKRYwVLCyjFwANRwcWmUIgB6ACyuOHBFxUh5qellmXmFxUVpuQBUpQDMDRlwjS0NlDW19U1t2c3ljVhD3b3F\%2FUjdQyNts82TdXAAbE3ZboMeaeulW5Sb5etjB5vL5QCMW\%2FsLlFc3290PA1izHvxeNVAUVnjkNGo4AArjAkFhCHAACYESTMAhQKy6HjRABuCQASgQkOgklicZ4atEGnB0dk4B4APQUmo4SIOaLwxHaVgA8jkAhWXhozHY3G8VDRZxwAA86hAyhqLjFcCZSLgPM\%2B6W0NWB5HEEHQUNlHOZNUg9BgwFRwBg2iAA}%
+          {\color{jtgrey}Open this example in the live editor}\par}
+    \end{column}
+
+  \end{columns}
+  \vfill
